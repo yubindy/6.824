@@ -1,10 +1,12 @@
 package mr
 
-import "fmt"
+import (
+	"fmt"
+	"plugin"
+)
 import "log"
 import "net/rpc"
 import "hash/fnv"
-
 
 //
 // Map functions return a slice of KeyValue.
@@ -23,7 +25,6 @@ func ihash(key string) int {
 	h.Write([]byte(key))
 	return int(h.Sum32() & 0x7fffffff)
 }
-
 
 //
 // main/mrworker.go calls this function.
@@ -88,4 +89,21 @@ func call(rpcname string, args interface{}, reply interface{}) bool {
 
 	fmt.Println(err)
 	return false
+}
+func loadPlugin(filename string) (func(string, string) []KeyValue, func(string, []KeyValue) string) {
+	p, err := plugin.Open(filename)
+	if err != nil {
+		log.Fatalf("cannot load plugin %v", filename)
+	}
+	smap, err := p.Lookup("Map")
+	if err != nil {
+		log.Fatalf("cannot load plugin %v", filename)
+	}
+	mapf := smap.(func(string, string) []KeyValue)
+	sreduce, err := p.Lookup("Reduce")
+	if err != nil {
+		log.Fatalf("cannot find Reduce in %v", filename)
+	}
+	sreducef := sreduce.(func(string, []string) string)
+	return mapf, reducef
 }

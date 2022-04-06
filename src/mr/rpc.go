@@ -21,9 +21,12 @@ type ExampleArgs struct {
 type ExampleReply struct {
 	Y int
 }
+type Args struct {
+}
+type Reply struct {
+}
 
 // Add your RPC definitions here.
-
 
 // Cook up a unique-ish UNIX-domain socket name
 // in /var/tmp, for the coordinator.
