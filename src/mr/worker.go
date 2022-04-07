@@ -2,7 +2,6 @@ package mr
 
 import (
 	"fmt"
-	"plugin"
 )
 import "log"
 import "net/rpc"
@@ -35,7 +34,7 @@ func Worker(mapf func(string, string) []KeyValue,
 	// Your worker implementation here.
 
 	// uncomment to send the Example RPC to the coordinator.
-	// CallExample()
+	CallMap()
 
 }
 
@@ -67,6 +66,26 @@ func CallExample() {
 		fmt.Printf("call failed!\n")
 	}
 }
+func CallMap() {
+	args := Args{}
+	reply := Reply{}
+	ok := call("Coordinator.Map", &args, &reply)
+	if ok {
+		fmt.Printf("reply.Y %v\n", reply.Y)
+	} else {
+		fmt.Printf("call failed!\n")
+	}
+}
+func CallReduce() {
+	args := Args{}
+	reply := Reply{}
+	ok := call("Coordinator.Reduce", &args, &reply)
+	if ok {
+		fmt.Printf("reply.Y %v\n", reply.Y)
+	} else {
+		fmt.Printf("call failed!\n")
+	}
+}
 
 //
 // send an RPC request to the coordinator, wait for the response.
@@ -89,21 +108,4 @@ func call(rpcname string, args interface{}, reply interface{}) bool {
 
 	fmt.Println(err)
 	return false
-}
-func loadPlugin(filename string) (func(string, string) []KeyValue, func(string, []KeyValue) string) {
-	p, err := plugin.Open(filename)
-	if err != nil {
-		log.Fatalf("cannot load plugin %v", filename)
-	}
-	smap, err := p.Lookup("Map")
-	if err != nil {
-		log.Fatalf("cannot load plugin %v", filename)
-	}
-	mapf := smap.(func(string, string) []KeyValue)
-	sreduce, err := p.Lookup("Reduce")
-	if err != nil {
-		log.Fatalf("cannot find Reduce in %v", filename)
-	}
-	sreducef := sreduce.(func(string, []string) string)
-	return mapf, reducef
 }

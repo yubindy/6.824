@@ -22,8 +22,10 @@ type ExampleReply struct {
 	Y int
 }
 type Args struct {
+	maps []KeyValue
 }
 type Reply struct {
+	reduces string
 }
 
 // Add your RPC definitions here.
