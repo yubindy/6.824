@@ -1,4 +1,4 @@
-package main
+package mai
 
 //
 // start the coordinator process, which is implemented

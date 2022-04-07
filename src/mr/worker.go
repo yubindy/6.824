@@ -24,17 +24,52 @@ func ihash(key string) int {
 	h.Write([]byte(key))
 	return int(h.Sum32() & 0x7fffffff)
 }
+func MapCall() {
+	args := Args{}
+	reply := Reply{}
+	ok := call("Coordinator.Map", &args, &reply)
+	if !ok {
+		fmt.Printf("call failed!\n")
+	}
+}
+func ReduceCall() {
+	args := Args{}
+	reply := Reply{}
+	ok := call("Coordinator.Reduce", &args, &reply)
+	if !ok {
+		fmt.Printf("call failed!\n")
+	}
+}
 
 //
 // main/mrworker.go calls this function.
 //
+func GetaskCall() *Reply {
+	args := Args{}
+	args.t = ""
+	reply := Reply{}
+	ok := call("Coordinator.GetaskCall", &args, &reply)
+	if !ok {
+		fmt.Printf("call failed!\n")
+	}
+	return &reply
+}
+func dowork(num int) {
+	while 1{
+
+	}
+	t := GetaskCall()
+
+}
 func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
 
 	// Your worker implementation here.
 
 	// uncomment to send the Example RPC to the coordinator.
-	CallMap()
+	for i := 0; i < 100; i++ { //在单个主机跑100并发计算
+		go dowork(i)
+	}
 
 }
 
@@ -61,26 +96,6 @@ func CallExample() {
 	ok := call("Coordinator.Example", &args, &reply)
 	if ok {
 		// reply.Y should be 100.
-		fmt.Printf("reply.Y %v\n", reply.Y)
-	} else {
-		fmt.Printf("call failed!\n")
-	}
-}
-func CallMap() {
-	args := Args{}
-	reply := Reply{}
-	ok := call("Coordinator.Map", &args, &reply)
-	if ok {
-		fmt.Printf("reply.Y %v\n", reply.Y)
-	} else {
-		fmt.Printf("call failed!\n")
-	}
-}
-func CallReduce() {
-	args := Args{}
-	reply := Reply{}
-	ok := call("Coordinator.Reduce", &args, &reply)
-	if ok {
 		fmt.Printf("reply.Y %v\n", reply.Y)
 	} else {
 		fmt.Printf("call failed!\n")

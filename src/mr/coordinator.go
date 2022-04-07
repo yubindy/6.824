@@ -1,16 +1,42 @@
 package mr
 
-import "log"
+import (
+	"log"
+	"sync"
+)
 import "net"
 import "os"
 import "net/rpc"
 import "net/http"
 
+type Taskinter interface {
+}
+type taskstate uint32
+
+const (
+	waiting taskstate = 0
+	doing   taskstate = 1
+	doed    taskstate = 2
+	nowait  taskstate = 3
+)
+
+type Tasks struct {
+	nReduce int
+}
+type Taskqueue struct {
+	num []Taskinter
+	fnt int
+	mut sync.Mutex
+}
 type Coordinator struct {
 	// Your definitions here.
-	queue []int
-	fnt   int
-	chn   chan int
+	nMap    int
+	nReduce int
+	stat    map[int]taskstate //节点所对应状态的映射
+	info    map[int]string    //对于nReduce桶到文件路径映射
+	files   []string
+	chn     chan int
+	time    int
 }
 
 // Your code here -- RPC handlers for the worker to call.
@@ -50,7 +76,6 @@ func (c *Coordinator) Done() bool {
 	c.server()
 
 	// Your code here.
-
 	return ret
 }
 
@@ -61,9 +86,10 @@ func (c *Coordinator) Done() bool {
 //
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
-
-	// Your code here.
-
+	c.nMap = len(files)
+	c.nReduce = nReduce
+	c.files = files
+	c.time = 20
 	c.server()
 	return &c
 }

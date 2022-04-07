@@ -6,7 +6,9 @@ package mr
 // remember to capitalize all names.
 //
 
-import "os"
+import (
+	"os"
+)
 import "strconv"
 
 //
@@ -22,10 +24,13 @@ type ExampleReply struct {
 	Y int
 }
 type Args struct {
-	maps []KeyValue
+	filepath string
+	t        string //1_7代表1号主机7个人物
 }
 type Reply struct {
-	reduces string
+	filepath string
+	rt       taskstate
+	t        string
 }
 
 // Add your RPC definitions here.
