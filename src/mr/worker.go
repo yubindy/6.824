@@ -1,7 +1,11 @@
 package mr
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"os"
+	"strconv"
 )
 import "log"
 import "net/rpc"
@@ -24,29 +28,14 @@ func ihash(key string) int {
 	h.Write([]byte(key))
 	return int(h.Sum32() & 0x7fffffff)
 }
-func MapCall() {
-	args := Args{}
-	reply := Reply{}
-	ok := call("Coordinator.Map", &args, &reply)
-	if !ok {
-		fmt.Printf("call failed!\n")
-	}
-}
-func ReduceCall() {
-	args := Args{}
-	reply := Reply{}
-	ok := call("Coordinator.Reduce", &args, &reply)
-	if !ok {
-		fmt.Printf("call failed!\n")
-	}
-}
 
 //
 // main/mrworker.go calls this function.
 //
-func GetaskCall() *Reply {
+func GetaskCall(num int) *Reply {
 	args := Args{}
-	args.t = ""
+	t := os.Getegid()
+	args.info = fmt.Sprintf("%v:%v",t,num)
 	reply := Reply{}
 	ok := call("Coordinator.GetaskCall", &args, &reply)
 	if !ok {
@@ -54,11 +43,46 @@ func GetaskCall() *Reply {
 	}
 	return &reply
 }
-func dowork(num int) {
-	while 1{
+func dowork(num int, mapf func(string, string) []KeyValue,
+	reducef func(string, []string) string) {
+	for {
+		t := GetaskCall(num)
+		if t.t == 0 {
+			file, err := os.Open(t.filepath)
+			if err != nil {
+				log.Fatalf("cannot open %v", t.filepath)
+			}
+			content, err := ioutil.ReadAll(file)
+			if err != nil {
+				log.Fatalf("cannot read %v", t.filepath)
+			}
+			file.Close()
+			kva := mapf(t.filepath, string(content))
+			var ofile [10]int
+			var filer [10][]int
+			var space [10][]KeyValue
+			var err error
+			for i := 0; i < 10; i++ {
+				oname:=fmt.Sprintf("mr-%v%v",t.num,i)
+				ofile[i], _ := os.Create(oname)
+				filer[i],err=os.Open(oname)
+				if err != nil {
+					log.Fatalf("cannot read %v", filename)
+				}
+			}
+			var s int
+			for _,a :=range kva{
+				s=ihash(a.Key)%10
+				space[s]=append(space[s],a...)
+			}
+			for i := 0; i < 10; i++ {
+				fmt.Fprintf(ofile, "%v %v\n", intermediate[i].Key, output)
+			}
 
+		} else {
+
+		}
 	}
-	t := GetaskCall()
 
 }
 func Worker(mapf func(string, string) []KeyValue,
@@ -68,7 +92,7 @@ func Worker(mapf func(string, string) []KeyValue,
 
 	// uncomment to send the Example RPC to the coordinator.
 	for i := 0; i < 100; i++ { //在单个主机跑100并发计算
-		go dowork(i)
+		go dowork(i, mapf, reducef)
 	}
 
 }
@@ -88,7 +112,7 @@ func CallExample() {
 
 	// declare a reply structure.
 	reply := ExampleReply{}
-
+	Worker(nil, nil)
 	// send the RPC request, wait for the reply.
 	// the "Coordinator.Example" tells the
 	// receiving server that we'd like to call

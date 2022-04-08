@@ -14,10 +14,11 @@ type Taskinter interface {
 type taskstate uint32
 
 const (
-	waiting taskstate = 0
-	doing   taskstate = 1
-	doed    taskstate = 2
-	nowait  taskstate = 3
+	waiting     taskstate = 0
+	doingmap    taskstate = 1
+	doingreduce taskstate = 2
+	doed        taskstate = 3
+	nowait      taskstate = 3
 )
 
 type Tasks struct {
@@ -32,9 +33,10 @@ type Coordinator struct {
 	// Your definitions here.
 	nMap    int
 	nReduce int
-	stat    map[int]taskstate //节点所对应状态的映射
-	info    map[int]string    //对于nReduce桶到文件路径映射
+	stat    map[string]taskstate //节点所对应状态的映射
+	info    map[int]string       //对于nReduce桶到文件路径映射
 	files   []string
+	num     int
 	chn     chan int
 	time    int
 }
@@ -48,6 +50,18 @@ type Coordinator struct {
 //
 func (c *Coordinator) Example(args *ExampleArgs, reply *ExampleReply) error {
 	reply.Y = args.X + 1
+	return nil
+}
+func (c *Coordinator) Getinfo(args *Args, reply *Reply) error {
+	ok := c.stat[args.info]
+	if ok == doingreduce {
+		reply.t = 1
+		reply.num = c.num
+		c.num += 1
+	} else {
+		reply.t = 0
+	}
+	reply.filepath = c.files[c.num]
 	return nil
 }
 

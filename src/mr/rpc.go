@@ -25,12 +25,13 @@ type ExampleReply struct {
 }
 type Args struct {
 	filepath string
-	t        string //1_7代表1号主机7个人物
+	info     string
 }
 type Reply struct {
 	filepath string
-	rt       taskstate
-	t        string
+	date     []byte
+	num      int //任务
+	t        int //返回调用函数 0：Map,1:Reduce
 }
 
 // Add your RPC definitions here.
