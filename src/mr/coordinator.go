@@ -30,8 +30,7 @@ type Coordinator struct {
 	stat    map[int]int //节点所对应状态的映射
 	times   map[int]int //节点对应时间映射
 	files   []string
-	alln    int
-	mut     sync.Mutex
+	mut     sync.RWMutex
 	cond    sync.Cond
 }
 
@@ -47,17 +46,15 @@ func (c *Coordinator) Example(args *ExampleArgs, reply *ExampleReply) error {
 	return nil
 }
 func (c *Coordinator) Getinfo(args *Args, reply *Reply) error { //分配任务
-	if args.allnum != c.alln { //如果是下一轮清空
-		c.alln = args.allnum
-		c.nmap = 0
-		c.nreduce = 0
-	}
 	c.stat[args.tasknum] = args.localstate
 	ok := c.stat[args.tasknum]
 	if ok == doingreduce {
 		c.Map(args, reply)
 	} else if ok == waiting {
-		if c.nmap < len(c.files) {
+		c.mut.RLock()
+		nmap := c.nmap
+		c.mut.RUnlock()
+		if nmap < len(c.files) {
 			c.Map(args, reply)
 		} else {
 			reply.t = waiting
@@ -76,7 +73,9 @@ func (c *Coordinator) Map(args *Args, reply *Reply) {
 	reply.t = WorkMap
 	c.times[args.tasknum] = 10 //将该状态下的任务定为10s
 	c.stat[args.tasknum] = doingmap
+	c.mut.Lock()
 	c.nmap++
+	c.mut.Unlock()
 	reply.num = c.nmap
 	reply.filepath[0] = c.files[reply.num]
 }
@@ -84,7 +83,9 @@ func (c *Coordinator) Reduce(args *Args, reply *Reply) {
 	reply.t = WorkReduce
 	c.times[args.tasknum] = 10 //将该状态下的任务定为10s
 	c.stat[args.tasknum] = doingreduce
+	c.mut.Lock()
 	c.nreduce++
+	c.mut.Unlock()
 	reply.num = c.nreduce
 	for i := 0; i < c.nmap; i++ {
 		reply.filepath[i] = fmt.Sprintf("mr-%v%v", i, c.nreduce)
@@ -126,12 +127,10 @@ func (c *Coordinator) Done() bool {
 //
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
-	c.num = 0
 	c.nmap = 0
 	c.smap = len(files)
 	c.sreduce = nReduce
 	c.nreduce = 0
-	c.alln = 0
 	c.files = files
 	c.server()
 	return &c

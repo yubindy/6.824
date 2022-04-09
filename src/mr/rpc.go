@@ -26,7 +26,6 @@ type ExampleReply struct {
 type Args struct {
 	filepath   string
 	tasknum    int
-	allnum     int //第几轮
 	localstate int
 }
 type Reply struct {

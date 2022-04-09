@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"sort"
+	"sync"
 	"time"
 )
 import "log"
@@ -15,6 +16,8 @@ import "hash/fnv"
 //
 // Map functions return a slice of KeyValue.
 //
+var wg sync.WaitGroup
+
 type KeyValue struct {
 	Key   string
 	Value string
@@ -46,10 +49,9 @@ func ihash(key string) int {
 //
 // main/mrworker.go calls this function.
 //
-func GetaskCall(num int, alln int, state int) (*Reply, bool) {
+func GetaskCall(num int, state int) (*Reply, bool) {
 	args := Args{}
 	args.tasknum = -1
-	args.allnum = alln
 	args.localstate = state
 	reply := Reply{}
 	ok := call("Coordinator.GetaskCall", &args, &reply)
@@ -58,14 +60,14 @@ func GetaskCall(num int, alln int, state int) (*Reply, bool) {
 func dowork(num int, mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
 	exitn := 0
-	var alln int = 0
 	localstate := 0
+	defer wg.Done()
 	for {
-		t, ok := GetaskCall(num, alln, localstate)
+		t, ok := GetaskCall(num, localstate)
 		if !ok {
 			exitn++
 		}
-		if exitn >= 20 {
+		if exitn >= 10 {
 			t.t = exitn
 		} else {
 			continue
@@ -141,16 +143,14 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 				i = j
 			}
 			ofiler.Close()
-			alln++
 			localstate = waiting
 		} else if t.t == WorkWait {
 			exitn = 0
 			time.Sleep(time.Second)
 		} else if t.t == WorkExit {
-			log.Fatalln("task i exit")
+			break
 		}
 	}
-
 }
 func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
@@ -159,8 +159,9 @@ func Worker(mapf func(string, string) []KeyValue,
 
 	// uncomment to send the Example RPC to the coordinator.
 	for i := 0; i < 10; i++ { //在单个主机跑10并发计算
-		go dowork(i, mapf, reducef) //TODO同步来让Worker阻塞
+		go dowork(i, mapf, reducef)
 	}
+	wg.Wait()
 
 }
 
