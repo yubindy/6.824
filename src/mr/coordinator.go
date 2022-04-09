@@ -33,12 +33,11 @@ type Coordinator struct {
 	// Your definitions here.
 	nMap    int
 	nReduce int
-	stat    map[string]taskstate //节点所对应状态的映射
-	info    map[int]string       //对于nReduce桶到文件路径映射
+	stat    map[int]taskstate //节点所对应状态的映射
+	times   map[int]int       //节点对应时间映射
 	files   []string
 	num     int
-	chn     chan int
-	time    int
+	all     int
 }
 
 // Your code here -- RPC handlers for the worker to call.
@@ -57,11 +56,13 @@ func (c *Coordinator) Getinfo(args *Args, reply *Reply) error {
 	if ok == doingreduce {
 		reply.t = 1
 		reply.num = c.num
-		c.num += 1
+		c.num++
+		c.all++
 	} else {
 		reply.t = 0
+		//TODO reduce统计
 	}
-	reply.filepath = c.files[c.num]
+	reply.filepath[0] = c.files[reply.num]
 	return nil
 }
 

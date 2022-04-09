@@ -28,9 +28,9 @@ type Args struct {
 	info     string
 }
 type Reply struct {
-	filepath string
+	filepath []string
 	date     []byte
-	num      int //任务
+	num      int //任务编号
 	t        int //返回调用函数 0：Map,1:Reduce
 }
 
