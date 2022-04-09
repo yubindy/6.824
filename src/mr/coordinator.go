@@ -12,33 +12,27 @@ import "net/http"
 
 type Taskinter interface {
 }
-type taskstate uint32
 
 const (
-	waiting     taskstate = 0
-	doingmap    taskstate = 1
-	doingreduce taskstate = 2
-	doed        taskstate = 3
-	nowait      taskstate = 4
+	waiting     int = 0
+	doingmap    int = 1
+	doingreduce int = 2
+	doed        int = 3
+	nowait      int = 4
 )
 
-type Tasks struct {
-	nReduce int
-}
-type Taskqueue struct {
-	num []Taskinter
-	fnt int
-	mut sync.Mutex
-}
 type Coordinator struct {
 	// Your definitions here.
 	nmap    int
 	nreduce int
-	stat    map[int]taskstate //节点所对应状态的映射
-	times   map[int]int       //节点对应时间映射
+	smap    int
+	sreduce int
+	stat    map[int]int //节点所对应状态的映射
+	times   map[int]int //节点对应时间映射
 	files   []string
-	num     int
 	alln    int
+	mut     sync.Mutex
+	cond    sync.Cond
 }
 
 // Your code here -- RPC handlers for the worker to call.
@@ -53,10 +47,21 @@ func (c *Coordinator) Example(args *ExampleArgs, reply *ExampleReply) error {
 	return nil
 }
 func (c *Coordinator) Getinfo(args *Args, reply *Reply) error { //分配任务
+	if args.allnum != c.alln { //如果是下一轮清空
+		c.alln = args.allnum
+		c.nmap = 0
+		c.nreduce = 0
+	}
+	c.stat[args.tasknum] = args.localstate
 	ok := c.stat[args.tasknum]
 	if ok == doingreduce {
 		c.Map(args, reply)
 	} else if ok == waiting {
+		if c.nmap < len(c.files) {
+			c.Map(args, reply)
+		} else {
+			reply.t = waiting
+		}
 
 	} else { //Map
 		c.Reduce(args, reply)
@@ -71,21 +76,19 @@ func (c *Coordinator) Map(args *Args, reply *Reply) {
 	reply.t = WorkMap
 	c.times[args.tasknum] = 10 //将该状态下的任务定为10s
 	c.stat[args.tasknum] = doingmap
-	c.num++
-	reply.num = c.num
 	c.nmap++
+	reply.num = c.nmap
 	reply.filepath[0] = c.files[reply.num]
 }
 func (c *Coordinator) Reduce(args *Args, reply *Reply) {
 	reply.t = WorkReduce
 	c.times[args.tasknum] = 10 //将该状态下的任务定为10s
 	c.stat[args.tasknum] = doingreduce
-	reply.num = c.num
+	c.nreduce++
+	reply.num = c.nreduce
 	for i := 0; i < c.nmap; i++ {
 		reply.filepath[i] = fmt.Sprintf("mr-%v%v", i, c.nreduce)
 	}
-	c.num--
-	c.nreduce++
 }
 
 //
@@ -125,6 +128,8 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
 	c.num = 0
 	c.nmap = 0
+	c.smap = len(files)
+	c.sreduce = nReduce
 	c.nreduce = 0
 	c.alln = 0
 	c.files = files

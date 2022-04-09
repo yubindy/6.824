@@ -59,7 +59,7 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
 	exitn := 0
 	var alln int = 0
-	var localstate int
+	localstate := 0
 	for {
 		t, ok := GetaskCall(num, alln, localstate)
 		if !ok {
@@ -71,6 +71,7 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 			continue
 		}
 		if t.t == WorkMap { //Map
+			localstate = doingmap
 			exitn = 0
 			file, err := os.Open(t.filepath[0])
 			if err != nil {
@@ -102,8 +103,9 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 					}
 				}
 			}
-
+			localstate = waiting
 		} else if t.t == WorkReduce { //Reduce
+			localstate = doingreduce
 			exitn = 0
 			var kva []KeyValue
 			for i, _ := range t.filepath {
@@ -140,6 +142,7 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 			}
 			ofiler.Close()
 			alln++
+			localstate = waiting
 		} else if t.t == WorkWait {
 			exitn = 0
 			time.Sleep(time.Second)
