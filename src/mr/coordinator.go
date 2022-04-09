@@ -1,6 +1,7 @@
 package mr
 
 import (
+	"fmt"
 	"log"
 	"sync"
 )
@@ -18,7 +19,7 @@ const (
 	doingmap    taskstate = 1
 	doingreduce taskstate = 2
 	doed        taskstate = 3
-	nowait      taskstate = 3
+	nowait      taskstate = 4
 )
 
 type Tasks struct {
@@ -31,13 +32,13 @@ type Taskqueue struct {
 }
 type Coordinator struct {
 	// Your definitions here.
-	nMap    int
-	nReduce int
+	nmap    int
+	nreduce int
 	stat    map[int]taskstate //节点所对应状态的映射
 	times   map[int]int       //节点对应时间映射
 	files   []string
 	num     int
-	all     int
+	alln    int
 }
 
 // Your code here -- RPC handlers for the worker to call.
@@ -51,19 +52,40 @@ func (c *Coordinator) Example(args *ExampleArgs, reply *ExampleReply) error {
 	reply.Y = args.X + 1
 	return nil
 }
-func (c *Coordinator) Getinfo(args *Args, reply *Reply) error {
-	ok := c.stat[args.info]
+func (c *Coordinator) Getinfo(args *Args, reply *Reply) error { //分配任务
+	ok := c.stat[args.tasknum]
 	if ok == doingreduce {
-		reply.t = 1
-		reply.num = c.num
-		c.num++
-		c.all++
-	} else {
-		reply.t = 0
-		//TODO reduce统计
+		c.Map(args, reply)
+	} else if ok == waiting {
+
+	} else { //Map
+		c.Reduce(args, reply)
 	}
-	reply.filepath[0] = c.files[reply.num]
 	return nil
+}
+func (c *Coordinator) Map(args *Args, reply *Reply) {
+	if c.nmap >= len(c.files) {
+		reply.t = WorkWait
+		c.stat[args.tasknum] = waiting
+	}
+	reply.t = WorkMap
+	c.times[args.tasknum] = 10 //将该状态下的任务定为10s
+	c.stat[args.tasknum] = doingmap
+	c.num++
+	reply.num = c.num
+	c.nmap++
+	reply.filepath[0] = c.files[reply.num]
+}
+func (c *Coordinator) Reduce(args *Args, reply *Reply) {
+	reply.t = WorkReduce
+	c.times[args.tasknum] = 10 //将该状态下的任务定为10s
+	c.stat[args.tasknum] = doingreduce
+	reply.num = c.num
+	for i := 0; i < c.nmap; i++ {
+		reply.filepath[i] = fmt.Sprintf("mr-%v%v", i, c.nreduce)
+	}
+	c.num--
+	c.nreduce++
 }
 
 //
@@ -101,10 +123,11 @@ func (c *Coordinator) Done() bool {
 //
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
-	c.nMap = len(files)
-	c.nReduce = nReduce
+	c.num = 0
+	c.nmap = 0
+	c.nreduce = 0
+	c.alln = 0
 	c.files = files
-	c.time = 20
 	c.server()
 	return &c
 }

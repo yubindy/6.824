@@ -24,8 +24,10 @@ type ExampleReply struct {
 	Y int
 }
 type Args struct {
-	filepath string
-	info     string
+	filepath   string
+	tasknum    int
+	allnum     int //第几轮
+	localstate int
 }
 type Reply struct {
 	filepath []string

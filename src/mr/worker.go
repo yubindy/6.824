@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"sort"
+	"time"
 )
 import "log"
 import "net/rpc"
@@ -25,6 +26,13 @@ func (a ByKey) Len() int           { return len(a) }
 func (a ByKey) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a ByKey) Less(i, j int) bool { return a[i].Key < a[j].Key }
 
+const (
+	WorkWait   int = 0
+	WorkMap    int = 1
+	WorkReduce int = 2
+	WorkExit   int = 3
+)
+
 //
 // use ihash(key) % NReduce to choose the reduce
 // task number for each KeyValue emitted by Map.
@@ -38,22 +46,32 @@ func ihash(key string) int {
 //
 // main/mrworker.go calls this function.
 //
-func GetaskCall(num int) *Reply {
+func GetaskCall(num int, alln int, state int) (*Reply, bool) {
 	args := Args{}
-	t := os.Getegid()
-	args.info = fmt.Sprintf("%v:%v", t, num)
+	args.tasknum = -1
+	args.allnum = alln
+	args.localstate = state
 	reply := Reply{}
 	ok := call("Coordinator.GetaskCall", &args, &reply)
-	if !ok {
-		fmt.Printf("call failed!\n")
-	}
-	return &reply
+	return &reply, ok
 }
 func dowork(num int, mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
+	exitn := 0
+	var alln int = 0
+	var localstate int
 	for {
-		t := GetaskCall(num)
-		if t.t == 0 { //Map
+		t, ok := GetaskCall(num, alln, localstate)
+		if !ok {
+			exitn++
+		}
+		if exitn >= 20 {
+			t.t = exitn
+		} else {
+			continue
+		}
+		if t.t == WorkMap { //Map
+			exitn = 0
 			file, err := os.Open(t.filepath[0])
 			if err != nil {
 				log.Fatalf("cannot open %v", t.filepath)
@@ -84,7 +102,9 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 					}
 				}
 			}
-		} else { //Reduce
+
+		} else if t.t == WorkReduce { //Reduce
+			exitn = 0
 			var kva []KeyValue
 			for i, _ := range t.filepath {
 				file, err := os.Open(t.filepath[i])
@@ -119,6 +139,12 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 				i = j
 			}
 			ofiler.Close()
+			alln++
+		} else if t.t == WorkWait {
+			exitn = 0
+			time.Sleep(time.Second)
+		} else if t.t == WorkExit {
+			log.Fatalln("task i exit")
 		}
 	}
 
