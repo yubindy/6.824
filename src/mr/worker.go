@@ -213,9 +213,9 @@ func Worker(mapf func(string, string) []KeyValue,
 
 	// uncomment to send the Example RPC to the coordinator.
 	wg.Add(10)
-	for i := 0; i < 10; i++ { //在单个主机跑10并发计算
+	/*for i := 0; i < 10; i++ { //在单个主机跑10并发计算
 		go dowork(i, mapf, reducef)
-	}
+	}*/
 	wg.Wait()
 
 }
