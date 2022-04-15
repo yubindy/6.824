@@ -49,47 +49,62 @@ func ihash(key string) int {
 //
 // main/mrworker.go calls this function.
 //
-func GetaskCall(num int, state int) (*Reply, bool) {
+func GetaskCall(state int, node int) (*Reply, bool) {
 	args := Args{}
-	args.tasknum = -1
-	args.localstate = state
+	args.Tasknum = -1
+	args.Localstate = state
+	args.Nodenum = node
 	reply := Reply{}
-	ok := call("Coordinator.GetaskCall", &args, &reply)
+	ok := call("Coordinator.Getinfo", &args, &reply)
 	return &reply, ok
+}
+func DoedCall(tasknum int, before int) (*Reply, bool) {
+	args := Args{}
+	args.Tasknum = tasknum
+	args.Localstate = waiting
+	args.Beforstate = before
+	reply := Reply{}
+	ok := call("Coordinator.Doed", &args, &reply)
+	return &reply, ok
+
 }
 func dowork(num int, mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
 	exitn := 0
-	localstate := 0
-	defer wg.Done()
+	node := 0
+	defer func() {
+		if err := recover(); err != nil {
+			log.Println("work failed:", err)
+		}
+	}()
+	localstate := waiting
 	for {
-		t, ok := GetaskCall(num, localstate)
+		t, ok := GetaskCall(localstate, node)
+		node = t.Nodenum
 		if !ok {
 			exitn++
 		}
 		if exitn >= 10 {
-			t.t = exitn
-		} else {
-			continue
+			t.T = WorkExit
 		}
-		if t.t == WorkMap { //Map
-			localstate = doingmap
+		if t.T == WorkMap { //Map
 			exitn = 0
-			file, err := os.Open(t.filepath[0])
+			log.Println("start map", t.Num)
+			file, err := os.Open(t.Filepath[0])
 			if err != nil {
-				log.Fatalf("cannot open %v", t.filepath)
+				log.Fatalf("cannot open %v", t.Filepath)
 			}
 			content, err := ioutil.ReadAll(file)
 			if err != nil {
-				log.Fatalf("cannot read %v", t.filepath)
+				log.Fatalf("cannot read %v", t.Filepath)
 			}
 			file.Close()
-			kva := mapf(t.filepath[0], string(content))
+			kva := mapf(t.Filepath[0], string(content))
 			var ofile [10]*os.File
 			var space [10][]KeyValue
-			for i := 0; i < 10; i++ {
-				oname := fmt.Sprintf("mr-%v%v", t.num, i)
-				ofile[i], _ = os.Create(oname)
+			for i := 1; i <= 10; i++ {
+				oname := fmt.Sprintf("mr-mid-%v%v", t.Num, i)
+				ofile[i-1], _ = os.Create(oname)
 			}
 			var s int
 			for _, a := range kva {
@@ -104,16 +119,41 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 						log.Fatalf("cannot read to file:%v by json\n", i)
 					}
 				}
+				ofile[i].Close()
 			}
 			localstate = waiting
-		} else if t.t == WorkReduce { //Reduce
-			localstate = doingreduce
+			ss := t.Num
+			t, ot := DoedCall(t.Num, doingmap)
+			t.Num = ss
+			if t.Get == true && ot == true {
+				for a, b := range ofile {
+					onames := fmt.Sprintf("mr-%v%v", t.Num, a+1)
+					err := os.Rename(b.Name(), onames)
+					ofile[a], _ = os.Open(onames)
+					if err != nil {
+						log.Fatalf("FAFl 131", err)
+					}
+				}
+				for _, y := range ofile {
+					fmt.Println("file:", y.Name())
+				}
+				fmt.Println("\n")
+				log.Println("doed map", t.Num)
+			} else {
+				for _, b := range ofile {
+					os.Remove(b.Name())
+				}
+				log.Println("doed map falled", t.Num)
+
+			}
+		} else if t.T == WorkReduce { //Reduce
 			exitn = 0
+			log.Println("start reduce", t.Num)
 			var kva []KeyValue
-			for i, _ := range t.filepath {
-				file, err := os.Open(t.filepath[i])
+			for i, _ := range t.Filepath {
+				file, err := os.Open(t.Filepath[i])
 				if err != nil {
-					log.Fatalf("cannot open %v", t.filepath)
+					log.Fatalf("cannot open %v", t.Filepath[i])
 				}
 				dec := json.NewDecoder(file)
 				for {
@@ -125,7 +165,7 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 				}
 			}
 			sort.Sort(ByKey(kva))
-			oname := fmt.Sprintf("mr-%v", t.num)
+			oname := fmt.Sprintf("mr-out-mid-%v", t.Num)
 			ofiler, _ := os.Create(oname)
 			i := 0
 			for i < len(kva) {
@@ -144,13 +184,27 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 			}
 			ofiler.Close()
 			localstate = waiting
-		} else if t.t == WorkWait {
+			ss := t.Num
+			t, ot := DoedCall(t.Num, doingreduce)
+			t.Num = ss
+			if t.Get == true && ot == true {
+				onames := fmt.Sprintf("mr-out-%v", t.Num)
+				os.Rename(ofiler.Name(), onames)
+				ofiler, _ = os.Open(onames)
+				log.Println("doed reduce%v  %v", t.Num, ofiler.Name())
+			} else {
+				os.Remove(ofiler.Name())
+				log.Println("doed map fail", t.Num)
+			}
+		} else if t.T == WorkWait {
 			exitn = 0
 			time.Sleep(time.Second)
-		} else if t.t == WorkExit {
-			break
+		} else if t.T == WorkExit {
+			wg.Done()
+			return
 		}
 	}
+	wg.Done()
 }
 func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
@@ -158,6 +212,7 @@ func Worker(mapf func(string, string) []KeyValue,
 	// Your worker implementation here.
 
 	// uncomment to send the Example RPC to the coordinator.
+	wg.Add(10)
 	for i := 0; i < 10; i++ { //在单个主机跑10并发计算
 		go dowork(i, mapf, reducef)
 	}

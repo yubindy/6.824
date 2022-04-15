@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"sync"
-	"time"
 )
 import "net"
 import "os"
@@ -28,7 +27,7 @@ const (
 	doingmap    int = 1
 	doingreduce int = 2
 	doed        int = 3
-	nowait      int = 4
+	doerror     int = 4
 )
 
 type Coordinator struct {
@@ -37,10 +36,14 @@ type Coordinator struct {
 	nreduce int
 	smap    int
 	sreduce int
+	nodeall int
+	quit    bool
 	stat    map[int]int //节点所对应状态的映射
+	wf      map[int]int //任务节点num对应点num
+	problem map[int]int //节点num 对状态
 	times   map[int]int //节点对应时间映射
 	files   []string
-	mut     sync.RWMutex
+	mut     sync.Mutex
 	queue   taskqueue
 }
 
@@ -77,67 +80,102 @@ func (q *taskqueue) isempty() bool {
 	}
 
 }
+func (c *Coordinator) Doed(args *Args, reply *Reply) error {
+	c.mut.Lock()
+	delete(c.times, args.Tasknum)
+	if args.Nodenum == 0 {
+		c.nodeall++
+		reply.Nodenum = c.nodeall
+	}
+	if c.problem[c.wf[args.Tasknum]] == doerror {
+		reply.Get = false
+	} else {
+		c.stat[args.Tasknum] = waiting
+		log.Println("change task---state by doed", args.Tasknum, args.Localstate)
+		reply.Get = true
+	}
+	c.mut.Unlock()
+	return nil
+}
 func (c *Coordinator) Getinfo(args *Args, reply *Reply) error { //分配任务
+	c.mut.Lock()
 	var ok int
-	if args.tasknum != -1 {
-		c.stat[args.tasknum] = args.localstate
-		ok = c.stat[args.tasknum]
+	if args.Tasknum != -1 && c.problem[args.Nodenum] != doerror {
+		c.stat[args.Tasknum] = args.Localstate
+		log.Println("change task---state by getinfo", args.Tasknum, args.Localstate)
+		ok = c.stat[args.Tasknum]
 	} else {
 		ok = waiting
 	}
 	if ok == doingreduce {
 		c.Reduce(args, reply)
 	} else if ok == waiting {
-		c.mut.RLock()
-		nmap := c.nmap
-		c.mut.RUnlock()
-		if nmap < c.smap {
+		c.problem[args.Nodenum] = doed
+		if c.nmap < c.smap {
+			log.Println("nmap:%v nreduce:%v", c.nmap, c.nreduce)
 			c.Map(args, reply)
+		} else if c.nreduce < c.sreduce {
+			for a, _ := range c.stat {
+				if c.stat[a] == doingmap {
+					reply.T = waiting
+					//log.Println("not reduce", a, c.stat[a])
+					c.mut.Unlock()
+					return nil
+				}
+			}
+			log.Println("kv:%v", c.stat)
+			c.Reduce(args, reply)
 		} else {
-			reply.t = waiting
+			reply.T = waiting
 		}
 	} else { //Map
 		c.Map(args, reply)
 	}
+	c.mut.Unlock()
 	return nil
 }
 func (c *Coordinator) Map(args *Args, reply *Reply) {
 	if c.nmap >= c.smap {
-		reply.t = WorkWait
+		reply.T = WorkWait
 	}
-	reply.t = WorkMap
+	reply.T = WorkMap
 	if !c.queue.isempty() {
-		reply.num = c.queue.pop()
+		reply.Num = c.queue.pop()
 		c.nmap++
 	} else {
-		c.mut.Lock()
 		c.nmap++
-		c.mut.Unlock()
-		reply.num = c.nmap
+		reply.Num = c.nmap
 	}
-	c.times[reply.num] = 10 //将该状态下的任务定为10s
-	c.stat[reply.num] = doingmap
-	reply.filepath[0] = c.files[reply.num]
+	c.nodeall++
+	c.wf[reply.Num] = c.nodeall
+	c.times[reply.Num] = 10 //将该状态下的任务定为10s
+	c.stat[reply.Num] = doingmap
+	c.problem[args.Nodenum] = doingmap
+	reply.Filepath = append(reply.Filepath, c.files[reply.Num-1])
+	log.Println("add map for", reply.Num)
 }
 func (c *Coordinator) Reduce(args *Args, reply *Reply) {
 	if c.nreduce >= c.sreduce {
-		reply.t = WorkWait
+		reply.T = WorkWait
 	}
-	reply.t = WorkReduce
+	reply.T = WorkReduce
 	if !c.queue.isempty() {
-		reply.num = c.queue.pop()
+		reply.Num = c.queue.pop()
 		c.nreduce++
 	} else {
-		c.mut.Lock()
 		c.nreduce++
-		c.mut.Unlock()
-		reply.num = c.nreduce
+		reply.Num = c.nreduce
 	}
-	c.times[reply.num] = 10 //将该状态下的任务定为10s
-	c.stat[reply.num] = doingreduce
+	c.nodeall++
+	c.wf[reply.Num] = c.nodeall
+	c.times[reply.Num] = 10 //将该状态下的任务定为10s
+	c.stat[reply.Num] = doingreduce
+	c.problem[args.Nodenum] = doingreduce
 	for i := 0; i < c.nmap; i++ {
-		reply.filepath[i] = fmt.Sprintf("mr-%v%v", i, c.nreduce)
+		oname := fmt.Sprintf("mr-%v%v", i+1, c.nreduce)
+		reply.Filepath = append(reply.Filepath, oname)
 	}
+	log.Println("add Reduce for", reply.Num)
 }
 
 //
@@ -145,22 +183,29 @@ func (c *Coordinator) Reduce(args *Args, reply *Reply) {
 //
 
 func (c *Coordinator) checktime() {
-	for {
-		for a, b := range c.times {
-			if c.stat[a] != waiting {
-				c.times[a] = b - 1
-				if c.times[a] == 0 {
-					c.queue.push(a)
-					if c.stat[a] == doingreduce {
-						c.nreduce--
-					} else if c.stat[a] == doingmap {
-						c.nmap--
-					}
+	c.mut.Lock()
+	for a, b := range c.times {
+		if c.stat[a] == doingmap || c.stat[a] == doingreduce {
+			c.times[a] = b - 1
+			if c.times[a] == 0 {
+				c.queue.push(a)
+				delete(c.times, a)
+				if c.stat[a] == doingreduce {
+					c.nreduce--
+				} else if c.stat[a] == doingmap {
+					c.nmap--
 				}
+				c.problem[c.wf[a]] = doerror
 			}
 		}
 	}
-	time.Sleep(time.Second)
+	if len(c.times) == 0 && c.nreduce == c.sreduce && c.nmap == c.smap && c.queue.isempty() {
+		c.quit = true
+		log.Println("process should exit")
+	}
+	log.Println("check time", c.times)
+	log.Println("check times", c.stat)
+	c.mut.Unlock()
 }
 func (c *Coordinator) server() {
 	rpc.Register(c)
@@ -181,9 +226,14 @@ func (c *Coordinator) server() {
 //
 func (c *Coordinator) Done() bool {
 	ret := false
-	c.server()
 	go c.checktime()
 	// Your code here.
+	c.mut.Lock()
+	ret = c.quit
+	c.mut.Unlock()
+	if ret == true {
+		log.Println("process true exit")
+	}
 	return ret
 }
 
@@ -196,7 +246,12 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
 	c.smap = len(files)
 	c.sreduce = nReduce
+	c.problem = make(map[int]int)
+	c.wf = make(map[int]int)
+	c.times = make(map[int]int)
+	c.stat = make(map[int]int)
 	c.files = files
+	c.quit = false
 	c.server()
 	return &c
 }

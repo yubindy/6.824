@@ -24,15 +24,18 @@ type ExampleReply struct {
 	Y int
 }
 type Args struct {
-	filepath   string
-	tasknum    int
-	localstate int
+	Filepath   string
+	Tasknum    int
+	Localstate int
+	Beforstate int
+	Nodenum    int
 }
 type Reply struct {
-	filepath []string
-	date     []byte
-	num      int //任务编号
-	t        int //返回调用函数 0：Map,1:Reduce
+	Filepath []string
+	Get      bool
+	Num      int //任务编号
+	T        int //返回调用函数 0：Map,1:Reduce
+	Nodenum  int
 }
 
 // Add your RPC definitions here.
