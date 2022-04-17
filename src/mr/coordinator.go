@@ -110,7 +110,6 @@ func (c *Coordinator) Getinfo(args *Args, reply *Reply) error { //分配任务
 	if ok == doingreduce {
 		c.Reduce(args, reply)
 	} else if ok == waiting {
-		c.problem[args.Nodenum] = doed
 		if c.nmap < c.smap {
 			log.Println("nmap:%v nreduce:%v", c.nmap, c.nreduce)
 			c.Map(args, reply)
@@ -147,6 +146,7 @@ func (c *Coordinator) Map(args *Args, reply *Reply) {
 		reply.Num = c.nmap
 	}
 	c.nodeall++
+	c.problem[args.Nodenum] = doed
 	c.wf[reply.Num] = c.nodeall
 	c.times[reply.Num] = 10 //将该状态下的任务定为10s
 	c.stat[reply.Num] = doingmap
@@ -168,6 +168,7 @@ func (c *Coordinator) Reduce(args *Args, reply *Reply) {
 	}
 	c.nodeall++
 	c.wf[reply.Num] = c.nodeall
+	c.problem[args.Nodenum] = doed
 	c.times[reply.Num] = 10 //将该状态下的任务定为10s
 	c.stat[reply.Num] = doingreduce
 	c.problem[args.Nodenum] = doingreduce

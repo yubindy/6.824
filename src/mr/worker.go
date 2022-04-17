@@ -7,7 +7,6 @@ import (
 	"os"
 	"sort"
 	"sync"
-	"time"
 )
 import "log"
 import "net/rpc"
@@ -125,6 +124,9 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 			ss := t.Num
 			t, ot := DoedCall(t.Num, doingmap)
 			t.Num = ss
+			if t.Get==false{
+				log.Println("task----%v",t.Num)
+			}
 			if t.Get == true && ot == true {
 				for a, b := range ofile {
 					onames := fmt.Sprintf("mr-%v%v", t.Num, a+1)
@@ -134,10 +136,10 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 						log.Fatalf("FAFl 131", err)
 					}
 				}
-				for _, y := range ofile {
-					fmt.Println("file:", y.Name())
-				}
-				fmt.Println("\n")
+				// for _, y := range ofile {
+				// 	fmt.Println("file:", y.Name())
+				// }
+				// fmt.Println("\n")
 				log.Println("doed map", t.Num)
 			} else {
 				for _, b := range ofile {
@@ -165,7 +167,7 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 				}
 			}
 			sort.Sort(ByKey(kva))
-			oname := fmt.Sprintf("mr-out-mid-%v", t.Num)
+			oname := fmt.Sprintf("mr-mid-%v", t.Num)
 			ofiler, _ := os.Create(oname)
 			i := 0
 			for i < len(kva) {
@@ -192,13 +194,14 @@ func dowork(num int, mapf func(string, string) []KeyValue,
 				os.Rename(ofiler.Name(), onames)
 				ofiler, _ = os.Open(onames)
 				log.Println("doed reduce%v  %v", t.Num, ofiler.Name())
+				log.Println("file for %v",t.Num,t.Filepath)
 			} else {
 				os.Remove(ofiler.Name())
 				log.Println("doed map fail", t.Num)
 			}
 		} else if t.T == WorkWait {
 			exitn = 0
-			time.Sleep(time.Second)
+			// /log.Println("wait slepp")
 		} else if t.T == WorkExit {
 			wg.Done()
 			return
@@ -212,10 +215,10 @@ func Worker(mapf func(string, string) []KeyValue,
 	// Your worker implementation here.
 
 	// uncomment to send the Example RPC to the coordinator.
-	wg.Add(10)
-	/*for i := 0; i < 10; i++ { //在单个主机跑10并发计算
+	wg.Add(1)
+	for i := 0; i < 1; i++ { //在单个主机跑10并发计算
 		go dowork(i, mapf, reducef)
-	}*/
+	}
 	wg.Wait()
 
 }
