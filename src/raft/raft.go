@@ -89,13 +89,12 @@ func (rf *Raft) GetState() (int, bool) {
 	// Your code here (2A).
 	rf.mu.Lock()
 	term = rf.currentTerm
-	state := rf.state
-	rf.mu.Unlock()
-	if state == Leader {
+	if rf.state == Leader {
 		isleader = true
 	} else {
 		isleader = false
 	}
+	rf.mu.Unlock()
 	return term, isleader
 }
 
@@ -202,12 +201,12 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	if rf.currentTerm == args.Term && rf.votedFor == -1 {
 		reply.Votefor = true
 		rf.hasvote = true
-		log.Printf("[N:%d-T:%d-VF:%d] server vote term to [N:%d-T:%d]", rf.me, rf.currentTerm, rf.votedFor, args.Candidateid, args.Term)
+		//log.Printf("%v[N:%d-T:%d-VF:%d] server vote term to [N:%d-T:%d]", time.Now().UnixMicro(), rf.me, rf.currentTerm, rf.votedFor, args.Candidateid, args.Term)
 		rf.votedFor = args.Candidateid
 	} else if rf.currentTerm < args.Term {
 		reply.Votefor = true
 		rf.hasvote = true
-		log.Printf("[N:%d-T:%d-VF:%d] server vote term to [N:%d-T:%d]", rf.me, rf.currentTerm, rf.votedFor, args.Candidateid, args.Term)
+		//log.Printf("[N:%d-T:%d-VF:%d] server vote term to [N:%d-T:%d]", rf.me, rf.currentTerm, rf.votedFor, args.Candidateid, args.Term)
 		rf.votedFor = args.Candidateid
 		rf.currentTerm = args.Term
 	} else {
@@ -216,12 +215,15 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	}
 }
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) { //实现心跳和交换日志
+	rf.mu.Lock()
 	if rf.currentTerm <= args.Term {
-		rf.mu.Lock()
 		rf.hasheat = true
-		rf.mu.Unlock()
+		reply.Term = rf.currentTerm
+		rf.state = Foller
+		log.Printf("%d node become %d foller", rf.me, args.Leaderid)
 	}
 	log.Printf("[%d] server recv AppendEntries to %d", rf.me, args.Leaderid)
+	rf.mu.Unlock()
 }
 
 //
@@ -310,102 +312,122 @@ func (rf *Raft) startvote() {
 	rf.mu.Lock()
 	rf.currentTerm++
 	rf.votedFor = rf.me
-	num := 1
 	me := rf.me
 	currentTerm := rf.currentTerm
+	var num int64
+	num = 1
 	n := len(rf.peers)
+	wg := sync.WaitGroup{}
+	log.Printf("%d start vote  %d", rf.me, num)
 	rf.mu.Unlock()
-	log.Printf("%d start vote", rf.me)
+	wg.Add(n - 1)
 	for node := range rf.peers {
-		if node != me {
-			args := RequestVoteArgs{
-				Term:         currentTerm,
-				Candidateid:  me,
-				Lastlogindex: 0,
-				Lastlogterm:  0,
-			}
-			reply := RequestVoteReply{}
-			ok := rf.sendRequestVote(node, &args, &reply)
-			if !ok {
-				log.Printf("server %d VoteCall failed to %d", rf.me, node)
-			}
-			if reply.Term > args.Term {
-				return
-			}
-			if reply.Votefor {
-				num++
-			}
+		if node != rf.me {
+			go func(node int) {
+				defer wg.Done()
+				args := RequestVoteArgs{
+					Term:         currentTerm,
+					Candidateid:  me,
+					Lastlogindex: 0,
+					Lastlogterm:  0,
+				}
+				reply := RequestVoteReply{}
+				ok := rf.sendRequestVote(node, &args, &reply)
+				if !ok {
+					log.Printf("server %d VoteCall failed to %d", rf.me, node)
+					return
+				}
+				rf.mu.Lock()
+				defer rf.mu.Unlock()
+				if reply.Term > args.Term {
+					return
+				}
+				if reply.Votefor {
+					log.Printf("%d get a vote term form %d", rf.me, node)
+					atomic.AddInt64(&num, 1)
+				} else {
+					log.Printf("%d not get vote from %d", rf.mu, node)
+				}
+			}(node)
 			//log.Printf("Vote:%d,num:%d,votefor:%v", me, num, reply.Votefor)
 		}
 	}
+	wg.Wait()
+	log.Printf("ggggg")
 	rf.mu.Lock()
-	if num > n/2 && !rf.hasheat {
-		log.Printf("serve[%d] become leaderr", rf.me)
+	defer rf.mu.Unlock()
+	if int(num) > n/2 && !rf.hasheat && rf.state == Candidate {
+		log.Printf("serve[%d] become leaderr num:%d hashert:%v", rf.me, num, rf.hasheat)
 		rf.state = Leader
+	} else {
+		rf.state = Candidate
+		log.Printf("%d server  should vote again-- %d %v", rf.me, num, rf.hasheat)
 	}
-	rf.mu.Unlock()
 }
 func (rf *Raft) sendhert() {
 	rf.mu.Lock()
 	currentTerm := rf.currentTerm
 	me := rf.me
+	sta := rf.state
+	log.Printf("%d state  %d start send heart", rf.me, rf.state)
 	rf.mu.Unlock()
-	log.Printf("%d start send heart", rf.me)
+	wg := sync.WaitGroup{}
+	wg.Add(len(rf.peers) - 1)
 	for node := range rf.peers {
 		if node != me {
-			args := AppendEntriesArgs{
-				Term:         currentTerm,
-				Leaderid:     me,
-				PrevLogIndex: 0,
-				PrevLogTerm:  0,
-				Entries:      nil,
-				LeaderCommit: 0,
-			}
-			reply := AppendEntriesReply{}
-			ok := rf.sendAppendEntries(node, &args, &reply)
-			if !ok {
-				log.Printf("server %d sendappendentries failed to %d", rf.me, node)
-			}
-			if reply.Term > args.Term {
-				rf.mu.Lock()
-				rf.currentTerm = reply.Term
-				rf.mu.Unlock()
-				return
-			}
+			go func(node int) {
+				defer wg.Done()
+				args := AppendEntriesArgs{
+					Term:         currentTerm,
+					Leaderid:     me,
+					PrevLogIndex: 0,
+					PrevLogTerm:  0,
+					Entries:      nil,
+					LeaderCommit: 0,
+				}
+				reply := AppendEntriesReply{}
+				ok := rf.sendAppendEntries(node, &args, &reply)
+				if !ok {
+					log.Printf("server %d - %d sendappendentries failed to %d", me, sta, node)
+					return
+				}
+				if reply.Term > args.Term {
+					rf.mu.Lock()
+					rf.currentTerm = reply.Term
+					rf.state = Foller
+					log.Printf("%d become foller", rf.mu)
+					rf.mu.Unlock()
+					return
+				}
+			}(node)
 		}
 	}
+	wg.Wait()
 }
 
 // The ticker go routine starts a new election if this peer hasn't received
 // heartsbeats recently.
 func (rf *Raft) ticker() {
 	var t int
-	var state int
 	for rf.killed() == false {
 		rf.mu.Lock()
-		log.Printf("Num:%d--State:%v--hasvote:%v--hashert:%v", rf.me, rf.state, rf.hasvote, rf.hasheat)
+		state := rf.state
 		rf.mu.Unlock()
-		switch rf.state {
+		switch state {
 		case Foller:
-			{
-				rf.mu.Lock()
-				heat := rf.hasheat
-				vote := rf.hasvote
-				rf.mu.Unlock()
-				if heat == false && vote == false {
-					log.Printf("%d became Candidate", rf.me)
-					rf.state = Candidate
-					go rf.startvote()
-				}
-			}
-		case Candidate:
-			{
+			rf.mu.Lock()
+			heat := rf.hasheat
+			vote := rf.hasvote
+			if heat == false && vote == false {
+				log.Printf("%d became Candidate", rf.me)
+				rf.state = Candidate
 				go rf.startvote()
 			}
+			rf.mu.Unlock()
+		case Candidate:
+			go rf.startvote()
 		case Leader:
-			{
-				go rf.sendhert()
-			}
+			go rf.sendhert()
 		}
 		rf.mu.Lock()
 		rf.hasvote = false
@@ -414,13 +436,18 @@ func (rf *Raft) ticker() {
 		rf.mu.Unlock()
 		rand.Seed(time.Now().UnixNano())
 		if state != Leader {
-			t = rand.Intn(150) + 150
+			t = rand.Intn(150) + 200
 			for i := 0; i < t; i++ {
 				rf.mu.Lock()
 				if rf.state == Candidate && rf.hasheat {
+					rf.state = Foller
+					log.Printf("%d become foller ", rf.me)
 					rf.mu.Unlock()
 					break
-				} else if rf.state == Foller && rf.hasheat == true && rf.hasvote == true {
+				} else if rf.state == Foller && (rf.hasheat == true || rf.hasvote == true) {
+					rf.mu.Unlock()
+					break
+				} else if rf.state == Leader {
 					rf.mu.Unlock()
 					break
 				}
@@ -428,8 +455,16 @@ func (rf *Raft) ticker() {
 				time.Sleep(time.Millisecond)
 			}
 		} else {
-			t = rand.Intn(50) + 100
+			t = 100
 			for i := 0; i < t; i++ {
+				rf.mu.Lock()
+				if rf.hasheat || rf.hasvote {
+					rf.state = Foller
+					log.Printf("%d become foller ", rf.me)
+					rf.mu.Unlock()
+					break
+				}
+				rf.mu.Unlock()
 				time.Sleep(time.Millisecond)
 			}
 		}

@@ -27,3 +27,15 @@ func main() {
 
 	time.Sleep(time.Second)
 }
+
+//mu        sync.Mutex          // Lock to protect shared access to this peer's state
+//peers     []*labrpc.ClientEnd // RPC end points of all peers
+//persister *Persister          // Object to hold this peer's persisted state
+//me        int                 // this peer's index into peers[]
+//dead      int32               // set by Kill()
+//
+//state       string
+//currentTerm int
+//votedFor    int
+//log         []string
+//Tchaotime   int //判断超时

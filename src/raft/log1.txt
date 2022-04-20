@@ -1,0 +1,3189 @@
+Test (2A): initial election ...
+2022/04/20 15:46:50 0 became Candidate
+2022/04/20 15:46:50 0 start vote  1
+2022/04/20 15:46:50 0 get a vote term form 1
+2022/04/20 15:46:50 0 get a vote term form 2
+2022/04/20 15:46:50 ggggg
+2022/04/20 15:46:50 serve[0] become leaderr num:3 hashert:false
+2022/04/20 15:46:50 0 state  3 start send heart
+2022/04/20 15:46:50 1 node become 0 foller
+2022/04/20 15:46:50 2 node become 0 foller
+2022/04/20 15:46:50 [2] server recv AppendEntries to 0
+2022/04/20 15:46:50 [1] server recv AppendEntries to 0
+2022/04/20 15:46:50 0 state  3 start send heart
+2022/04/20 15:46:50 1 node become 0 foller
+2022/04/20 15:46:50 [1] server recv AppendEntries to 0
+2022/04/20 15:46:50 2 node become 0 foller
+2022/04/20 15:46:50 [2] server recv AppendEntries to 0
+2022/04/20 15:46:50 0 state  3 start send heart
+2022/04/20 15:46:50 2 node become 0 foller
+2022/04/20 15:46:50 [2] server recv AppendEntries to 0
+2022/04/20 15:46:50 1 node become 0 foller
+2022/04/20 15:46:50 [1] server recv AppendEntries to 0
+2022/04/20 15:46:51 leader-----0
+2022/04/20 15:46:51 0 state  3 start send heart
+2022/04/20 15:46:51 2 node become 0 foller
+2022/04/20 15:46:51 [2] server recv AppendEntries to 0
+2022/04/20 15:46:51 1 node become 0 foller
+2022/04/20 15:46:51 [1] server recv AppendEntries to 0
+2022/04/20 15:46:51 0 state  3 start send heart
+2022/04/20 15:46:51 1 node become 0 foller
+2022/04/20 15:46:51 2 node become 0 foller
+2022/04/20 15:46:51 [1] server recv AppendEntries to 0
+2022/04/20 15:46:51 [2] server recv AppendEntries to 0
+2022/04/20 15:46:51 0 state  3 start send heart
+2022/04/20 15:46:51 1 node become 0 foller
+2022/04/20 15:46:51 [1] server recv AppendEntries to 0
+2022/04/20 15:46:51 2 node become 0 foller
+2022/04/20 15:46:51 [2] server recv AppendEntries to 0
+2022/04/20 15:46:51 0 state  3 start send heart
+2022/04/20 15:46:51 1 node become 0 foller
+2022/04/20 15:46:51 [1] server recv AppendEntries to 0
+2022/04/20 15:46:51 2 node become 0 foller
+2022/04/20 15:46:51 [2] server recv AppendEntries to 0
+2022/04/20 15:46:51 0 state  3 start send heart
+2022/04/20 15:46:51 1 node become 0 foller
+2022/04/20 15:46:51 [1] server recv AppendEntries to 0
+2022/04/20 15:46:51 2 node become 0 foller
+2022/04/20 15:46:51 [2] server recv AppendEntries to 0
+2022/04/20 15:46:51 0 state  3 start send heart
+2022/04/20 15:46:51 1 node become 0 foller
+2022/04/20 15:46:51 [1] server recv AppendEntries to 0
+2022/04/20 15:46:51 2 node become 0 foller
+2022/04/20 15:46:51 [2] server recv AppendEntries to 0
+2022/04/20 15:46:51 0 state  3 start send heart
+2022/04/20 15:46:51 2 node become 0 foller
+2022/04/20 15:46:51 [2] server recv AppendEntries to 0
+2022/04/20 15:46:51 1 node become 0 foller
+2022/04/20 15:46:51 [1] server recv AppendEntries to 0
+2022/04/20 15:46:51 0 state  3 start send heart
+2022/04/20 15:46:51 1 node become 0 foller
+2022/04/20 15:46:51 [1] server recv AppendEntries to 0
+2022/04/20 15:46:51 2 node become 0 foller
+2022/04/20 15:46:51 [2] server recv AppendEntries to 0
+2022/04/20 15:46:51 0 state  3 start send heart
+2022/04/20 15:46:51 2 node become 0 foller
+2022/04/20 15:46:51 [2] server recv AppendEntries to 0
+2022/04/20 15:46:51 1 node become 0 foller
+2022/04/20 15:46:51 [1] server recv AppendEntries to 0
+2022/04/20 15:46:52 0 state  3 start send heart
+2022/04/20 15:46:52 2 node become 0 foller
+2022/04/20 15:46:52 1 node become 0 foller
+2022/04/20 15:46:52 [2] server recv AppendEntries to 0
+2022/04/20 15:46:52 [1] server recv AppendEntries to 0
+2022/04/20 15:46:52 0 state  3 start send heart
+2022/04/20 15:46:52 1 node become 0 foller
+2022/04/20 15:46:52 [1] server recv AppendEntries to 0
+2022/04/20 15:46:52 2 node become 0 foller
+2022/04/20 15:46:52 [2] server recv AppendEntries to 0
+2022/04/20 15:46:52 0 state  3 start send heart
+2022/04/20 15:46:52 2 node become 0 foller
+2022/04/20 15:46:52 [2] server recv AppendEntries to 0
+2022/04/20 15:46:52 1 node become 0 foller
+2022/04/20 15:46:52 [1] server recv AppendEntries to 0
+2022/04/20 15:46:52 0 state  3 start send heart
+2022/04/20 15:46:52 2 node become 0 foller
+2022/04/20 15:46:52 [2] server recv AppendEntries to 0
+2022/04/20 15:46:52 1 node become 0 foller
+2022/04/20 15:46:52 [1] server recv AppendEntries to 0
+2022/04/20 15:46:52 0 state  3 start send heart
+2022/04/20 15:46:52 1 node become 0 foller
+2022/04/20 15:46:52 2 node become 0 foller
+2022/04/20 15:46:52 [2] server recv AppendEntries to 0
+2022/04/20 15:46:52 [1] server recv AppendEntries to 0
+2022/04/20 15:46:52 0 state  3 start send heart
+2022/04/20 15:46:52 2 node become 0 foller
+2022/04/20 15:46:52 [2] server recv AppendEntries to 0
+2022/04/20 15:46:52 1 node become 0 foller
+2022/04/20 15:46:52 [1] server recv AppendEntries to 0
+2022/04/20 15:46:52 0 state  3 start send heart
+2022/04/20 15:46:52 2 node become 0 foller
+2022/04/20 15:46:52 [2] server recv AppendEntries to 0
+2022/04/20 15:46:52 1 node become 0 foller
+2022/04/20 15:46:52 [1] server recv AppendEntries to 0
+2022/04/20 15:46:52 0 state  3 start send heart
+2022/04/20 15:46:52 2 node become 0 foller
+2022/04/20 15:46:52 [2] server recv AppendEntries to 0
+2022/04/20 15:46:52 1 node become 0 foller
+2022/04/20 15:46:52 [1] server recv AppendEntries to 0
+2022/04/20 15:46:52 0 state  3 start send heart
+2022/04/20 15:46:52 2 node become 0 foller
+2022/04/20 15:46:52 1 node become 0 foller
+2022/04/20 15:46:52 [2] server recv AppendEntries to 0
+2022/04/20 15:46:52 [1] server recv AppendEntries to 0
+2022/04/20 15:46:53 0 state  3 start send heart
+2022/04/20 15:46:53 1 node become 0 foller
+2022/04/20 15:46:53 [1] server recv AppendEntries to 0
+2022/04/20 15:46:53 2 node become 0 foller
+2022/04/20 15:46:53 [2] server recv AppendEntries to 0
+2022/04/20 15:46:53 0 state  3 start send heart
+2022/04/20 15:46:53 1 node become 0 foller
+2022/04/20 15:46:53 [1] server recv AppendEntries to 0
+2022/04/20 15:46:53 2 node become 0 foller
+2022/04/20 15:46:53 [2] server recv AppendEntries to 0
+2022/04/20 15:46:53 0 state  3 start send heart
+2022/04/20 15:46:53 2 node become 0 foller
+2022/04/20 15:46:53 [2] server recv AppendEntries to 0
+2022/04/20 15:46:53 1 node become 0 foller
+2022/04/20 15:46:53 [1] server recv AppendEntries to 0
+2022/04/20 15:46:53 0 state  3 start send heart
+2022/04/20 15:46:53 1 node become 0 foller
+2022/04/20 15:46:53 2 node become 0 foller
+2022/04/20 15:46:53 [1] server recv AppendEntries to 0
+2022/04/20 15:46:53 [2] server recv AppendEntries to 0
+2022/04/20 15:46:53 0 state  3 start send heart
+2022/04/20 15:46:53 1 node become 0 foller
+2022/04/20 15:46:53 [1] server recv AppendEntries to 0
+2022/04/20 15:46:53 2 node become 0 foller
+2022/04/20 15:46:53 [2] server recv AppendEntries to 0
+2022/04/20 15:46:53 leader-----0
+  ... Passed --   3.0  3   54   11016    0
+Test (2A): election after network failure ...
+2022/04/20 15:46:53 0 became Candidate
+2022/04/20 15:46:53 0 start vote  1
+2022/04/20 15:46:53 0 get a vote term form 2
+2022/04/20 15:46:53 0 get a vote term form 1
+2022/04/20 15:46:53 ggggg
+2022/04/20 15:46:53 serve[0] become leaderr num:3 hashert:false
+2022/04/20 15:46:53 0 state  3 start send heart
+2022/04/20 15:46:53 2 node become 0 foller
+2022/04/20 15:46:53 [2] server recv AppendEntries to 0
+2022/04/20 15:46:53 1 node become 0 foller
+2022/04/20 15:46:53 [1] server recv AppendEntries to 0
+2022/04/20 15:46:53 0 state  3 start send heart
+2022/04/20 15:46:53 1 node become 0 foller
+2022/04/20 15:46:53 2 node become 0 foller
+2022/04/20 15:46:53 [2] server recv AppendEntries to 0
+2022/04/20 15:46:53 [1] server recv AppendEntries to 0
+2022/04/20 15:46:54 0 state  3 start send heart
+2022/04/20 15:46:54 2 node become 0 foller
+2022/04/20 15:46:54 1 node become 0 foller
+2022/04/20 15:46:54 [1] server recv AppendEntries to 0
+2022/04/20 15:46:54 [2] server recv AppendEntries to 0
+2022/04/20 15:46:54 leader-----0
+2022/04/20 15:46:54 2---1
+2022/04/20 15:46:54 0 state  3 start send heart
+2022/04/20 15:46:54 0 state  3 start send heart
+2022/04/20 15:46:54 1 became Candidate
+2022/04/20 15:46:54 1 start vote  1
+2022/04/20 15:46:54 1 get a vote term form 2
+2022/04/20 15:46:54 0 state  3 start send heart
+2022/04/20 15:46:54 0 state  3 start send heart
+2022/04/20 15:46:54 1 start vote  1
+2022/04/20 15:46:54 1 get a vote term form 2
+2022/04/20 15:46:54 0 state  3 start send heart
+2022/04/20 15:46:54 0 state  3 start send heart
+2022/04/20 15:46:54 0 state  3 start send heart
+2022/04/20 15:46:54 1 start vote  1
+2022/04/20 15:46:54 1 get a vote term form 2
+2022/04/20 15:46:54 0 state  3 start send heart
+2022/04/20 15:46:55 0 state  3 start send heart
+2022/04/20 15:46:55 2 became Candidate
+2022/04/20 15:46:55 2 start vote  1
+2022/04/20 15:46:55 2 get a vote term form 1
+2022/04/20 15:46:55 1 start vote  1
+2022/04/20 15:46:55 1 get a vote term form 2
+2022/04/20 15:46:55 0 state  3 start send heart
+2022/04/20 15:46:55 0 state  3 start send heart
+2022/04/20 15:46:55 server 1 VoteCall failed to 0
+2022/04/20 15:46:55 ggggg
+2022/04/20 15:46:55 serve[1] become leaderr num:2 hashert:false
+2022/04/20 15:46:55 1 state  3 start send heart
+2022/04/20 15:46:55 2 node become 1 foller
+2022/04/20 15:46:55 [2] server recv AppendEntries to 1
+2022/04/20 15:46:55 0 state  3 start send heart
+2022/04/20 15:46:55 1 state  3 start send heart
+2022/04/20 15:46:55 2 node become 1 foller
+2022/04/20 15:46:55 [2] server recv AppendEntries to 1
+2022/04/20 15:46:55 0 state  3 start send heart
+2022/04/20 15:46:55 1 state  3 start send heart
+2022/04/20 15:46:55 2 node become 1 foller
+2022/04/20 15:46:55 [2] server recv AppendEntries to 1
+2022/04/20 15:46:55 0 state  3 start send heart
+2022/04/20 15:46:55 leader-----1
+2022/04/20 15:46:55 2---2
+2022/04/20 15:46:55 1 state  3 start send heart
+2022/04/20 15:46:55 0 node become 1 foller
+2022/04/20 15:46:55 [0] server recv AppendEntries to 1
+2022/04/20 15:46:55 0 become foller 
+2022/04/20 15:46:55 2 node become 1 foller
+2022/04/20 15:46:55 [2] server recv AppendEntries to 1
+2022/04/20 15:46:55 1 state  3 start send heart
+2022/04/20 15:46:55 0 node become 1 foller
+2022/04/20 15:46:55 [0] server recv AppendEntries to 1
+2022/04/20 15:46:55 2 node become 1 foller
+2022/04/20 15:46:55 [2] server recv AppendEntries to 1
+2022/04/20 15:46:55 1 state  3 start send heart
+2022/04/20 15:46:55 2 node become 1 foller
+2022/04/20 15:46:55 0 node become 1 foller
+2022/04/20 15:46:55 [0] server recv AppendEntries to 1
+2022/04/20 15:46:55 [2] server recv AppendEntries to 1
+2022/04/20 15:46:55 1 state  3 start send heart
+2022/04/20 15:46:55 0 node become 1 foller
+2022/04/20 15:46:55 2 node become 1 foller
+2022/04/20 15:46:55 [2] server recv AppendEntries to 1
+2022/04/20 15:46:55 [0] server recv AppendEntries to 1
+2022/04/20 15:46:55 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:46:56 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:46:56 1 state  3 start send heart
+2022/04/20 15:46:56 2 node become 1 foller
+2022/04/20 15:46:56 [2] server recv AppendEntries to 1
+2022/04/20 15:46:56 0 node become 1 foller
+2022/04/20 15:46:56 [0] server recv AppendEntries to 1
+2022/04/20 15:46:56 leader-----1
+2022/04/20 15:46:56 2---3
+2022/04/20 15:46:56 test leader 1
+2022/04/20 15:46:56 test foller 2
+2022/04/20 15:46:56 1 state  3 start send heart
+2022/04/20 15:46:56 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:46:56 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:56 1 state  3 start send heart
+2022/04/20 15:46:56 0 became Candidate
+2022/04/20 15:46:56 0 start vote  1
+2022/04/20 15:46:56 1 state  3 start send heart
+2022/04/20 15:46:56 2 became Candidate
+2022/04/20 15:46:56 2 start vote  1
+2022/04/20 15:46:56 server 2 VoteCall failed to 1
+2022/04/20 15:46:56 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:46:56 1 state  3 start send heart
+2022/04/20 15:46:56 0 start vote  1
+2022/04/20 15:46:56 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:46:56 1 state  3 start send heart
+2022/04/20 15:46:56 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:46:56 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:56 1 state  3 start send heart
+2022/04/20 15:46:56 2 start vote  1
+2022/04/20 15:46:56 1 state  3 start send heart
+2022/04/20 15:46:56 0 start vote  1
+2022/04/20 15:46:56 1 state  3 start send heart
+2022/04/20 15:46:56 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:46:57 server 2 VoteCall failed to 1
+2022/04/20 15:46:57 1 state  3 start send heart
+2022/04/20 15:46:57 2 start vote  1
+2022/04/20 15:46:57 0 start vote  1
+2022/04/20 15:46:57 server 0 VoteCall failed to 2
+2022/04/20 15:46:57 1 state  3 start send heart
+2022/04/20 15:46:57 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:57 1 state  3 start send heart
+2022/04/20 15:46:57 1 state  3 start send heart
+2022/04/20 15:46:57 0 start vote  1
+2022/04/20 15:46:57 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:57 server 0 VoteCall failed to 1
+2022/04/20 15:46:57 2 start vote  1
+2022/04/20 15:46:57 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:57 1 state  3 start send heart
+2022/04/20 15:46:57 server 2 VoteCall failed to 0
+2022/04/20 15:46:57 ggggg
+2022/04/20 15:46:57 2 server  should vote again-- 1 false
+2022/04/20 15:46:57 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:46:57 1 state  3 start send heart
+2022/04/20 15:46:57 1 state  3 start send heart
+2022/04/20 15:46:57 0 start vote  1
+2022/04/20 15:46:57 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:46:57 2 start vote  1
+2022/04/20 15:46:57 1 state  3 start send heart
+2022/04/20 15:46:57 server 2 VoteCall failed to 1
+2022/04/20 15:46:57 1 state  3 start send heart
+2022/04/20 15:46:58 server 1 VoteCall failed to 0
+2022/04/20 15:46:58 ggggg
+2022/04/20 15:46:58 1 server  should vote again-- 2 false
+2022/04/20 15:46:58 1 start vote  1
+2022/04/20 15:46:58 0 start vote  1
+2022/04/20 15:46:58 server 1 VoteCall failed to 0
+2022/04/20 15:46:58 ggggg
+2022/04/20 15:46:58 serve[1] become leaderr num:2 hashert:false
+2022/04/20 15:46:58 1 state  3 start send heart
+2022/04/20 15:46:58 2---4
+2022/04/20 15:46:58 2 start vote  1
+2022/04/20 15:46:58 2 get a vote term form 0
+2022/04/20 15:46:58 1 state  3 start send heart
+2022/04/20 15:46:58 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:46:58 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:46:58 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:46:58 server 1 VoteCall failed to 0
+2022/04/20 15:46:58 1 state  3 start send heart
+2022/04/20 15:46:58 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:58 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:46:58 0 start vote  1
+2022/04/20 15:46:58 0 get a vote term form 2
+2022/04/20 15:46:58 1 state  3 start send heart
+2022/04/20 15:46:58 2 start vote  1
+2022/04/20 15:46:58 2 get a vote term form 0
+2022/04/20 15:46:58 1 state  3 start send heart
+2022/04/20 15:46:58 1 state  3 start send heart
+2022/04/20 15:46:58 0 start vote  1
+2022/04/20 15:46:58 0 get a vote term form 2
+2022/04/20 15:46:58 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:46:58 1 state  3 start send heart
+2022/04/20 15:46:58 2 start vote  1
+2022/04/20 15:46:58 2 get a vote term form 0
+2022/04/20 15:46:58 1 state  3 start send heart
+2022/04/20 15:46:58 0 start vote  1
+2022/04/20 15:46:58 0 get a vote term form 2
+2022/04/20 15:46:58 1 state  3 start send heart
+2022/04/20 15:46:59 server 2 VoteCall failed to 0
+2022/04/20 15:46:59 1 state  3 start send heart
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:59 2 start vote  1
+2022/04/20 15:46:59 2 get a vote term form 0
+2022/04/20 15:46:59 1 state  3 start send heart
+2022/04/20 15:46:59 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:46:59 1 state  3 start send heart
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:46:59 0 start vote  1
+2022/04/20 15:46:59 0 get a vote term form 2
+2022/04/20 15:46:59 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:59 1 state  3 start send heart
+2022/04/20 15:46:59 server 0 VoteCall failed to 2
+2022/04/20 15:46:59 ggggg
+2022/04/20 15:46:59 0 server  should vote again-- 1 false
+2022/04/20 15:46:59 1 state  3 start send heart
+2022/04/20 15:46:59 2 start vote  1
+2022/04/20 15:46:59 2 get a vote term form 0
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:46:59 0 start vote  1
+2022/04/20 15:46:59 0 get a vote term form 2
+2022/04/20 15:46:59 1 state  3 start send heart
+2022/04/20 15:46:59 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:46:59 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:46:59 1 state  3 start send heart
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:46:59 1 state  3 start send heart
+2022/04/20 15:46:59 2 start vote  1
+2022/04/20 15:46:59 2 get a vote term form 0
+2022/04/20 15:46:59 0 start vote  1
+2022/04/20 15:46:59 0 get a vote term form 2
+2022/04/20 15:46:59 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:00 1 state  3 start send heart
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:00 server 0 VoteCall failed to 2
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:00 server 0 VoteCall failed to 1
+2022/04/20 15:47:00 ggggg
+2022/04/20 15:47:00 0 server  should vote again-- 1 false
+2022/04/20 15:47:00 1 state  3 start send heart
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 1 state  3 start send heart
+2022/04/20 15:47:00 0 start vote  1
+2022/04/20 15:47:00 0 get a vote term form 2
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:00 server 0 VoteCall failed to 1
+2022/04/20 15:47:00 ggggg
+2022/04/20 15:47:00 serve[0] become leaderr num:2 hashert:false
+2022/04/20 15:47:00 0 state  3 start send heart
+2022/04/20 15:47:00 2 node become 0 foller
+2022/04/20 15:47:00 [2] server recv AppendEntries to 0
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 1 state  3 start send heart
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 0 state  3 start send heart
+2022/04/20 15:47:00 2 node become 0 foller
+2022/04/20 15:47:00 [2] server recv AppendEntries to 0
+2022/04/20 15:47:00 1 state  3 start send heart
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 0 state  3 start send heart
+2022/04/20 15:47:00 2 node become 0 foller
+2022/04/20 15:47:00 [2] server recv AppendEntries to 0
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:00 1 state  3 start send heart
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 leader-----0
+2022/04/20 15:47:00 2---5
+2022/04/20 15:47:00 0 state  3 start send heart
+2022/04/20 15:47:00 2 node become 0 foller
+2022/04/20 15:47:00 [2] server recv AppendEntries to 0
+2022/04/20 15:47:00 1 node become 0 foller
+2022/04/20 15:47:00 [1] server recv AppendEntries to 0
+2022/04/20 15:47:00 1 become foller 
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 0 state  3 start send heart
+2022/04/20 15:47:00 2 node become 0 foller
+2022/04/20 15:47:00 1 node become 0 foller
+2022/04/20 15:47:00 [1] server recv AppendEntries to 0
+2022/04/20 15:47:00 [2] server recv AppendEntries to 0
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 server 2 VoteCall failed to 0
+2022/04/20 15:47:00 ggggg
+2022/04/20 15:47:00 2 server  should vote again-- 1 false
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 0 state  3 start send heart
+2022/04/20 15:47:00 2 node become 0 foller
+2022/04/20 15:47:00 [2] server recv AppendEntries to 0
+2022/04/20 15:47:00 1 node become 0 foller
+2022/04/20 15:47:00 [1] server recv AppendEntries to 0
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:00 0 state  3 start send heart
+2022/04/20 15:47:00 1 node become 0 foller
+2022/04/20 15:47:00 [1] server recv AppendEntries to 0
+2022/04/20 15:47:00 2 node become 0 foller
+2022/04/20 15:47:00 [2] server recv AppendEntries to 0
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:00 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:00 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:01 server 0 VoteCall failed to 1
+2022/04/20 15:47:01 0 state  3 start send heart
+2022/04/20 15:47:01 2 node become 0 foller
+2022/04/20 15:47:01 [2] server recv AppendEntries to 0
+2022/04/20 15:47:01 1 node become 0 foller
+2022/04/20 15:47:01 [1] server recv AppendEntries to 0
+2022/04/20 15:47:01 leader-----0
+2022/04/20 15:47:01 2---6
+  ... Passed --   7.6  3  210   30708    0
+Test (2A): multiple elections ...
+2022/04/20 15:47:01 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:01 server 0 VoteCall failed to 1
+2022/04/20 15:47:01 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:01 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:01 server 2 VoteCall failed to 0
+2022/04/20 15:47:01 ggggg
+2022/04/20 15:47:01 2 server  should vote again-- 2 false
+2022/04/20 15:47:01 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:01 0 became Candidate
+2022/04/20 15:47:01 0 start vote  1
+2022/04/20 15:47:01 0 get a vote term form 1
+2022/04/20 15:47:01 0 get a vote term form 4
+2022/04/20 15:47:01 0 get a vote term form 3
+2022/04/20 15:47:01 0 get a vote term form 2
+2022/04/20 15:47:01 0 get a vote term form 6
+2022/04/20 15:47:01 0 get a vote term form 5
+2022/04/20 15:47:01 ggggg
+2022/04/20 15:47:01 serve[0] become leaderr num:7 hashert:false
+2022/04/20 15:47:01 0 state  3 start send heart
+2022/04/20 15:47:01 2 node become 0 foller
+2022/04/20 15:47:01 [2] server recv AppendEntries to 0
+2022/04/20 15:47:01 3 node become 0 foller
+2022/04/20 15:47:01 [3] server recv AppendEntries to 0
+2022/04/20 15:47:01 6 node become 0 foller
+2022/04/20 15:47:01 [6] server recv AppendEntries to 0
+2022/04/20 15:47:01 1 node become 0 foller
+2022/04/20 15:47:01 [1] server recv AppendEntries to 0
+2022/04/20 15:47:01 5 node become 0 foller
+2022/04/20 15:47:01 [5] server recv AppendEntries to 0
+2022/04/20 15:47:01 4 node become 0 foller
+2022/04/20 15:47:01 [4] server recv AppendEntries to 0
+2022/04/20 15:47:01 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:01 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:01 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:01 server 2 VoteCall failed to 1
+2022/04/20 15:47:01 0 state  3 start send heart
+2022/04/20 15:47:01 4 node become 0 foller
+2022/04/20 15:47:01 1 node become 0 foller
+2022/04/20 15:47:01 [1] server recv AppendEntries to 0
+2022/04/20 15:47:01 2 node become 0 foller
+2022/04/20 15:47:01 [2] server recv AppendEntries to 0
+2022/04/20 15:47:01 [4] server recv AppendEntries to 0
+2022/04/20 15:47:01 6 node become 0 foller
+2022/04/20 15:47:01 5 node become 0 foller
+2022/04/20 15:47:01 [5] server recv AppendEntries to 0
+2022/04/20 15:47:01 [6] server recv AppendEntries to 0
+2022/04/20 15:47:01 3 node become 0 foller
+2022/04/20 15:47:01 [3] server recv AppendEntries to 0
+2022/04/20 15:47:01 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:01 0 state  3 start send heart
+2022/04/20 15:47:01 4 node become 0 foller
+2022/04/20 15:47:01 [4] server recv AppendEntries to 0
+2022/04/20 15:47:01 1 node become 0 foller
+2022/04/20 15:47:01 [1] server recv AppendEntries to 0
+2022/04/20 15:47:01 3 node become 0 foller
+2022/04/20 15:47:01 [3] server recv AppendEntries to 0
+2022/04/20 15:47:01 5 node become 0 foller
+2022/04/20 15:47:01 [5] server recv AppendEntries to 0
+2022/04/20 15:47:01 6 node become 0 foller
+2022/04/20 15:47:01 [6] server recv AppendEntries to 0
+2022/04/20 15:47:01 2 node become 0 foller
+2022/04/20 15:47:01 [2] server recv AppendEntries to 0
+2022/04/20 15:47:01 leader-----0
+2022/04/20 15:47:01 server 0 VoteCall failed to 2
+2022/04/20 15:47:01 server 1 VoteCall failed to 2
+2022/04/20 15:47:01 ggggg
+2022/04/20 15:47:01 1 server  should vote again-- 1 false
+2022/04/20 15:47:01 0 state  3 start send heart
+2022/04/20 15:47:01 3 node become 0 foller
+2022/04/20 15:47:01 [3] server recv AppendEntries to 0
+2022/04/20 15:47:01 6 node become 0 foller
+2022/04/20 15:47:01 1 node become 0 foller
+2022/04/20 15:47:01 [1] server recv AppendEntries to 0
+2022/04/20 15:47:01 [6] server recv AppendEntries to 0
+2022/04/20 15:47:01 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:01 server 1 VoteCall failed to 0
+2022/04/20 15:47:01 ggggg
+2022/04/20 15:47:01 server 0 VoteCall failed to 1
+2022/04/20 15:47:01 serve[1] become leaderr num:2 hashert:false
+2022/04/20 15:47:01 ggggg
+2022/04/20 15:47:01 0 server  should vote again-- 1 false
+2022/04/20 15:47:01 server 0 VoteCall failed to 1
+2022/04/20 15:47:01 ggggg
+2022/04/20 15:47:01 serve[0] become leaderr num:2 hashert:false
+2022/04/20 15:47:01 0 state  3 start send heart
+2022/04/20 15:47:01 3 node become 0 foller
+2022/04/20 15:47:01 [3] server recv AppendEntries to 0
+2022/04/20 15:47:01 1 node become 0 foller
+2022/04/20 15:47:01 [1] server recv AppendEntries to 0
+2022/04/20 15:47:01 6 node become 0 foller
+2022/04/20 15:47:01 [6] server recv AppendEntries to 0
+2022/04/20 15:47:01 2 became Candidate
+2022/04/20 15:47:01 2 start vote  1
+2022/04/20 15:47:01 5 became Candidate
+2022/04/20 15:47:01 5 start vote  1
+2022/04/20 15:47:01 0 state  3 start send heart
+2022/04/20 15:47:01 1 node become 0 foller
+2022/04/20 15:47:01 [1] server recv AppendEntries to 0
+2022/04/20 15:47:01 6 node become 0 foller
+2022/04/20 15:47:01 [6] server recv AppendEntries to 0
+2022/04/20 15:47:01 3 node become 0 foller
+2022/04/20 15:47:01 [3] server recv AppendEntries to 0
+2022/04/20 15:47:01 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:01 4 became Candidate
+2022/04/20 15:47:01 4 start vote  1
+2022/04/20 15:47:01 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:01 server 2 VoteCall failed to 1
+2022/04/20 15:47:01 ggggg
+2022/04/20 15:47:01 serve[2] become leaderr num:2 hashert:false
+2022/04/20 15:47:02 server 2 VoteCall failed to 1
+2022/04/20 15:47:02 ggggg
+2022/04/20 15:47:02 2 server  should vote again-- 2 false
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:02 0 state  3 start send heart
+2022/04/20 15:47:02 server 2 VoteCall failed to 0
+2022/04/20 15:47:02 ggggg
+2022/04/20 15:47:02 2 server  should vote again-- 1 false
+2022/04/20 15:47:02 1 node become 0 foller
+2022/04/20 15:47:02 [1] server recv AppendEntries to 0
+2022/04/20 15:47:02 3 node become 0 foller
+2022/04/20 15:47:02 [3] server recv AppendEntries to 0
+2022/04/20 15:47:02 6 node become 0 foller
+2022/04/20 15:47:02 [6] server recv AppendEntries to 0
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:02 leader-----0
+2022/04/20 15:47:02 0 state  3 start send heart
+2022/04/20 15:47:02 6 node become 0 foller
+2022/04/20 15:47:02 [6] server recv AppendEntries to 0
+2022/04/20 15:47:02 [4] server recv AppendEntries to 0
+2022/04/20 15:47:02 [5] server recv AppendEntries to 0
+2022/04/20 15:47:02 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:02 4 start vote  1
+2022/04/20 15:47:02 4 get a vote term form 0
+2022/04/20 15:47:02 0 become foller 
+2022/04/20 15:47:02 4 get a vote term form 6
+2022/04/20 15:47:02 4 get a vote term form 5
+2022/04/20 15:47:02 5 start vote  1
+2022/04/20 15:47:02 5 get a vote term form 0
+2022/04/20 15:47:02 5 get a vote term form 4
+2022/04/20 15:47:02 5 get a vote term form 6
+2022/04/20 15:47:02 server 2 VoteCall failed to 1
+2022/04/20 15:47:02 ggggg
+2022/04/20 15:47:02 2 server  should vote again-- 1 false
+2022/04/20 15:47:02 2 start vote  1
+2022/04/20 15:47:02 server 2 VoteCall failed to 6
+2022/04/20 15:47:02 server 0 VoteCall failed to 2
+2022/04/20 15:47:02 ggggg
+2022/04/20 15:47:02 0 server  should vote again-- 1 false
+2022/04/20 15:47:02 3 became Candidate
+2022/04/20 15:47:02 3 start vote  1
+2022/04/20 15:47:02 1 became Candidate
+2022/04/20 15:47:02 1 start vote  1
+2022/04/20 15:47:02 server 2 VoteCall failed to 1
+2022/04/20 15:47:02 ggggg
+2022/04/20 15:47:02 serve[2] become leaderr num:2 hashert:false
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:02 server 2 VoteCall failed to 4
+2022/04/20 15:47:02 server 4 VoteCall failed to 3
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:02 0 became Candidate
+2022/04/20 15:47:02 0 start vote  1
+2022/04/20 15:47:02 0 get a vote term form 5
+2022/04/20 15:47:02 0 get a vote term form 4
+2022/04/20 15:47:02 0 get a vote term form 6
+2022/04/20 15:47:02 4 start vote  1
+2022/04/20 15:47:02 4 get a vote term form 0
+2022/04/20 15:47:02 4 get a vote term form 5
+2022/04/20 15:47:02 4 get a vote term form 6
+2022/04/20 15:47:02 5 start vote  1
+2022/04/20 15:47:02 5 get a vote term form 0
+2022/04/20 15:47:02 5 get a vote term form 4
+2022/04/20 15:47:02 5 get a vote term form 6
+2022/04/20 15:47:02 1 start vote  1
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:02 2 start vote  1
+2022/04/20 15:47:02 3 start vote  1
+2022/04/20 15:47:02 server 0 VoteCall failed to 1
+2022/04/20 15:47:02 ggggg
+2022/04/20 15:47:02 serve[0] become leaderr num:2 hashert:false
+2022/04/20 15:47:02 server 5 VoteCall failed to 1
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:02 server 0 VoteCall failed to 1
+2022/04/20 15:47:02 ggggg
+2022/04/20 15:47:02 0 server  should vote again-- 2 false
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:02 server 0 VoteCall failed to 1
+2022/04/20 15:47:02 ggggg
+2022/04/20 15:47:02 serve[0] become leaderr num:2 hashert:false
+2022/04/20 15:47:02 server 0 VoteCall failed to 2
+2022/04/20 15:47:02 server 1 VoteCall failed to 4
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:02 5 start vote  1
+2022/04/20 15:47:02 4 start vote  1
+2022/04/20 15:47:02 5 get a vote term form 0
+2022/04/20 15:47:02 {1 0} not get vote from 0
+2022/04/20 15:47:02 5 get a vote term form 6
+==================
+WARNING: DATA RACE
+Write at 0x00c00053ef50 by goroutine 203:
+  sync/atomic.CompareAndSwapInt32()
+      /usr/lib/go/src/runtime/race_amd64.s:308 +0xb
+  sync/atomic.CompareAndSwapInt32()
+      <autogenerated>:1 +0x1e
+  6.824/raft.(*Raft).ticker()
+      /home/yubtin/Desktop/codes/6.824/src/raft/raft.go:441 +0x59a
+  6.824/raft.Make.func1()
+      /home/yubtin/Desktop/codes/6.824/src/raft/raft.go:506 +0x39
+
+Previous read at 0x00c00053ef50 by goroutine 267:
+  runtime.convTnoptr()
+      /usr/lib/go/src/runtime/iface.go:335 +0x0
+  6.824/raft.(*Raft).startvote.func1()
+      /home/yubtin/Desktop/codes/6.824/src/raft/raft.go:349 +0x364
+  6.824/raft.(*Raft).startvote.func2()
+      /home/yubtin/Desktop/codes/6.824/src/raft/raft.go:351 +0x47
+
+Goroutine 203 (running) created at:
+  6.824/raft.Make()
+      /home/yubtin/Desktop/codes/6.824/src/raft/raft.go:506 +0x20e
+  6.824/raft.(*config).start1()
+      /home/yubtin/Desktop/codes/6.824/src/raft/config.go:322 +0xa4f
+  6.824/raft.make_config()
+      /home/yubtin/Desktop/codes/6.824/src/raft/config.go:97 +0x990
+  6.824/raft.TestManyElections2A()
+      /home/yubtin/Desktop/codes/6.824/src/raft/test_test.go:100 +0x50
+  testing.tRunner()
+      /usr/lib/go/src/testing/testing.go:1439 +0x213
+  testing.(*T).Run.func1()
+      /usr/lib/go/src/testing/testing.go:1486 +0x47
+
+Goroutine 267 (finished) created at:
+  6.824/raft.(*Raft).startvote()
+      /home/yubtin/Desktop/codes/6.824/src/raft/raft.go:326 +0x4af
+  6.824/raft.(*Raft).ticker.func2()
+      /home/yubtin/Desktop/codes/6.824/src/raft/raft.go:428 +0x39
+==================
+2022/04/20 15:47:02 {1 0} not get vote from 6
+2022/04/20 15:47:02 {1 0} not get vote from 5
+2022/04/20 15:47:02 {1 0} not get vote from 4
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:02 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:02 0 start vote  1
+2022/04/20 15:47:02 0 get a vote term form 4
+2022/04/20 15:47:02 0 get a vote term form 6
+2022/04/20 15:47:02 0 get a vote term form 5
+2022/04/20 15:47:02 2 start vote  1
+2022/04/20 15:47:02 server 1 VoteCall failed to 2
+2022/04/20 15:47:02 3 start vote  1
+2022/04/20 15:47:02 1 start vote  1
+2022/04/20 15:47:03 5 start vote  1
+2022/04/20 15:47:03 5 get a vote term form 0
+2022/04/20 15:47:03 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:03 5 get a vote term form 4
+2022/04/20 15:47:03 5 get a vote term form 6
+2022/04/20 15:47:03 4 start vote  1
+2022/04/20 15:47:03 4 get a vote term form 0
+2022/04/20 15:47:03 4 get a vote term form 6
+2022/04/20 15:47:03 4 get a vote term form 5
+2022/04/20 15:47:03 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:03 server 2 VoteCall failed to 1
+2022/04/20 15:47:03 server 2 VoteCall failed to 6
+2022/04/20 15:47:03 0 start vote  1
+2022/04/20 15:47:03 0 get a vote term form 5
+2022/04/20 15:47:03 0 get a vote term form 6
+2022/04/20 15:47:03 0 get a vote term form 4
+2022/04/20 15:47:03 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:03 server 2 VoteCall failed to 0
+2022/04/20 15:47:03 server 1 VoteCall failed to 2
+2022/04/20 15:47:03 3 start vote  1
+2022/04/20 15:47:03 2 start vote  1
+2022/04/20 15:47:03 server 2 VoteCall failed to 1
+2022/04/20 15:47:03 ggggg
+2022/04/20 15:47:03 2 server  should vote again-- 2 false
+2022/04/20 15:47:03 1 start vote  1
+2022/04/20 15:47:03 server 2 VoteCall failed to 0
+2022/04/20 15:47:03 server 0 VoteCall failed to 1
+2022/04/20 15:47:03 ggggg
+2022/04/20 15:47:03 0 server  should vote again-- 1 false
+2022/04/20 15:47:03 5 start vote  1
+2022/04/20 15:47:03 5 get a vote term form 0
+2022/04/20 15:47:03 5 get a vote term form 4
+2022/04/20 15:47:03 5 get a vote term form 6
+2022/04/20 15:47:03 server 3 VoteCall failed to 6
+2022/04/20 15:47:03 4 start vote  1
+2022/04/20 15:47:03 4 get a vote term form 0
+2022/04/20 15:47:03 4 get a vote term form 6
+2022/04/20 15:47:03 4 get a vote term form 5
+2022/04/20 15:47:03 server 5 VoteCall failed to 3
+2022/04/20 15:47:03 server 0 - 3 sendappendentries failed to 3
+2022/04/20 15:47:03 server 5 VoteCall failed to 6
+2022/04/20 15:47:03 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:03 server 0 VoteCall failed to 1
+2022/04/20 15:47:03 ggggg
+2022/04/20 15:47:03 serve[0] become leaderr num:2 hashert:false
+2022/04/20 15:47:03 1 start vote  1
+2022/04/20 15:47:03 0 start vote  1
+2022/04/20 15:47:03 0 get a vote term form 4
+2022/04/20 15:47:03 0 get a vote term form 5
+2022/04/20 15:47:03 0 get a vote term form 6
+2022/04/20 15:47:03 server 3 VoteCall failed to 2
+2022/04/20 15:47:03 3 start vote  1
+2022/04/20 15:47:03 2 start vote  1
+2022/04/20 15:47:03 server 0 VoteCall failed to 1
+2022/04/20 15:47:03 ggggg
+2022/04/20 15:47:03 0 server  should vote again-- 1 false
+2022/04/20 15:47:03 server 3 VoteCall failed to 1
+2022/04/20 15:47:03 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:03 5 start vote  1
+2022/04/20 15:47:03 5 get a vote term form 0
+2022/04/20 15:47:03 5 get a vote term form 6
+2022/04/20 15:47:03 5 get a vote term form 4
+2022/04/20 15:47:03 server 2 VoteCall failed to 0
+2022/04/20 15:47:03 ggggg
+2022/04/20 15:47:03 2 server  should vote again-- 1 false
+2022/04/20 15:47:03 server 3 VoteCall failed to 4
+2022/04/20 15:47:03 server 4 VoteCall failed to 1
+2022/04/20 15:47:03 server 3 VoteCall failed to 0
+2022/04/20 15:47:03 4 start vote  1
+2022/04/20 15:47:03 4 get a vote term form 0
+2022/04/20 15:47:03 4 get a vote term form 6
+2022/04/20 15:47:03 4 get a vote term form 5
+2022/04/20 15:47:03 1 start vote  1
+2022/04/20 15:47:03 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:03 3 start vote  1
+2022/04/20 15:47:03 0 start vote  1
+2022/04/20 15:47:03 0 get a vote term form 5
+2022/04/20 15:47:03 0 get a vote term form 4
+2022/04/20 15:47:03 0 get a vote term form 6
+2022/04/20 15:47:03 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:03 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:03 2 start vote  1
+2022/04/20 15:47:03 server 0 VoteCall failed to 3
+2022/04/20 15:47:03 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:03 server 1 VoteCall failed to 3
+2022/04/20 15:47:03 server 1 VoteCall failed to 6
+2022/04/20 15:47:03 server 2 VoteCall failed to 1
+2022/04/20 15:47:03 1 start vote  1
+2022/04/20 15:47:03 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:03 4 start vote  1
+2022/04/20 15:47:03 3 start vote  1
+2022/04/20 15:47:03 4 get a vote term form 0
+2022/04/20 15:47:03 4 get a vote term form 6
+2022/04/20 15:47:03 4 get a vote term form 5
+2022/04/20 15:47:04 5 start vote  1
+2022/04/20 15:47:04 5 get a vote term form 0
+2022/04/20 15:47:04 5 get a vote term form 4
+2022/04/20 15:47:04 5 get a vote term form 6
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:04 server 5 VoteCall failed to 2
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:04 0 start vote  1
+2022/04/20 15:47:04 0 get a vote term form 4
+2022/04/20 15:47:04 0 get a vote term form 6
+2022/04/20 15:47:04 0 get a vote term form 5
+2022/04/20 15:47:04 server 4 VoteCall failed to 6
+2022/04/20 15:47:04 server 1 VoteCall failed to 2
+2022/04/20 15:47:04 2 start vote  1
+2022/04/20 15:47:04 1 start vote  1
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:04 server 3 VoteCall failed to 4
+2022/04/20 15:47:04 4 start vote  1
+2022/04/20 15:47:04 4 get a vote term form 0
+2022/04/20 15:47:04 4 get a vote term form 5
+2022/04/20 15:47:04 4 get a vote term form 6
+2022/04/20 15:47:04 server 2 VoteCall failed to 4
+2022/04/20 15:47:04 5 start vote  1
+2022/04/20 15:47:04 5 get a vote term form 0
+2022/04/20 15:47:04 5 get a vote term form 4
+2022/04/20 15:47:04 5 get a vote term form 6
+2022/04/20 15:47:04 3 start vote  1
+2022/04/20 15:47:04 server 3 VoteCall failed to 2
+2022/04/20 15:47:04 server 2 VoteCall failed to 1
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:04 server 5 VoteCall failed to 2
+2022/04/20 15:47:04 server 3 VoteCall failed to 2
+2022/04/20 15:47:04 1 start vote  1
+2022/04/20 15:47:04 0 start vote  1
+2022/04/20 15:47:04 0 get a vote term form 4
+2022/04/20 15:47:04 0 get a vote term form 6
+2022/04/20 15:47:04 0 get a vote term form 5
+2022/04/20 15:47:04 server 1 VoteCall failed to 5
+2022/04/20 15:47:04 server 5 VoteCall failed to 3
+2022/04/20 15:47:04 server 3 VoteCall failed to 0
+2022/04/20 15:47:04 server 4 VoteCall failed to 2
+2022/04/20 15:47:04 server 4 VoteCall failed to 2
+2022/04/20 15:47:04 server 2 VoteCall failed to 3
+2022/04/20 15:47:04 server 2 VoteCall failed to 1
+2022/04/20 15:47:04 ggggg
+2022/04/20 15:47:04 serve[2] become leaderr num:2 hashert:false
+2022/04/20 15:47:04 2 start vote  1
+2022/04/20 15:47:04 4 start vote  1
+2022/04/20 15:47:04 4 get a vote term form 0
+2022/04/20 15:47:04 4 get a vote term form 6
+2022/04/20 15:47:04 4 get a vote term form 5
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:04 server 0 VoteCall failed to 3
+2022/04/20 15:47:04 5 start vote  1
+2022/04/20 15:47:04 5 get a vote term form 0
+2022/04/20 15:47:04 5 get a vote term form 4
+2022/04/20 15:47:04 5 get a vote term form 6
+2022/04/20 15:47:04 3 start vote  1
+2022/04/20 15:47:04 server 4 VoteCall failed to 1
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:04 0 start vote  1
+2022/04/20 15:47:04 0 get a vote term form 6
+2022/04/20 15:47:04 0 get a vote term form 4
+2022/04/20 15:47:04 0 get a vote term form 5
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:04 server 1 VoteCall failed to 5
+2022/04/20 15:47:04 server 0 - 3 sendappendentries failed to 4
+2022/04/20 15:47:04 server 3 VoteCall failed to 0
+2022/04/20 15:47:04 server 5 VoteCall failed to 2
+2022/04/20 15:47:04 server 4 VoteCall failed to 2
+2022/04/20 15:47:04 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:04 server 0 VoteCall failed to 2
+2022/04/20 15:47:04 ggggg
+2022/04/20 15:47:04 0 server  should vote again-- 1 false
+2022/04/20 15:47:04 server 3 VoteCall failed to 4
+2022/04/20 15:47:04 1 start vote  1
+2022/04/20 15:47:04 server 2 VoteCall failed to 3
+2022/04/20 15:47:04 server 2 VoteCall failed to 5
+2022/04/20 15:47:04 server 3 VoteCall failed to 5
+2022/04/20 15:47:04 server 1 VoteCall failed to 6
+2022/04/20 15:47:04 server 5 VoteCall failed to 2
+2022/04/20 15:47:04 server 1 VoteCall failed to 4
+2022/04/20 15:47:04 server 3 VoteCall failed to 2
+2022/04/20 15:47:04 5 start vote  1
+2022/04/20 15:47:04 5 get a vote term form 0
+2022/04/20 15:47:04 5 get a vote term form 6
+2022/04/20 15:47:04 5 get a vote term form 4
+2022/04/20 15:47:04 server 4 VoteCall failed to 3
+2022/04/20 15:47:04 4 start vote  1
+2022/04/20 15:47:04 4 get a vote term form 5
+2022/04/20 15:47:04 4 get a vote term form 0
+2022/04/20 15:47:04 4 get a vote term form 6
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:04 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:04 server 4 VoteCall failed to 3
+2022/04/20 15:47:04 server 2 VoteCall failed to 5
+2022/04/20 15:47:04 server 3 VoteCall failed to 4
+2022/04/20 15:47:04 server 3 VoteCall failed to 1
+2022/04/20 15:47:04 server 1 VoteCall failed to 3
+2022/04/20 15:47:04 server 4 VoteCall failed to 5
+2022/04/20 15:47:04 2 start vote  1
+2022/04/20 15:47:04 0 start vote  1
+2022/04/20 15:47:04 0 get a vote term form 6
+2022/04/20 15:47:04 0 get a vote term form 5
+2022/04/20 15:47:04 0 get a vote term form 4
+2022/04/20 15:47:04 3 start vote  1
+2022/04/20 15:47:04 server 5 VoteCall failed to 3
+2022/04/20 15:47:04 server 1 VoteCall failed to 5
+2022/04/20 15:47:04 server 3 VoteCall failed to 0
+2022/04/20 15:47:05 server 3 VoteCall failed to 0
+2022/04/20 15:47:05 server 5 VoteCall failed to 1
+2022/04/20 15:47:05 server 3 VoteCall failed to 2
+2022/04/20 15:47:05 server 0 VoteCall failed to 1
+2022/04/20 15:47:05 ggggg
+2022/04/20 15:47:05 serve[0] become leaderr num:2 hashert:false
+2022/04/20 15:47:05 server 5 VoteCall failed to 1
+2022/04/20 15:47:05 1 start vote  1
+2022/04/20 15:47:05 server 3 VoteCall failed to 6
+2022/04/20 15:47:05 5 start vote  1
+2022/04/20 15:47:05 5 get a vote term form 0
+2022/04/20 15:47:05 5 get a vote term form 6
+2022/04/20 15:47:05 5 get a vote term form 4
+2022/04/20 15:47:05 4 start vote  1
+2022/04/20 15:47:05 4 get a vote term form 0
+2022/04/20 15:47:05 4 get a vote term form 5
+2022/04/20 15:47:05 4 get a vote term form 6
+2022/04/20 15:47:05 server 2 VoteCall failed to 4
+2022/04/20 15:47:05 server 2 VoteCall failed to 4
+2022/04/20 15:47:05 server 2 VoteCall failed to 6
+2022/04/20 15:47:05 server 1 VoteCall failed to 5
+2022/04/20 15:47:05 server 3 VoteCall failed to 5
+2022/04/20 15:47:05 server 1 VoteCall failed to 6
+2022/04/20 15:47:05 server 1 VoteCall failed to 4
+2022/04/20 15:47:05 server 2 VoteCall failed to 1
+2022/04/20 15:47:05 server 2 VoteCall failed to 6
+2022/04/20 15:47:05 ggggg
+2022/04/20 15:47:05 2 server  should vote again-- 2 false
+2022/04/20 15:47:05 server 0 VoteCall failed to 1
+2022/04/20 15:47:05 3 start vote  1
+2022/04/20 15:47:05 server 3 VoteCall failed to 0
+2022/04/20 15:47:05 0 start vote  1
+2022/04/20 15:47:05 0 get a vote term form 6
+2022/04/20 15:47:05 0 get a vote term form 4
+2022/04/20 15:47:05 0 get a vote term form 5
+2022/04/20 15:47:05 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:05 2 start vote  1
+2022/04/20 15:47:05 server 5 VoteCall failed to 3
+2022/04/20 15:47:05 server 1 VoteCall failed to 6
+2022/04/20 15:47:05 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:05 1 start vote  1
+2022/04/20 15:47:05 server 0 VoteCall failed to 3
+2022/04/20 15:47:05 server 2 VoteCall failed to 3
+2022/04/20 15:47:05 server 2 VoteCall failed to 0
+2022/04/20 15:47:05 4 start vote  1
+2022/04/20 15:47:05 4 get a vote term form 0
+2022/04/20 15:47:05 4 get a vote term form 6
+2022/04/20 15:47:05 4 get a vote term form 5
+2022/04/20 15:47:05 5 start vote  1
+2022/04/20 15:47:05 5 get a vote term form 6
+2022/04/20 15:47:05 5 get a vote term form 0
+2022/04/20 15:47:05 5 get a vote term form 4
+2022/04/20 15:47:05 server 4 VoteCall failed to 2
+2022/04/20 15:47:05 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:05 server 3 VoteCall failed to 6
+2022/04/20 15:47:05 0 start vote  1
+2022/04/20 15:47:05 0 get a vote term form 4
+2022/04/20 15:47:05 0 get a vote term form 6
+2022/04/20 15:47:05 0 get a vote term form 5
+2022/04/20 15:47:05 2 start vote  1
+2022/04/20 15:47:05 server 1 VoteCall failed to 6
+2022/04/20 15:47:05 server 4 VoteCall failed to 2
+2022/04/20 15:47:05 server 0 VoteCall failed to 2
+2022/04/20 15:47:05 server 3 VoteCall failed to 1
+2022/04/20 15:47:05 3 start vote  1
+2022/04/20 15:47:05 server 4 VoteCall failed to 1
+2022/04/20 15:47:05 1 start vote  1
+2022/04/20 15:47:05 server 5 VoteCall failed to 2
+2022/04/20 15:47:05 server 2 VoteCall failed to 5
+2022/04/20 15:47:05 server 3 VoteCall failed to 6
+2022/04/20 15:47:05 server 3 VoteCall failed to 4
+2022/04/20 15:47:05 5 start vote  1
+2022/04/20 15:47:05 server 1 VoteCall failed to 5
+2022/04/20 15:47:05 5 get a vote term form 0
+2022/04/20 15:47:05 5 get a vote term form 4
+2022/04/20 15:47:05 5 get a vote term form 6
+2022/04/20 15:47:05 4 start vote  1
+2022/04/20 15:47:05 4 get a vote term form 0
+2022/04/20 15:47:05 4 get a vote term form 5
+2022/04/20 15:47:05 4 get a vote term form 6
+2022/04/20 15:47:05 server 1 VoteCall failed to 0
+2022/04/20 15:47:05 server 3 VoteCall failed to 6
+2022/04/20 15:47:05 server 2 VoteCall failed to 6
+2022/04/20 15:47:05 2 start vote  1
+2022/04/20 15:47:05 server 3 VoteCall failed to 1
+2022/04/20 15:47:05 server 1 VoteCall failed to 4
+2022/04/20 15:47:05 0 start vote  1
+2022/04/20 15:47:05 3 start vote  1
+2022/04/20 15:47:05 server 3 VoteCall failed to 2
+2022/04/20 15:47:05 0 get a vote term form 5
+2022/04/20 15:47:05 0 get a vote term form 6
+2022/04/20 15:47:05 0 get a vote term form 4
+2022/04/20 15:47:05 server 3 VoteCall failed to 5
+2022/04/20 15:47:05 ggggg
+2022/04/20 15:47:05 3 server  should vote again-- 1 false
+2022/04/20 15:47:05 server 2 VoteCall failed to 5
+2022/04/20 15:47:05 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:05 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:05 server 1 VoteCall failed to 2
+2022/04/20 15:47:05 server 0 VoteCall failed to 1
+2022/04/20 15:47:05 server 4 VoteCall failed to 1
+2022/04/20 15:47:05 4 start vote  1
+2022/04/20 15:47:05 4 get a vote term form 0
+2022/04/20 15:47:05 4 get a vote term form 5
+2022/04/20 15:47:05 4 get a vote term form 6
+2022/04/20 15:47:05 5 start vote  1
+2022/04/20 15:47:05 server 3 VoteCall failed to 6
+2022/04/20 15:47:06 5 get a vote term form 0
+2022/04/20 15:47:06 5 get a vote term form 4
+2022/04/20 15:47:06 5 get a vote term form 6
+2022/04/20 15:47:06 server 2 VoteCall failed to 1
+2022/04/20 15:47:06 1 start vote  1
+2022/04/20 15:47:06 server 3 VoteCall failed to 6
+2022/04/20 15:47:06 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:06 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:06 server 5 VoteCall failed to 3
+2022/04/20 15:47:06 server 4 VoteCall failed to 1
+2022/04/20 15:47:06 server 3 VoteCall failed to 5
+2022/04/20 15:47:06 server 0 VoteCall failed to 3
+2022/04/20 15:47:06 server 2 VoteCall failed to 5
+2022/04/20 15:47:06 server 1 VoteCall failed to 2
+2022/04/20 15:47:06 server 4 VoteCall failed to 3
+2022/04/20 15:47:06 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:06 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:06 2 start vote  1
+2022/04/20 15:47:06 server 1 VoteCall failed to 6
+2022/04/20 15:47:06 server 2 VoteCall failed to 1
+2022/04/20 15:47:06 server 1 VoteCall failed to 0
+2022/04/20 15:47:06 0 start vote  1
+2022/04/20 15:47:06 0 get a vote term form 6
+2022/04/20 15:47:06 0 get a vote term form 5
+2022/04/20 15:47:06 0 get a vote term form 4
+2022/04/20 15:47:06 server 1 VoteCall failed to 4
+2022/04/20 15:47:06 server 5 VoteCall failed to 2
+2022/04/20 15:47:06 3 start vote  1
+2022/04/20 15:47:06 server 0 - 3 sendappendentries failed to 4
+2022/04/20 15:47:06 server 3 VoteCall failed to 5
+2022/04/20 15:47:06 server 2 VoteCall failed to 6
+2022/04/20 15:47:06 server 3 VoteCall failed to 5
+2022/04/20 15:47:06 server 2 VoteCall failed to 3
+2022/04/20 15:47:06 4 start vote  1
+2022/04/20 15:47:06 4 get a vote term form 0
+2022/04/20 15:47:06 4 get a vote term form 6
+2022/04/20 15:47:06 4 get a vote term form 5
+2022/04/20 15:47:06 server 4 VoteCall failed to 1
+2022/04/20 15:47:06 ggggg
+2022/04/20 15:47:06 serve[4] become leaderr num:4 hashert:false
+2022/04/20 15:47:06 4 state  3 start send heart
+2022/04/20 15:47:06 0 node become 4 foller
+2022/04/20 15:47:06 [0] server recv AppendEntries to 4
+2022/04/20 15:47:06 5 node become 4 foller
+2022/04/20 15:47:06 [5] server recv AppendEntries to 4
+2022/04/20 15:47:06 6 node become 4 foller
+2022/04/20 15:47:06 [6] server recv AppendEntries to 4
+2022/04/20 15:47:06 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:06 server 5 VoteCall failed to 3
+2022/04/20 15:47:06 server 3 VoteCall failed to 5
+2022/04/20 15:47:06 1 start vote  1
+2022/04/20 15:47:06 server 2 VoteCall failed to 6
+2022/04/20 15:47:06 server 3 VoteCall failed to 5
+2022/04/20 15:47:06 server 1 VoteCall failed to 0
+2022/04/20 15:47:06 server 3 VoteCall failed to 0
+2022/04/20 15:47:06 server 1 VoteCall failed to 0
+2022/04/20 15:47:06 4 state  3 start send heart
+2022/04/20 15:47:06 6 node become 4 foller
+2022/04/20 15:47:06 [6] server recv AppendEntries to 4
+2022/04/20 15:47:06 0 node become 4 foller
+2022/04/20 15:47:06 [0] server recv AppendEntries to 4
+2022/04/20 15:47:06 5 node become 4 foller
+2022/04/20 15:47:06 [5] server recv AppendEntries to 4
+2022/04/20 15:47:06 2 start vote  1
+2022/04/20 15:47:06 server 2 VoteCall failed to 3
+2022/04/20 15:47:06 server 2 VoteCall failed to 3
+2022/04/20 15:47:06 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:06 server 5 VoteCall failed to 3
+2022/04/20 15:47:06 server 2 VoteCall failed to 6
+2022/04/20 15:47:06 3 start vote  1
+2022/04/20 15:47:06 server 5 VoteCall failed to 1
+2022/04/20 15:47:06 ggggg
+2022/04/20 15:47:06 5 server  should vote again-- 4 false
+2022/04/20 15:47:06 server 5 VoteCall failed to 2
+2022/04/20 15:47:06 server 1 VoteCall failed to 6
+2022/04/20 15:47:06 4 state  3 start send heart
+2022/04/20 15:47:06 0 node become 4 foller
+2022/04/20 15:47:06 [0] server recv AppendEntries to 4
+2022/04/20 15:47:06 5 node become 4 foller
+2022/04/20 15:47:06 [5] server recv AppendEntries to 4
+2022/04/20 15:47:06 6 node become 4 foller
+2022/04/20 15:47:06 [6] server recv AppendEntries to 4
+2022/04/20 15:47:06 server 1 VoteCall failed to 3
+2022/04/20 15:47:06 server 1 VoteCall failed to 4
+2022/04/20 15:47:06 server 2 VoteCall failed to 6
+2022/04/20 15:47:06 server 3 VoteCall failed to 5
+2022/04/20 15:47:06 server 5 VoteCall failed to 2
+2022/04/20 15:47:06 server 2 VoteCall failed to 0
+2022/04/20 15:47:06 server 0 VoteCall failed to 1
+2022/04/20 15:47:06 server 3 VoteCall failed to 5
+2022/04/20 15:47:06 1 start vote  1
+2022/04/20 15:47:06 server 0 VoteCall failed to 1
+2022/04/20 15:47:06 4 state  3 start send heart
+2022/04/20 15:47:06 0 node become 4 foller
+2022/04/20 15:47:06 [0] server recv AppendEntries to 4
+2022/04/20 15:47:06 5 node become 4 foller
+2022/04/20 15:47:06 [5] server recv AppendEntries to 4
+2022/04/20 15:47:06 6 node become 4 foller
+2022/04/20 15:47:06 [6] server recv AppendEntries to 4
+2022/04/20 15:47:06 server 2 VoteCall failed to 5
+2022/04/20 15:47:06 server 4 VoteCall failed to 2
+2022/04/20 15:47:06 server 3 VoteCall failed to 2
+2022/04/20 15:47:06 server 1 VoteCall failed to 3
+2022/04/20 15:47:06 server 0 VoteCall failed to 3
+2022/04/20 15:47:06 3 start vote  1
+2022/04/20 15:47:06 2 start vote  1
+2022/04/20 15:47:06 server 3 VoteCall failed to 1
+2022/04/20 15:47:06 4 state  3 start send heart
+2022/04/20 15:47:06 5 node become 4 foller
+2022/04/20 15:47:06 6 node become 4 foller
+2022/04/20 15:47:06 0 node become 4 foller
+2022/04/20 15:47:06 [5] server recv AppendEntries to 4
+2022/04/20 15:47:06 [6] server recv AppendEntries to 4
+2022/04/20 15:47:06 [0] server recv AppendEntries to 4
+2022/04/20 15:47:06 leader-----4
+2022/04/20 15:47:06 server 2 VoteCall failed to 4
+2022/04/20 15:47:06 server 0 VoteCall failed to 3
+2022/04/20 15:47:06 server 3 VoteCall failed to 1
+2022/04/20 15:47:06 1 start vote  1
+2022/04/20 15:47:06 server 0 VoteCall failed to 1
+2022/04/20 15:47:06 ggggg
+2022/04/20 15:47:06 0 server  should vote again-- 4 false
+2022/04/20 15:47:06 4 state  3 start send heart
+2022/04/20 15:47:06 server 3 VoteCall failed to 0
+2022/04/20 15:47:06 server 1 VoteCall failed to 6
+2022/04/20 15:47:06 server 1 VoteCall failed to 4
+2022/04/20 15:47:06 server 0 VoteCall failed to 3
+2022/04/20 15:47:06 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:06 server 3 VoteCall failed to 1
+2022/04/20 15:47:06 server 3 VoteCall failed to 2
+2022/04/20 15:47:06 server 2 VoteCall failed to 4
+2022/04/20 15:47:06 5 became Candidate
+2022/04/20 15:47:06 4 state  3 start send heart
+2022/04/20 15:47:06 5 start vote  1
+2022/04/20 15:47:06 5 get a vote term form 1
+2022/04/20 15:47:06 5 get a vote term form 0
+2022/04/20 15:47:06 5 get a vote term form 6
+2022/04/20 15:47:06 server 1 VoteCall failed to 5
+2022/04/20 15:47:06 server 3 VoteCall failed to 2
+2022/04/20 15:47:06 server 1 VoteCall failed to 0
+2022/04/20 15:47:06 server 1 VoteCall failed to 5
+2022/04/20 15:47:07 server 3 VoteCall failed to 6
+2022/04/20 15:47:07 2 start vote  1
+2022/04/20 15:47:07 server 4 VoteCall failed to 1
+2022/04/20 15:47:07 server 3 VoteCall failed to 1
+2022/04/20 15:47:07 server 0 - 3 sendappendentries failed to 4
+2022/04/20 15:47:07 4 state  3 start send heart
+2022/04/20 15:47:07 3 start vote  1
+2022/04/20 15:47:07 1 start vote  1
+2022/04/20 15:47:07 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:07 1 get a vote term form 0
+2022/04/20 15:47:07 server 0 - 3 sendappendentries failed to 4
+2022/04/20 15:47:07 1 get a vote term form 6
+2022/04/20 15:47:07 1 get a vote term form 5
+2022/04/20 15:47:07 server 5 VoteCall failed to 2
+2022/04/20 15:47:07 server 5 VoteCall failed to 3
+2022/04/20 15:47:07 0 start vote  1
+2022/04/20 15:47:07 0 get a vote term form 1
+2022/04/20 15:47:07 0 get a vote term form 5
+2022/04/20 15:47:07 0 get a vote term form 6
+2022/04/20 15:47:07 server 1 VoteCall failed to 0
+2022/04/20 15:47:07 server 0 VoteCall failed to 2
+2022/04/20 15:47:07 server 1 VoteCall failed to 3
+2022/04/20 15:47:07 4 state  3 start send heart
+2022/04/20 15:47:07 server 1 VoteCall failed to 6
+2022/04/20 15:47:07 server 4 VoteCall failed to 3
+2022/04/20 15:47:07 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:07 server 3 VoteCall failed to 2
+2022/04/20 15:47:07 server 2 VoteCall failed to 1
+2022/04/20 15:47:07 server 1 VoteCall failed to 6
+2022/04/20 15:47:07 server 5 VoteCall failed to 3
+2022/04/20 15:47:07 server 2 VoteCall failed to 0
+2022/04/20 15:47:07 ggggg
+2022/04/20 15:47:07 2 server  should vote again-- 1 false
+2022/04/20 15:47:07 5 start vote  1
+2022/04/20 15:47:07 2 start vote  1
+2022/04/20 15:47:07 5 get a vote term form 6
+2022/04/20 15:47:07 5 get a vote term form 0
+2022/04/20 15:47:07 server 2 VoteCall failed to 5
+2022/04/20 15:47:07 5 get a vote term form 1
+2022/04/20 15:47:07 server 1 VoteCall failed to 6
+2022/04/20 15:47:07 server 2 VoteCall failed to 4
+2022/04/20 15:47:07 4 state  3 start send heart
+2022/04/20 15:47:07 server 1 VoteCall failed to 4
+2022/04/20 15:47:07 server 1 VoteCall failed to 3
+2022/04/20 15:47:07 server 2 VoteCall failed to 1
+2022/04/20 15:47:07 server 1 VoteCall failed to 3
+2022/04/20 15:47:07 1 start vote  1
+2022/04/20 15:47:07 1 get a vote term form 0
+2022/04/20 15:47:07 1 get a vote term form 5
+2022/04/20 15:47:07 1 get a vote term form 6
+2022/04/20 15:47:07 3 start vote  1
+2022/04/20 15:47:07 server 5 VoteCall failed to 2
+2022/04/20 15:47:07 server 1 VoteCall failed to 0
+2022/04/20 15:47:07 4 state  3 start send heart
+2022/04/20 15:47:07 0 start vote  1
+2022/04/20 15:47:07 0 get a vote term form 1
+2022/04/20 15:47:07 0 get a vote term form 6
+2022/04/20 15:47:07 0 get a vote term form 5
+2022/04/20 15:47:07 server 4 VoteCall failed to 2
+2022/04/20 15:47:07 server 3 VoteCall failed to 2
+2022/04/20 15:47:07 server 4 VoteCall failed to 1
+2022/04/20 15:47:07 server 2 VoteCall failed to 0
+2022/04/20 15:47:07 server 2 VoteCall failed to 4
+2022/04/20 15:47:07 server 1 VoteCall failed to 5
+2022/04/20 15:47:07 4 state  3 start send heart
+2022/04/20 15:47:07 2 start vote  1
+2022/04/20 15:47:07 server 0 VoteCall failed to 2
+2022/04/20 15:47:07 server 3 VoteCall failed to 2
+2022/04/20 15:47:07 server 1 VoteCall failed to 5
+2022/04/20 15:47:07 ggggg
+2022/04/20 15:47:07 1 server  should vote again-- 1 false
+2022/04/20 15:47:07 4 state  3 start send heart
+2022/04/20 15:47:07 server 1 VoteCall failed to 5
+2022/04/20 15:47:07 server 3 VoteCall failed to 0
+2022/04/20 15:47:07 server 2 VoteCall failed to 6
+2022/04/20 15:47:07 server 0 VoteCall failed to 2
+2022/04/20 15:47:07 1 start vote  1
+2022/04/20 15:47:07 1 get a vote term form 0
+2022/04/20 15:47:07 5 start vote  1
+2022/04/20 15:47:07 1 get a vote term form 5
+2022/04/20 15:47:07 1 get a vote term form 6
+2022/04/20 15:47:07 5 get a vote term form 0
+2022/04/20 15:47:07 5 get a vote term form 1
+2022/04/20 15:47:07 5 get a vote term form 6
+2022/04/20 15:47:07 3 start vote  1
+2022/04/20 15:47:07 server 4 VoteCall failed to 3
+2022/04/20 15:47:07 server 5 VoteCall failed to 3
+2022/04/20 15:47:07 server 4 VoteCall failed to 3
+2022/04/20 15:47:07 0 start vote  1
+2022/04/20 15:47:07 0 get a vote term form 5
+2022/04/20 15:47:07 0 get a vote term form 1
+2022/04/20 15:47:07 0 get a vote term form 6
+2022/04/20 15:47:07 server 0 VoteCall failed to 1
+2022/04/20 15:47:07 4 state  3 start send heart
+2022/04/20 15:47:07 server 1 VoteCall failed to 2
+2022/04/20 15:47:07 server 3 VoteCall failed to 2
+2022/04/20 15:47:07 server 2 VoteCall failed to 6
+2022/04/20 15:47:07 2 start vote  1
+2022/04/20 15:47:07 server 5 VoteCall failed to 0
+2022/04/20 15:47:07 server 4 VoteCall failed to 3
+2022/04/20 15:47:07 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:07 server 3 VoteCall failed to 1
+2022/04/20 15:47:07 ggggg
+2022/04/20 15:47:07 3 server  should vote again-- 1 false
+2022/04/20 15:47:07 server 3 VoteCall failed to 1
+2022/04/20 15:47:07 server 5 VoteCall failed to 1
+2022/04/20 15:47:07 server 2 VoteCall failed to 1
+2022/04/20 15:47:07 4 state  3 start send heart
+2022/04/20 15:47:07 server 4 VoteCall failed to 3
+2022/04/20 15:47:07 server 1 VoteCall failed to 3
+2022/04/20 15:47:07 ggggg
+2022/04/20 15:47:07 1 server  should vote again-- 1 false
+2022/04/20 15:47:07 server 1 VoteCall failed to 0
+2022/04/20 15:47:07 server 2 VoteCall failed to 0
+2022/04/20 15:47:07 3 start vote  1
+2022/04/20 15:47:07 4 state  3 start send heart
+2022/04/20 15:47:07 6 became Candidate
+2022/04/20 15:47:07 6 start vote  1
+2022/04/20 15:47:07 6 get a vote term form 0
+2022/04/20 15:47:07 6 get a vote term form 1
+2022/04/20 15:47:07 6 get a vote term form 5
+2022/04/20 15:47:07 1 start vote  1
+2022/04/20 15:47:07 1 get a vote term form 0
+2022/04/20 15:47:07 1 get a vote term form 5
+2022/04/20 15:47:07 1 get a vote term form 6
+2022/04/20 15:47:07 server 3 VoteCall failed to 2
+2022/04/20 15:47:07 ggggg
+2022/04/20 15:47:07 3 server  should vote again-- 1 false
+2022/04/20 15:47:07 2 start vote  1
+2022/04/20 15:47:07 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:08 5 start vote  1
+2022/04/20 15:47:08 5 get a vote term form 1
+2022/04/20 15:47:08 5 get a vote term form 0
+2022/04/20 15:47:08 5 get a vote term form 6
+2022/04/20 15:47:08 server 3 VoteCall failed to 2
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:08 server 2 VoteCall failed to 0
+2022/04/20 15:47:08 server 2 VoteCall failed to 6
+2022/04/20 15:47:08 server 3 VoteCall failed to 0
+2022/04/20 15:47:08 server 0 VoteCall failed to 3
+2022/04/20 15:47:08 4 state  3 start send heart
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:08 server 1 VoteCall failed to 5
+2022/04/20 15:47:08 0 start vote  1
+2022/04/20 15:47:08 0 get a vote term form 1
+2022/04/20 15:47:08 0 get a vote term form 6
+2022/04/20 15:47:08 0 get a vote term form 5
+2022/04/20 15:47:08 server 4 VoteCall failed to 1
+2022/04/20 15:47:08 server 3 VoteCall failed to 6
+2022/04/20 15:47:08 server 5 VoteCall failed to 1
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:08 5 state  3 start send heart
+2022/04/20 15:47:08 1 node become 5 foller
+2022/04/20 15:47:08 [1] server recv AppendEntries to 5
+2022/04/20 15:47:08 0 node become 5 foller
+2022/04/20 15:47:08 [0] server recv AppendEntries to 5
+2022/04/20 15:47:08 6 node become 5 foller
+2022/04/20 15:47:08 [6] server recv AppendEntries to 5
+2022/04/20 15:47:08 server 3 VoteCall failed to 4
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 3 server  should vote again-- 1 false
+2022/04/20 15:47:08 server 3 VoteCall failed to 4
+2022/04/20 15:47:08 server 5 VoteCall failed to 1
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 5 server  should vote again-- 3 false
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:08 server 4 VoteCall failed to 2
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 4 server  should vote again-- 4 false
+2022/04/20 15:47:08 4 start vote  1
+2022/04/20 15:47:08 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:08 server 1 VoteCall failed to 3
+2022/04/20 15:47:08 3 start vote  1
+2022/04/20 15:47:08 server 0 VoteCall failed to 2
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 0 server  should vote again-- 4 false
+2022/04/20 15:47:08 5 start vote  1
+2022/04/20 15:47:08 5 get a vote term form 0
+2022/04/20 15:47:08 5 get a vote term form 6
+2022/04/20 15:47:08 5 get a vote term form 1
+2022/04/20 15:47:08 server 6 VoteCall failed to 3
+2022/04/20 15:47:08 2 start vote  1
+2022/04/20 15:47:08 server 2 VoteCall failed to 6
+2022/04/20 15:47:08 server 3 VoteCall failed to 6
+2022/04/20 15:47:08 server 4 VoteCall failed to 1
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:08 server 2 VoteCall failed to 5
+2022/04/20 15:47:08 server 2 VoteCall failed to 6
+2022/04/20 15:47:08 0 start vote  1
+2022/04/20 15:47:08 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:08 0 get a vote term form 5
+2022/04/20 15:47:08 0 get a vote term form 1
+2022/04/20 15:47:08 0 get a vote term form 6
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:08 server 2 VoteCall failed to 5
+2022/04/20 15:47:08 server 1 VoteCall failed to 4
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:08 server 4 VoteCall failed to 1
+2022/04/20 15:47:08 server 0 VoteCall failed to 1
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:08 server 0 VoteCall failed to 2
+2022/04/20 15:47:08 server 2 VoteCall failed to 6
+2022/04/20 15:47:08 server 4 VoteCall failed to 2
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 4 server  should vote again-- 1 false
+2022/04/20 15:47:08 3 start vote  1
+2022/04/20 15:47:08 server 2 VoteCall failed to 0
+2022/04/20 15:47:08 2 start vote  1
+2022/04/20 15:47:08 server 1 VoteCall failed to 3
+2022/04/20 15:47:08 server 1 VoteCall failed to 0
+2022/04/20 15:47:08 4 start vote  1
+2022/04/20 15:47:08 server 4 VoteCall failed to 2
+2022/04/20 15:47:08 server 1 VoteCall failed to 6
+2022/04/20 15:47:08 server 2 VoteCall failed to 0
+2022/04/20 15:47:08 server 4 VoteCall failed to 1
+2022/04/20 15:47:08 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 serve[4] become leaderr num:4 hashert:false
+2022/04/20 15:47:08 4 state  3 start send heart
+2022/04/20 15:47:08 5 start vote  1
+2022/04/20 15:47:08 5 get a vote term form 0
+2022/04/20 15:47:08 5 get a vote term form 1
+2022/04/20 15:47:08 5 get a vote term form 6
+2022/04/20 15:47:08 server 4 VoteCall failed to 0
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 4 server  should vote again-- 1 false
+2022/04/20 15:47:08 server 5 VoteCall failed to 4
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 5 server  should vote again-- 1 false
+2022/04/20 15:47:08 server 4 VoteCall failed to 1
+2022/04/20 15:47:08 server 4 VoteCall failed to 2
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 serve[4] become leaderr num:4 hashert:false
+2022/04/20 15:47:08 server 1 VoteCall failed to 6
+2022/04/20 15:47:08 server 2 VoteCall failed to 1
+2022/04/20 15:47:08 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:08 server 5 VoteCall failed to 1
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:08 4 state  3 start send heart
+2022/04/20 15:47:08 server 5 VoteCall failed to 2
+2022/04/20 15:47:08 server 2 VoteCall failed to 0
+2022/04/20 15:47:08 server 3 VoteCall failed to 5
+2022/04/20 15:47:08 server 4 VoteCall failed to 2
+2022/04/20 15:47:08 server 4 VoteCall failed to 3
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 4 server  should vote again-- 4 false
+2022/04/20 15:47:08 server 0 VoteCall failed to 2
+2022/04/20 15:47:08 server 0 VoteCall failed to 2
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:08 server 0 VoteCall failed to 2
+2022/04/20 15:47:08 server 2 VoteCall failed to 3
+2022/04/20 15:47:08 0 start vote  1
+2022/04/20 15:47:08 0 get a vote term form 1
+2022/04/20 15:47:08 0 get a vote term form 6
+2022/04/20 15:47:08 0 get a vote term form 5
+2022/04/20 15:47:08 server 5 VoteCall failed to 1
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:08 5 state  3 start send heart
+2022/04/20 15:47:08 0 node become 5 foller
+2022/04/20 15:47:08 [0] server recv AppendEntries to 5
+2022/04/20 15:47:08 6 node become 5 foller
+2022/04/20 15:47:08 [6] server recv AppendEntries to 5
+2022/04/20 15:47:08 1 node become 5 foller
+2022/04/20 15:47:08 [1] server recv AppendEntries to 5
+2022/04/20 15:47:08 server 0 VoteCall failed to 1
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 0 server  should vote again-- 4 false
+2022/04/20 15:47:08 2 start vote  1
+2022/04/20 15:47:08 4 start vote  1
+2022/04/20 15:47:08 server 3 VoteCall failed to 0
+2022/04/20 15:47:08 server 3 VoteCall failed to 2
+2022/04/20 15:47:08 server 3 VoteCall failed to 5
+2022/04/20 15:47:08 server 2 VoteCall failed to 3
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:08 server 4 VoteCall failed to 3
+2022/04/20 15:47:08 server 2 VoteCall failed to 4
+2022/04/20 15:47:08 server 2 VoteCall failed to 4
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 2 server  should vote again-- 1 false
+2022/04/20 15:47:08 server 1 VoteCall failed to 2
+2022/04/20 15:47:08 3 start vote  1
+2022/04/20 15:47:08 server 2 VoteCall failed to 5
+2022/04/20 15:47:08 5 state  3 start send heart
+2022/04/20 15:47:08 server 2 VoteCall failed to 1
+2022/04/20 15:47:08 1 node become 5 foller
+2022/04/20 15:47:08 [1] server recv AppendEntries to 5
+2022/04/20 15:47:08 0 node become 5 foller
+2022/04/20 15:47:08 [0] server recv AppendEntries to 5
+2022/04/20 15:47:08 6 node become 5 foller
+2022/04/20 15:47:08 [6] server recv AppendEntries to 5
+2022/04/20 15:47:08 server 2 VoteCall failed to 0
+2022/04/20 15:47:08 server 3 VoteCall failed to 4
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 3 server  should vote again-- 1 false
+2022/04/20 15:47:08 server 1 VoteCall failed to 4
+2022/04/20 15:47:08 server 2 VoteCall failed to 6
+2022/04/20 15:47:08 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:08 server 0 VoteCall failed to 3
+2022/04/20 15:47:08 ggggg
+2022/04/20 15:47:08 0 server  should vote again-- 4 false
+2022/04/20 15:47:08 5 state  3 start send heart
+2022/04/20 15:47:08 server 1 VoteCall failed to 0
+2022/04/20 15:47:08 0 node become 5 foller
+2022/04/20 15:47:08 [0] server recv AppendEntries to 5
+2022/04/20 15:47:08 1 node become 5 foller
+2022/04/20 15:47:08 6 node become 5 foller
+2022/04/20 15:47:08 [6] server recv AppendEntries to 5
+2022/04/20 15:47:08 [1] server recv AppendEntries to 5
+2022/04/20 15:47:09 server 3 VoteCall failed to 4
+2022/04/20 15:47:09 server 2 VoteCall failed to 6
+2022/04/20 15:47:09 server 1 VoteCall failed to 2
+2022/04/20 15:47:09 server 3 VoteCall failed to 5
+2022/04/20 15:47:09 server 3 VoteCall failed to 5
+2022/04/20 15:47:09 2 start vote  1
+2022/04/20 15:47:09 server 4 VoteCall failed to 1
+2022/04/20 15:47:09 5 state  3 start send heart
+2022/04/20 15:47:09 6 node become 5 foller
+2022/04/20 15:47:09 0 node become 5 foller
+2022/04/20 15:47:09 [6] server recv AppendEntries to 5
+2022/04/20 15:47:09 [0] server recv AppendEntries to 5
+2022/04/20 15:47:09 1 node become 5 foller
+2022/04/20 15:47:09 [1] server recv AppendEntries to 5
+2022/04/20 15:47:09 server 1 VoteCall failed to 3
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 1 server  should vote again-- 1 false
+2022/04/20 15:47:09 server 2 VoteCall failed to 4
+2022/04/20 15:47:09 server 5 VoteCall failed to 3
+2022/04/20 15:47:09 server 1 VoteCall failed to 0
+2022/04/20 15:47:09 server 0 VoteCall failed to 3
+2022/04/20 15:47:09 server 3 VoteCall failed to 5
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:09 server 2 VoteCall failed to 5
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:09 4 start vote  1
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:09 server 0 VoteCall failed to 1
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 0 server  should vote again-- 4 false
+2022/04/20 15:47:09 server 5 VoteCall failed to 1
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 5 server  should vote again-- 4 false
+2022/04/20 15:47:09 server 1 VoteCall failed to 4
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 1 server  should vote again-- 1 false
+2022/04/20 15:47:09 server 3 VoteCall failed to 1
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 3 server  should vote again-- 1 false
+2022/04/20 15:47:09 server 1 VoteCall failed to 5
+2022/04/20 15:47:09 server 2 VoteCall failed to 3
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 2 server  should vote again-- 1 false
+2022/04/20 15:47:09 5 start vote  1
+2022/04/20 15:47:09 5 get a vote term form 1
+2022/04/20 15:47:09 5 get a vote term form 0
+2022/04/20 15:47:09 5 get a vote term form 6
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:09 server 3 VoteCall failed to 0
+2022/04/20 15:47:09 3 start vote  1
+2022/04/20 15:47:09 server 1 VoteCall failed to 2
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 1 server  should vote again-- 1 false
+2022/04/20 15:47:09 server 5 VoteCall failed to 2
+2022/04/20 15:47:09 server 1 VoteCall failed to 2
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:09 server 2 VoteCall failed to 5
+2022/04/20 15:47:09 server 0 VoteCall failed to 4
+2022/04/20 15:47:09 server 3 VoteCall failed to 0
+2022/04/20 15:47:09 server 1 VoteCall failed to 3
+2022/04/20 15:47:09 server 2 VoteCall failed to 3
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:09 server 2 VoteCall failed to 0
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:09 server 0 VoteCall failed to 2
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:09 server 2 VoteCall failed to 0
+2022/04/20 15:47:09 2 start vote  1
+2022/04/20 15:47:09 server 2 VoteCall failed to 4
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 2 server  should vote again-- 1 false
+2022/04/20 15:47:09 0 start vote  1
+2022/04/20 15:47:09 0 get a vote term form 6
+2022/04/20 15:47:09 server 4 VoteCall failed to 3
+2022/04/20 15:47:09 0 get a vote term form 1
+2022/04/20 15:47:09 0 get a vote term form 5
+2022/04/20 15:47:09 server 2 VoteCall failed to 3
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 2 server  should vote again-- 1 false
+2022/04/20 15:47:09 server 1 VoteCall failed to 3
+2022/04/20 15:47:09 server 3 VoteCall failed to 4
+2022/04/20 15:47:09 server 5 VoteCall failed to 3
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:09 server 2 VoteCall failed to 1
+2022/04/20 15:47:09 5 state  3 start send heart
+2022/04/20 15:47:09 1 node become 5 foller
+2022/04/20 15:47:09 [1] server recv AppendEntries to 5
+2022/04/20 15:47:09 6 node become 5 foller
+2022/04/20 15:47:09 [6] server recv AppendEntries to 5
+2022/04/20 15:47:09 0 node become 5 foller
+2022/04/20 15:47:09 [0] server recv AppendEntries to 5
+2022/04/20 15:47:09 server 4 VoteCall failed to 2
+2022/04/20 15:47:09 server 3 VoteCall failed to 2
+2022/04/20 15:47:09 server 3 VoteCall failed to 1
+2022/04/20 15:47:09 server 1 VoteCall failed to 4
+2022/04/20 15:47:09 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:09 server 1 VoteCall failed to 3
+2022/04/20 15:47:09 server 0 VoteCall failed to 3
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:09 server 1 VoteCall failed to 2
+2022/04/20 15:47:09 server 3 VoteCall failed to 5
+2022/04/20 15:47:09 4 start vote  1
+2022/04/20 15:47:09 5 state  3 start send heart
+2022/04/20 15:47:09 0 node become 5 foller
+2022/04/20 15:47:09 1 node become 5 foller
+2022/04/20 15:47:09 [0] server recv AppendEntries to 5
+2022/04/20 15:47:09 6 node become 5 foller
+2022/04/20 15:47:09 [6] server recv AppendEntries to 5
+2022/04/20 15:47:09 [1] server recv AppendEntries to 5
+2022/04/20 15:47:09 server 4 VoteCall failed to 3
+2022/04/20 15:47:09 server 0 VoteCall failed to 4
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 0 server  should vote again-- 4 false
+2022/04/20 15:47:09 server 5 VoteCall failed to 2
+2022/04/20 15:47:09 server 2 VoteCall failed to 1
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 2 server  should vote again-- 1 false
+2022/04/20 15:47:09 3 start vote  1
+2022/04/20 15:47:09 server 3 VoteCall failed to 0
+2022/04/20 15:47:09 server 0 VoteCall failed to 3
+2022/04/20 15:47:09 2 start vote  1
+2022/04/20 15:47:09 5 state  3 start send heart
+2022/04/20 15:47:09 0 node become 5 foller
+2022/04/20 15:47:09 [0] server recv AppendEntries to 5
+2022/04/20 15:47:09 1 node become 5 foller
+2022/04/20 15:47:09 [1] server recv AppendEntries to 5
+2022/04/20 15:47:09 6 node become 5 foller
+2022/04/20 15:47:09 [6] server recv AppendEntries to 5
+2022/04/20 15:47:09 server 2 VoteCall failed to 4
+2022/04/20 15:47:09 server 3 VoteCall failed to 4
+2022/04/20 15:47:09 server 5 VoteCall failed to 4
+2022/04/20 15:47:09 server 2 VoteCall failed to 0
+2022/04/20 15:47:09 server 2 VoteCall failed to 0
+2022/04/20 15:47:09 server 4 VoteCall failed to 3
+2022/04/20 15:47:09 leader-----5
+2022/04/20 15:47:09 server 1 VoteCall failed to 2
+2022/04/20 15:47:09 server 1 VoteCall failed to 2
+2022/04/20 15:47:09 server 5 VoteCall failed to 2
+2022/04/20 15:47:09 server 4 VoteCall failed to 1
+2022/04/20 15:47:09 server 0 VoteCall failed to 1
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 0 server  should vote again-- 4 false
+2022/04/20 15:47:09 server 2 VoteCall failed to 5
+2022/04/20 15:47:09 server 1 VoteCall failed to 5
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 1 server  should vote again-- 1 false
+2022/04/20 15:47:09 server 2 VoteCall failed to 5
+2022/04/20 15:47:09 server 4 VoteCall failed to 2
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 serve[4] become leaderr num:4 hashert:false
+2022/04/20 15:47:09 4 state  3 start send heart
+2022/04/20 15:47:09 server 3 VoteCall failed to 6
+2022/04/20 15:47:09 5 state  3 start send heart
+2022/04/20 15:47:09 0 node become 5 foller
+2022/04/20 15:47:09 [0] server recv AppendEntries to 5
+2022/04/20 15:47:09 2 node become 5 foller
+2022/04/20 15:47:09 6 node become 5 foller
+2022/04/20 15:47:09 [6] server recv AppendEntries to 5
+2022/04/20 15:47:09 [2] server recv AppendEntries to 5
+2022/04/20 15:47:09 server 5 VoteCall failed to 3
+2022/04/20 15:47:09 server 3 VoteCall failed to 0
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 3 server  should vote again-- 1 false
+2022/04/20 15:47:09 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:09 server 4 VoteCall failed to 3
+2022/04/20 15:47:09 server 1 VoteCall failed to 4
+2022/04/20 15:47:09 server 0 VoteCall failed to 4
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:09 server 2 VoteCall failed to 3
+2022/04/20 15:47:09 server 4 VoteCall failed to 1
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:09 3 start vote  1
+2022/04/20 15:47:09 server 3 VoteCall failed to 5
+2022/04/20 15:47:09 server 3 VoteCall failed to 4
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:09 server 3 VoteCall failed to 1
+2022/04/20 15:47:09 4 state  3 start send heart
+2022/04/20 15:47:09 5 state  3 start send heart
+2022/04/20 15:47:09 0 node become 5 foller
+2022/04/20 15:47:09 [0] server recv AppendEntries to 5
+2022/04/20 15:47:09 6 node become 5 foller
+2022/04/20 15:47:09 [6] server recv AppendEntries to 5
+2022/04/20 15:47:09 2 node become 5 foller
+2022/04/20 15:47:09 [2] server recv AppendEntries to 5
+2022/04/20 15:47:09 server 0 VoteCall failed to 1
+2022/04/20 15:47:09 server 2 VoteCall failed to 0
+2022/04/20 15:47:09 server 2 VoteCall failed to 5
+2022/04/20 15:47:09 server 0 VoteCall failed to 2
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 0 server  should vote again-- 4 false
+2022/04/20 15:47:09 server 0 VoteCall failed to 4
+2022/04/20 15:47:09 server 2 VoteCall failed to 0
+2022/04/20 15:47:09 server 2 VoteCall failed to 6
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 2 server  should vote again-- 1 false
+2022/04/20 15:47:09 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:09 server 2 VoteCall failed to 4
+2022/04/20 15:47:09 server 0 VoteCall failed to 3
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 serve[0] become leaderr num:4 hashert:false
+2022/04/20 15:47:09 server 0 VoteCall failed to 2
+2022/04/20 15:47:09 server 2 VoteCall failed to 3
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 0 state  3 start send heart
+2022/04/20 15:47:09 0 server  should vote again-- 4 false
+2022/04/20 15:47:09 ggggg
+2022/04/20 15:47:09 2 server  should vote again-- 1 false
+2022/04/20 15:47:09 2 node become 0 foller
+2022/04/20 15:47:09 [2] server recv AppendEntries to 0
+2022/04/20 15:47:09 6 node become 0 foller
+2022/04/20 15:47:09 [6] server recv AppendEntries to 0
+2022/04/20 15:47:09 5 node become 0 foller
+2022/04/20 15:47:09 [5] server recv AppendEntries to 0
+2022/04/20 15:47:09 5 become foller 
+2022/04/20 15:47:09 server 3 VoteCall failed to 5
+2022/04/20 15:47:09 server 1 VoteCall failed to 3
+2022/04/20 15:47:09 4 state  3 start send heart
+2022/04/20 15:47:10 server 5 VoteCall failed to 1
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 5 server  should vote again-- 4 false
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:10 1 start vote  1
+2022/04/20 15:47:10 server 3 VoteCall failed to 1
+2022/04/20 15:47:10 0 start vote  1
+2022/04/20 15:47:10 0 get a vote term form 2
+2022/04/20 15:47:10 0 get a vote term form 6
+2022/04/20 15:47:10 0 get a vote term form 5
+2022/04/20 15:47:10 4 state  3 start send heart
+2022/04/20 15:47:10 server 3 VoteCall failed to 6
+2022/04/20 15:47:10 server 2 VoteCall failed to 4
+2022/04/20 15:47:10 server 2 VoteCall failed to 4
+2022/04/20 15:47:10 server 2 VoteCall failed to 0
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 2 server  should vote again-- 1 false
+2022/04/20 15:47:10 server 2 VoteCall failed to 4
+2022/04/20 15:47:10 server 1 VoteCall failed to 6
+2022/04/20 15:47:10 3 start vote  1
+2022/04/20 15:47:10 server 2 VoteCall failed to 1
+2022/04/20 15:47:10 server 2 VoteCall failed to 1
+2022/04/20 15:47:10 server 5 VoteCall failed to 3
+2022/04/20 15:47:10 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:10 server 4 VoteCall failed to 2
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 4 server  should vote again-- 4 false
+2022/04/20 15:47:10 server 4 VoteCall failed to 2
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 serve[4] become leaderr num:4 hashert:false
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:10 4 state  3 start send heart
+2022/04/20 15:47:10 server 1 VoteCall failed to 3
+2022/04/20 15:47:10 server 3 VoteCall failed to 4
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 3 server  should vote again-- 1 false
+2022/04/20 15:47:10 server 0 VoteCall failed to 3
+2022/04/20 15:47:10 server 3 VoteCall failed to 0
+2022/04/20 15:47:10 server 4 VoteCall failed to 6
+2022/04/20 15:47:10 server 1 VoteCall failed to 4
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 1 server  should vote again-- 1 false
+2022/04/20 15:47:10 5 start vote  1
+2022/04/20 15:47:10 5 get a vote term form 0
+2022/04/20 15:47:10 5 get a vote term form 2
+2022/04/20 15:47:10 5 get a vote term form 6
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:10 server 5 VoteCall failed to 3
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:10 server 4 VoteCall failed to 1
+2022/04/20 15:47:10 5 state  3 start send heart
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 4 server  should vote again-- 4 false
+2022/04/20 15:47:10 0 node become 5 foller
+2022/04/20 15:47:10 [0] server recv AppendEntries to 5
+2022/04/20 15:47:10 2 node become 5 foller
+2022/04/20 15:47:10 [2] server recv AppendEntries to 5
+2022/04/20 15:47:10 6 node become 5 foller
+2022/04/20 15:47:10 [6] server recv AppendEntries to 5
+2022/04/20 15:47:10 4 start vote  1
+2022/04/20 15:47:10 server 1 VoteCall failed to 5
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:10 server 3 VoteCall failed to 4
+2022/04/20 15:47:10 server 5 VoteCall failed to 2
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 5 server  should vote again-- 4 false
+2022/04/20 15:47:10 server 1 VoteCall failed to 6
+2022/04/20 15:47:10 server 2 VoteCall failed to 1
+2022/04/20 15:47:10 server 3 VoteCall failed to 0
+2022/04/20 15:47:10 1 start vote  1
+2022/04/20 15:47:10 server 5 VoteCall failed to 1
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:10 server 0 VoteCall failed to 4
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 0 server  should vote again-- 4 false
+2022/04/20 15:47:10 server 3 VoteCall failed to 1
+2022/04/20 15:47:10 server 1 VoteCall failed to 0
+2022/04/20 15:47:10 server 2 VoteCall failed to 1
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 2 server  should vote again-- 1 false
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:10 server 4 VoteCall failed to 3
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 serve[4] become leaderr num:4 hashert:false
+2022/04/20 15:47:10 4 state  3 start send heart
+2022/04/20 15:47:10 server 1 VoteCall failed to 2
+2022/04/20 15:47:10 server 2 VoteCall failed to 5
+2022/04/20 15:47:10 5 state  3 start send heart
+2022/04/20 15:47:10 0 node become 5 foller
+2022/04/20 15:47:10 [0] server recv AppendEntries to 5
+2022/04/20 15:47:10 2 node become 5 foller
+2022/04/20 15:47:10 [2] server recv AppendEntries to 5
+2022/04/20 15:47:10 6 node become 5 foller
+2022/04/20 15:47:10 [6] server recv AppendEntries to 5
+2022/04/20 15:47:10 server 2 VoteCall failed to 4
+2022/04/20 15:47:10 server 1 VoteCall failed to 2
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 1 server  should vote again-- 1 false
+2022/04/20 15:47:10 3 start vote  1
+2022/04/20 15:47:10 server 4 VoteCall failed to 6
+2022/04/20 15:47:10 server 3 VoteCall failed to 4
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 3 server  should vote again-- 1 false
+2022/04/20 15:47:10 server 3 VoteCall failed to 1
+2022/04/20 15:47:10 4 state  3 start send heart
+2022/04/20 15:47:10 5 state  3 start send heart
+2022/04/20 15:47:10 2 node become 5 foller
+2022/04/20 15:47:10 [2] server recv AppendEntries to 5
+2022/04/20 15:47:10 0 node become 5 foller
+2022/04/20 15:47:10 [0] server recv AppendEntries to 5
+2022/04/20 15:47:10 6 node become 5 foller
+2022/04/20 15:47:10 [6] server recv AppendEntries to 5
+2022/04/20 15:47:10 server 4 VoteCall failed to 2
+2022/04/20 15:47:10 server 5 VoteCall failed to 3
+2022/04/20 15:47:10 server 3 VoteCall failed to 4
+2022/04/20 15:47:10 server 2 VoteCall failed to 3
+2022/04/20 15:47:10 server 0 VoteCall failed to 2
+2022/04/20 15:47:10 server 2 VoteCall failed to 0
+2022/04/20 15:47:10 server 1 VoteCall failed to 4
+2022/04/20 15:47:10 server 1 VoteCall failed to 5
+2022/04/20 15:47:10 server 6 VoteCall failed to 2
+2022/04/20 15:47:10 1 start vote  1
+2022/04/20 15:47:10 server 1 VoteCall failed to 4
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 1 server  should vote again-- 1 false
+2022/04/20 15:47:10 4 state  3 start send heart
+2022/04/20 15:47:10 server 1 VoteCall failed to 6
+2022/04/20 15:47:10 server 3 VoteCall failed to 2
+2022/04/20 15:47:10 server 2 VoteCall failed to 3
+2022/04/20 15:47:10 5 state  3 start send heart
+2022/04/20 15:47:10 0 node become 5 foller
+2022/04/20 15:47:10 [0] server recv AppendEntries to 5
+2022/04/20 15:47:10 2 node become 5 foller
+2022/04/20 15:47:10 [2] server recv AppendEntries to 5
+2022/04/20 15:47:10 6 node become 5 foller
+2022/04/20 15:47:10 [6] server recv AppendEntries to 5
+2022/04/20 15:47:10 leader-----5
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:10 server 3 VoteCall failed to 6
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 3 server  should vote again-- 1 false
+2022/04/20 15:47:10 server 1 VoteCall failed to 5
+2022/04/20 15:47:10 server 0 VoteCall failed to 3
+2022/04/20 15:47:10 4 state  3 start send heart
+2022/04/20 15:47:10 server 0 VoteCall failed to 1
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 0 server  should vote again-- 4 false
+2022/04/20 15:47:10 [0] server recv AppendEntries to 4
+2022/04/20 15:47:10 [6] server recv AppendEntries to 4
+2022/04/20 15:47:10 [2] server recv AppendEntries to 4
+2022/04/20 15:47:10 server 3 VoteCall failed to 2
+2022/04/20 15:47:10 5 state  3 start send heart
+2022/04/20 15:47:10 server 1 VoteCall failed to 0
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 1 server  should vote again-- 1 false
+2022/04/20 15:47:10 server 4 VoteCall failed to 2
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:10 server 3 VoteCall failed to 4
+2022/04/20 15:47:10 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:10 3 start vote  1
+2022/04/20 15:47:10 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:10 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:10 server 2 VoteCall failed to 1
+2022/04/20 15:47:10 server 3 VoteCall failed to 5
+2022/04/20 15:47:10 4 state  3 start send heart
+2022/04/20 15:47:10 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:10 [2] server recv AppendEntries to 4
+2022/04/20 15:47:10 [0] server recv AppendEntries to 4
+2022/04/20 15:47:10 [6] server recv AppendEntries to 4
+2022/04/20 15:47:10 server 5 VoteCall failed to 3
+2022/04/20 15:47:10 server 3 VoteCall failed to 1
+2022/04/20 15:47:10 5 state  3 start send heart
+2022/04/20 15:47:10 6 became Candidate
+2022/04/20 15:47:10 6 start vote  1
+2022/04/20 15:47:10 6 get a vote term form 0
+2022/04/20 15:47:10 6 get a vote term form 2
+2022/04/20 15:47:10 6 get a vote term form 4
+2022/04/20 15:47:10 4 become foller 
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:10 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:10 server 0 VoteCall failed to 2
+2022/04/20 15:47:10 ggggg
+2022/04/20 15:47:10 serve[0] become leaderr num:4 hashert:false
+2022/04/20 15:47:10 server 0 VoteCall failed to 1
+2022/04/20 15:47:10 0 state  3 start send heart
+2022/04/20 15:47:10 2 node become 0 foller
+2022/04/20 15:47:10 [2] server recv AppendEntries to 0
+2022/04/20 15:47:10 4 node become 0 foller
+2022/04/20 15:47:10 [4] server recv AppendEntries to 0
+2022/04/20 15:47:10 6 node become 0 foller
+2022/04/20 15:47:10 [6] server recv AppendEntries to 0
+2022/04/20 15:47:10 server 4 VoteCall failed to 3
+2022/04/20 15:47:10 server 2 VoteCall failed to 0
+2022/04/20 15:47:10 server 2 VoteCall failed to 5
+2022/04/20 15:47:10 server 2 VoteCall failed to 1
+2022/04/20 15:47:10 server 5 VoteCall failed to 4
+2022/04/20 15:47:11 1 start vote  1
+2022/04/20 15:47:11 server 1 VoteCall failed to 2
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 1 server  should vote again-- 1 false
+2022/04/20 15:47:11 5 state  3 start send heart
+2022/04/20 15:47:11 server 3 VoteCall failed to 0
+2022/04/20 15:47:11 server 2 VoteCall failed to 5
+2022/04/20 15:47:11 0 state  3 start send heart
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 2 node become 0 foller
+2022/04/20 15:47:11 [2] server recv AppendEntries to 0
+2022/04/20 15:47:11 4 node become 0 foller
+2022/04/20 15:47:11 [4] server recv AppendEntries to 0
+2022/04/20 15:47:11 6 node become 0 foller
+2022/04/20 15:47:11 [6] server recv AppendEntries to 0
+2022/04/20 15:47:11 server 3 VoteCall failed to 6
+2022/04/20 15:47:11 server 1 VoteCall failed to 2
+2022/04/20 15:47:11 server 2 VoteCall failed to 3
+2022/04/20 15:47:11 server 2 VoteCall failed to 3
+2022/04/20 15:47:11 server 2 VoteCall failed to 4
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 2 server  should vote again-- 1 false
+2022/04/20 15:47:11 server 3 VoteCall failed to 5
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 server 2 VoteCall failed to 5
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 5 state  3 start send heart
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:11 server 3 VoteCall failed to 6
+2022/04/20 15:47:11 0 state  3 start send heart
+2022/04/20 15:47:11 leader-----0
+2022/04/20 15:47:11 2 node become 0 foller
+2022/04/20 15:47:11 [2] server recv AppendEntries to 0
+2022/04/20 15:47:11 6 node become 0 foller
+2022/04/20 15:47:11 [6] server recv AppendEntries to 0
+2022/04/20 15:47:11 3 node become 0 foller
+2022/04/20 15:47:11 [3] server recv AppendEntries to 0
+2022/04/20 15:47:11 5 node become 0 foller
+2022/04/20 15:47:11 [5] server recv AppendEntries to 0
+2022/04/20 15:47:11 5 become foller 
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:11 server 3 VoteCall failed to 5
+2022/04/20 15:47:11 server 2 VoteCall failed to 6
+2022/04/20 15:47:11 server 1 VoteCall failed to 5
+2022/04/20 15:47:11 server 2 VoteCall failed to 6
+2022/04/20 15:47:11 server 3 VoteCall failed to 6
+2022/04/20 15:47:11 server 5 VoteCall failed to 1
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 5 server  should vote again-- 4 false
+2022/04/20 15:47:11 server 1 VoteCall failed to 3
+2022/04/20 15:47:11 server 4 VoteCall failed to 1
+2022/04/20 15:47:11 server 3 VoteCall failed to 2
+2022/04/20 15:47:11 server 2 VoteCall failed to 0
+2022/04/20 15:47:11 server 5 VoteCall failed to 1
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:11 5 state  3 start send heart
+2022/04/20 15:47:11 [0] server recv AppendEntries to 5
+2022/04/20 15:47:11 [1] server recv AppendEntries to 5
+2022/04/20 15:47:11 3 node become 5 foller
+2022/04/20 15:47:11 [6] server recv AppendEntries to 5
+2022/04/20 15:47:11 [3] server recv AppendEntries to 5
+2022/04/20 15:47:11 [2] server recv AppendEntries to 5
+2022/04/20 15:47:11 0 state  3 start send heart
+2022/04/20 15:47:11 [1] server recv AppendEntries to 0
+2022/04/20 15:47:11 2 node become 0 foller
+2022/04/20 15:47:11 [2] server recv AppendEntries to 0
+2022/04/20 15:47:11 5 node become 0 foller
+2022/04/20 15:47:11 [5] server recv AppendEntries to 0
+2022/04/20 15:47:11 3 node become 0 foller
+2022/04/20 15:47:11 [3] server recv AppendEntries to 0
+2022/04/20 15:47:11 6 node become 0 foller
+2022/04/20 15:47:11 [6] server recv AppendEntries to 0
+2022/04/20 15:47:11 5 become foller 
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 server 5 VoteCall failed to 4
+2022/04/20 15:47:11 4 became Candidate
+2022/04/20 15:47:11 4 start vote  1
+2022/04/20 15:47:11 server 2 VoteCall failed to 4
+2022/04/20 15:47:11 server 3 VoteCall failed to 1
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:11 server 3 VoteCall failed to 4
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:11 server 0 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 server 1 VoteCall failed to 0
+2022/04/20 15:47:11 1 start vote  1
+2022/04/20 15:47:11 1 get a vote term form 0
+2022/04/20 15:47:11 1 get a vote term form 2
+2022/04/20 15:47:11 0 state  3 start send heart
+2022/04/20 15:47:11 1 get a vote term form 6
+2022/04/20 15:47:11 1 get a vote term form 3
+2022/04/20 15:47:11 1 get a vote term form 5
+2022/04/20 15:47:11 3 node become 0 foller
+2022/04/20 15:47:11 [3] server recv AppendEntries to 0
+2022/04/20 15:47:11 6 node become 0 foller
+2022/04/20 15:47:11 [6] server recv AppendEntries to 0
+2022/04/20 15:47:11 1 node become 0 foller
+2022/04/20 15:47:11 [1] server recv AppendEntries to 0
+2022/04/20 15:47:11 2 node become 0 foller
+2022/04/20 15:47:11 [2] server recv AppendEntries to 0
+2022/04/20 15:47:11 5 node become 0 foller
+2022/04/20 15:47:11 [5] server recv AppendEntries to 0
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:11 server 1 VoteCall failed to 2
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:11 server 2 VoteCall failed to 3
+2022/04/20 15:47:11 server 5 VoteCall failed to 2
+2022/04/20 15:47:11 server 4 VoteCall failed to 1
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 serve[4] become leaderr num:4 hashert:false
+2022/04/20 15:47:11 4 state  3 start send heart
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 server 3 VoteCall failed to 6
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:11 server 2 VoteCall failed to 5
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 2 server  should vote again-- 1 false
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:11 server 1 VoteCall failed to 0
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 1 server  should vote again-- 1 false
+2022/04/20 15:47:11 0 state  3 start send heart
+2022/04/20 15:47:11 1 node become 0 foller
+2022/04/20 15:47:11 3 node become 0 foller
+2022/04/20 15:47:11 [3] server recv AppendEntries to 0
+2022/04/20 15:47:11 [1] server recv AppendEntries to 0
+2022/04/20 15:47:11 6 node become 0 foller
+2022/04/20 15:47:11 [6] server recv AppendEntries to 0
+2022/04/20 15:47:11 5 node become 0 foller
+2022/04/20 15:47:11 [5] server recv AppendEntries to 0
+2022/04/20 15:47:11 2 node become 0 foller
+2022/04/20 15:47:11 [2] server recv AppendEntries to 0
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:11 server 4 VoteCall failed to 3
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 4 server  should vote again-- 4 false
+2022/04/20 15:47:11 server 1 VoteCall failed to 2
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:11 server 1 VoteCall failed to 0
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 1 server  should vote again-- 1 false
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:11 server 1 VoteCall failed to 2
+2022/04/20 15:47:11 server 2 VoteCall failed to 0
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:11 server 2 VoteCall failed to 6
+2022/04/20 15:47:11 4 start vote  1
+2022/04/20 15:47:11 server 3 VoteCall failed to 1
+2022/04/20 15:47:11 server 2 VoteCall failed to 4
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:11 server 2 VoteCall failed to 1
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 2 server  should vote again-- 1 false
+2022/04/20 15:47:11 server 3 VoteCall failed to 5
+2022/04/20 15:47:11 server 2 VoteCall failed to 1
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:11 server 3 VoteCall failed to 2
+2022/04/20 15:47:11 server 0 VoteCall failed to 2
+2022/04/20 15:47:11 server 1 VoteCall failed to 4
+2022/04/20 15:47:11 0 state  3 start send heart
+2022/04/20 15:47:11 1 node become 0 foller
+2022/04/20 15:47:11 [1] server recv AppendEntries to 0
+2022/04/20 15:47:11 2 node become 0 foller
+2022/04/20 15:47:11 [2] server recv AppendEntries to 0
+2022/04/20 15:47:11 3 node become 0 foller
+2022/04/20 15:47:11 6 node become 0 foller
+2022/04/20 15:47:11 [6] server recv AppendEntries to 0
+2022/04/20 15:47:11 [3] server recv AppendEntries to 0
+2022/04/20 15:47:11 5 node become 0 foller
+2022/04/20 15:47:11 [5] server recv AppendEntries to 0
+2022/04/20 15:47:11 leader-----0
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 server 4 VoteCall failed to 0
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:11 server 6 VoteCall failed to 4
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 6 server  should vote again-- 4 false
+2022/04/20 15:47:11 server 3 VoteCall failed to 4
+2022/04/20 15:47:11 server 4 VoteCall failed to 6
+2022/04/20 15:47:11 server 4 VoteCall failed to 2
+2022/04/20 15:47:11 server 4 VoteCall failed to 0
+2022/04/20 15:47:11 server 5 VoteCall failed to 1
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 5 server  should vote again-- 4 false
+2022/04/20 15:47:11 server 4 VoteCall failed to 0
+2022/04/20 15:47:11 server 2 VoteCall failed to 1
+2022/04/20 15:47:11 0 state  3 start send heart
+2022/04/20 15:47:11 2 node become 0 foller
+2022/04/20 15:47:11 [2] server recv AppendEntries to 0
+2022/04/20 15:47:11 3 node become 0 foller
+2022/04/20 15:47:11 [3] server recv AppendEntries to 0
+2022/04/20 15:47:11 4 node become 0 foller
+2022/04/20 15:47:11 [4] server recv AppendEntries to 0
+2022/04/20 15:47:11 server 5 VoteCall failed to 2
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:11 server 1 VoteCall failed to 4
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 server 4 VoteCall failed to 3
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:11 server 4 VoteCall failed to 3
+2022/04/20 15:47:11 server 5 VoteCall failed to 2
+2022/04/20 15:47:11 server 3 VoteCall failed to 6
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 3 server  should vote again-- 1 false
+2022/04/20 15:47:11 server 3 VoteCall failed to 0
+2022/04/20 15:47:11 server 0 VoteCall failed to 2
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 0 server  should vote again-- 4 false
+2022/04/20 15:47:11 0 start vote  1
+2022/04/20 15:47:11 0 get a vote term form 3
+2022/04/20 15:47:11 0 get a vote term form 2
+2022/04/20 15:47:11 0 get a vote term form 4
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 server 5 VoteCall failed to 2
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:11 5 state  3 start send heart
+2022/04/20 15:47:11 1 became Candidate
+2022/04/20 15:47:11 1 start vote  1
+2022/04/20 15:47:11 server 3 VoteCall failed to 2
+2022/04/20 15:47:11 server 3 VoteCall failed to 4
+2022/04/20 15:47:11 server 3 VoteCall failed to 6
+2022/04/20 15:47:11 ggggg
+2022/04/20 15:47:11 3 server  should vote again-- 1 false
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:11 server 3 VoteCall failed to 4
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:11 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:11 server 1 VoteCall failed to 4
+2022/04/20 15:47:11 server 0 VoteCall failed to 2
+2022/04/20 15:47:11 6 start vote  1
+2022/04/20 15:47:11 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:11 server 0 - 3 sendappendentries failed to 4
+2022/04/20 15:47:11 server 5 VoteCall failed to 4
+2022/04/20 15:47:11 server 3 VoteCall failed to 1
+2022/04/20 15:47:11 3 start vote  1
+2022/04/20 15:47:11 3 get a vote term form 0
+2022/04/20 15:47:11 5 state  3 start send heart
+2022/04/20 15:47:11 3 get a vote term form 2
+2022/04/20 15:47:11 3 get a vote term form 4
+2022/04/20 15:47:12 server 2 VoteCall failed to 3
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:12 server 3 VoteCall failed to 6
+2022/04/20 15:47:12 server 1 VoteCall failed to 0
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 2 VoteCall failed to 5
+2022/04/20 15:47:12 server 4 VoteCall failed to 3
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 4 server  should vote again-- 4 false
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 3 VoteCall failed to 0
+2022/04/20 15:47:12 server 2 VoteCall failed to 5
+2022/04/20 15:47:12 server 0 VoteCall failed to 3
+2022/04/20 15:47:12 server 6 VoteCall failed to 3
+2022/04/20 15:47:12 5 state  3 start send heart
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 4 VoteCall failed to 5
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:12 0 start vote  1
+2022/04/20 15:47:12 0 get a vote term form 2
+2022/04/20 15:47:12 0 get a vote term form 3
+2022/04/20 15:47:12 0 get a vote term form 4
+2022/04/20 15:47:12 server 1 VoteCall failed to 3
+2022/04/20 15:47:12 server 0 VoteCall failed to 3
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 serve[0] become leaderr num:4 hashert:false
+2022/04/20 15:47:12 0 state  3 start send heart
+2022/04/20 15:47:12 4 node become 0 foller
+2022/04/20 15:47:12 3 node become 0 foller
+2022/04/20 15:47:12 [3] server recv AppendEntries to 0
+2022/04/20 15:47:12 2 node become 0 foller
+2022/04/20 15:47:12 [2] server recv AppendEntries to 0
+2022/04/20 15:47:12 [4] server recv AppendEntries to 0
+2022/04/20 15:47:12 server 0 VoteCall failed to 2
+2022/04/20 15:47:12 server 2 VoteCall failed to 4
+2022/04/20 15:47:12 server 3 VoteCall failed to 0
+2022/04/20 15:47:12 5 state  3 start send heart
+2022/04/20 15:47:12 server 5 VoteCall failed to 3
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:12 1 start vote  1
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:12 server 0 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 2 VoteCall failed to 1
+2022/04/20 15:47:12 server 2 VoteCall failed to 0
+2022/04/20 15:47:12 6 start vote  1
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:12 0 state  3 start send heart
+2022/04/20 15:47:12 3 node become 0 foller
+2022/04/20 15:47:12 [3] server recv AppendEntries to 0
+2022/04/20 15:47:12 4 node become 0 foller
+2022/04/20 15:47:12 [4] server recv AppendEntries to 0
+2022/04/20 15:47:12 2 node become 0 foller
+2022/04/20 15:47:12 [2] server recv AppendEntries to 0
+2022/04/20 15:47:12 server 3 VoteCall failed to 0
+2022/04/20 15:47:12 server 0 - 3 sendappendentries failed to 6
+2022/04/20 15:47:12 server 1 VoteCall failed to 5
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 1 server  should vote again-- 1 false
+2022/04/20 15:47:12 5 state  3 start send heart
+2022/04/20 15:47:12 server 1 VoteCall failed to 0
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:12 server 4 VoteCall failed to 5
+2022/04/20 15:47:12 server 0 VoteCall failed to 1
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 0 server  should vote again-- 4 false
+2022/04/20 15:47:12 server 2 VoteCall failed to 3
+2022/04/20 15:47:12 server 1 VoteCall failed to 6
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 1 server  should vote again-- 1 false
+2022/04/20 15:47:12 server 2 VoteCall failed to 5
+2022/04/20 15:47:12 server 2 VoteCall failed to 6
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 0 start vote  1
+2022/04/20 15:47:12 server 5 VoteCall failed to 2
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 5 server  should vote again-- 4 false
+2022/04/20 15:47:12 0 get a vote term form 3
+2022/04/20 15:47:12 0 get a vote term form 2
+2022/04/20 15:47:12 0 get a vote term form 4
+2022/04/20 15:47:12 server 3 VoteCall failed to 5
+2022/04/20 15:47:12 5 start vote  1
+2022/04/20 15:47:12 server 3 VoteCall failed to 1
+2022/04/20 15:47:12 server 3 VoteCall failed to 4
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 3 server  should vote again-- 1 false
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 4 VoteCall failed to 6
+2022/04/20 15:47:12 server 3 VoteCall failed to 1
+2022/04/20 15:47:12 server 3 VoteCall failed to 6
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 3 server  should vote again-- 1 false
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:12 server 2 VoteCall failed to 1
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 4 VoteCall failed to 2
+2022/04/20 15:47:12 server 2 VoteCall failed to 3
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 4 server  should vote again-- 4 false
+2022/04/20 15:47:12 6 start vote  1
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:12 server 2 VoteCall failed to 4
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 2 server  should vote again-- 1 false
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:12 server 3 VoteCall failed to 6
+2022/04/20 15:47:12 server 2 VoteCall failed to 4
+2022/04/20 15:47:12 server 0 VoteCall failed to 1
+2022/04/20 15:47:12 1 start vote  1
+2022/04/20 15:47:12 server 2 VoteCall failed to 5
+2022/04/20 15:47:12 server 3 VoteCall failed to 6
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:12 server 2 VoteCall failed to 3
+2022/04/20 15:47:12 server 2 VoteCall failed to 5
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:12 server 3 VoteCall failed to 2
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 3 server  should vote again-- 1 false
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:12 server 1 VoteCall failed to 4
+2022/04/20 15:47:12 3 start vote  1
+2022/04/20 15:47:12 3 get a vote term form 0
+2022/04/20 15:47:12 3 get a vote term form 2
+2022/04/20 15:47:12 3 get a vote term form 4
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 1 VoteCall failed to 2
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 1 server  should vote again-- 1 false
+2022/04/20 15:47:12 server 3 VoteCall failed to 4
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 3 server  should vote again-- 1 false
+2022/04/20 15:47:12 server 1 VoteCall failed to 4
+2022/04/20 15:47:12 2 start vote  1
+2022/04/20 15:47:12 2 get a vote term form 0
+2022/04/20 15:47:12 2 get a vote term form 3
+2022/04/20 15:47:12 2 get a vote term form 4
+2022/04/20 15:47:12 server 1 VoteCall failed to 3
+2022/04/20 15:47:12 server 1 VoteCall failed to 3
+2022/04/20 15:47:12 server 1 VoteCall failed to 4
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:12 server 2 VoteCall failed to 1
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 2 server  should vote again-- 1 false
+2022/04/20 15:47:12 4 start vote  1
+2022/04/20 15:47:12 4 get a vote term form 3
+2022/04/20 15:47:12 4 get a vote term form 0
+2022/04/20 15:47:12 4 get a vote term form 2
+2022/04/20 15:47:12 server 4 VoteCall failed to 2
+2022/04/20 15:47:12 server 1 VoteCall failed to 2
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:12 server 5 VoteCall failed to 4
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:12 0 start vote  1
+2022/04/20 15:47:12 0 get a vote term form 3
+2022/04/20 15:47:12 0 get a vote term form 2
+2022/04/20 15:47:12 0 get a vote term form 4
+2022/04/20 15:47:12 5 start vote  1
+2022/04/20 15:47:12 server 2 VoteCall failed to 1
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 6 start vote  1
+2022/04/20 15:47:12 server 5 - 3 sendappendentries failed to 6
+2022/04/20 15:47:12 1 start vote  1
+2022/04/20 15:47:12 server 3 VoteCall failed to 2
+2022/04/20 15:47:12 server 1 VoteCall failed to 4
+2022/04/20 15:47:12 server 4 VoteCall failed to 6
+2022/04/20 15:47:12 server 2 VoteCall failed to 4
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:12 server 3 VoteCall failed to 1
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 3 server  should vote again-- 1 false
+2022/04/20 15:47:12 server 2 VoteCall failed to 6
+2022/04/20 15:47:12 server 3 VoteCall failed to 5
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:12 server 3 VoteCall failed to 5
+2022/04/20 15:47:12 server 4 VoteCall failed to 6
+2022/04/20 15:47:12 3 start vote  1
+2022/04/20 15:47:12 3 get a vote term form 0
+2022/04/20 15:47:12 server 3 VoteCall failed to 0
+2022/04/20 15:47:12 3 get a vote term form 2
+2022/04/20 15:47:12 3 get a vote term form 4
+2022/04/20 15:47:12 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:12 server 3 VoteCall failed to 1
+2022/04/20 15:47:12 ggggg
+2022/04/20 15:47:12 3 server  should vote again-- 1 false
+2022/04/20 15:47:12 server 3 VoteCall failed to 2
+2022/04/20 15:47:12 server 4 VoteCall failed to 3
+2022/04/20 15:47:12 server 1 VoteCall failed to 3
+2022/04/20 15:47:12 4 start vote  1
+2022/04/20 15:47:12 4 get a vote term form 0
+2022/04/20 15:47:12 4 get a vote term form 2
+2022/04/20 15:47:12 4 get a vote term form 3
+2022/04/20 15:47:13 server 4 VoteCall failed to 5
+2022/04/20 15:47:13 server 2 VoteCall failed to 3
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 2 server  should vote again-- 1 false
+2022/04/20 15:47:13 2 start vote  1
+2022/04/20 15:47:13 2 get a vote term form 0
+2022/04/20 15:47:13 2 get a vote term form 3
+2022/04/20 15:47:13 2 get a vote term form 4
+2022/04/20 15:47:13 server 1 VoteCall failed to 4
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 serve[1] become leaderr num:4 hashert:false
+2022/04/20 15:47:13 server 0 VoteCall failed to 3
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 serve[0] become leaderr num:4 hashert:false
+2022/04/20 15:47:13 0 state  3 start send heart
+2022/04/20 15:47:13 1 state  3 start send heart
+2022/04/20 15:47:13 2 node become 0 foller
+2022/04/20 15:47:13 [2] server recv AppendEntries to 0
+2022/04/20 15:47:13 4 node become 0 foller
+2022/04/20 15:47:13 [4] server recv AppendEntries to 0
+2022/04/20 15:47:13 3 node become 0 foller
+2022/04/20 15:47:13 [3] server recv AppendEntries to 0
+2022/04/20 15:47:13 server 5 VoteCall failed to 3
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:13 5 state  3 start send heart
+2022/04/20 15:47:13 server 4 VoteCall failed to 1
+2022/04/20 15:47:13 server 5 VoteCall failed to 4
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:13 leader-----0
+2022/04/20 15:47:13 server 4 VoteCall failed to 5
+2022/04/20 15:47:13 6 start vote  1
+2022/04/20 15:47:13 server 3 VoteCall failed to 6
+2022/04/20 15:47:13 server 5 VoteCall failed to 4
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:13 server 3 VoteCall failed to 4
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 3 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 2 VoteCall failed to 5
+2022/04/20 15:47:13 server 0 VoteCall failed to 4
+2022/04/20 15:47:13 server 0 VoteCall failed to 4
+2022/04/20 15:47:13 0 state  3 start send heart
+2022/04/20 15:47:13 1 state  3 start send heart
+2022/04/20 15:47:13 6 node become 0 foller
+2022/04/20 15:47:13 [6] server recv AppendEntries to 0
+2022/04/20 15:47:13 4 node become 0 foller
+2022/04/20 15:47:13 [4] server recv AppendEntries to 0
+2022/04/20 15:47:13 2 node become 0 foller
+2022/04/20 15:47:13 [2] server recv AppendEntries to 0
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:13 server 6 VoteCall failed to 1
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:13 5 state  3 start send heart
+2022/04/20 15:47:13 server 2 VoteCall failed to 6
+2022/04/20 15:47:13 server 4 VoteCall failed to 0
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:13 server 2 VoteCall failed to 3
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 2 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 3 VoteCall failed to 1
+2022/04/20 15:47:13 server 1 VoteCall failed to 0
+2022/04/20 15:47:13 1 state  3 start send heart
+2022/04/20 15:47:13 0 state  3 start send heart
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:13 2 node become 0 foller
+2022/04/20 15:47:13 [2] server recv AppendEntries to 0
+2022/04/20 15:47:13 4 node become 0 foller
+2022/04/20 15:47:13 [4] server recv AppendEntries to 0
+2022/04/20 15:47:13 6 node become 0 foller
+2022/04/20 15:47:13 [6] server recv AppendEntries to 0
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:13 5 state  3 start send heart
+2022/04/20 15:47:13 server 4 VoteCall failed to 5
+2022/04/20 15:47:13 server 4 VoteCall failed to 2
+2022/04/20 15:47:13 server 2 VoteCall failed to 3
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 2 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 3 VoteCall failed to 5
+2022/04/20 15:47:13 server 4 VoteCall failed to 5
+2022/04/20 15:47:13 server 3 VoteCall failed to 2
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:13 3 start vote  1
+2022/04/20 15:47:13 server 3 VoteCall failed to 2
+2022/04/20 15:47:13 1 state  3 start send heart
+2022/04/20 15:47:13 0 state  3 start send heart
+2022/04/20 15:47:13 server 5 VoteCall failed to 3
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 5 server  should vote again-- 4 false
+2022/04/20 15:47:13 4 node become 0 foller
+2022/04/20 15:47:13 [4] server recv AppendEntries to 0
+2022/04/20 15:47:13 2 node become 0 foller
+2022/04/20 15:47:13 6 node become 0 foller
+2022/04/20 15:47:13 [6] server recv AppendEntries to 0
+2022/04/20 15:47:13 [2] server recv AppendEntries to 0
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:13 5 start vote  1
+2022/04/20 15:47:13 server 2 VoteCall failed to 0
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:13 server 1 VoteCall failed to 2
+2022/04/20 15:47:13 server 2 VoteCall failed to 4
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 2 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 1 VoteCall failed to 4
+2022/04/20 15:47:13 server 1 VoteCall failed to 2
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 1 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 3 VoteCall failed to 1
+2022/04/20 15:47:13 0 state  3 start send heart
+2022/04/20 15:47:13 server 1 VoteCall failed to 0
+2022/04/20 15:47:13 2 node become 0 foller
+2022/04/20 15:47:13 [2] server recv AppendEntries to 0
+2022/04/20 15:47:13 6 node become 0 foller
+2022/04/20 15:47:13 [6] server recv AppendEntries to 0
+2022/04/20 15:47:13 1 start vote  1
+2022/04/20 15:47:13 4 node become 0 foller
+2022/04/20 15:47:13 [4] server recv AppendEntries to 0
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:13 server 0 VoteCall failed to 3
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 0 server  should vote again-- 4 false
+2022/04/20 15:47:13 server 6 VoteCall failed to 4
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:13 server 6 VoteCall failed to 1
+2022/04/20 15:47:13 server 2 VoteCall failed to 6
+2022/04/20 15:47:13 server 2 VoteCall failed to 1
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 2 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 5 VoteCall failed to 3
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 6
+2022/04/20 15:47:13 server 1 VoteCall failed to 6
+2022/04/20 15:47:13 server 3 VoteCall failed to 4
+2022/04/20 15:47:13 server 0 - 3 sendappendentries failed to 3
+2022/04/20 15:47:13 server 4 VoteCall failed to 1
+2022/04/20 15:47:13 0 start vote  1
+2022/04/20 15:47:13 0 get a vote term form 2
+2022/04/20 15:47:13 0 get a vote term form 4
+2022/04/20 15:47:13 0 get a vote term form 6
+2022/04/20 15:47:13 server 5 VoteCall failed to 3
+2022/04/20 15:47:13 server 1 - 3 sendappendentries failed to 3
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:13 5 state  3 start send heart
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:13 3 start vote  1
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 6
+2022/04/20 15:47:13 server 3 VoteCall failed to 6
+2022/04/20 15:47:13 server 5 VoteCall failed to 2
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 6
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:13 1 start vote  1
+2022/04/20 15:47:13 server 3 VoteCall failed to 1
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:13 server 1 VoteCall failed to 2
+2022/04/20 15:47:13 5 state  3 start send heart
+2022/04/20 15:47:13 server 3 VoteCall failed to 1
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:13 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:13 2 start vote  1
+2022/04/20 15:47:13 2 get a vote term form 0
+2022/04/20 15:47:13 2 get a vote term form 4
+2022/04/20 15:47:13 2 get a vote term form 6
+2022/04/20 15:47:13 server 3 VoteCall failed to 2
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:13 server 0 VoteCall failed to 1
+2022/04/20 15:47:13 server 4 VoteCall failed to 5
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 4 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 6 VoteCall failed to 4
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:13 5 state  3 start send heart
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:13 server 4 VoteCall failed to 6
+2022/04/20 15:47:13 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:13 server 3 VoteCall failed to 0
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 3 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:13 server 2 VoteCall failed to 6
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 2 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 0 - 3 sendappendentries failed to 4
+2022/04/20 15:47:13 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:13 server 4 VoteCall failed to 1
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 4 server  should vote again-- 1 false
+2022/04/20 15:47:13 server 3 VoteCall failed to 2
+2022/04/20 15:47:13 0 start vote  1
+2022/04/20 15:47:13 0 get a vote term form 6
+2022/04/20 15:47:13 0 get a vote term form 4
+2022/04/20 15:47:13 0 get a vote term form 2
+2022/04/20 15:47:13 server 0 VoteCall failed to 6
+2022/04/20 15:47:13 server 3 VoteCall failed to 4
+2022/04/20 15:47:13 server 1 VoteCall failed to 2
+2022/04/20 15:47:13 server 3 VoteCall failed to 4
+2022/04/20 15:47:13 5 state  3 start send heart
+2022/04/20 15:47:13 server 5 VoteCall failed to 4
+2022/04/20 15:47:13 ggggg
+2022/04/20 15:47:13 5 server  should vote again-- 4 false
+2022/04/20 15:47:13 3 start vote  1
+2022/04/20 15:47:14 server 2 VoteCall failed to 3
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 2 server  should vote again-- 1 false
+2022/04/20 15:47:14 server 1 VoteCall failed to 2
+2022/04/20 15:47:14 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:14 1 start vote  1
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:14 server 3 VoteCall failed to 5
+2022/04/20 15:47:14 server 1 VoteCall failed to 3
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 serve[1] become leaderr num:4 hashert:false
+2022/04/20 15:47:14 1 state  3 start send heart
+2022/04/20 15:47:14 4 start vote  1
+2022/04/20 15:47:14 5 start vote  1
+2022/04/20 15:47:14 4 get a vote term form 0
+2022/04/20 15:47:14 4 get a vote term form 6
+2022/04/20 15:47:14 4 get a vote term form 2
+2022/04/20 15:47:14 server 1 VoteCall failed to 3
+2022/04/20 15:47:14 server 1 VoteCall failed to 0
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 1 server  should vote again-- 4 false
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 6
+2022/04/20 15:47:14 server 2 VoteCall failed to 5
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 2 server  should vote again-- 1 false
+2022/04/20 15:47:14 server 0 VoteCall failed to 4
+2022/04/20 15:47:14 server 3 VoteCall failed to 6
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 3 server  should vote again-- 1 false
+2022/04/20 15:47:14 2 start vote  1
+2022/04/20 15:47:14 2 get a vote term form 0
+2022/04/20 15:47:14 2 get a vote term form 4
+2022/04/20 15:47:14 2 get a vote term form 6
+2022/04/20 15:47:14 server 3 VoteCall failed to 0
+2022/04/20 15:47:14 server 1 VoteCall failed to 5
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 1 start vote  1
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:14 server 4 VoteCall failed to 0
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 4 server  should vote again-- 1 false
+2022/04/20 15:47:14 server 1 VoteCall failed to 0
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:14 server 1 VoteCall failed to 6
+2022/04/20 15:47:14 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:14 0 start vote  1
+2022/04/20 15:47:14 0 get a vote term form 2
+2022/04/20 15:47:14 0 get a vote term form 4
+2022/04/20 15:47:14 server 1 - 3 sendappendentries failed to 6
+2022/04/20 15:47:14 0 get a vote term form 6
+2022/04/20 15:47:14 server 3 VoteCall failed to 5
+2022/04/20 15:47:14 server 3 VoteCall failed to 6
+2022/04/20 15:47:14 server 3 VoteCall failed to 0
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 3 server  should vote again-- 1 false
+2022/04/20 15:47:14 4 start vote  1
+2022/04/20 15:47:14 4 get a vote term form 0
+2022/04/20 15:47:14 4 get a vote term form 2
+2022/04/20 15:47:14 4 get a vote term form 6
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:14 server 3 VoteCall failed to 1
+2022/04/20 15:47:14 3 start vote  1
+2022/04/20 15:47:14 server 5 VoteCall failed to 1
+2022/04/20 15:47:14 server 3 VoteCall failed to 1
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 3 server  should vote again-- 1 false
+2022/04/20 15:47:14 server 0 VoteCall failed to 5
+2022/04/20 15:47:14 server 6 VoteCall failed to 2
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 server 4 VoteCall failed to 2
+2022/04/20 15:47:14 5 start vote  1
+2022/04/20 15:47:14 server 4 VoteCall failed to 1
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:14 server 1 VoteCall failed to 0
+2022/04/20 15:47:14 server 1 - 3 sendappendentries failed to 3
+2022/04/20 15:47:14 server 0 VoteCall failed to 2
+2022/04/20 15:47:14 server 1 VoteCall failed to 6
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:14 server 1 VoteCall failed to 4
+2022/04/20 15:47:14 server 0 VoteCall failed to 6
+2022/04/20 15:47:14 2 start vote  1
+2022/04/20 15:47:14 2 get a vote term form 4
+2022/04/20 15:47:14 2 get a vote term form 6
+2022/04/20 15:47:14 2 get a vote term form 0
+2022/04/20 15:47:14 1 start vote  1
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:14 server 0 VoteCall failed to 6
+2022/04/20 15:47:14 server 5 VoteCall failed to 1
+2022/04/20 15:47:14 server 3 VoteCall failed to 6
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 3 server  should vote again-- 1 false
+2022/04/20 15:47:14 server 5 VoteCall failed to 3
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 serve[5] become leaderr num:4 hashert:false
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 5 state  3 start send heart
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:14 server 4 VoteCall failed to 3
+2022/04/20 15:47:14 server 1 VoteCall failed to 3
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:14 3 start vote  1
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:14 0 start vote  1
+2022/04/20 15:47:14 0 get a vote term form 2
+2022/04/20 15:47:14 0 get a vote term form 4
+2022/04/20 15:47:14 0 get a vote term form 6
+2022/04/20 15:47:14 4 start vote  1
+2022/04/20 15:47:14 server 0 - 3 sendappendentries failed to 3
+2022/04/20 15:47:14 4 get a vote term form 0
+2022/04/20 15:47:14 4 get a vote term form 2
+2022/04/20 15:47:14 4 get a vote term form 6
+2022/04/20 15:47:14 server 3 VoteCall failed to 0
+2022/04/20 15:47:14 server 1 VoteCall failed to 3
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 server 3 VoteCall failed to 0
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 3 server  should vote again-- 1 false
+2022/04/20 15:47:14 5 state  3 start send heart
+2022/04/20 15:47:14 server 5 VoteCall failed to 2
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 5 server  should vote again-- 4 false
+2022/04/20 15:47:14 server 1 - 3 sendappendentries failed to 5
+2022/04/20 15:47:14 server 3 VoteCall failed to 1
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 3 server  should vote again-- 1 false
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:14 server 0 VoteCall failed to 2
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 serve[0] become leaderr num:4 hashert:false
+2022/04/20 15:47:14 0 state  3 start send heart
+2022/04/20 15:47:14 server 2 VoteCall failed to 0
+2022/04/20 15:47:14 2 node become 0 foller
+2022/04/20 15:47:14 [2] server recv AppendEntries to 0
+2022/04/20 15:47:14 4 node become 0 foller
+2022/04/20 15:47:14 [4] server recv AppendEntries to 0
+2022/04/20 15:47:14 6 node become 0 foller
+2022/04/20 15:47:14 [6] server recv AppendEntries to 0
+2022/04/20 15:47:14 server 3 VoteCall failed to 0
+2022/04/20 15:47:14 server 1 VoteCall failed to 5
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 1 server  should vote again-- 1 false
+2022/04/20 15:47:14 server 3 VoteCall failed to 4
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 3 server  should vote again-- 1 false
+2022/04/20 15:47:14 server 1 VoteCall failed to 5
+2022/04/20 15:47:14 server 6 VoteCall failed to 3
+2022/04/20 15:47:14 server 2 VoteCall failed to 6
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:14 5 start vote  1
+2022/04/20 15:47:14 server 1 VoteCall failed to 3
+2022/04/20 15:47:14 server 4 VoteCall failed to 1
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 4 server  should vote again-- 1 false
+2022/04/20 15:47:14 0 state  3 start send heart
+2022/04/20 15:47:14 2 node become 0 foller
+2022/04/20 15:47:14 6 node become 0 foller
+2022/04/20 15:47:14 [6] server recv AppendEntries to 0
+2022/04/20 15:47:14 [2] server recv AppendEntries to 0
+2022/04/20 15:47:14 4 node become 0 foller
+2022/04/20 15:47:14 [4] server recv AppendEntries to 0
+2022/04/20 15:47:14 server 3 VoteCall failed to 4
+2022/04/20 15:47:14 server 1 VoteCall failed to 5
+2022/04/20 15:47:14 3 start vote  1
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:14 1 start vote  1
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:14 server 2 VoteCall failed to 4
+2022/04/20 15:47:14 server 3 VoteCall failed to 6
+2022/04/20 15:47:14 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:14 server 2 VoteCall failed to 3
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 2 server  should vote again-- 1 false
+2022/04/20 15:47:14 0 state  3 start send heart
+2022/04/20 15:47:14 2 node become 0 foller
+2022/04/20 15:47:14 [2] server recv AppendEntries to 0
+2022/04/20 15:47:14 6 node become 0 foller
+2022/04/20 15:47:14 [6] server recv AppendEntries to 0
+2022/04/20 15:47:14 4 node become 0 foller
+2022/04/20 15:47:14 [4] server recv AppendEntries to 0
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 server 4 VoteCall failed to 2
+2022/04/20 15:47:14 server 2 VoteCall failed to 1
+2022/04/20 15:47:14 server 1 VoteCall failed to 3
+2022/04/20 15:47:14 ggggg
+2022/04/20 15:47:14 serve[1] become leaderr num:4 hashert:false
+2022/04/20 15:47:14 1 state  3 start send heart
+2022/04/20 15:47:14 server 3 VoteCall failed to 2
+2022/04/20 15:47:14 server 0 - 3 sendappendentries failed to 6
+2022/04/20 15:47:14 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:14 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:14 server 0 VoteCall failed to 5
+2022/04/20 15:47:15 leader-----0
+2022/04/20 15:47:15 server 4 VoteCall failed to 0
+2022/04/20 15:47:15 ggggg
+2022/04/20 15:47:15 4 server  should vote again-- 1 false
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 server 1 VoteCall failed to 3
+2022/04/20 15:47:15 server 1 VoteCall failed to 4
+2022/04/20 15:47:15 ggggg
+2022/04/20 15:47:15 1 server  should vote again-- 6 false
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 server 5 VoteCall failed to 2
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 0 state  3 start send heart
+2022/04/20 15:47:15 1 start vote  1
+2022/04/20 15:47:15 server 3 VoteCall failed to 1
+2022/04/20 15:47:15 1 get a vote term form 5
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:15 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:15 5 start vote  1
+2022/04/20 15:47:15 5 get a vote term form 1
+2022/04/20 15:47:15 server 1 - 3 sendappendentries failed to 2
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:15 server 0 VoteCall failed to 3
+2022/04/20 15:47:15 ggggg
+2022/04/20 15:47:15 0 server  should vote again-- 4 false
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 6
+2022/04/20 15:47:15 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:15 server 3 VoteCall failed to 1
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 0
+2022/04/20 15:47:15 0 start vote  1
+2022/04/20 15:47:15 server 5 VoteCall failed to 1
+2022/04/20 15:47:15 server 1 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 4 start vote  1
+2022/04/20 15:47:15 6 became Candidate
+2022/04/20 15:47:15 6 start vote  1
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:15 server 1 - 3 sendappendentries failed to 0
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 2 became Candidate
+2022/04/20 15:47:15 2 start vote  1
+2022/04/20 15:47:15 2 get a vote term form 3
+2022/04/20 15:47:15 2 get a vote term form 1
+2022/04/20 15:47:15 2 get a vote term form 5
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 6
+2022/04/20 15:47:15 3 start vote  1
+2022/04/20 15:47:15 3 get a vote term form 1
+2022/04/20 15:47:15 3 get a vote term form 2
+2022/04/20 15:47:15 3 get a vote term form 5
+2022/04/20 15:47:15 server 4 VoteCall failed to 3
+2022/04/20 15:47:15 ggggg
+2022/04/20 15:47:15 4 server  should vote again-- 1 false
+2022/04/20 15:47:15 server 1 VoteCall failed to 5
+2022/04/20 15:47:15 server 1 VoteCall failed to 5
+2022/04/20 15:47:15 ggggg
+2022/04/20 15:47:15 1 server  should vote again-- 1 false
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 6
+2022/04/20 15:47:15 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 server 6 VoteCall failed to 5
+2022/04/20 15:47:15 server 0 VoteCall failed to 3
+2022/04/20 15:47:15 ggggg
+2022/04/20 15:47:15 serve[0] become leaderr num:4 hashert:false
+2022/04/20 15:47:15 0 state  3 start send heart
+2022/04/20 15:47:15 server 3 VoteCall failed to 6
+2022/04/20 15:47:15 server 3 VoteCall failed to 5
+2022/04/20 15:47:15 5 start vote  1
+2022/04/20 15:47:15 5 get a vote term form 1
+2022/04/20 15:47:15 5 get a vote term form 2
+2022/04/20 15:47:15 5 get a vote term form 3
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 server 3 VoteCall failed to 5
+2022/04/20 15:47:15 server 3 VoteCall failed to 2
+2022/04/20 15:47:15 server 0 VoteCall failed to 5
+2022/04/20 15:47:15 0 state  3 start send heart
+2022/04/20 15:47:15 server 1 - 3 sendappendentries failed to 4
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:15 server 1 - 3 sendappendentries failed to 5
+2022/04/20 15:47:15 server 5 VoteCall failed to 2
+2022/04/20 15:47:15 server 5 VoteCall failed to 0
+2022/04/20 15:47:15 1 start vote  1
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 1 get a vote term form 5
+2022/04/20 15:47:15 1 get a vote term form 2
+2022/04/20 15:47:15 1 get a vote term form 3
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:15 4 start vote  1
+2022/04/20 15:47:15 server 0 VoteCall failed to 5
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:15 0 state  3 start send heart
+2022/04/20 15:47:15 server 4 VoteCall failed to 0
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:15 server 2 VoteCall failed to 0
+2022/04/20 15:47:15 server 1 VoteCall failed to 5
+2022/04/20 15:47:15 server 2 VoteCall failed to 0
+2022/04/20 15:47:15 ggggg
+2022/04/20 15:47:15 2 server  should vote again-- 1 false
+2022/04/20 15:47:15 6 start vote  1
+2022/04/20 15:47:15 server 6 VoteCall failed to 1
+2022/04/20 15:47:15 server 6 VoteCall failed to 4
+2022/04/20 15:47:15 server 1 VoteCall failed to 6
+2022/04/20 15:47:15 3 start vote  1
+2022/04/20 15:47:15 3 get a vote term form 1
+2022/04/20 15:47:15 3 get a vote term form 2
+2022/04/20 15:47:15 3 get a vote term form 5
+2022/04/20 15:47:15 server 3 VoteCall failed to 5
+2022/04/20 15:47:15 server 5 VoteCall failed to 4
+2022/04/20 15:47:15 2 start vote  1
+2022/04/20 15:47:15 2 get a vote term form 3
+2022/04/20 15:47:15 2 get a vote term form 1
+2022/04/20 15:47:15 2 get a vote term form 5
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:15 server 3 VoteCall failed to 2
+2022/04/20 15:47:15 server 3 VoteCall failed to 6
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:15 0 state  3 start send heart
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:15 server 6 VoteCall failed to 4
+2022/04/20 15:47:15 5 start vote  1
+2022/04/20 15:47:15 5 get a vote term form 1
+2022/04/20 15:47:15 5 get a vote term form 2
+2022/04/20 15:47:15 5 get a vote term form 3
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:15 server 4 VoteCall failed to 5
+2022/04/20 15:47:15 server 3 VoteCall failed to 1
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:15 server 0 - 3 sendappendentries failed to 4
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:15 0 state  3 start send heart
+2022/04/20 15:47:15 server 0 VoteCall failed to 5
+2022/04/20 15:47:15 server 1 VoteCall failed to 2
+2022/04/20 15:47:15 server 1 VoteCall failed to 4
+2022/04/20 15:47:15 server 1 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:15 server 1 VoteCall failed to 2
+2022/04/20 15:47:15 server 6 VoteCall failed to 2
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:15 server 0 VoteCall failed to 1
+2022/04/20 15:47:15 6 start vote  1
+2022/04/20 15:47:15 4 start vote  1
+2022/04/20 15:47:15 2 start vote  1
+2022/04/20 15:47:15 2 get a vote term form 1
+2022/04/20 15:47:15 2 get a vote term form 3
+2022/04/20 15:47:15 2 get a vote term form 5
+2022/04/20 15:47:15 1 start vote  1
+2022/04/20 15:47:15 1 get a vote term form 2
+2022/04/20 15:47:15 1 get a vote term form 3
+2022/04/20 15:47:15 1 get a vote term form 5
+2022/04/20 15:47:15 3 start vote  1
+2022/04/20 15:47:15 server 6 VoteCall failed to 0
+2022/04/20 15:47:15 3 get a vote term form 2
+2022/04/20 15:47:15 3 get a vote term form 1
+2022/04/20 15:47:15 3 get a vote term form 5
+2022/04/20 15:47:15 0 state  3 start send heart
+2022/04/20 15:47:15 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:15 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:15 server 0 VoteCall failed to 3
+2022/04/20 15:47:15 server 3 VoteCall failed to 6
+2022/04/20 15:47:15 ggggg
+2022/04/20 15:47:15 3 server  should vote again-- 1 false
+2022/04/20 15:47:15 server 4 VoteCall failed to 0
+2022/04/20 15:47:15 server 1 VoteCall failed to 0
+2022/04/20 15:47:15 server 2 VoteCall failed to 1
+2022/04/20 15:47:15 server 5 VoteCall failed to 2
+2022/04/20 15:47:15 5 start vote  1
+2022/04/20 15:47:15 5 get a vote term form 2
+2022/04/20 15:47:15 5 get a vote term form 3
+2022/04/20 15:47:15 5 get a vote term form 1
+2022/04/20 15:47:15 server 1 VoteCall failed to 2
+2022/04/20 15:47:15 server 0 - 3 sendappendentries failed to 3
+2022/04/20 15:47:15 server 3 VoteCall failed to 6
+2022/04/20 15:47:15 server 5 VoteCall failed to 6
+2022/04/20 15:47:15 server 2 VoteCall failed to 4
+2022/04/20 15:47:15 0 state  3 start send heart
+2022/04/20 15:47:15 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:15 server 6 VoteCall failed to 0
+2022/04/20 15:47:15 server 1 - 3 sendappendentries failed to 5
+2022/04/20 15:47:15 server 4 VoteCall failed to 3
+2022/04/20 15:47:15 server 5 VoteCall failed to 6
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 4
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:16 0 state  3 start send heart
+2022/04/20 15:47:16 server 3 VoteCall failed to 0
+2022/04/20 15:47:16 2 start vote  1
+2022/04/20 15:47:16 server 1 VoteCall failed to 0
+2022/04/20 15:47:16 2 get a vote term form 1
+2022/04/20 15:47:16 2 get a vote term form 3
+2022/04/20 15:47:16 2 get a vote term form 5
+2022/04/20 15:47:16 server 6 VoteCall failed to 1
+2022/04/20 15:47:16 server 5 VoteCall failed to 4
+2022/04/20 15:47:16 ggggg
+2022/04/20 15:47:16 6 server  should vote again-- 1 false
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:16 server 2 VoteCall failed to 5
+2022/04/20 15:47:16 1 start vote  1
+2022/04/20 15:47:16 1 get a vote term form 2
+2022/04/20 15:47:16 1 get a vote term form 3
+2022/04/20 15:47:16 1 get a vote term form 5
+2022/04/20 15:47:16 4 start vote  1
+2022/04/20 15:47:16 3 start vote  1
+2022/04/20 15:47:16 3 get a vote term form 1
+2022/04/20 15:47:16 3 get a vote term form 2
+2022/04/20 15:47:16 3 get a vote term form 5
+2022/04/20 15:47:16 6 start vote  1
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:16 server 1 VoteCall failed to 3
+2022/04/20 15:47:16 server 5 VoteCall failed to 4
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 4
+2022/04/20 15:47:16 server 4 VoteCall failed to 2
+2022/04/20 15:47:16 server 5 VoteCall failed to 1
+2022/04/20 15:47:16 0 state  3 start send heart
+2022/04/20 15:47:16 server 6 VoteCall failed to 3
+2022/04/20 15:47:16 server 1 - 3 sendappendentries failed to 5
+2022/04/20 15:47:16 server 2 VoteCall failed to 6
+2022/04/20 15:47:16 ggggg
+2022/04/20 15:47:16 2 server  should vote again-- 1 false
+2022/04/20 15:47:16 server 1 VoteCall failed to 6
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 5 start vote  1
+2022/04/20 15:47:16 5 get a vote term form 1
+2022/04/20 15:47:16 5 get a vote term form 2
+2022/04/20 15:47:16 5 get a vote term form 3
+2022/04/20 15:47:16 server 1 VoteCall failed to 6
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:16 server 3 VoteCall failed to 5
+2022/04/20 15:47:16 ggggg
+2022/04/20 15:47:16 serve[3] become leaderr num:4 hashert:false
+2022/04/20 15:47:16 3 state  3 start send heart
+2022/04/20 15:47:16 1 node become 3 foller
+2022/04/20 15:47:16 [1] server recv AppendEntries to 3
+2022/04/20 15:47:16 2 node become 3 foller
+2022/04/20 15:47:16 [2] server recv AppendEntries to 3
+2022/04/20 15:47:16 5 node become 3 foller
+2022/04/20 15:47:16 [5] server recv AppendEntries to 3
+2022/04/20 15:47:16 server 3 VoteCall failed to 6
+2022/04/20 15:47:16 server 3 VoteCall failed to 0
+2022/04/20 15:47:16 0 state  3 start send heart
+2022/04/20 15:47:16 server 1 VoteCall failed to 0
+2022/04/20 15:47:16 server 2 VoteCall failed to 1
+2022/04/20 15:47:16 ggggg
+2022/04/20 15:47:16 2 server  should vote again-- 1 false
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:16 server 1 VoteCall failed to 4
+2022/04/20 15:47:16 server 4 VoteCall failed to 5
+2022/04/20 15:47:16 ggggg
+2022/04/20 15:47:16 serve[4] become leaderr num:4 hashert:false
+2022/04/20 15:47:16 4 state  3 start send heart
+2022/04/20 15:47:16 server 3 VoteCall failed to 6
+2022/04/20 15:47:16 3 state  3 start send heart
+2022/04/20 15:47:16 server 3 VoteCall failed to 0
+2022/04/20 15:47:16 1 node become 3 foller
+2022/04/20 15:47:16 [1] server recv AppendEntries to 3
+2022/04/20 15:47:16 2 node become 3 foller
+2022/04/20 15:47:16 [2] server recv AppendEntries to 3
+2022/04/20 15:47:16 5 node become 3 foller
+2022/04/20 15:47:16 [5] server recv AppendEntries to 3
+2022/04/20 15:47:16 server 0 VoteCall failed to 1
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 5
+2022/04/20 15:47:16 6 start vote  1
+2022/04/20 15:47:16 0 state  3 start send heart
+2022/04/20 15:47:16 server 3 VoteCall failed to 1
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:16 server 3 VoteCall failed to 4
+2022/04/20 15:47:16 server 3 VoteCall failed to 6
+2022/04/20 15:47:16 4 state  3 start send heart
+2022/04/20 15:47:16 server 3 VoteCall failed to 0
+2022/04/20 15:47:16 server 3 - 3 sendappendentries failed to 4
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 4
+2022/04/20 15:47:16 3 state  3 start send heart
+2022/04/20 15:47:16 2 node become 3 foller
+2022/04/20 15:47:16 [2] server recv AppendEntries to 3
+2022/04/20 15:47:16 1 node become 3 foller
+2022/04/20 15:47:16 5 node become 3 foller
+2022/04/20 15:47:16 [5] server recv AppendEntries to 3
+2022/04/20 15:47:16 [1] server recv AppendEntries to 3
+2022/04/20 15:47:16 leader-----3
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 0 state  3 start send heart
+2022/04/20 15:47:16 [3] server recv AppendEntries to 0
+2022/04/20 15:47:16 [2] server recv AppendEntries to 0
+2022/04/20 15:47:16 [4] server recv AppendEntries to 0
+2022/04/20 15:47:16 [1] server recv AppendEntries to 0
+2022/04/20 15:47:16 [6] server recv AppendEntries to 0
+2022/04/20 15:47:16 [5] server recv AppendEntries to 0
+2022/04/20 15:47:16 server 5 VoteCall failed to 0
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:16 server 3 VoteCall failed to 5
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 6
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:16 server 6 VoteCall failed to 3
+2022/04/20 15:47:16 server 4 VoteCall failed to 5
+2022/04/20 15:47:16 4 state  3 start send heart
+2022/04/20 15:47:16 0 node become 4 foller
+2022/04/20 15:47:16 [0] server recv AppendEntries to 4
+2022/04/20 15:47:16 [1] server recv AppendEntries to 4
+2022/04/20 15:47:16 [2] server recv AppendEntries to 4
+2022/04/20 15:47:16 0 become foller 
+2022/04/20 15:47:16 [5] server recv AppendEntries to 4
+2022/04/20 15:47:16 [6] server recv AppendEntries to 4
+2022/04/20 15:47:16 [3] server recv AppendEntries to 4
+2022/04/20 15:47:16 3 state  3 start send heart
+2022/04/20 15:47:16 1 node become 3 foller
+2022/04/20 15:47:16 [1] server recv AppendEntries to 3
+2022/04/20 15:47:16 2 node become 3 foller
+2022/04/20 15:47:16 0 node become 3 foller
+2022/04/20 15:47:16 [0] server recv AppendEntries to 3
+2022/04/20 15:47:16 6 node become 3 foller
+2022/04/20 15:47:16 [6] server recv AppendEntries to 3
+2022/04/20 15:47:16 4 node become 3 foller
+2022/04/20 15:47:16 [4] server recv AppendEntries to 3
+2022/04/20 15:47:16 5 node become 3 foller
+2022/04/20 15:47:16 [2] server recv AppendEntries to 3
+2022/04/20 15:47:16 [5] server recv AppendEntries to 3
+2022/04/20 15:47:16 4 become foller 
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:16 server 5 VoteCall failed to 6
+2022/04/20 15:47:16 server 1 VoteCall failed to 5
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 4 VoteCall failed to 0
+2022/04/20 15:47:16 server 1 VoteCall failed to 4
+2022/04/20 15:47:16 server 3 VoteCall failed to 4
+2022/04/20 15:47:16 ggggg
+2022/04/20 15:47:16 3 server  should vote again-- 1 false
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 1 VoteCall failed to 4
+2022/04/20 15:47:16 3 start vote  1
+2022/04/20 15:47:16 3 get a vote term form 0
+2022/04/20 15:47:16 3 get a vote term form 1
+2022/04/20 15:47:16 3 get a vote term form 2
+2022/04/20 15:47:16 3 get a vote term form 5
+2022/04/20 15:47:16 3 get a vote term form 4
+2022/04/20 15:47:16 3 get a vote term form 6
+2022/04/20 15:47:16 ggggg
+2022/04/20 15:47:16 serve[3] become leaderr num:7 hashert:false
+2022/04/20 15:47:16 3 state  3 start send heart
+2022/04/20 15:47:16 0 node become 3 foller
+2022/04/20 15:47:16 [0] server recv AppendEntries to 3
+2022/04/20 15:47:16 1 node become 3 foller
+2022/04/20 15:47:16 [1] server recv AppendEntries to 3
+2022/04/20 15:47:16 5 node become 3 foller
+2022/04/20 15:47:16 [5] server recv AppendEntries to 3
+2022/04/20 15:47:16 2 node become 3 foller
+2022/04/20 15:47:16 [2] server recv AppendEntries to 3
+2022/04/20 15:47:16 4 node become 3 foller
+2022/04/20 15:47:16 [4] server recv AppendEntries to 3
+2022/04/20 15:47:16 6 node become 3 foller
+2022/04/20 15:47:16 [6] server recv AppendEntries to 3
+2022/04/20 15:47:16 server 4 VoteCall failed to 6
+2022/04/20 15:47:16 server 0 VoteCall failed to 5
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 5
+2022/04/20 15:47:16 server 1 VoteCall failed to 3
+2022/04/20 15:47:16 ggggg
+2022/04/20 15:47:16 1 server  should vote again-- 1 false
+2022/04/20 15:47:16 server 3 VoteCall failed to 2
+2022/04/20 15:47:16 server 3 - 3 sendappendentries failed to 6
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 3
+2022/04/20 15:47:16 server 3 VoteCall failed to 6
+2022/04/20 15:47:16 server 1 VoteCall failed to 6
+2022/04/20 15:47:16 server 0 VoteCall failed to 1
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 2
+2022/04/20 15:47:16 server 3 VoteCall failed to 1
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 4 VoteCall failed to 3
+2022/04/20 15:47:16 3 state  3 start send heart
+2022/04/20 15:47:16 2 node become 3 foller
+2022/04/20 15:47:16 [2] server recv AppendEntries to 3
+2022/04/20 15:47:16 1 node become 3 foller
+2022/04/20 15:47:16 [1] server recv AppendEntries to 3
+2022/04/20 15:47:16 5 node become 3 foller
+2022/04/20 15:47:16 [5] server recv AppendEntries to 3
+2022/04/20 15:47:16 6 node become 3 foller
+2022/04/20 15:47:16 [6] server recv AppendEntries to 3
+2022/04/20 15:47:16 4 node become 3 foller
+2022/04/20 15:47:16 0 node become 3 foller
+2022/04/20 15:47:16 [0] server recv AppendEntries to 3
+2022/04/20 15:47:16 [4] server recv AppendEntries to 3
+2022/04/20 15:47:16 server 3 VoteCall failed to 4
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 6
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 2
+2022/04/20 15:47:16 server 4 VoteCall failed to 6
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 6
+2022/04/20 15:47:16 server 3 VoteCall failed to 4
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 3
+2022/04/20 15:47:16 server 1 VoteCall failed to 4
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 2 VoteCall failed to 6
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 6 VoteCall failed to 4
+2022/04/20 15:47:16 server 2 VoteCall failed to 5
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 2
+2022/04/20 15:47:16 server 1 VoteCall failed to 3
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 0
+2022/04/20 15:47:16 3 state  3 start send heart
+2022/04/20 15:47:16 0 node become 3 foller
+2022/04/20 15:47:16 [0] server recv AppendEntries to 3
+2022/04/20 15:47:16 2 node become 3 foller
+2022/04/20 15:47:16 [2] server recv AppendEntries to 3
+2022/04/20 15:47:16 4 node become 3 foller
+2022/04/20 15:47:16 [4] server recv AppendEntries to 3
+2022/04/20 15:47:16 5 node become 3 foller
+2022/04/20 15:47:16 [5] server recv AppendEntries to 3
+2022/04/20 15:47:16 1 node become 3 foller
+2022/04/20 15:47:16 6 node become 3 foller
+2022/04/20 15:47:16 [6] server recv AppendEntries to 3
+2022/04/20 15:47:16 [1] server recv AppendEntries to 3
+2022/04/20 15:47:16 server 1 - 3 sendappendentries failed to 3
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 5 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 1 VoteCall failed to 6
+2022/04/20 15:47:16 ggggg
+2022/04/20 15:47:16 1 server  should vote again-- 1 false
+2022/04/20 15:47:16 server 0 - 3 sendappendentries failed to 1
+2022/04/20 15:47:16 server 4 - 3 sendappendentries failed to 1
+2022/04/20 15:47:17 server 1 - 3 sendappendentries failed to 4
+2022/04/20 15:47:17 leader-----3
+--- FAIL: TestManyElections2A (15.91s)
+    testing.go:1312: race detected during execution of test
+FAIL
+exit status 1
+FAIL	6.824/raft	26.546s
