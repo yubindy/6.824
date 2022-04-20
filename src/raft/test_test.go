@@ -99,11 +99,11 @@ func TestManyElections2A(t *testing.T) {
 	servers := 7
 	cfg := make_config(t, servers, false, false)
 	defer cfg.cleanup()
-
+	log.Println("2---1")
 	cfg.begin("Test (2A): multiple elections")
 
 	cfg.checkOneLeader()
-
+	log.Println("2---2")
 	iters := 10
 	for ii := 1; ii < iters; ii++ {
 		// disconnect three nodes
@@ -113,18 +113,18 @@ func TestManyElections2A(t *testing.T) {
 		cfg.disconnect(i1)
 		cfg.disconnect(i2)
 		cfg.disconnect(i3)
-
+		log.Printf("disconnect %d %d %d", i1, i2, i3)
 		// either the current leader should still be alive,
 		// or the remaining four should elect a new one.
 		cfg.checkOneLeader()
-
+		log.Println("2---3")
 		cfg.connect(i1)
 		cfg.connect(i2)
 		cfg.connect(i3)
 	}
 
 	cfg.checkOneLeader()
-
+	log.Println("2---end")
 	cfg.end()
 }
 

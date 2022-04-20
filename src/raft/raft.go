@@ -201,17 +201,17 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	if rf.currentTerm == args.Term && rf.votedFor == -1 {
 		reply.Votefor = true
 		rf.hasvote = true
-		//log.Printf("%v[N:%d-T:%d-VF:%d] server vote term to [N:%d-T:%d]", time.Now().UnixMicro(), rf.me, rf.currentTerm, rf.votedFor, args.Candidateid, args.Term)
+		//log.Printf("%%v v[N:%d-T:%d-VF:%d] server vote term to [N:%d-T:%d]",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, time.Now().UnixMicro(), rf.me, rf.currentTerm, rf.votedFor, args.Candidateid, args.Term)
 		rf.votedFor = args.Candidateid
 	} else if rf.currentTerm < args.Term {
 		reply.Votefor = true
 		rf.hasvote = true
-		//log.Printf("[N:%d-T:%d-VF:%d] server vote term to [N:%d-T:%d]", rf.me, rf.currentTerm, rf.votedFor, args.Candidateid, args.Term)
+		//log.Printf("[%v N:%d-T:%d-VF:%d] server vote term to [N:%d-T:%d]",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, rf.me, rf.currentTerm, rf.votedFor, args.Candidateid, args.Term)
 		rf.votedFor = args.Candidateid
 		rf.currentTerm = args.Term
 	} else {
 		reply.Votefor = false
-		//log.Printf("[%d] server not vote term to %d", rf.me, args.Candidateid)
+		//log.Printf("[%v %d] server not vote term to %d",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, rf.me, args.Candidateid)
 	}
 }
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) { //实现心跳和交换日志
@@ -220,9 +220,9 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		rf.hasheat = true
 		reply.Term = rf.currentTerm
 		rf.state = Foller
-		log.Printf("%d node become %d foller", rf.me, args.Leaderid)
+		log.Printf("%v %d node become %d foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, args.Leaderid)
 	}
-	log.Printf("[%d] server recv AppendEntries to %d", rf.me, args.Leaderid)
+	log.Printf("%v [%d] server recv AppendEntries to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, args.Leaderid)
 	rf.mu.Unlock()
 }
 
@@ -317,7 +317,7 @@ func (rf *Raft) startvote() {
 	var num int64
 	num = 1
 	n := len(rf.peers)
-	log.Printf("%d start vote  %d has all %d", rf.me, num, n)
+	log.Printf("%v %d start vote  %d has all %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, n)
 	wg := sync.WaitGroup{}
 	rf.mu.Unlock()
 	wg.Add(n - 1)
@@ -325,8 +325,7 @@ func (rf *Raft) startvote() {
 		if node != me {
 			go func(node int) {
 				defer wg.Done()
-				defer log.Printf(" %d go thread--%d exit", me, node)
-				log.Printf("%d has vote  %d int 329", me, atomic.LoadInt64(&num))
+				defer log.Printf("%v  %d go thread--%d exit", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 				args := RequestVoteArgs{
 					Term:         currentTerm,
 					Candidateid:  me,
@@ -334,41 +333,41 @@ func (rf *Raft) startvote() {
 					Lastlogterm:  0,
 				}
 				reply := RequestVoteReply{}
-				log.Printf("%d has vote  %d int %d 337", me, atomic.LoadInt64(&num), node)
+				//log.Printf(" %v%d has vote  %d int %d 337",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, me, atomic.LoadInt64(&num), node)
 				ok := rf.sendRequestVote(node, &args, &reply)
-				log.Printf("%d has vote  %d int %d 339", me, atomic.LoadInt64(&num), node)
-				if !ok {
-					log.Printf("server %d VoteCall failed to %d", me, node)
-					log.Printf("%d has vote  %d int node %d", me, atomic.LoadInt64(&num), node)
-					return
-				}
 				rf.mu.Lock()
 				defer rf.mu.Unlock()
+				//log.Printf(" %v%d has vote  %d int %d 339",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, me, atomic.LoadInt64(&num), node)
+				if !ok {
+					log.Printf("%v server %d VoteCall failed to %d had term %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node, num)
+					return
+				}
 				if reply.Term > args.Term {
 					return
 				}
-				log.Printf("%d in node %d has vote  %d", me, node, atomic.LoadInt64(&num))
+				log.Printf("%v %d in node %d has vote  %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node, atomic.LoadInt64(&num))
 				if reply.Votefor {
-					log.Printf("%d get a vote term form %d", me, node)
-					atomic.AddInt64(&num, 1)
+					log.Printf("%v %d get a vote term form %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
+					num += 1
+					//atomic.AddInt64(&num, 1)
 				} else {
-					log.Printf("%d not get vote from %d", me, node)
+					log.Printf("%v %d not get vote from %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 				}
+				log.Printf("%v%d finally has  vote %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num)
 			}(node)
-			//log.Printf("Vote:%d,num:%d,votefor:%v", me, num, reply.Votefor)
+			//log.Printf("V%v ote:%d,num:%d,votefor:%v",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, me, num, reply.Votefor)
 		}
 	}
 	wg.Wait()
-	log.Printf("ggggg")
+	log.Printf("%v ggggg", time.Now().UnixNano()/1e6-time.Now().Unix()*1000)
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
-	s := atomic.LoadInt64(&num)
-	if int(s) > n/2 && !rf.hasheat && rf.state == Candidate {
-		log.Printf("serve[%d] become leaderr num:%d hashert:%v", rf.me, s, rf.hasheat)
+	if int(num) > n/2 && !rf.hasheat && rf.state == Candidate {
+		log.Printf("%v serve[%d] become leaderr num:%d hashert:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.hasheat)
 		rf.state = Leader
 	} else {
 		rf.state = Candidate
-		log.Printf("%d server  should vote again-- %d %v", rf.me, s, rf.hasheat)
+		log.Printf("%v %d server  should vote again-- %d %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.hasheat)
 	}
 }
 func (rf *Raft) sendhert() {
@@ -376,7 +375,7 @@ func (rf *Raft) sendhert() {
 	currentTerm := rf.currentTerm
 	me := rf.me
 	sta := rf.state
-	log.Printf("%d state  %d start send heart", rf.me, rf.state)
+	DEBUG(dLeader, "S%v dtime:%v send heart", rf.me, time.Now().UnixNano()/1e6-time.Now().Unix()*1000)
 	rf.mu.Unlock()
 	wg := sync.WaitGroup{}
 	wg.Add(len(rf.peers) - 1)
@@ -395,14 +394,14 @@ func (rf *Raft) sendhert() {
 				reply := AppendEntriesReply{}
 				ok := rf.sendAppendEntries(node, &args, &reply)
 				if !ok {
-					log.Printf("server %d - %d sendappendentries failed to %d", me, sta, node)
+					DEBUG(dLeader, "S%v now:%v sendhert failed to %d", me, time.Now().UnixNano()/1e6-time.Now().Unix()*1000, node)
 					return
 				}
 				if reply.Term > args.Term {
 					rf.mu.Lock()
 					rf.currentTerm = reply.Term
 					rf.state = Foller
-					log.Printf("%d become foller", rf.mu)
+					log.Printf("%v %d become foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.mu)
 					rf.mu.Unlock()
 					return
 				}
@@ -420,20 +419,19 @@ func (rf *Raft) ticker() {
 		rf.mu.Lock()
 		state := rf.state
 		rf.mu.Unlock()
-		switch state {
-		case Foller:
+		if state == Foller {
 			rf.mu.Lock()
 			heat := rf.hasheat
 			vote := rf.hasvote
 			if heat == false && vote == false {
-				log.Printf("%d became Candidate", rf.me)
+				log.Printf("%v %d became Candidate", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
 				rf.state = Candidate
 				go rf.startvote()
 			}
 			rf.mu.Unlock()
-		case Candidate:
+		} else if state == Candidate {
 			go rf.startvote()
-		case Leader:
+		} else if state == Leader {
 			go rf.sendhert()
 		}
 		rf.mu.Lock()
@@ -448,7 +446,7 @@ func (rf *Raft) ticker() {
 				rf.mu.Lock()
 				if rf.state == Candidate && rf.hasheat {
 					rf.state = Foller
-					log.Printf("%d become foller ", rf.me)
+					log.Printf("%v %d become foller ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
 					rf.mu.Unlock()
 					break
 				} else if rf.state == Foller && (rf.hasheat == true || rf.hasvote == true) {
@@ -467,7 +465,7 @@ func (rf *Raft) ticker() {
 				rf.mu.Lock()
 				if rf.hasheat || rf.hasvote {
 					rf.state = Foller
-					log.Printf("%d become foller ", rf.me)
+					log.Printf("%v %d become foller ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
 					rf.mu.Unlock()
 					break
 				}
