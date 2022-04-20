@@ -317,14 +317,16 @@ func (rf *Raft) startvote() {
 	var num int64
 	num = 1
 	n := len(rf.peers)
+	log.Printf("%d start vote  %d has all %d", rf.me, num, n)
 	wg := sync.WaitGroup{}
-	log.Printf("%d start vote  %d", rf.me, num)
 	rf.mu.Unlock()
 	wg.Add(n - 1)
 	for node := range rf.peers {
-		if node != rf.me {
+		if node != me {
 			go func(node int) {
 				defer wg.Done()
+				defer log.Printf(" %d go thread--%d exit", me, node)
+				log.Printf("%d has vote  %d int 329", me, atomic.LoadInt64(&num))
 				args := RequestVoteArgs{
 					Term:         currentTerm,
 					Candidateid:  me,
@@ -332,9 +334,12 @@ func (rf *Raft) startvote() {
 					Lastlogterm:  0,
 				}
 				reply := RequestVoteReply{}
+				log.Printf("%d has vote  %d int %d 337", me, atomic.LoadInt64(&num), node)
 				ok := rf.sendRequestVote(node, &args, &reply)
+				log.Printf("%d has vote  %d int %d 339", me, atomic.LoadInt64(&num), node)
 				if !ok {
-					log.Printf("server %d VoteCall failed to %d", rf.me, node)
+					log.Printf("server %d VoteCall failed to %d", me, node)
+					log.Printf("%d has vote  %d int node %d", me, atomic.LoadInt64(&num), node)
 					return
 				}
 				rf.mu.Lock()
@@ -342,11 +347,12 @@ func (rf *Raft) startvote() {
 				if reply.Term > args.Term {
 					return
 				}
+				log.Printf("%d in node %d has vote  %d", me, node, atomic.LoadInt64(&num))
 				if reply.Votefor {
-					log.Printf("%d get a vote term form %d", rf.me, node)
+					log.Printf("%d get a vote term form %d", me, node)
 					atomic.AddInt64(&num, 1)
 				} else {
-					log.Printf("%d not get vote from %d", rf.mu, node)
+					log.Printf("%d not get vote from %d", me, node)
 				}
 			}(node)
 			//log.Printf("Vote:%d,num:%d,votefor:%v", me, num, reply.Votefor)
@@ -356,12 +362,13 @@ func (rf *Raft) startvote() {
 	log.Printf("ggggg")
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
-	if int(num) > n/2 && !rf.hasheat && rf.state == Candidate {
-		log.Printf("serve[%d] become leaderr num:%d hashert:%v", rf.me, num, rf.hasheat)
+	s := atomic.LoadInt64(&num)
+	if int(s) > n/2 && !rf.hasheat && rf.state == Candidate {
+		log.Printf("serve[%d] become leaderr num:%d hashert:%v", rf.me, s, rf.hasheat)
 		rf.state = Leader
 	} else {
 		rf.state = Candidate
-		log.Printf("%d server  should vote again-- %d %v", rf.me, num, rf.hasheat)
+		log.Printf("%d server  should vote again-- %d %v", rf.me, s, rf.hasheat)
 	}
 }
 func (rf *Raft) sendhert() {
