@@ -339,7 +339,7 @@ func (rf *Raft) startvote() {
 				defer rf.mu.Unlock()
 				//log.Printf(" %v%d has vote  %d int %d 339",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, me, atomic.LoadInt64(&num), node)
 				if !ok {
-					log.Printf("%v server %d term %d VoteCall failed to %d had vote %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node, num)
+					log.Printf("%v server %d term %d VoteCall failed to %d had vote %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node, atomic.LoadInt64(&num))
 					//log.Printf("%v %d finally has  vote %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num)
 					log.Printf("%v %d derver go exit--%d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 					return
@@ -350,6 +350,10 @@ func (rf *Raft) startvote() {
 				if reply.Votefor {
 					atomic.AddInt64(&num, 1)
 					log.Printf("%v %d term %d get vote form %d term %dhasall %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node, reply.Term, atomic.LoadInt64(&num))
+					if int(atomic.LoadInt64(&num)) > n/2 && !rf.hasheat && rf.state == Candidate {
+						log.Printf("%v serve %d become leaderr num:%d term:%d hashert:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.currentTerm, rf.hasheat)
+						rf.state = Leader
+					}
 					//atomic.AddInt64(&num, 1)
 				} else {
 					log.Printf("%v %d term %d not get vote from %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node)
@@ -360,14 +364,10 @@ func (rf *Raft) startvote() {
 		}
 	}
 	wg.Wait()
-	log.Printf("%v %d ggggg", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me)
+	log.Printf("%v %d term:%d ggggg", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, currentTerm)
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
-	if int(num) > n/2 && !rf.hasheat && rf.state == Candidate {
-		log.Printf("%v serve[%d] become leaderr num:%d term:%d hashert:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.currentTerm, rf.hasheat)
-		rf.state = Leader
-	} else {
-		rf.state = Candidate
+	if rf.state != Leader {
 		log.Printf("%v %d server term:%d should vote again-- %d %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, num, rf.hasheat)
 	}
 }
@@ -443,7 +443,7 @@ func (rf *Raft) ticker() {
 		rf.mu.Unlock()
 		rand.Seed(time.Now().UnixNano())
 		if state != Leader {
-			t = rand.Intn(150) + 200
+			t = rand.Intn(200) + 200
 			for i := 0; i < t; i++ {
 				rf.mu.Lock()
 				if rf.state == Candidate && (rf.hasheat == true || rf.hasvote == true) {
