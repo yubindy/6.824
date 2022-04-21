@@ -1,0 +1,3635 @@
+
+0o002264 INFO S0 now:595 became Candidate
+002266 VOTE S0 595 start vote 1 has 3
+002272 VOTE S0 now:595 get vote from 1 allvote 1
+002272 VOTE S0 595 go thrd--1 exit
+002272 VOTE S0 now:595 get vote from 2 allvote 2
+002272 VOTE S0 595 go thrd--2 exit
+002273 VOTE %!s(int64=595) %!v(MISSING) ggggg
+002273 VOTE S0 now:595 become leaderr num:3 hashert:false
+002286 LEAD S0 dtime:597 send heart
+002289 INFO S2 now:597 node become 0 foller
+002289 INFO %!S(int=2)v 597 recv hert to 0
+002290 INFO S1 now:597 node become 0 foller
+002291 INFO %!S(int=1)v 597 recv hert to 0
+003410 LEAD S0 dtime:709 send heart
+003414 INFO S2 now:709 node become 0 foller
+003414 INFO %!S(int=2)v 710 recv hert to 0
+003414 INFO S1 now:710 node become 0 foller
+003415 INFO %!S(int=1)v 710 recv hert to 0
+leader-----0
+004505 LEAD S0 dtime:819 send heart
+004507 INFO S2 now:819 node become 0 foller
+004507 INFO %!S(int=2)v 819 recv hert to 0
+004507 INFO S1 now:819 node become 0 foller
+004507 INFO %!S(int=1)v 819 recv hert to 0
+005595 LEAD S0 dtime:928 send heart
+005598 INFO S1 now:928 node become 0 foller
+005598 INFO %!S(int=1)v 928 recv hert to 0
+005598 INFO S2 now:928 node become 0 foller
+005598 INFO %!S(int=2)v 928 recv hert to 0
+006689 LEAD S0 dtime:37 send heart
+006691 INFO S2 now:37 node become 0 foller
+006691 INFO %!S(int=2)v 37 recv hert to 0
+006691 INFO S1 now:37 node become 0 foller
+006691 INFO %!S(int=1)v 37 recv hert to 0
+007791 LEAD S0 dtime:147 send heart
+007794 INFO S2 now:148 node become 0 foller
+007795 INFO %!S(int=2)v 148 recv hert to 0
+007795 INFO S1 now:148 node become 0 foller
+007796 INFO %!S(int=1)v 148 recv hert to 0
+008878 LEAD S0 dtime:256 send heart
+008882 INFO S2 now:256 node become 0 foller
+008882 INFO %!S(int=2)v 256 recv hert to 0
+008882 INFO S1 now:256 node become 0 foller
+008883 INFO %!S(int=1)v 256 recv hert to 0
+009982 LEAD S0 dtime:366 send heart
+009985 INFO S2 now:367 node become 0 foller
+009985 INFO %!S(int=2)v 367 recv hert to 0
+009986 INFO S1 now:367 node become 0 foller
+009986 INFO %!S(int=1)v 367 recv hert to 0
+011083 LEAD S0 dtime:476 send heart
+011085 INFO S2 now:477 node become 0 foller
+011085 INFO %!S(int=2)v 477 recv hert to 0
+011085 INFO S1 now:477 node become 0 foller
+011085 INFO %!S(int=1)v 477 recv hert to 0
+012159 LEAD S0 dtime:584 send heart
+012161 INFO S2 now:584 node become 0 foller
+012162 INFO %!S(int=2)v 584 recv hert to 0
+012162 INFO S1 now:584 node become 0 foller
+012162 INFO %!S(int=1)v 584 recv hert to 0
+013242 LEAD S0 dtime:692 send heart
+013244 INFO S1 now:693 node become 0 foller
+013244 INFO %!S(int=1)v 693 recv hert to 0
+013244 INFO S2 now:693 node become 0 foller
+013244 INFO %!S(int=2)v 693 recv hert to 0
+014318 LEAD S0 dtime:800 send heart
+014320 INFO S2 now:800 node become 0 foller
+014320 INFO %!S(int=2)v 800 recv hert to 0
+014320 INFO S1 now:800 node become 0 foller
+014320 INFO %!S(int=1)v 800 recv hert to 0
+015392 LEAD S0 dtime:907 send heart
+015394 INFO S1 now:908 node become 0 foller
+015394 INFO %!S(int=1)v 908 recv hert to 0
+015394 INFO S2 now:908 node become 0 foller
+015394 INFO %!S(int=2)v 908 recv hert to 0
+016465 LEAD S0 dtime:15 send heart
+016468 INFO S1 now:15 node become 0 foller
+016468 INFO %!S(int=1)v 15 recv hert to 0
+016468 INFO S2 now:15 node become 0 foller
+016468 INFO %!S(int=2)v 15 recv hert to 0
+017544 LEAD S0 dtime:123 send heart
+017545 INFO S1 now:123 node become 0 foller
+017545 INFO %!S(int=1)v 123 recv hert to 0
+017545 INFO S2 now:123 node become 0 foller
+017546 INFO %!S(int=2)v 123 recv hert to 0
+018634 LEAD S0 dtime:232 send heart
+018636 INFO S2 now:232 node become 0 foller
+018636 INFO %!S(int=2)v 232 recv hert to 0
+018637 INFO S1 now:232 node become 0 foller
+018637 INFO %!S(int=1)v 232 recv hert to 0
+019729 LEAD S0 dtime:341 send heart
+019733 INFO S1 now:341 node become 0 foller
+019733 INFO S2 now:341 node become 0 foller
+019733 INFO %!S(int=1)v 341 recv hert to 0
+019733 INFO %!S(int=2)v 341 recv hert to 0
+020831 LEAD S0 dtime:451 send heart
+020835 INFO S2 now:452 node become 0 foller
+020835 INFO S1 now:452 node become 0 foller
+020835 INFO %!S(int=1)v 452 recv hert to 0
+020835 INFO %!S(int=2)v 452 recv hert to 0
+021929 LEAD S0 dtime:561 send heart
+021933 INFO S1 now:561 node become 0 foller
+021933 INFO %!S(int=1)v 561 recv hert to 0
+021933 INFO S2 now:561 node become 0 foller
+021933 INFO %!S(int=2)v 561 recv hert to 0
+023031 LEAD S0 dtime:671 send heart
+023034 INFO S2 now:672 node become 0 foller
+023034 INFO S1 now:672 node become 0 foller
+023035 INFO %!S(int=1)v 672 recv hert to 0
+023035 INFO %!S(int=2)v 672 recv hert to 0
+024137 LEAD S0 dtime:782 send heart
+024141 INFO S2 now:782 node become 0 foller
+024141 INFO S1 now:782 node become 0 foller
+024141 INFO %!S(int=1)v 782 recv hert to 0
+024141 INFO %!S(int=2)v 782 recv hert to 0
+025237 LEAD S0 dtime:892 send heart
+025241 INFO S2 now:892 node become 0 foller
+025241 INFO %!S(int=2)v 892 recv hert to 0
+025241 INFO S1 now:892 node become 0 foller
+025241 INFO %!S(int=1)v 892 recv hert to 0
+026344 LEAD S0 dtime:2 send heart
+026346 INFO S2 now:3 node become 0 foller
+026346 INFO %!S(int=2)v 3 recv hert to 0
+026346 INFO S1 now:3 node become 0 foller
+026346 INFO %!S(int=1)v 3 recv hert to 0
+027437 LEAD S0 dtime:112 send heart
+027440 INFO S1 now:112 node become 0 foller
+027440 INFO %!S(int=1)v 112 recv hert to 0
+027440 INFO S2 now:112 node become 0 foller
+027440 INFO %!S(int=2)v 112 recv hert to 0
+028526 LEAD S0 dtime:221 send heart
+028530 INFO S2 now:221 node become 0 foller
+028530 INFO %!S(int=2)v 221 recv hert to 0
+028530 INFO S1 now:221 node become 0 foller
+028531 INFO %!S(int=1)v 221 recv hert to 0
+leader-----0
+  ... Passed --   3.0  3   52   10604    0
+Test (2A): election after network failure ...
+002201 INFO S0 now:540 became Candidate
+002202 VOTE S0 541 start vote 1 has 3
+002204 VOTE S0 now:541 get vote from 2 allvote 1
+002204 VOTE S0 541 go thrd--2 exit
+002205 VOTE S0 now:541 get vote from 1 allvote 2
+002205 VOTE S0 541 go thrd--1 exit
+002205 VOTE %!s(int64=541) %!v(MISSING) ggggg
+002206 VOTE S0 now:541 become leaderr num:3 hashert:false
+002212 LEAD S0 dtime:542 send heart
+002213 INFO S2 now:542 node become 0 foller
+002213 INFO %!S(int=2)v 542 recv hert to 0
+002215 INFO S1 now:542 node become 0 foller
+002215 INFO %!S(int=1)v 542 recv hert to 0
+003297 LEAD S0 dtime:650 send heart
+003300 INFO S2 now:650 node become 0 foller
+003300 INFO %!S(int=2)v 650 recv hert to 0
+003302 INFO S1 now:651 node become 0 foller
+003302 INFO %!S(int=1)v 651 recv hert to 0
+004383 LEAD S0 dtime:759 send heart
+004385 INFO S2 now:759 node become 0 foller
+004385 INFO %!S(int=2)v 759 recv hert to 0
+004387 INFO S1 now:759 node become 0 foller
+004387 INFO %!S(int=1)v 759 recv hert to 0
+leader-----0
+2---1
+005468 LEAD S0 dtime:867 send heart
+006559 LEAD S0 dtime:976 send heart
+006657 INFO S1 now:986 became Candidate
+006658 VOTE S1 986 start vote 1 has 3
+006660 VOTE S1 now:986 get vote from 2 allvote 1
+006660 VOTE S1 986 go thrd--2 exit
+007673 LEAD S0 dtime:88 send heart
+008788 LEAD S0 dtime:199 send heart
+009058 VOTE S1 226 start vote 1 has 3
+009062 VOTE S1 now:227 get vote from 2 allvote 1
+009062 VOTE S1 226 go thrd--2 exit
+009871 LEAD S0 dtime:307 send heart
+010971 LEAD S0 dtime:418 send heart
+011254 VOTE S1 446 start vote 1 has 3
+011256 VOTE S1 now:446 get vote from 2 allvote 1
+011256 VOTE S1 446 go thrd--2 exit
+012082 LEAD S0 dtime:529 send heart
+013160 LEAD S0 dtime:636 send heart
+013763 LEAD S0 now:697 sendhert failed to 2
+014236 LEAD S0 dtime:744 send heart
+014269 VOTE S1 747 start vote 1 has 3
+014271 VOTE S1 now:747 get vote from 2 allvote 1
+014271 VOTE S1 747 go thrd--2 exit
+015326 LEAD S0 dtime:853 send heart
+016082 LEAD S0 now:929 sendhert failed to 1
+016419 LEAD S0 dtime:962 send heart
+017210 LEAD S0 now:41 sendhert failed to 2
+017514 LEAD S0 dtime:72 send heart
+017536 VOTE S1 74 start vote 1 has 3
+017538 VOTE S1 now:74 get vote from 2 allvote 1
+017538 VOTE S1 74 go thrd--2 exit
+018616 LEAD S0 dtime:182 send heart
+019736 LEAD S0 dtime:294 send heart
+020298 VOTE S1 350 start vote 1 has 3
+020304 VOTE S1 now:351 get vote from 2 allvote 1
+020304 VOTE S1 350 go thrd--2 exit
+020853 LEAD S0 now:406 sendhert failed to 2
+020853 LEAD S0 dtime:406 send heart
+021441 VOTE %!s(int64=465) 1 server 0 VoteCall failed to 2 had term %!d(MISSING)
+021441 VOTE S1 986 go thrd--0 exit
+021442 VOTE %!s(int64=465) %!v(MISSING) ggggg
+021442 VOTE S1 now:465 become leaderr num:2 hashert:false
+021453 LEAD S1 dtime:466 send heart
+021454 INFO S2 now:466 node become 1 foller
+021454 INFO %!S(int=2)v 466 recv hert to 1
+021942 LEAD S0 dtime:515 send heart
+022543 LEAD S1 dtime:575 send heart
+022545 INFO S2 now:575 node become 1 foller
+022545 INFO %!S(int=2)v 575 recv hert to 1
+023034 LEAD S0 dtime:624 send heart
+023231 LEAD S0 now:643 sendhert failed to 2
+leader-----1
+2---2
+023644 LEAD S1 dtime:685 send heart
+023646 INFO S0 now:685 node become 1 foller
+023646 INFO %!S(int=0)v 685 recv hert to 1
+023646 INFO S2 now:685 node become 1 foller
+023646 INFO %!S(int=2)v 685 recv hert to 1
+023655 INFO S0 now:686 become foller 
+023722 LEAD S0 now:693 sendhert failed to 1
+024739 LEAD S1 dtime:794 send heart
+024741 INFO S0 now:794 node become 1 foller
+024741 INFO S2 now:794 node become 1 foller
+024741 INFO %!S(int=2)v 795 recv hert to 1
+024741 INFO %!S(int=0)v 794 recv hert to 1
+025830 LEAD S1 dtime:903 send heart
+025833 INFO S2 now:904 node become 1 foller
+025834 INFO %!S(int=2)v 904 recv hert to 1
+025834 INFO S0 now:904 node become 1 foller
+025834 INFO %!S(int=0)v 904 recv hert to 1
+026124 VOTE %!s(int64=933) 1 server 0 VoteCall failed to 2 had term %!d(MISSING)
+026125 VOTE S1 350 go thrd--0 exit
+026125 VOTE %!s(int64=933) %!v(MISSING) ggggg
+026125 VOTE S1 now:933 vote again-- 2
+026930 VOTE S1 13 start vote 1 has 3
+026935 VOTE S1 now:14 get vote from 0 allvote 1
+026935 VOTE S1 14 go thrd--0 exit
+026935 VOTE S1 now:14 get vote from 2 allvote 2
+026935 VOTE S1 14 go thrd--2 exit
+026935 VOTE %!s(int64=14) %!v(MISSING) ggggg
+026936 VOTE S1 now:14 become leaderr num:3 hashert:false
+026941 LEAD S1 dtime:14 send heart
+026944 INFO S2 now:15 node become 1 foller
+026944 INFO S0 now:15 node become 1 foller
+026944 INFO %!S(int=2)v 15 recv hert to 1
+026944 INFO %!S(int=0)v 15 recv hert to 1
+028041 LEAD S1 dtime:124 send heart
+028045 INFO S0 now:125 node become 1 foller
+028045 INFO %!S(int=0)v 125 recv hert to 1
+028045 INFO S2 now:125 node become 1 foller
+028045 INFO %!S(int=2)v 125 recv hert to 1
+leader-----1
+2---3
+test leader 1
+test foller 2
+029153 LEAD S1 dtime:236 send heart
+029398 LEAD S1 now:260 sendhert failed to 0
+030266 LEAD S1 dtime:347 send heart
+030430 INFO S2 now:363 became Candidate
+030431 VOTE S2 363 start vote 1 has 3
+031209 INFO S0 now:441 became Candidate
+031210 VOTE S0 441 start vote 1 has 3
+031374 LEAD S1 dtime:458 send heart
+032481 LEAD S1 dtime:568 send heart
+033239 VOTE S2 644 start vote 1 has 3
+033579 LEAD S1 dtime:678 send heart
+034053 VOTE S0 726 start vote 1 has 3
+034681 LEAD S1 dtime:789 send heart
+035783 LEAD S1 dtime:899 send heart
+036141 VOTE S2 934 start vote 1 has 3
+036291 VOTE S0 949 start vote 1 has 3
+036302 LEAD S0 now:951 sendhert failed to 1
+036862 LEAD S1 dtime:7 send heart
+037291 LEAD S0 now:49 sendhert failed to 1
+037870 VOTE %!s(int64=107) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+037870 VOTE S2 364 go thrd--0 exit
+037934 LEAD S1 dtime:114 send heart
+038879 VOTE S2 208 start vote 1 has 3
+039008 LEAD S1 dtime:221 send heart
+039257 VOTE S0 246 start vote 1 has 3
+039604 LEAD S0 now:281 sendhert failed to 2
+039669 VOTE %!s(int64=287) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+039669 VOTE S0 441 go thrd--1 exit
+040103 LEAD S1 dtime:331 send heart
+041201 LEAD S1 dtime:441 send heart
+041476 VOTE S2 468 start vote 1 has 3
+042294 LEAD S1 dtime:550 send heart
+042437 LEAD S0 now:564 sendhert failed to 1
+042578 VOTE S0 578 start vote 1 has 3
+042816 LEAD S0 now:602 sendhert failed to 2
+043397 LEAD S1 dtime:660 send heart
+043817 VOTE S2 702 start vote 1 has 3
+044491 LEAD S1 dtime:769 send heart
+045462 LEAD S0 now:867 sendhert failed to 1
+045483 VOTE S0 869 start vote 1 has 3
+045593 LEAD S1 dtime:880 send heart
+046699 LEAD S1 dtime:990 send heart
+046755 VOTE S2 996 start vote 1 has 3
+047006 LEAD S1 now:21 sendhert failed to 0
+047260 LEAD S1 now:46 sendhert failed to 2
+047654 LEAD S1 now:86 sendhert failed to 2
+047796 LEAD S1 dtime:100 send heart
+047844 LEAD S0 now:105 sendhert failed to 1
+048359 VOTE %!s(int64=156) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+048359 VOTE S0 578 go thrd--1 exit
+048499 VOTE %!s(int64=170) 1 server 0 VoteCall failed to 2 had term %!d(MISSING)
+048500 VOTE S1 226 go thrd--0 exit
+048500 VOTE %!s(int64=170) %!v(MISSING) ggggg
+048500 VOTE S1 now:170 vote again-- 2
+2---4
+048883 VOTE S1 209 start vote 1 has 3
+048970 VOTE %!s(int64=217) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+048970 VOTE S0 726 go thrd--1 exit
+049276 VOTE S0 248 start vote 1 has 3
+049281 VOTE S0 now:248 not vote from 2
+049281 VOTE S0 248 go thrd--2 exit
+050126 VOTE S2 333 start vote 1 has 3
+050131 VOTE S2 now:333 get vote from 0 allvote 1
+050131 VOTE S2 333 go thrd--0 exit
+050640 LEAD S1 now:384 sendhert failed to 0
+050879 LEAD S1 now:408 sendhert failed to 0
+051256 VOTE %!s(int64=446) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+051256 VOTE S2 468 go thrd--0 exit
+052190 VOTE S0 539 start vote 1 has 3
+052192 VOTE S0 now:540 get vote from 2 allvote 1
+052192 VOTE S0 539 go thrd--2 exit
+052200 LEAD S0 now:540 sendhert failed to 1
+052689 VOTE S1 589 start vote 1 has 3
+052786 VOTE S2 599 start vote 1 has 3
+052789 VOTE S2 now:599 get vote from 0 allvote 1
+052789 VOTE S2 599 go thrd--0 exit
+053603 LEAD S1 now:681 sendhert failed to 0
+054137 LEAD S1 now:734 sendhert failed to 2
+054823 LEAD S0 now:803 sendhert failed to 1
+055306 LEAD S1 now:851 sendhert failed to 0
+055458 LEAD S0 now:866 sendhert failed to 2
+055522 VOTE S1 873 start vote 1 has 3
+055534 VOTE S0 874 start vote 1 has 3
+055536 VOTE S0 now:874 get vote from 2 allvote 1
+055536 VOTE S0 874 go thrd--2 exit
+055803 VOTE S2 901 start vote 1 has 3
+055806 VOTE S2 now:901 get vote from 0 allvote 1
+055806 VOTE S2 901 go thrd--0 exit
+056162 VOTE %!s(int64=937) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+056162 VOTE S1 209 go thrd--2 exit
+057442 LEAD S1 now:65 sendhert failed to 2
+058012 VOTE S2 122 start vote 1 has 3
+058017 VOTE S2 now:122 get vote from 0 allvote 1
+058017 VOTE S2 122 go thrd--0 exit
+058188 LEAD S0 now:139 sendhert failed to 2
+058545 VOTE S1 175 start vote 1 has 3
+058871 VOTE S0 208 start vote 1 has 3
+058876 VOTE S0 now:208 get vote from 2 allvote 1
+058876 VOTE S0 208 go thrd--2 exit
+059253 VOTE %!s(int64=246) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+059254 VOTE S0 246 go thrd--2 exit
+060302 VOTE %!s(int64=351) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+060303 VOTE S0 869 go thrd--2 exit
+060618 VOTE %!s(int64=382) 1 server 0 VoteCall failed to 2 had term %!d(MISSING)
+060618 VOTE S1 74 go thrd--0 exit
+060619 VOTE %!s(int64=382) %!v(MISSING) ggggg
+060619 VOTE S1 now:382 become leaderr num:2 hashert:false
+060630 LEAD S1 dtime:383 send heart
+060794 LEAD S0 now:400 sendhert failed to 1
+060957 VOTE S2 416 start vote 1 has 3
+060962 VOTE S2 now:417 get vote from 0 allvote 1
+060962 VOTE S2 416 go thrd--0 exit
+061559 VOTE S0 476 start vote 1 has 3
+061563 VOTE S0 now:477 get vote from 2 allvote 1
+061563 VOTE S0 476 go thrd--2 exit
+061725 LEAD S1 dtime:493 send heart
+062389 LEAD S0 now:559 sendhert failed to 1
+062508 VOTE %!s(int64=571) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+062508 VOTE S0 578 go thrd--2 exit
+062508 VOTE %!s(int64=571) %!v(MISSING) ggggg
+062508 VOTE S0 now:571 vote again-- 1
+062813 LEAD S1 dtime:602 send heart
+062846 LEAD S1 now:605 sendhert failed to 0
+063109 LEAD S0 now:631 sendhert failed to 2
+063780 LEAD S0 now:698 sendhert failed to 2
+063911 LEAD S1 dtime:712 send heart
+064277 LEAD S0 now:748 sendhert failed to 2
+064419 VOTE S2 762 start vote 1 has 3
+064421 VOTE S2 now:762 get vote from 0 allvote 1
+064421 VOTE S2 762 go thrd--0 exit
+064594 LEAD S1 now:780 sendhert failed to 2
+064998 VOTE S0 820 start vote 1 has 3
+065000 VOTE S0 now:820 get vote from 2 allvote 1
+065000 VOTE S0 820 go thrd--2 exit
+065010 LEAD S1 dtime:821 send heart
+065433 VOTE %!s(int64=864) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+065433 VOTE S2 935 go thrd--0 exit
+065511 VOTE %!s(int64=871) 0 server 1 VoteCall failed to 2 had term %!d(MISSING)
+065511 VOTE S0 539 go thrd--1 exit
+065511 VOTE %!s(int64=872) %!v(MISSING) ggggg
+065511 VOTE S0 now:872 become leaderr num:2 hashert:false
+065521 LEAD S0 dtime:873 send heart
+065523 INFO S2 now:873 node become 0 foller
+065523 INFO %!S(int=2)v 873 recv hert to 0
+065655 LEAD S0 now:886 sendhert failed to 1
+066104 LEAD S1 dtime:931 send heart
+066616 LEAD S0 dtime:982 send heart
+066619 INFO S2 now:982 node become 0 foller
+066619 INFO %!S(int=2)v 982 recv hert to 0
+066946 LEAD S1 now:15 sendhert failed to 2
+067209 LEAD S1 dtime:41 send heart
+067708 LEAD S0 dtime:91 send heart
+067710 INFO S2 now:91 node become 0 foller
+067710 INFO %!S(int=2)v 91 recv hert to 0
+068295 LEAD S1 dtime:150 send heart
+leader-----0
+2---5
+068804 LEAD S0 dtime:201 send heart
+068805 INFO S1 now:201 node become 0 foller
+068805 INFO S2 now:201 node become 0 foller
+068805 INFO %!S(int=1)v 201 recv hert to 0
+068805 INFO %!S(int=2)v 201 recv hert to 0
+068815 INFO S1 now:202 become foller 
+068978 LEAD S0 now:218 sendhert failed to 2
+069493 LEAD S0 now:270 sendhert failed to 1
+069909 LEAD S0 dtime:311 send heart
+069912 INFO S2 now:312 node become 0 foller
+069912 INFO %!S(int=2)v 312 recv hert to 0
+069913 INFO S1 now:312 node become 0 foller
+069913 INFO %!S(int=1)v 312 recv hert to 0
+070031 VOTE %!s(int64=323) 0 server 1 VoteCall failed to 2 had term %!d(MISSING)
+070032 VOTE S0 874 go thrd--1 exit
+070032 VOTE %!s(int64=324) %!v(MISSING) ggggg
+070032 VOTE S0 now:324 vote again-- 2
+070355 VOTE %!s(int64=356) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+070355 VOTE S1 873 go thrd--2 exit
+071005 VOTE S0 421 start vote 1 has 3
+071007 VOTE S0 now:421 get vote from 2 allvote 1
+071007 VOTE S0 421 go thrd--2 exit
+071008 VOTE S0 now:421 get vote from 1 allvote 2
+071008 VOTE S0 421 go thrd--1 exit
+071008 VOTE %!s(int64=421) %!v(MISSING) ggggg
+071008 VOTE S0 now:421 become leaderr num:3 hashert:false
+071017 LEAD S0 dtime:422 send heart
+071019 INFO S2 now:422 node become 0 foller
+071019 INFO %!S(int=2)v 422 recv hert to 0
+071020 INFO S1 now:422 node become 0 foller
+071020 INFO %!S(int=1)v 422 recv hert to 0
+071399 VOTE %!s(int64=460) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+071399 VOTE S2 702 go thrd--1 exit
+071484 VOTE %!s(int64=469) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+071485 VOTE S2 644 go thrd--1 exit
+071960 VOTE %!s(int64=516) 2 server 1 VoteCall failed to 2 had term %!d(MISSING)
+071961 VOTE S2 416 go thrd--1 exit
+071961 VOTE %!s(int64=516) %!v(MISSING) ggggg
+071961 VOTE S2 now:516 vote again-- 2
+072017 VOTE %!s(int64=522) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+072017 VOTE S0 441 go thrd--2 exit
+072017 VOTE %!s(int64=522) %!v(MISSING) ggggg
+072017 VOTE S0 now:522 vote again-- 1
+072102 VOTE S0 531 start vote 1 has 3
+072104 VOTE S0 now:531 get vote from 2 allvote 1
+072104 VOTE S0 531 go thrd--2 exit
+072104 VOTE S0 now:531 get vote from 1 allvote 2
+072104 VOTE S0 531 go thrd--1 exit
+072104 VOTE %!s(int64=531) %!v(MISSING) ggggg
+072104 VOTE S0 now:531 become leaderr num:3 hashert:false
+072113 LEAD S0 dtime:532 send heart
+072114 INFO S2 now:532 node become 0 foller
+072114 INFO %!S(int=2)v 532 recv hert to 0
+072114 INFO S1 now:532 node become 0 foller
+072114 INFO %!S(int=1)v 532 recv hert to 0
+072440 VOTE %!s(int64=564) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+072440 VOTE S1 175 go thrd--2 exit
+072960 LEAD S0 now:616 sendhert failed to 1
+073013 VOTE %!s(int64=622) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+073014 VOTE S2 363 go thrd--1 exit
+073014 VOTE %!s(int64=622) %!v(MISSING) ggggg
+073014 VOTE S2 now:622 vote again-- 1
+073047 LEAD S0 now:625 sendhert failed to 1
+073200 LEAD S0 dtime:640 send heart
+073202 INFO S1 now:641 node become 0 foller
+073202 INFO S2 now:641 node become 0 foller
+073202 INFO %!S(int=2)v 641 recv hert to 0
+073202 INFO %!S(int=1)v 641 recv hert to 0
+073507 VOTE %!s(int64=671) 1 server 0 VoteCall failed to 2 had term %!d(MISSING)
+073508 VOTE S1 747 go thrd--0 exit
+073508 VOTE %!s(int64=671) %!v(MISSING) ggggg
+073508 VOTE S1 now:671 vote again-- 2
+leader-----0
+2---6
+  ... Passed --   7.4  3  200   28786    0
+2---1
+Test (2A): multiple elections ...
+000107 VOTE %!s(int64=683) 2 server 1 VoteCall failed to 2 had term %!d(MISSING)
+000107 VOTE S2 762 go thrd--1 exit
+000108 VOTE %!s(int64=683) %!v(MISSING) ggggg
+000108 VOTE S2 now:683 vote again-- 2
+000794 LEAD S1 now:752 sendhert failed to 0
+001131 VOTE %!s(int64=786) 1 server 0 VoteCall failed to 2 had term %!d(MISSING)
+001131 VOTE S1 446 go thrd--0 exit
+001132 VOTE %!s(int64=786) %!v(MISSING) ggggg
+001132 VOTE S1 now:786 become leaderr num:2 hashert:false
+001664 VOTE %!s(int64=839) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+001664 VOTE S2 644 go thrd--0 exit
+001664 VOTE %!s(int64=839) %!v(MISSING) ggggg
+001664 VOTE S2 now:839 vote again-- 1
+001859 LEAD S1 now:859 sendhert failed to 0
+002001 LEAD S1 now:873 sendhert failed to 0
+002091 LEAD S1 now:882 sendhert failed to 0
+002192 INFO S3 now:892 became Candidate
+002193 VOTE S3 892 start vote 1 has 7
+002197 VOTE S3 now:892 get vote from 6 allvote 1
+002197 VOTE S3 892 go thrd--6 exit
+002199 VOTE S3 now:893 get vote from 5 allvote 2
+002199 VOTE S3 892 go thrd--5 exit
+002199 VOTE S3 now:893 get vote from 2 allvote 3
+002199 VOTE S3 892 go thrd--2 exit
+002200 VOTE S3 now:893 get vote from 4 allvote 4
+002200 VOTE S3 892 go thrd--4 exit
+002200 VOTE S3 now:893 get vote from 0 allvote 5
+002200 VOTE S3 892 go thrd--0 exit
+002201 VOTE S3 now:893 get vote from 1 allvote 6
+002202 VOTE S3 893 go thrd--1 exit
+002202 VOTE %!s(int64=893) %!v(MISSING) ggggg
+002202 VOTE S3 now:893 become leaderr num:7 hashert:false
+002204 LEAD S3 dtime:893 send heart
+002206 INFO S2 now:893 node become 3 foller
+002206 INFO %!S(int=2)v 893 recv hert to 3
+002207 INFO S4 now:893 node become 3 foller
+002207 INFO S0 now:893 node become 3 foller
+002207 INFO %!S(int=0)v 893 recv hert to 3
+002206 INFO S6 now:893 node become 3 foller
+002208 INFO %!S(int=6)v 894 recv hert to 3
+002209 INFO S1 now:894 node become 3 foller
+002209 INFO S5 now:894 node become 3 foller
+002209 INFO %!S(int=1)v 894 recv hert to 3
+002209 INFO %!S(int=5)v 894 recv hert to 3
+002207 INFO %!S(int=4)v 893 recv hert to 3
+002644 LEAD S0 now:937 sendhert failed to 2
+003019 LEAD S1 now:975 sendhert failed to 0
+003162 LEAD S1 now:989 sendhert failed to 2
+003313 LEAD S3 dtime:4 send heart
+003315 INFO S2 now:4 node become 3 foller
+003315 INFO S6 now:4 node become 3 foller
+003315 INFO %!S(int=6)v 4 recv hert to 3
+003315 INFO S4 now:4 node become 3 foller
+003315 INFO %!S(int=4)v 4 recv hert to 3
+003316 INFO S0 now:4 node become 3 foller
+003316 INFO %!S(int=0)v 4 recv hert to 3
+003316 INFO S1 now:4 node become 3 foller
+003316 INFO %!S(int=1)v 4 recv hert to 3
+003315 INFO S5 now:4 node become 3 foller
+003316 INFO %!S(int=5)v 4 recv hert to 3
+003315 INFO %!S(int=2)v 4 recv hert to 3
+003435 LEAD S0 now:16 sendhert failed to 2
+004407 LEAD S3 dtime:113 send heart
+004409 INFO S1 now:114 node become 3 foller
+004409 INFO %!S(int=1)v 114 recv hert to 3
+004409 INFO S2 now:114 node become 3 foller
+004409 INFO %!S(int=2)v 114 recv hert to 3
+004409 INFO S6 now:114 node become 3 foller
+004409 INFO S4 now:114 node become 3 foller
+004409 INFO %!S(int=4)v 114 recv hert to 3
+004409 INFO %!S(int=6)v 114 recv hert to 3
+004411 INFO S5 now:114 node become 3 foller
+004411 INFO %!S(int=5)v 114 recv hert to 3
+004412 INFO S0 now:114 node become 3 foller
+004412 INFO %!S(int=0)v 114 recv hert to 3
+004623 LEAD S1 now:135 sendhert failed to 2
+004722 LEAD S1 now:145 sendhert failed to 2
+leader-----3
+2---2
+disconnect 2 3 5
+005494 LEAD S3 dtime:222 send heart
+005658 VOTE %!s(int64=238) 0 server 1 VoteCall failed to 2 had term %!d(MISSING)
+005658 VOTE S0 820 go thrd--1 exit
+005658 VOTE %!s(int64=239) %!v(MISSING) ggggg
+005658 VOTE S0 now:239 vote again-- 2
+005957 LEAD S0 now:268 sendhert failed to 1
+006045 LEAD S0 now:277 sendhert failed to 1
+006607 LEAD S3 dtime:333 send heart
+006728 INFO S1 now:346 became Candidate
+006729 VOTE S1 346 start vote 1 has 7
+006732 VOTE S1 now:346 get vote from 6 allvote 1
+006733 VOTE S1 346 go thrd--6 exit
+006733 VOTE S1 now:346 get vote from 4 allvote 2
+006733 VOTE S1 346 go thrd--4 exit
+006733 VOTE S1 now:346 get vote from 0 allvote 3
+006733 VOTE S1 346 go thrd--0 exit
+006784 INFO S2 now:351 became Candidate
+006786 VOTE S2 351 start vote 1 has 7
+007268 VOTE %!s(int64=399) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+007268 VOTE S2 468 go thrd--1 exit
+007268 VOTE %!s(int64=400) %!v(MISSING) ggggg
+007269 VOTE S2 now:400 vote again-- 1
+007475 LEAD S0 now:420 sendhert failed to 2
+007718 LEAD S3 dtime:444 send heart
+007783 LEAD S3 now:451 sendhert failed to 2
+008202 INFO S5 now:493 became Candidate
+008203 VOTE S5 493 start vote 1 has 7
+008291 VOTE %!s(int64=502) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+008291 VOTE S0 726 go thrd--2 exit
+008291 VOTE %!s(int64=502) %!v(MISSING) ggggg
+008291 VOTE S0 now:502 vote again-- 1
+008359 LEAD S1 now:509 sendhert failed to 2
+008815 LEAD S3 dtime:554 send heart
+008826 LEAD S1 now:555 sendhert failed to 0
+008904 VOTE %!s(int64=563) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+008904 VOTE S2 996 go thrd--1 exit
+009121 INFO S4 now:585 became Candidate
+009122 VOTE S4 585 start vote 1 has 7
+009124 VOTE S4 now:585 get vote from 1 allvote 1
+009124 VOTE S4 585 go thrd--1 exit
+009124 VOTE S4 now:585 get vote from 6 allvote 2
+009124 VOTE S4 585 go thrd--6 exit
+009124 VOTE S4 now:585 get vote from 0 allvote 3
+009124 VOTE S4 585 go thrd--0 exit
+009220 VOTE S1 595 start vote 1 has 7
+009222 VOTE S1 now:595 get vote from 4 allvote 1
+009222 VOTE S1 595 go thrd--4 exit
+009222 VOTE S1 now:595 get vote from 6 allvote 2
+009222 VOTE S1 595 go thrd--6 exit
+009222 VOTE S1 now:595 get vote from 0 allvote 3
+009222 VOTE S1 595 go thrd--0 exit
+009406 VOTE S2 613 start vote 1 has 7
+009919 LEAD S3 dtime:665 send heart
+010071 LEAD S1 now:680 sendhert failed to 2
+010379 LEAD S3 now:711 sendhert failed to 0
+010511 LEAD S0 now:724 sendhert failed to 2
+010673 LEAD S3 now:740 sendhert failed to 2
+010889 LEAD S1 now:762 sendhert failed to 2
+011030 LEAD S3 dtime:776 send heart
+011052 VOTE %!s(int64=778) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+011052 VOTE S2 351 go thrd--4 exit
+011478 LEAD S1 now:821 sendhert failed to 2
+011523 LEAD S1 now:825 sendhert failed to 0
+011557 VOTE %!s(int64=828) 0 server 1 VoteCall failed to 2 had term %!d(MISSING)
+011558 VOTE S0 208 go thrd--1 exit
+011558 VOTE %!s(int64=829) %!v(MISSING) ggggg
+011558 VOTE S0 now:829 become leaderr num:2 hashert:false
+011601 VOTE S5 833 start vote 1 has 7
+011655 INFO S0 now:838 became Candidate
+011656 VOTE S0 838 start vote 1 has 7
+011658 VOTE S0 now:838 get vote from 4 allvote 1
+011658 VOTE S0 838 go thrd--4 exit
+011658 VOTE S0 now:839 get vote from 6 allvote 2
+011658 VOTE S0 838 go thrd--6 exit
+011658 VOTE S0 now:839 get vote from 1 allvote 3
+011658 VOTE S0 838 go thrd--1 exit
+011764 LEAD S0 now:849 sendhert failed to 2
+011938 LEAD S1 now:867 sendhert failed to 2
+012064 LEAD S3 now:879 sendhert failed to 2
+012140 LEAD S3 dtime:887 send heart
+012207 VOTE S4 893 start vote 1 has 7
+012210 VOTE S4 now:894 get vote from 6 allvote 1
+012210 VOTE S4 893 go thrd--6 exit
+012211 VOTE S4 now:894 get vote from 1 allvote 2
+012212 VOTE S4 894 go thrd--1 exit
+012212 VOTE S4 now:894 get vote from 0 allvote 3
+012212 VOTE S4 894 go thrd--0 exit
+012592 LEAD S1 now:932 sendhert failed to 0
+012734 LEAD S1 now:946 sendhert failed to 0
+012821 VOTE %!s(int64=955) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+012821 VOTE S4 894 go thrd--2 exit
+012941 VOTE S2 967 start vote 1 has 7
+012997 LEAD S1 now:972 sendhert failed to 2
+013062 VOTE S1 979 start vote 1 has 7
+013064 VOTE S1 now:979 get vote from 6 allvote 1
+013064 VOTE S1 979 go thrd--6 exit
+013064 VOTE S1 now:979 get vote from 0 allvote 2
+013064 VOTE S1 979 go thrd--0 exit
+013064 VOTE S1 now:979 get vote from 4 allvote 3
+013065 VOTE S1 979 go thrd--4 exit
+013249 LEAD S3 dtime:998 send heart
+013324 LEAD S0 now:5 sendhert failed to 1
+013445 LEAD S1 now:17 sendhert failed to 0
+013445 LEAD S3 now:17 sendhert failed to 5
+013511 VOTE %!s(int64=24) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+013511 VOTE S1 346 go thrd--3 exit
+013534 VOTE %!s(int64=26) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+013534 VOTE S2 351 go thrd--1 exit
+013555 LEAD S1 now:28 sendhert failed to 0
+013976 LEAD S1 now:70 sendhert failed to 0
+014153 LEAD S1 now:88 sendhert failed to 0
+014296 VOTE S5 102 start vote 1 has 7
+014361 LEAD S3 dtime:109 send heart
+015201 LEAD S3 now:193 sendhert failed to 5
+015268 VOTE S1 199 start vote 1 has 7
+015272 VOTE S1 now:200 get vote from 4 allvote 1
+015272 VOTE S1 200 go thrd--4 exit
+015272 VOTE S1 now:200 get vote from 6 allvote 2
+015273 VOTE S1 200 go thrd--6 exit
+015273 VOTE S1 now:200 get vote from 0 allvote 3
+015273 VOTE S1 200 go thrd--0 exit
+015289 VOTE S4 202 start vote 1 has 7
+015293 VOTE S4 now:202 get vote from 6 allvote 1
+015294 VOTE S4 202 go thrd--6 exit
+015294 VOTE S4 now:202 get vote from 1 allvote 2
+015294 VOTE S4 202 go thrd--1 exit
+015294 VOTE S4 now:202 get vote from 0 allvote 3
+015295 VOTE S4 202 go thrd--0 exit
+015377 VOTE S0 210 start vote 1 has 7
+015380 VOTE S0 now:211 get vote from 6 allvote 1
+015380 VOTE S0 210 go thrd--6 exit
+015381 VOTE S0 now:211 get vote from 1 allvote 2
+015381 VOTE S0 211 go thrd--1 exit
+015381 VOTE S0 now:211 get vote from 4 allvote 3
+015381 VOTE S0 211 go thrd--4 exit
+015455 LEAD S3 dtime:218 send heart
+015656 VOTE %!s(int64=238) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+015656 VOTE S4 202 go thrd--5 exit
+016216 VOTE S2 294 start vote 1 has 7
+016489 LEAD S3 now:322 sendhert failed to 4
+016555 LEAD S3 dtime:328 send heart
+016759 VOTE %!s(int64=349) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+016760 VOTE S5 833 go thrd--4 exit
+016782 LEAD S3 now:351 sendhert failed to 6
+016861 LEAD S3 now:359 sendhert failed to 5
+017015 VOTE %!s(int64=374) 2 server 1 VoteCall failed to 2 had term %!d(MISSING)
+017015 VOTE S2 333 go thrd--1 exit
+017016 VOTE %!s(int64=374) %!v(MISSING) ggggg
+017016 VOTE S2 now:374 become leaderr num:2 hashert:false
+017203 LEAD S3 now:393 sendhert failed to 1
+017420 VOTE %!s(int64=415) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+017421 VOTE S2 935 go thrd--1 exit
+017421 VOTE %!s(int64=415) %!v(MISSING) ggggg
+017421 VOTE S2 now:415 vote again-- 1
+017453 VOTE S5 418 start vote 1 has 7
+017521 VOTE %!s(int64=425) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+017521 VOTE S2 613 go thrd--4 exit
+017664 LEAD S3 dtime:439 send heart
+017830 LEAD S3 now:456 sendhert failed to 1
+017975 INFO S6 now:470 became Candidate
+017976 VOTE S6 470 start vote 1 has 7
+017980 VOTE S6 now:471 get vote from 0 allvote 1
+017980 VOTE S6 470 go thrd--0 exit
+017982 VOTE S6 now:471 get vote from 1 allvote 2
+017982 VOTE S6 471 go thrd--1 exit
+017982 VOTE S6 now:471 get vote from 4 allvote 3
+017983 VOTE S6 471 go thrd--4 exit
+018054 LEAD S1 now:478 sendhert failed to 2
+018076 VOTE %!s(int64=480) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+018076 VOTE S5 493 go thrd--1 exit
+018076 LEAD S3 now:480 sendhert failed to 1
+018111 VOTE %!s(int64=484) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+018112 VOTE S2 613 go thrd--6 exit
+018167 VOTE %!s(int64=489) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+018167 VOTE S1 595 go thrd--2 exit
+018224 VOTE %!s(int64=495) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+018224 VOTE S2 613 go thrd--1 exit
+018549 VOTE %!s(int64=528) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+018550 VOTE S2 613 go thrd--3 exit
+018649 VOTE S2 538 start vote 1 has 7
+018684 LEAD S3 now:541 sendhert failed to 0
+018726 VOTE S1 545 start vote 1 has 7
+018730 VOTE S1 now:546 get vote from 4 allvote 1
+018730 VOTE S1 545 go thrd--4 exit
+018731 VOTE S1 now:546 get vote from 6 allvote 2
+018731 VOTE S1 545 go thrd--6 exit
+018731 VOTE S1 now:546 get vote from 0 allvote 3
+018731 VOTE S1 545 go thrd--0 exit
+018782 LEAD S3 dtime:551 send heart
+019004 VOTE S4 573 start vote 1 has 7
+019008 VOTE S4 now:574 get vote from 6 allvote 1
+019009 VOTE S4 573 go thrd--6 exit
+019009 VOTE S4 now:574 get vote from 1 allvote 2
+019009 VOTE S4 573 go thrd--1 exit
+019009 VOTE S4 now:574 get vote from 0 allvote 3
+019009 VOTE S4 573 go thrd--0 exit
+019103 VOTE S0 583 start vote 1 has 7
+019108 VOTE S0 now:584 get vote from 4 allvote 1
+019108 VOTE S0 583 go thrd--4 exit
+019108 VOTE S0 now:584 get vote from 1 allvote 2
+019109 VOTE S0 583 go thrd--1 exit
+019109 VOTE S0 now:584 get vote from 6 allvote 3
+019109 VOTE S0 583 go thrd--6 exit
+019891 LEAD S3 dtime:662 send heart
+019958 VOTE %!s(int64=669) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+019959 VOTE S5 418 go thrd--1 exit
+020115 VOTE %!s(int64=684) 0 server 1 VoteCall failed to 2 had term %!d(MISSING)
+020115 VOTE S0 476 go thrd--1 exit
+020115 VOTE %!s(int64=684) %!v(MISSING) ggggg
+020116 VOTE S0 now:684 vote again-- 2
+020172 VOTE %!s(int64=690) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+020173 VOTE S5 493 go thrd--3 exit
+020329 LEAD S3 now:706 sendhert failed to 6
+020449 LEAD S1 now:718 sendhert failed to 2
+020593 VOTE %!s(int64=732) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+020594 VOTE S2 996 go thrd--0 exit
+020594 VOTE %!s(int64=732) %!v(MISSING) ggggg
+020594 VOTE S2 now:732 vote again-- 1
+020625 VOTE S5 735 start vote 1 has 7
+020671 LEAD S1 now:740 sendhert failed to 2
+020727 VOTE %!s(int64=745) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+020728 VOTE S2 702 go thrd--0 exit
+020728 VOTE %!s(int64=746) %!v(MISSING) ggggg
+020728 VOTE S2 now:746 vote again-- 1
+020781 LEAD S1 now:751 sendhert failed to 2
+020902 LEAD S3 now:763 sendhert failed to 6
+021012 VOTE S2 774 start vote 1 has 7
+021012 LEAD S3 dtime:774 send heart
+021256 LEAD S3 now:798 sendhert failed to 6
+021268 VOTE %!s(int64=800) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+021268 VOTE S6 470 go thrd--2 exit
+021324 VOTE %!s(int64=805) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+021324 VOTE S5 735 go thrd--4 exit
+021389 VOTE S6 812 start vote 1 has 7
+021394 VOTE S6 now:812 get vote from 1 allvote 1
+021394 VOTE S6 812 go thrd--1 exit
+021395 VOTE S6 now:812 get vote from 4 allvote 2
+021395 VOTE S6 812 go thrd--4 exit
+021395 VOTE S6 now:812 get vote from 0 allvote 3
+021395 VOTE S6 812 go thrd--0 exit
+021478 VOTE S1 820 start vote 1 has 7
+021482 VOTE S1 now:821 get vote from 6 allvote 1
+021482 VOTE S1 821 go thrd--6 exit
+021483 VOTE S1 now:821 get vote from 0 allvote 2
+021483 VOTE S1 821 go thrd--0 exit
+021484 VOTE S1 now:821 get vote from 4 allvote 3
+021484 VOTE S1 821 go thrd--4 exit
+021576 VOTE S4 830 start vote 1 has 7
+021578 VOTE S4 now:830 get vote from 6 allvote 1
+021578 VOTE S4 830 go thrd--6 exit
+021578 VOTE S4 now:831 get vote from 0 allvote 2
+021578 VOTE S4 830 go thrd--0 exit
+021578 VOTE S4 now:831 get vote from 1 allvote 3
+021578 VOTE S4 830 go thrd--1 exit
+021729 LEAD S3 now:846 sendhert failed to 2
+021730 VOTE %!s(int64=846) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+021730 VOTE S1 589 go thrd--0 exit
+021982 VOTE S0 871 start vote 1 has 7
+021986 VOTE S0 now:871 get vote from 6 allvote 1
+021986 VOTE S0 871 go thrd--6 exit
+021986 VOTE S0 now:871 get vote from 1 allvote 2
+021987 VOTE S0 871 go thrd--1 exit
+021987 VOTE S0 now:871 get vote from 4 allvote 3
+021987 VOTE S0 871 go thrd--4 exit
+022104 VOTE %!s(int64=883) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+022104 VOTE S0 950 go thrd--2 exit
+022116 LEAD S1 now:884 sendhert failed to 0
+022116 LEAD S3 dtime:884 send heart
+022225 LEAD S3 now:895 sendhert failed to 1
+022491 LEAD S3 now:922 sendhert failed to 4
+022862 VOTE %!s(int64=959) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+022862 VOTE S4 830 go thrd--5 exit
+022940 VOTE %!s(int64=967) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+022941 VOTE S2 295 go thrd--5 exit
+023007 LEAD S1 now:973 sendhert failed to 0
+023158 VOTE %!s(int64=989) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+023159 VOTE S1 175 go thrd--0 exit
+023159 VOTE %!s(int64=989) %!v(MISSING) ggggg
+023159 VOTE S1 now:989 vote again-- 1
+023225 LEAD S3 dtime:995 send heart
+023248 VOTE S5 998 start vote 1 has 7
+023347 VOTE %!s(int64=7) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+023347 VOTE S5 735 go thrd--1 exit
+024016 VOTE S2 74 start vote 1 has 7
+024061 VOTE S6 79 start vote 1 has 7
+024066 VOTE S6 now:79 get vote from 4 allvote 1
+024066 VOTE S6 79 go thrd--4 exit
+024067 VOTE S6 now:79 get vote from 1 allvote 2
+024067 VOTE S6 now:79 get vote from 0 allvote 3
+024067 VOTE S6 79 go thrd--1 exit
+024067 VOTE S6 79 go thrd--0 exit
+024105 LEAD S1 now:83 sendhert failed to 2
+024128 LEAD S1 now:86 sendhert failed to 2
+024324 LEAD S3 dtime:105 send heart
+024490 LEAD S3 now:122 sendhert failed to 1
+024710 VOTE S0 144 start vote 1 has 7
+024714 VOTE S0 now:144 get vote from 6 allvote 1
+024715 VOTE S0 144 go thrd--6 exit
+024715 VOTE S0 now:144 get vote from 1 allvote 2
+024715 VOTE S0 144 go thrd--1 exit
+024715 VOTE S0 now:144 get vote from 4 allvote 3
+024716 VOTE S0 144 go thrd--4 exit
+024754 VOTE %!s(int64=148) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+024755 VOTE S0 583 go thrd--3 exit
+024887 VOTE %!s(int64=161) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+024888 VOTE S2 295 go thrd--0 exit
+024900 VOTE %!s(int64=163) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+024900 VOTE S0 248 go thrd--1 exit
+024900 VOTE %!s(int64=163) %!v(MISSING) ggggg
+024900 VOTE S0 now:163 vote again-- 1
+025033 VOTE %!s(int64=176) 2 server 1 VoteCall failed to 2 had term %!d(MISSING)
+025033 VOTE S2 901 go thrd--1 exit
+025033 VOTE %!s(int64=176) %!v(MISSING) ggggg
+025033 VOTE S2 now:176 become leaderr num:2 hashert:false
+025185 VOTE %!s(int64=191) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+025186 VOTE S5 735 go thrd--6 exit
+025295 VOTE S1 202 start vote 1 has 7
+025299 VOTE S1 now:203 get vote from 0 allvote 1
+025300 VOTE S1 202 go thrd--0 exit
+025300 VOTE S1 now:203 get vote from 6 allvote 2
+025300 VOTE S1 202 go thrd--6 exit
+025301 VOTE S1 now:203 get vote from 4 allvote 3
+025301 VOTE S1 202 go thrd--4 exit
+025373 VOTE %!s(int64=210) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+025374 VOTE S6 79 go thrd--2 exit
+025384 VOTE S4 211 start vote 1 has 7
+025387 VOTE S4 now:211 get vote from 6 allvote 1
+025388 VOTE S4 211 go thrd--6 exit
+025388 VOTE S4 now:212 get vote from 0 allvote 2
+025388 VOTE S4 211 go thrd--0 exit
+025389 VOTE S4 now:212 get vote from 1 allvote 3
+025389 VOTE S4 211 go thrd--1 exit
+025438 LEAD S1 now:217 sendhert failed to 2
+025439 LEAD S3 dtime:217 send heart
+025517 VOTE S5 224 start vote 1 has 7
+025584 VOTE %!s(int64=231) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+025585 VOTE S0 583 go thrd--5 exit
+025714 LEAD S3 now:244 sendhert failed to 1
+025811 LEAD S3 now:254 sendhert failed to 1
+025987 VOTE %!s(int64=271) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+025988 VOTE S2 208 go thrd--0 exit
+026130 VOTE %!s(int64=286) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+026130 VOTE S5 493 go thrd--2 exit
+026185 VOTE %!s(int64=291) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+026185 VOTE S5 224 go thrd--3 exit
+026272 VOTE %!s(int64=300) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+026272 VOTE S2 538 go thrd--5 exit
+026315 LEAD S3 now:304 sendhert failed to 6
+026543 LEAD S3 dtime:327 send heart
+026709 VOTE S2 344 start vote 1 has 7
+027057 VOTE %!s(int64=378) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+027058 VOTE S2 208 go thrd--1 exit
+027058 VOTE %!s(int64=379) %!v(MISSING) ggggg
+027058 VOTE S2 now:379 vote again-- 1
+027124 LEAD S3 now:385 sendhert failed to 6
+027222 LEAD S3 now:395 sendhert failed to 4
+027531 VOTE %!s(int64=426) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+027532 VOTE S5 998 go thrd--6 exit
+027586 VOTE S6 431 start vote 1 has 7
+027590 VOTE S6 now:432 get vote from 0 allvote 1
+027591 VOTE S6 431 go thrd--0 exit
+027591 VOTE S6 now:432 get vote from 4 allvote 2
+027591 VOTE S6 431 go thrd--4 exit
+027591 VOTE S6 now:432 get vote from 1 allvote 3
+027591 VOTE S6 431 go thrd--1 exit
+027642 LEAD S3 dtime:437 send heart
+027654 VOTE S0 438 start vote 1 has 7
+027658 VOTE S0 now:439 get vote from 6 allvote 1
+027658 VOTE S0 438 go thrd--6 exit
+027658 VOTE S0 now:439 get vote from 1 allvote 2
+027658 VOTE S0 438 go thrd--1 exit
+027659 VOTE S0 now:439 get vote from 4 allvote 3
+027659 VOTE S0 438 go thrd--4 exit
+027752 VOTE %!s(int64=448) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+027752 VOTE S1 595 go thrd--5 exit
+027864 LEAD S3 now:459 sendhert failed to 0
+027919 VOTE %!s(int64=465) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+027919 VOTE S2 967 go thrd--5 exit
+027985 LEAD S1 now:471 sendhert failed to 2
+028040 VOTE S1 477 start vote 1 has 7
+028044 VOTE S1 now:477 get vote from 6 allvote 1
+028044 VOTE S1 477 go thrd--6 exit
+028045 VOTE S1 now:477 get vote from 0 allvote 2
+028045 VOTE S1 477 go thrd--0 exit
+028045 VOTE S1 now:477 get vote from 4 allvote 3
+028045 VOTE S1 477 go thrd--4 exit
+028196 LEAD S3 now:492 sendhert failed to 2
+028306 VOTE %!s(int64=503) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+028307 VOTE S0 869 go thrd--1 exit
+028308 VOTE %!s(int64=503) %!v(MISSING) ggggg
+028308 VOTE S0 now:503 vote again-- 1
+028383 VOTE %!s(int64=511) 2 server 1 VoteCall failed to 2 had term %!d(MISSING)
+028383 VOTE S2 599 go thrd--1 exit
+028383 VOTE %!s(int64=511) %!v(MISSING) ggggg
+028383 VOTE S2 now:511 become leaderr num:2 hashert:false
+028405 VOTE S5 513 start vote 1 has 7
+028689 LEAD S3 now:542 sendhert failed to 0
+028722 LEAD S3 now:545 sendhert failed to 2
+028755 LEAD S3 dtime:548 send heart
+028920 LEAD S3 now:565 sendhert failed to 6
+029030 VOTE %!s(int64=576) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+029031 VOTE S5 493 go thrd--4 exit
+029193 VOTE S4 592 start vote 1 has 7
+029195 VOTE S4 now:592 get vote from 6 allvote 1
+029195 VOTE S4 592 go thrd--6 exit
+029196 VOTE S4 now:592 get vote from 0 allvote 2
+029196 VOTE S4 592 go thrd--0 exit
+029196 VOTE S4 now:592 get vote from 1 allvote 3
+029196 VOTE S4 592 go thrd--1 exit
+029226 VOTE %!s(int64=595) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+029226 VOTE S1 545 go thrd--2 exit
+029303 VOTE %!s(int64=603) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+029303 VOTE S2 351 go thrd--5 exit
+029347 VOTE %!s(int64=607) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+029347 VOTE S6 79 go thrd--3 exit
+029543 LEAD S3 now:627 sendhert failed to 6
+029653 VOTE %!s(int64=638) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+029654 VOTE S1 209 go thrd--0 exit
+029654 VOTE %!s(int64=638) %!v(MISSING) ggggg
+029654 VOTE S1 now:638 vote again-- 1
+029719 LEAD S1 now:645 sendhert failed to 2
+029849 LEAD S3 dtime:658 send heart
+029918 VOTE %!s(int64=665) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+029918 VOTE S5 833 go thrd--6 exit
+029950 VOTE %!s(int64=668) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+029950 VOTE S0 838 go thrd--2 exit
+030102 VOTE %!s(int64=683) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+030102 VOTE S4 573 go thrd--2 exit
+030485 VOTE %!s(int64=721) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+030485 VOTE S0 211 go thrd--5 exit
+030551 VOTE S2 728 start vote 1 has 7
+030738 VOTE S6 747 start vote 1 has 7
+030742 VOTE S6 now:747 get vote from 0 allvote 1
+030743 VOTE S6 747 go thrd--0 exit
+030743 VOTE S6 now:747 get vote from 4 allvote 2
+030743 VOTE S6 747 go thrd--4 exit
+030743 VOTE S6 now:747 get vote from 1 allvote 3
+030744 VOTE S6 747 go thrd--1 exit
+030881 LEAD S3 now:761 sendhert failed to 0
+030893 VOTE %!s(int64=762) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+030893 VOTE S0 246 go thrd--1 exit
+030893 VOTE %!s(int64=762) %!v(MISSING) ggggg
+030893 VOTE S0 now:762 vote again-- 1
+030958 LEAD S3 dtime:769 send heart
+030980 LEAD S3 now:771 sendhert failed to 4
+031046 VOTE %!s(int64=777) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+031046 VOTE S5 418 go thrd--3 exit
+031092 LEAD S3 now:782 sendhert failed to 6
+031114 VOTE %!s(int64=784) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+031114 VOTE S5 224 go thrd--2 exit
+031394 LEAD S3 now:812 sendhert failed to 6
+031515 VOTE S0 824 start vote 1 has 7
+031519 VOTE S0 now:825 get vote from 6 allvote 1
+031519 VOTE S0 824 go thrd--6 exit
+031520 VOTE S0 now:825 get vote from 4 allvote 2
+031521 VOTE S0 824 go thrd--4 exit
+031521 VOTE S0 now:825 get vote from 1 allvote 3
+031521 VOTE S0 824 go thrd--1 exit
+031549 VOTE %!s(int64=828) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+031550 VOTE S0 950 go thrd--1 exit
+031550 VOTE %!s(int64=828) %!v(MISSING) ggggg
+031550 VOTE S0 now:828 vote again-- 1
+031583 VOTE S4 831 start vote 1 has 7
+031588 VOTE S4 now:831 get vote from 6 allvote 1
+031588 VOTE S4 831 go thrd--6 exit
+031588 VOTE S4 now:832 get vote from 1 allvote 2
+031588 VOTE S4 831 go thrd--1 exit
+031588 VOTE S4 now:832 get vote from 0 allvote 3
+031589 VOTE S4 831 go thrd--0 exit
+031647 VOTE S1 837 start vote 1 has 7
+031651 VOTE S1 now:838 get vote from 6 allvote 1
+031651 VOTE S1 838 go thrd--6 exit
+031652 VOTE S1 now:838 get vote from 4 allvote 2
+031652 VOTE S1 838 go thrd--4 exit
+031652 VOTE S1 now:838 get vote from 0 allvote 3
+031652 VOTE S1 838 go thrd--0 exit
+031962 LEAD S3 now:869 sendhert failed to 5
+031974 VOTE %!s(int64=870) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+031974 VOTE S1 979 go thrd--2 exit
+032030 VOTE S5 876 start vote 1 has 7
+032073 LEAD S3 dtime:880 send heart
+032184 VOTE %!s(int64=891) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+032184 VOTE S4 585 go thrd--3 exit
+032355 VOTE %!s(int64=908) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+032355 VOTE S1 589 go thrd--2 exit
+032356 VOTE %!s(int64=908) %!v(MISSING) ggggg
+032356 VOTE S1 now:908 vote again-- 1
+032377 LEAD S1 now:910 sendhert failed to 0
+032412 VOTE %!s(int64=914) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+032412 VOTE S5 102 go thrd--1 exit
+032501 LEAD S3 now:923 sendhert failed to 4
+032806 VOTE %!s(int64=953) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+032807 VOTE S2 774 go thrd--5 exit
+032918 LEAD S3 now:965 sendhert failed to 2
+033042 LEAD S3 now:977 sendhert failed to 1
+033065 VOTE %!s(int64=979) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+033066 VOTE S4 211 go thrd--3 exit
+033154 VOTE %!s(int64=988) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+033154 VOTE S2 75 go thrd--5 exit
+033198 LEAD S3 dtime:993 send heart
+033287 LEAD S3 now:1 sendhert failed to 2
+033353 VOTE S2 8 start vote 1 has 7
+033773 VOTE S6 50 start vote 1 has 7
+033778 VOTE S6 now:51 get vote from 1 allvote 1
+033778 VOTE S6 50 go thrd--1 exit
+033779 VOTE S6 now:51 get vote from 0 allvote 2
+033779 VOTE S6 50 go thrd--0 exit
+033780 VOTE S6 now:51 get vote from 4 allvote 3
+033780 VOTE S6 50 go thrd--4 exit
+033992 VOTE %!s(int64=72) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+033992 VOTE S5 418 go thrd--4 exit
+034298 LEAD S3 dtime:103 send heart
+034471 VOTE %!s(int64=120) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+034472 VOTE S5 102 go thrd--4 exit
+034572 VOTE %!s(int64=130) 2 server 1 VoteCall failed to 2 had term %!d(MISSING)
+034572 VOTE S2 122 go thrd--1 exit
+034572 VOTE %!s(int64=130) %!v(MISSING) ggggg
+034572 VOTE S2 now:130 vote again-- 2
+034616 VOTE S5 134 start vote 1 has 7
+034638 VOTE %!s(int64=136) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+034638 VOTE S2 967 go thrd--1 exit
+034844 VOTE S0 157 start vote 1 has 7
+034847 VOTE S0 now:157 get vote from 6 allvote 1
+034847 VOTE S0 157 go thrd--6 exit
+034847 VOTE S0 now:157 get vote from 1 allvote 2
+034847 VOTE S0 157 go thrd--1 exit
+034847 VOTE S0 now:157 get vote from 4 allvote 3
+034847 VOTE S0 157 go thrd--4 exit
+034888 VOTE %!s(int64=161) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+034888 VOTE S2 967 go thrd--4 exit
+035182 VOTE S1 191 start vote 1 has 7
+035184 VOTE S1 now:191 get vote from 4 allvote 1
+035185 VOTE S1 191 go thrd--4 exit
+035185 VOTE S1 now:191 get vote from 6 allvote 2
+035185 VOTE S1 191 go thrd--6 exit
+035185 VOTE S1 now:191 get vote from 0 allvote 3
+035185 VOTE S1 191 go thrd--0 exit
+035259 VOTE S4 199 start vote 1 has 7
+035261 VOTE S4 now:199 get vote from 6 allvote 1
+035261 VOTE S4 199 go thrd--6 exit
+035261 VOTE S4 now:199 get vote from 1 allvote 2
+035261 VOTE S4 199 go thrd--1 exit
+035261 VOTE S4 now:199 get vote from 0 allvote 3
+035261 VOTE S4 199 go thrd--0 exit
+035390 LEAD S3 dtime:212 send heart
+035576 LEAD S3 now:230 sendhert failed to 4
+035760 VOTE S2 249 start vote 1 has 7
+035913 VOTE %!s(int64=264) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+035913 VOTE S5 998 go thrd--0 exit
+035979 VOTE %!s(int64=271) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+035979 VOTE S1 979 go thrd--5 exit
+036491 LEAD S3 dtime:322 send heart
+036556 LEAD S3 now:328 sendhert failed to 2
+036610 LEAD S3 now:334 sendhert failed to 0
+036621 VOTE %!s(int64=335) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+036622 VOTE S1 545 go thrd--3 exit
+036678 VOTE %!s(int64=341) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+036678 VOTE S2 538 go thrd--6 exit
+036745 LEAD S3 now:347 sendhert failed to 5
+036909 LEAD S3 now:364 sendhert failed to 1
+037018 LEAD S3 now:374 sendhert failed to 5
+037029 VOTE %!s(int64=376) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+037030 VOTE S4 199 go thrd--5 exit
+037194 VOTE S6 392 start vote 1 has 7
+037199 VOTE S6 now:393 get vote from 1 allvote 1
+037199 VOTE S6 392 go thrd--1 exit
+037199 VOTE S6 now:393 get vote from 0 allvote 2
+037199 VOTE S6 392 go thrd--0 exit
+037199 VOTE S6 now:393 get vote from 4 allvote 3
+037200 VOTE S6 392 go thrd--4 exit
+037476 LEAD S3 now:420 sendhert failed to 1
+037477 LEAD S3 now:420 sendhert failed to 1
+037553 LEAD S3 now:428 sendhert failed to 1
+037588 VOTE %!s(int64=432) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+037588 VOTE S1 200 go thrd--3 exit
+037602 LEAD S3 dtime:433 send heart
+037623 LEAD S3 now:435 sendhert failed to 0
+037757 VOTE %!s(int64=448) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+037757 VOTE S5 735 go thrd--2 exit
+037769 VOTE %!s(int64=450) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+037769 VOTE S5 224 go thrd--0 exit
+037968 LEAD S1 now:469 sendhert failed to 0
+037980 VOTE %!s(int64=471) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+037980 VOTE S2 75 go thrd--0 exit
+038090 VOTE %!s(int64=482) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+038091 VOTE S5 513 go thrd--1 exit
+038213 VOTE S2 494 start vote 1 has 7
+038236 VOTE %!s(int64=496) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+038236 VOTE S2 728 go thrd--5 exit
+038358 VOTE S5 509 start vote 1 has 7
+038406 LEAD S3 now:513 sendhert failed to 2
+038494 LEAD S3 now:522 sendhert failed to 5
+038526 VOTE S1 525 start vote 1 has 7
+038529 VOTE S1 now:526 get vote from 4 allvote 1
+038529 VOTE S1 525 go thrd--4 exit
+038529 VOTE S1 now:526 get vote from 6 allvote 2
+038529 VOTE S1 525 go thrd--6 exit
+038529 VOTE S1 now:526 get vote from 0 allvote 3
+038529 VOTE S1 525 go thrd--0 exit
+038593 VOTE %!s(int64=532) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+038593 VOTE S5 513 go thrd--6 exit
+038658 VOTE S0 538 start vote 1 has 7
+038661 VOTE S0 now:539 get vote from 6 allvote 1
+038662 VOTE S0 539 go thrd--6 exit
+038662 VOTE S0 now:539 get vote from 1 allvote 2
+038663 VOTE S0 539 go thrd--1 exit
+038663 VOTE S0 now:539 get vote from 4 allvote 3
+038663 VOTE S0 539 go thrd--4 exit
+038715 LEAD S3 dtime:544 send heart
+038726 VOTE S4 545 start vote 1 has 7
+038729 VOTE S4 now:546 get vote from 1 allvote 1
+038730 VOTE S4 545 go thrd--1 exit
+038731 VOTE S4 now:546 get vote from 6 allvote 2
+038731 VOTE S4 545 go thrd--6 exit
+038731 VOTE S4 now:546 get vote from 0 allvote 3
+038731 VOTE S4 545 go thrd--0 exit
+038846 VOTE %!s(int64=557) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+038847 VOTE S5 513 go thrd--4 exit
+038989 LEAD S3 now:572 sendhert failed to 6
+039046 VOTE %!s(int64=577) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+039047 VOTE S5 418 go thrd--0 exit
+039145 LEAD S3 now:587 sendhert failed to 0
+039167 LEAD S1 now:589 sendhert failed to 2
+039432 LEAD S3 now:616 sendhert failed to 2
+039575 VOTE S6 630 start vote 1 has 7
+039580 VOTE S6 now:631 get vote from 1 allvote 1
+039580 VOTE S6 630 go thrd--1 exit
+039580 VOTE S6 now:631 get vote from 4 allvote 2
+039580 VOTE S6 630 go thrd--4 exit
+039580 VOTE S6 now:631 get vote from 0 allvote 3
+039580 VOTE S6 630 go thrd--0 exit
+039587 VOTE %!s(int64=631) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+039587 VOTE S2 774 go thrd--6 exit
+039599 LEAD S3 now:633 sendhert failed to 5
+039644 LEAD S3 now:637 sendhert failed to 0
+039691 VOTE %!s(int64=642) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+039691 VOTE S5 833 go thrd--0 exit
+039823 LEAD S3 dtime:655 send heart
+040123 LEAD S3 now:685 sendhert failed to 4
+040243 VOTE %!s(int64=697) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+040243 VOTE S2 538 go thrd--4 exit
+040409 VOTE %!s(int64=714) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+040409 VOTE S5 509 go thrd--3 exit
+040420 VOTE %!s(int64=715) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+040421 VOTE S4 831 go thrd--3 exit
+040456 VOTE %!s(int64=718) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+040456 VOTE S2 613 go thrd--0 exit
+040531 LEAD S1 now:726 sendhert failed to 2
+040829 LEAD S3 now:756 sendhert failed to 0
+040929 LEAD S3 dtime:766 send heart
+041018 LEAD S3 now:774 sendhert failed to 0
+041215 VOTE %!s(int64=794) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+041216 VOTE S2 538 go thrd--1 exit
+041271 VOTE %!s(int64=800) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+041272 VOTE S0 824 go thrd--3 exit
+041450 VOTE %!s(int64=818) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+041451 VOTE S2 75 go thrd--4 exit
+041495 VOTE S5 822 start vote 1 has 7
+041550 LEAD S3 now:828 sendhert failed to 5
+041687 VOTE %!s(int64=841) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+041688 VOTE S0 871 go thrd--5 exit
+041821 VOTE S1 855 start vote 1 has 7
+041826 LEAD S3 now:855 sendhert failed to 0
+041836 VOTE S1 now:856 get vote from 6 allvote 1
+041836 VOTE S1 855 go thrd--6 exit
+041839 VOTE S1 now:857 get vote from 4 allvote 2
+041839 VOTE S1 855 go thrd--4 exit
+041840 VOTE S1 now:857 get vote from 0 allvote 3
+041840 VOTE S1 855 go thrd--0 exit
+041864 LEAD S3 now:859 sendhert failed to 1
+042054 LEAD S3 dtime:878 send heart
+042066 VOTE S2 879 start vote 1 has 7
+042067 VOTE S0 879 start vote 1 has 7
+042070 VOTE S0 now:880 get vote from 6 allvote 1
+042070 VOTE S0 879 go thrd--6 exit
+042071 VOTE S0 now:880 get vote from 1 allvote 2
+042071 VOTE S0 879 go thrd--1 exit
+042071 VOTE S0 now:880 get vote from 4 allvote 3
+042072 VOTE S0 880 go thrd--4 exit
+042398 VOTE %!s(int64=913) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+042399 VOTE S2 613 go thrd--5 exit
+042399 VOTE %!s(int64=913) %!v(MISSING) ggggg
+042399 VOTE S2 now:913 vote again-- 1
+042486 VOTE S4 921 start vote 1 has 7
+042490 VOTE S4 now:922 get vote from 1 allvote 1
+042490 VOTE S4 now:922 get vote from 0 allvote 2
+042491 VOTE S4 921 go thrd--0 exit
+042491 VOTE S4 now:922 get vote from 6 allvote 3
+042490 VOTE S4 921 go thrd--1 exit
+042491 VOTE S4 921 go thrd--6 exit
+042619 VOTE S6 935 start vote 1 has 7
+042623 VOTE S6 now:935 get vote from 0 allvote 1
+042623 VOTE S6 935 go thrd--0 exit
+042624 VOTE S6 now:935 get vote from 4 allvote 2
+042625 VOTE S6 935 go thrd--4 exit
+042625 VOTE S6 now:935 get vote from 1 allvote 3
+042625 VOTE S6 935 go thrd--1 exit
+042711 VOTE %!s(int64=944) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+042711 VOTE S1 191 go thrd--5 exit
+042820 LEAD S3 now:955 sendhert failed to 4
+043165 LEAD S3 dtime:989 send heart
+043177 LEAD S3 now:990 sendhert failed to 6
+043245 VOTE %!s(int64=997) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+043245 VOTE S2 774 go thrd--1 exit
+043465 VOTE %!s(int64=19) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+043465 VOTE S5 876 go thrd--6 exit
+043607 LEAD S1 now:33 sendhert failed to 0
+043630 LEAD S3 now:36 sendhert failed to 5
+043665 VOTE %!s(int64=39) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+043665 VOTE S2 249 go thrd--4 exit
+043898 VOTE %!s(int64=63) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+043899 VOTE S1 838 go thrd--2 exit
+044266 VOTE S1 99 start vote 1 has 7
+044271 VOTE S1 now:100 get vote from 0 allvote 1
+044271 VOTE S1 99 go thrd--0 exit
+044271 VOTE S1 now:100 get vote from 4 allvote 2
+044272 VOTE S1 99 go thrd--4 exit
+044272 VOTE S1 now:100 get vote from 6 allvote 3
+044272 VOTE S1 99 go thrd--6 exit
+044276 LEAD S3 dtime:100 send heart
+044379 VOTE %!s(int64=111) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+044380 VOTE S5 493 go thrd--6 exit
+044515 LEAD S3 now:124 sendhert failed to 2
+044708 VOTE %!s(int64=144) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+044709 VOTE S5 735 go thrd--0 exit
+044820 VOTE %!s(int64=155) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+044820 VOTE S5 513 go thrd--3 exit
+044979 VOTE S2 171 start vote 1 has 7
+045037 VOTE %!s(int64=176) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+045037 VOTE S2 75 go thrd--3 exit
+045126 LEAD S3 now:185 sendhert failed to 4
+045170 VOTE S5 190 start vote 1 has 7
+045229 LEAD S3 now:196 sendhert failed to 5
+045333 VOTE %!s(int64=206) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+045334 VOTE S5 418 go thrd--2 exit
+045377 LEAD S3 now:210 sendhert failed to 5
+045410 LEAD S3 dtime:214 send heart
+045455 LEAD S3 now:218 sendhert failed to 4
+045544 LEAD S3 now:227 sendhert failed to 2
+045567 VOTE %!s(int64=229) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+045568 VOTE S2 351 go thrd--0 exit
+045645 LEAD S3 now:237 sendhert failed to 4
+045789 LEAD S3 now:252 sendhert failed to 0
+045812 LEAD S3 now:254 sendhert failed to 1
+045847 VOTE S0 257 start vote 1 has 7
+045850 VOTE S0 now:258 get vote from 6 allvote 1
+045851 VOTE S0 257 go thrd--6 exit
+045851 VOTE S0 now:258 get vote from 4 allvote 2
+045852 VOTE S0 258 go thrd--4 exit
+045852 VOTE S0 now:258 get vote from 1 allvote 3
+045852 VOTE S0 258 go thrd--1 exit
+045868 VOTE S6 260 start vote 1 has 7
+045872 VOTE S6 now:260 get vote from 1 allvote 1
+045872 VOTE S6 260 go thrd--1 exit
+045872 VOTE S6 now:260 get vote from 0 allvote 2
+045873 VOTE S6 260 go thrd--0 exit
+045873 VOTE S6 now:260 get vote from 4 allvote 3
+045873 VOTE S6 260 go thrd--4 exit
+046136 VOTE %!s(int64=286) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+046136 VOTE S4 573 go thrd--3 exit
+046235 VOTE S4 296 start vote 1 has 7
+046239 VOTE S4 now:297 get vote from 6 allvote 1
+046239 VOTE S4 296 go thrd--6 exit
+046240 VOTE S4 now:297 get vote from 1 allvote 2
+046240 VOTE S4 296 go thrd--1 exit
+046240 VOTE S4 now:297 get vote from 0 allvote 3
+046241 VOTE S4 296 go thrd--0 exit
+046348 VOTE %!s(int64=308) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+046349 VOTE S2 967 go thrd--0 exit
+046392 VOTE %!s(int64=312) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+046392 VOTE S5 513 go thrd--2 exit
+046527 LEAD S3 dtime:325 send heart
+046977 VOTE %!s(int64=370) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+046977 VOTE S0 583 go thrd--2 exit
+046977 VOTE %!s(int64=370) %!v(MISSING) ggggg
+046978 VOTE S0 now:370 become leaderr num:4 hashert:false
+046978 LEAD S0 dtime:371 send heart
+046981 INFO S6 now:371 node become 0 foller
+046982 INFO %!S(int=6)v 371 recv hert to 0
+046982 INFO S1 now:371 node become 0 foller
+046982 INFO %!S(int=1)v 371 recv hert to 0
+046982 INFO S4 now:371 node become 0 foller
+046983 INFO %!S(int=4)v 371 recv hert to 0
+046998 VOTE %!s(int64=373) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+046998 VOTE S2 249 go thrd--3 exit
+047088 VOTE %!s(int64=381) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+047088 VOTE S5 102 go thrd--6 exit
+047145 VOTE %!s(int64=387) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+047146 VOTE S2 8 go thrd--5 exit
+047556 VOTE %!s(int64=428) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+047556 VOTE S4 199 go thrd--3 exit
+047556 VOTE %!s(int64=428) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+047556 VOTE S4 585 go thrd--5 exit
+047642 LEAD S3 dtime:437 send heart
+047798 LEAD S3 now:452 sendhert failed to 5
+047920 LEAD S3 now:465 sendhert failed to 6
+047965 VOTE %!s(int64=469) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+047965 VOTE S6 747 go thrd--2 exit
+048030 VOTE S5 476 start vote 1 has 7
+048063 VOTE %!s(int64=479) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+048064 VOTE S1 477 go thrd--2 exit
+048098 LEAD S0 dtime:483 send heart
+048101 INFO S1 now:483 node become 0 foller
+048101 INFO S6 now:483 node become 0 foller
+048102 INFO S4 now:483 node become 0 foller
+048102 INFO %!S(int=4)v 483 recv hert to 0
+048102 INFO %!S(int=6)v 483 recv hert to 0
+048102 INFO %!S(int=1)v 483 recv hert to 0
+048120 LEAD S3 now:485 sendhert failed to 5
+048175 VOTE %!s(int64=490) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+048175 VOTE S2 728 go thrd--4 exit
+048208 VOTE %!s(int64=494) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+048208 VOTE S0 539 go thrd--3 exit
+048218 LEAD S3 now:495 sendhert failed to 5
+048371 VOTE %!s(int64=510) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+048371 VOTE S6 812 go thrd--2 exit
+048480 VOTE %!s(int64=521) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+048480 VOTE S1 838 go thrd--5 exit
+048655 VOTE %!s(int64=538) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+048656 VOTE S6 935 go thrd--5 exit
+048679 VOTE %!s(int64=541) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+048679 VOTE S4 585 go thrd--2 exit
+048679 VOTE %!s(int64=541) %!v(MISSING) ggggg
+048679 VOTE S4 now:541 vote again-- 4
+048744 LEAD S3 dtime:547 send heart
+048778 VOTE %!s(int64=551) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+048779 VOTE S6 747 go thrd--3 exit
+048833 VOTE S2 556 start vote 1 has 7
+048855 VOTE %!s(int64=558) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+048855 VOTE S2 967 go thrd--6 exit
+048931 LEAD S3 now:566 sendhert failed to 4
+048943 VOTE %!s(int64=567) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+048943 VOTE S5 102 go thrd--0 exit
+049041 LEAD S3 now:577 sendhert failed to 0
+049097 VOTE %!s(int64=582) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+049097 VOTE S0 144 go thrd--3 exit
+049217 LEAD S0 dtime:594 send heart
+049218 INFO S6 now:595 node become 0 foller
+049219 INFO %!S(int=6)v 595 recv hert to 0
+049219 INFO S1 now:595 node become 0 foller
+049219 INFO S4 now:595 node become 0 foller
+049219 INFO %!S(int=1)v 595 recv hert to 0
+049219 INFO %!S(int=4)v 595 recv hert to 0
+049263 VOTE %!s(int64=599) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+049263 VOTE S2 295 go thrd--3 exit
+049274 VOTE %!s(int64=600) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+049274 VOTE S5 833 go thrd--1 exit
+049296 LEAD S3 now:602 sendhert failed to 0
+049329 LEAD S3 now:606 sendhert failed to 5
+leader-----0
+2---3
+disconnect 5 6 1
+049668 LEAD S3 now:639 sendhert failed to 0
+049712 VOTE %!s(int64=644) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+049712 VOTE S2 294 go thrd--6 exit
+049798 VOTE %!s(int64=653) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+049798 VOTE S4 202 go thrd--3 exit
+049842 LEAD S3 dtime:657 send heart
+049844 INFO %!S(int=4)v 657 recv hert to 3
+049844 INFO %!S(int=0)v 657 recv hert to 3
+049844 INFO %!S(int=2)v 657 recv hert to 3
+049868 VOTE %!s(int64=659) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+049868 VOTE S6 431 go thrd--3 exit
+050171 VOTE %!s(int64=690) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+050171 VOTE S2 556 go thrd--5 exit
+050313 LEAD S0 dtime:704 send heart
+050315 INFO S3 now:704 node become 0 foller
+050315 INFO S2 now:704 node become 0 foller
+050315 INFO S4 now:704 node become 0 foller
+050315 INFO %!S(int=4)v 704 recv hert to 0
+050315 INFO %!S(int=3)v 704 recv hert to 0
+050315 INFO %!S(int=2)v 704 recv hert to 0
+050324 INFO S3 now:705 become foller 
+050433 LEAD S3 now:716 sendhert failed to 5
+050443 VOTE S5 717 start vote 1 has 7
+050543 VOTE %!s(int64=727) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+050543 VOTE S2 728 go thrd--3 exit
+050565 VOTE %!s(int64=729) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+050565 VOTE S5 717 go thrd--0 exit
+050598 LEAD S3 now:733 sendhert failed to 0
+050751 VOTE %!s(int64=748) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+050751 VOTE S1 873 go thrd--0 exit
+050751 VOTE %!s(int64=748) %!v(MISSING) ggggg
+050751 VOTE S1 now:748 vote again-- 1
+050923 VOTE %!s(int64=765) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+050924 VOTE S2 344 go thrd--6 exit
+051098 LEAD S1 now:783 sendhert failed to 0
+051143 VOTE %!s(int64=787) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+051143 VOTE S4 831 go thrd--2 exit
+051414 VOTE %!s(int64=814) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+051415 VOTE S2 556 go thrd--1 exit
+051415 LEAD S0 dtime:814 send heart
+051417 INFO S3 now:814 node become 0 foller
+051417 INFO %!S(int=3)v 814 recv hert to 0
+051417 INFO S2 now:814 node become 0 foller
+051417 INFO %!S(int=2)v 814 recv hert to 0
+051417 INFO S4 now:814 node become 0 foller
+051417 INFO %!S(int=4)v 814 recv hert to 0
+051537 INFO S6 now:826 became Candidate
+051537 VOTE S6 826 start vote 1 has 7
+051637 VOTE %!s(int64=836) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+051637 VOTE S5 876 go thrd--0 exit
+051748 LEAD S3 now:847 sendhert failed to 5
+051823 LEAD S3 now:855 sendhert failed to 4
+051836 INFO S1 now:856 became Candidate
+051837 VOTE %!s(int64=856) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+051837 VOTE S1 856 start vote 1 has 7
+051837 VOTE %!s(int64=856) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+051837 VOTE S4 211 go thrd--5 exit
+051837 VOTE S0 211 go thrd--2 exit
+051862 LEAD S3 now:859 sendhert failed to 1
+051873 LEAD S3 now:860 sendhert failed to 2
+052136 LEAD S3 now:886 sendhert failed to 6
+052180 LEAD S3 now:891 sendhert failed to 6
+052526 LEAD S0 dtime:925 send heart
+052529 INFO S4 now:926 node become 0 foller
+052529 INFO %!S(int=4)v 926 recv hert to 0
+052530 INFO S3 now:926 node become 0 foller
+052530 INFO %!S(int=3)v 926 recv hert to 0
+052530 INFO S2 now:926 node become 0 foller
+052531 INFO %!S(int=2)v 926 recv hert to 0
+052670 LEAD S0 now:940 sendhert failed to 3
+052703 VOTE %!s(int64=943) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+052704 VOTE S6 79 go thrd--5 exit
+052704 VOTE %!s(int64=943) %!v(MISSING) ggggg
+052704 VOTE S6 now:943 become leaderr num:4 hashert:false
+052714 LEAD S6 dtime:944 send heart
+052749 LEAD S3 now:948 sendhert failed to 1
+052836 LEAD S3 now:956 sendhert failed to 1
+052905 VOTE %!s(int64=963) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+052906 VOTE S2 967 go thrd--3 exit
+052906 VOTE %!s(int64=963) %!v(MISSING) ggggg
+052906 VOTE S2 now:963 vote again-- 1
+052975 VOTE %!s(int64=970) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+052975 VOTE S1 346 go thrd--5 exit
+052986 LEAD S3 now:971 sendhert failed to 1
+052987 VOTE %!s(int64=971) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+052987 VOTE S6 470 go thrd--5 exit
+053019 VOTE %!s(int64=975) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+053020 VOTE S6 630 go thrd--5 exit
+053603 LEAD S3 now:33 sendhert failed to 4
+053648 LEAD S0 dtime:38 send heart
+053649 VOTE %!s(int64=38) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+053649 VOTE S4 592 go thrd--2 exit
+053651 INFO S4 now:38 node become 0 foller
+053652 INFO S3 now:38 node become 0 foller
+053652 INFO %!S(int=4)v 38 recv hert to 0
+053652 INFO S2 now:38 node become 0 foller
+053652 INFO %!S(int=2)v 38 recv hert to 0
+053652 INFO %!S(int=3)v 38 recv hert to 0
+053670 LEAD S3 now:40 sendhert failed to 0
+053825 LEAD S6 dtime:55 send heart
+054135 VOTE S5 86 start vote 1 has 7
+054179 VOTE %!s(int64=91) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+054179 VOTE S2 8 go thrd--6 exit
+054344 LEAD S3 now:107 sendhert failed to 5
+054520 VOTE %!s(int64=125) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+054521 VOTE S4 830 go thrd--3 exit
+054531 LEAD S3 now:126 sendhert failed to 0
+054542 LEAD S3 now:127 sendhert failed to 6
+054754 LEAD S0 dtime:148 send heart
+054757 INFO S3 now:148 node become 0 foller
+054758 INFO %!S(int=3)v 149 recv hert to 0
+054758 INFO S2 now:149 node become 0 foller
+054758 INFO S4 now:149 node become 0 foller
+054759 INFO %!S(int=4)v 149 recv hert to 0
+054758 INFO %!S(int=2)v 149 recv hert to 0
+leader-----0
+2---3
+disconnect 5 1 1
+054931 LEAD S6 dtime:166 send heart
+054934 INFO S0 now:166 node become 6 foller
+054934 INFO %!S(int=0)v 166 recv hert to 6
+054934 INFO S2 now:166 node become 6 foller
+054935 INFO %!S(int=2)v 166 recv hert to 6
+054935 INFO S4 now:166 node become 6 foller
+054935 INFO %!S(int=4)v 166 recv hert to 6
+054935 INFO S3 now:166 node become 6 foller
+054936 INFO %!S(int=3)v 166 recv hert to 6
+054943 INFO S0 now:167 become foller 
+055052 LEAD S6 now:178 sendhert failed to 5
+055063 LEAD S3 now:179 sendhert failed to 2
+055109 LEAD S1 now:184 sendhert failed to 0
+055122 VOTE %!s(int64=185) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+055123 VOTE S0 824 go thrd--5 exit
+055355 VOTE %!s(int64=208) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+055356 VOTE S4 296 go thrd--3 exit
+055465 VOTE %!s(int64=219) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+055466 VOTE S2 774 go thrd--0 exit
+055553 VOTE S1 228 start vote 1 has 7
+055621 VOTE %!s(int64=235) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+055622 VOTE S1 821 go thrd--2 exit
+055831 VOTE %!s(int64=256) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+055832 VOTE S2 249 go thrd--6 exit
+055854 VOTE %!s(int64=258) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+055855 VOTE S1 202 go thrd--2 exit
+056044 LEAD S6 dtime:277 send heart
+056048 INFO S0 now:278 node become 6 foller
+056048 INFO %!S(int=0)v 278 recv hert to 6
+056048 INFO S3 now:278 node become 6 foller
+056048 INFO S2 now:278 node become 6 foller
+056049 INFO %!S(int=2)v 278 recv hert to 6
+056048 INFO S4 now:278 node become 6 foller
+056049 INFO %!S(int=4)v 278 recv hert to 6
+056049 INFO %!S(int=3)v 278 recv hert to 6
+056171 VOTE %!s(int64=290) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+056171 VOTE S4 202 go thrd--2 exit
+056171 VOTE %!s(int64=290) %!v(MISSING) ggggg
+056171 VOTE S4 now:290 vote again-- 4
+056318 VOTE %!s(int64=305) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+056319 VOTE S5 735 go thrd--3 exit
+056319 VOTE %!s(int64=305) %!v(MISSING) ggggg
+056319 VOTE S5 now:305 vote again-- 1
+056519 LEAD S0 now:325 sendhert failed to 1
+056531 VOTE S5 326 start vote 1 has 7
+056566 LEAD S0 now:329 sendhert failed to 1
+056577 VOTE %!s(int64=330) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+056577 VOTE S6 392 go thrd--3 exit
+056678 VOTE %!s(int64=340) 6 server 0 VoteCall failed to 1 had term %!d(MISSING)
+056678 VOTE S6 826 go thrd--0 exit
+056679 LEAD S0 now:341 sendhert failed to 1
+056723 LEAD S3 now:345 sendhert failed to 6
+056802 VOTE %!s(int64=353) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+056803 VOTE S6 812 go thrd--3 exit
+056872 VOTE %!s(int64=360) 6 server 2 VoteCall failed to 1 had term %!d(MISSING)
+056873 VOTE S6 826 go thrd--2 exit
+056917 LEAD S3 now:364 sendhert failed to 5
+056929 LEAD S0 now:366 sendhert failed to 3
+056975 LEAD S3 now:370 sendhert failed to 4
+057053 VOTE %!s(int64=378) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+057053 VOTE S0 871 go thrd--2 exit
+057140 LEAD S3 now:387 sendhert failed to 1
+057185 LEAD S6 dtime:391 send heart
+057188 INFO S4 now:392 node become 6 foller
+057188 INFO %!S(int=4)v 392 recv hert to 6
+057189 INFO S0 now:392 node become 6 foller
+057189 INFO %!S(int=0)v 392 recv hert to 6
+057189 INFO S2 now:392 node become 6 foller
+057190 INFO %!S(int=2)v 392 recv hert to 6
+057189 INFO S3 now:392 node become 6 foller
+057191 INFO %!S(int=3)v 392 recv hert to 6
+057450 VOTE %!s(int64=418) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+057450 VOTE S2 295 go thrd--4 exit
+057496 LEAD S3 now:422 sendhert failed to 5
+057518 VOTE %!s(int64=425) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+057518 VOTE S5 326 go thrd--6 exit
+057732 LEAD S3 now:446 sendhert failed to 4
+058065 LEAD S3 now:479 sendhert failed to 5
+058108 LEAD S3 now:484 sendhert failed to 2
+058308 VOTE %!s(int64=504) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+058309 VOTE S5 476 go thrd--1 exit
+058309 LEAD S6 dtime:504 send heart
+058313 INFO S3 now:504 node become 6 foller
+058313 INFO %!S(int=3)v 504 recv hert to 6
+058313 INFO S2 now:504 node become 6 foller
+058314 INFO S0 now:504 node become 6 foller
+058314 INFO %!S(int=0)v 504 recv hert to 6
+058314 INFO S4 now:504 node become 6 foller
+058314 INFO %!S(int=4)v 504 recv hert to 6
+058314 INFO %!S(int=2)v 504 recv hert to 6
+058389 VOTE %!s(int64=512) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+058390 VOTE S4 546 go thrd--5 exit
+058400 VOTE %!s(int64=513) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+058401 VOTE S2 494 go thrd--4 exit
+058688 LEAD S6 now:542 sendhert failed to 1
+059055 LEAD S3 now:578 sendhert failed to 2
+059077 VOTE S5 580 start vote 1 has 7
+059110 VOTE S1 584 start vote 1 has 7
+059397 VOTE %!s(int64=612) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+059397 VOTE S5 998 go thrd--4 exit
+059420 VOTE %!s(int64=615) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+059421 VOTE S5 509 go thrd--2 exit
+059420 LEAD S6 dtime:615 send heart
+059424 INFO S0 now:615 node become 6 foller
+059425 INFO S2 now:615 node become 6 foller
+059425 INFO %!S(int=2)v 615 recv hert to 6
+059425 INFO %!S(int=0)v 615 recv hert to 6
+059425 INFO S3 now:615 node become 6 foller
+059427 INFO %!S(int=3)v 615 recv hert to 6
+059424 INFO S4 now:615 node become 6 foller
+059428 INFO %!S(int=4)v 615 recv hert to 6
+059476 LEAD S3 now:620 sendhert failed to 1
+059486 LEAD S3 now:621 sendhert failed to 4
+059532 LEAD S3 now:626 sendhert failed to 5
+059632 VOTE %!s(int64=636) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+059632 VOTE S1 821 go thrd--5 exit
+leader-----6
+2---3
+disconnect 1 0 4
+059738 LEAD S3 now:647 sendhert failed to 4
+059874 VOTE %!s(int64=660) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+059875 VOTE S2 556 go thrd--6 exit
+059962 LEAD S3 now:669 sendhert failed to 6
+060005 VOTE %!s(int64=673) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+060005 VOTE S4 199 go thrd--2 exit
+060005 VOTE %!s(int64=673) %!v(MISSING) ggggg
+060005 VOTE S4 now:673 vote again-- 4
+060093 LEAD S3 now:682 sendhert failed to 2
+060116 LEAD S3 now:684 sendhert failed to 1
+060182 LEAD S1 now:691 sendhert failed to 0
+060269 VOTE %!s(int64=700) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+060269 VOTE S2 295 go thrd--1 exit
+060270 VOTE %!s(int64=700) %!v(MISSING) ggggg
+060270 VOTE S2 now:700 vote again-- 1
+060415 VOTE %!s(int64=714) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+060416 VOTE S6 935 go thrd--2 exit
+060438 VOTE %!s(int64=717) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+060439 VOTE S4 894 go thrd--5 exit
+060526 LEAD S3 now:725 sendhert failed to 0
+060548 LEAD S6 dtime:728 send heart
+060551 INFO S5 now:728 node become 6 foller
+060551 INFO S2 now:728 node become 6 foller
+060552 INFO %!S(int=2)v 728 recv hert to 6
+060552 INFO S3 now:728 node become 6 foller
+060552 INFO %!S(int=3)v 728 recv hert to 6
+060552 INFO %!S(int=5)v 728 recv hert to 6
+060657 LEAD S3 now:738 sendhert failed to 1
+060747 VOTE %!s(int64=747) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+060747 VOTE S2 8 go thrd--3 exit
+060747 LEAD S3 now:747 sendhert failed to 1
+060802 LEAD S3 now:753 sendhert failed to 5
+060964 VOTE %!s(int64=769) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+060964 VOTE S5 476 go thrd--4 exit
+060985 LEAD S3 now:771 sendhert failed to 4
+061007 VOTE %!s(int64=773) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+061007 VOTE S5 581 go thrd--3 exit
+061039 VOTE %!s(int64=777) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+061039 VOTE S1 595 go thrd--3 exit
+061039 VOTE %!s(int64=777) %!v(MISSING) ggggg
+061039 VOTE S1 now:777 become leaderr num:4 hashert:false
+061049 LEAD S1 dtime:778 send heart
+061092 VOTE %!s(int64=782) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+061092 VOTE S1 821 go thrd--3 exit
+061092 VOTE %!s(int64=782) %!v(MISSING) ggggg
+061092 VOTE S1 now:782 vote again-- 4
+061167 VOTE %!s(int64=789) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+061168 VOTE S2 344 go thrd--3 exit
+061201 LEAD S3 now:793 sendhert failed to 2
+061234 VOTE %!s(int64=796) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+061235 VOTE S1 202 go thrd--5 exit
+061399 LEAD S3 now:813 sendhert failed to 1
+061574 LEAD S3 now:830 sendhert failed to 2
+061638 LEAD S6 dtime:837 send heart
+061641 INFO S2 now:837 node become 6 foller
+061641 INFO %!S(int=2)v 837 recv hert to 6
+061641 INFO S3 now:837 node become 6 foller
+061641 INFO %!S(int=3)v 837 recv hert to 6
+061641 INFO S5 now:837 node become 6 foller
+061642 INFO %!S(int=5)v 837 recv hert to 6
+061726 VOTE %!s(int64=845) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+061727 VOTE S5 717 go thrd--3 exit
+061879 VOTE %!s(int64=861) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+061880 VOTE S0 144 go thrd--5 exit
+061945 VOTE %!s(int64=867) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+061945 VOTE S4 211 go thrd--2 exit
+061945 VOTE %!s(int64=867) %!v(MISSING) ggggg
+061945 VOTE S4 now:867 become leaderr num:4 hashert:false
+061945 LEAD S4 dtime:867 send heart
+061968 LEAD S3 now:870 sendhert failed to 2
+062098 LEAD S3 now:883 sendhert failed to 6
+062142 VOTE S1 887 start vote 1 has 7
+062563 VOTE %!s(int64=929) 6 server 5 VoteCall failed to 1 had term %!d(MISSING)
+062564 VOTE S6 826 go thrd--5 exit
+062639 LEAD S3 now:937 sendhert failed to 6
+062726 LEAD S6 dtime:945 send heart
+062727 INFO S5 now:945 node become 6 foller
+062727 INFO %!S(int=5)v 945 recv hert to 6
+062727 INFO S2 now:945 node become 6 foller
+062727 INFO %!S(int=2)v 945 recv hert to 6
+062727 INFO S3 now:945 node become 6 foller
+062728 INFO %!S(int=3)v 945 recv hert to 6
+062760 VOTE %!s(int64=949) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+062761 VOTE S6 812 go thrd--5 exit
+062761 VOTE %!s(int64=949) %!v(MISSING) ggggg
+062761 VOTE S6 now:949 vote again-- 4
+062868 VOTE %!s(int64=960) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+062869 VOTE S5 998 go thrd--2 exit
+062880 INFO S0 now:961 became Candidate
+062880 VOTE S0 961 start vote 1 has 7
+063031 LEAD S4 dtime:976 send heart
+063087 VOTE %!s(int64=981) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+063087 VOTE S0 258 go thrd--3 exit
+063414 LEAD S3 now:14 sendhert failed to 5
+063730 LEAD S3 now:46 sendhert failed to 1
+063828 VOTE S6 56 start vote 1 has 7
+063830 VOTE S6 now:56 get vote from 5 allvote 1
+063830 VOTE S6 56 go thrd--5 exit
+063831 VOTE S6 now:56 get vote from 2 allvote 2
+063831 VOTE S6 56 go thrd--2 exit
+063831 VOTE S6 now:56 get vote from 3 allvote 3
+063831 VOTE S6 56 go thrd--3 exit
+063871 VOTE %!s(int64=60) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+063871 VOTE S6 630 go thrd--3 exit
+063906 VOTE %!s(int64=63) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+063906 VOTE S5 190 go thrd--1 exit
+064121 LEAD S4 dtime:85 send heart
+064132 VOTE %!s(int64=86) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+064132 VOTE S6 392 go thrd--5 exit
+064491 VOTE S1 122 start vote 1 has 7
+064500 LEAD S4 now:123 sendhert failed to 3
+064610 LEAD S3 now:134 sendhert failed to 2
+064653 VOTE %!s(int64=138) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+064653 VOTE S1 584 go thrd--0 exit
+064929 VOTE %!s(int64=166) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+064930 VOTE S0 211 go thrd--3 exit
+064930 VOTE %!s(int64=166) %!v(MISSING) ggggg
+064930 VOTE S0 now:166 become leaderr num:4 hashert:false
+064941 LEAD S0 dtime:167 send heart
+065084 VOTE %!s(int64=181) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+065085 VOTE S6 470 go thrd--3 exit
+065085 VOTE %!s(int64=181) %!v(MISSING) ggggg
+065085 VOTE S6 now:181 become leaderr num:4 hashert:false
+065085 LEAD S6 dtime:181 send heart
+leader-----6
+2---3
+disconnect 3 0 3
+065086 INFO S2 now:181 node become 6 foller
+065086 INFO %!S(int=2)v 181 recv hert to 6
+065086 INFO S5 now:181 node become 6 foller
+065087 INFO %!S(int=5)v 181 recv hert to 6
+065087 INFO %!S(int=1)v 181 recv hert to 6
+065087 INFO S4 now:181 node become 6 foller
+065087 INFO %!S(int=4)v 181 recv hert to 6
+065095 INFO S4 now:182 become foller 
+065139 LEAD S3 now:187 sendhert failed to 2
+065296 VOTE %!s(int64=202) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+065296 VOTE S5 717 go thrd--2 exit
+065394 LEAD S3 now:212 sendhert failed to 4
+065785 VOTE %!s(int64=251) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+065786 VOTE S0 871 go thrd--3 exit
+065786 VOTE %!s(int64=251) %!v(MISSING) ggggg
+065786 VOTE S0 now:251 vote again-- 4
+065952 VOTE %!s(int64=268) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+065952 VOTE S4 921 go thrd--2 exit
+066053 VOTE S0 278 start vote 1 has 7
+066196 LEAD S6 dtime:292 send heart
+066199 INFO S5 now:293 node become 6 foller
+066200 INFO S2 now:293 node become 6 foller
+066200 INFO S4 now:293 node become 6 foller
+066200 INFO %!S(int=4)v 293 recv hert to 6
+066200 INFO %!S(int=2)v 293 recv hert to 6
+066201 INFO %!S(int=1)v 293 recv hert to 6
+066200 INFO %!S(int=5)v 293 recv hert to 6
+066228 LEAD S3 now:296 sendhert failed to 0
+066316 INFO S3 now:304 became Candidate
+066317 VOTE S3 304 start vote 1 has 7
+066614 VOTE %!s(int64=334) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+066615 VOTE S5 833 go thrd--3 exit
+066736 LEAD S3 now:346 sendhert failed to 1
+066915 LEAD S3 now:364 sendhert failed to 2
+066928 VOTE %!s(int64=365) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+066928 VOTE S2 351 go thrd--6 exit
+067005 LEAD S3 now:373 sendhert failed to 0
+067018 VOTE %!s(int64=375) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+067018 VOTE S4 894 go thrd--3 exit
+067019 VOTE %!s(int64=375) %!v(MISSING) ggggg
+067019 VOTE S4 now:375 vote again-- 4
+067164 VOTE %!s(int64=389) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+067164 VOTE S4 830 go thrd--2 exit
+067165 VOTE %!s(int64=389) %!v(MISSING) ggggg
+067165 VOTE S4 now:389 become leaderr num:4 hashert:false
+067175 LEAD S4 dtime:390 send heart
+067179 INFO %!S(int=1)v 391 recv hert to 4
+067180 INFO %!S(int=5)v 391 recv hert to 4
+067181 INFO %!S(int=6)v 391 recv hert to 4
+067184 INFO %!S(int=2)v 391 recv hert to 4
+067307 VOTE %!s(int64=403) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+067307 VOTE S1 546 go thrd--5 exit
+067308 VOTE %!s(int64=403) %!v(MISSING) ggggg
+067308 VOTE S1 now:403 become leaderr num:4 hashert:false
+067308 LEAD S6 dtime:404 send heart
+067308 LEAD S1 dtime:404 send heart
+067311 INFO S2 now:404 node become 6 foller
+067311 INFO S5 now:404 node become 6 foller
+067311 INFO %!S(int=5)v 404 recv hert to 6
+067311 INFO S6 now:404 node become 1 foller
+067312 INFO %!S(int=6)v 404 recv hert to 1
+067313 INFO S4 now:404 node become 6 foller
+067313 INFO %!S(int=4)v 404 recv hert to 6
+067311 INFO %!S(int=1)v 404 recv hert to 6
+067313 INFO S4 now:404 node become 1 foller
+067314 INFO %!S(int=4)v 404 recv hert to 1
+067311 INFO %!S(int=2)v 404 recv hert to 6
+067315 INFO S5 now:404 node become 1 foller
+067315 INFO S2 now:404 node become 1 foller
+067315 INFO %!S(int=5)v 404 recv hert to 1
+067315 INFO %!S(int=2)v 404 recv hert to 1
+067319 INFO S4 now:405 become foller 
+067319 INFO S6 now:405 become foller 
+067353 VOTE %!s(int64=408) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+067354 VOTE S0 157 go thrd--2 exit
+067385 LEAD S6 now:411 sendhert failed to 4
+067451 LEAD S3 now:418 sendhert failed to 5
+067579 VOTE %!s(int64=431) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+067580 VOTE S1 200 go thrd--5 exit
+067753 VOTE %!s(int64=448) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+067754 VOTE S1 228 go thrd--0 exit
+067819 LEAD S3 now:455 sendhert failed to 6
+067917 LEAD S4 now:464 sendhert failed to 5
+068037 LEAD S3 now:476 sendhert failed to 2
+068059 VOTE %!s(int64=479) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+068059 VOTE S1 202 go thrd--3 exit
+068059 VOTE %!s(int64=479) %!v(MISSING) ggggg
+068059 VOTE S1 now:479 vote again-- 4
+068135 LEAD S3 now:486 sendhert failed to 5
+068323 VOTE %!s(int64=505) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+068323 VOTE S1 191 go thrd--3 exit
+068356 LEAD S3 now:508 sendhert failed to 5
+068388 LEAD S3 now:512 sendhert failed to 4
+068399 VOTE S1 513 start vote 1 has 7
+068401 VOTE S1 now:513 get vote from 4 allvote 1
+068401 VOTE S1 513 go thrd--4 exit
+068401 VOTE S1 now:513 get vote from 5 allvote 2
+068401 VOTE S1 513 go thrd--5 exit
+068402 VOTE S1 now:513 get vote from 6 allvote 3
+068402 VOTE S1 513 go thrd--6 exit
+068402 VOTE S1 now:513 get vote from 2 allvote 4
+068402 VOTE S1 513 go thrd--2 exit
+068432 LEAD S3 now:516 sendhert failed to 2
+068573 LEAD S3 now:530 sendhert failed to 4
+068648 VOTE %!s(int64=538) 6 server 4 VoteCall failed to 1 had term %!d(MISSING)
+068649 VOTE S6 827 go thrd--4 exit
+068681 VOTE S3 541 start vote 1 has 7
+068704 LEAD S3 now:543 sendhert failed to 0
+068714 VOTE %!s(int64=544) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+068714 VOTE S2 774 go thrd--4 exit
+068715 VOTE %!s(int64=544) 1 server 5 VoteCall failed to 1 had term %!d(MISSING)
+068715 VOTE S1 122 go thrd--5 exit
+068834 LEAD S3 now:556 sendhert failed to 2
+068997 LEAD S3 now:572 sendhert failed to 0
+069007 VOTE %!s(int64=573) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+069008 VOTE S5 493 go thrd--0 exit
+069008 VOTE %!s(int64=573) %!v(MISSING) ggggg
+069008 VOTE S5 now:573 vote again-- 1
+069072 LEAD S3 now:580 sendhert failed to 4
+069318 VOTE S0 605 start vote 1 has 7
+069372 VOTE %!s(int64=610) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+069373 VOTE S1 122 go thrd--0 exit
+069437 LEAD S3 now:616 sendhert failed to 6
+069567 VOTE %!s(int64=629) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+069567 VOTE S0 438 go thrd--3 exit
+069598 VOTE %!s(int64=633) 3 server 2 VoteCall failed to 1 had term %!d(MISSING)
+069598 VOTE S3 305 go thrd--2 exit
+069685 VOTE %!s(int64=641) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+069686 VOTE S2 494 go thrd--5 exit
+069772 LEAD S4 now:650 sendhert failed to 3
+069902 VOTE %!s(int64=663) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+069902 VOTE S2 171 go thrd--0 exit
+070021 VOTE %!s(int64=675) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+070022 VOTE S4 592 go thrd--5 exit
+070087 VOTE %!s(int64=681) 0 server 3 VoteCall failed to 1 had term %!d(MISSING)
+070087 VOTE S0 961 go thrd--3 exit
+070173 LEAD S4 now:690 sendhert failed to 6
+070334 LEAD S3 now:706 sendhert failed to 6
+070540 LEAD S3 now:727 sendhert failed to 1
+070551 VOTE %!s(int64=728) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+070551 VOTE S2 171 go thrd--6 exit
+070573 VOTE %!s(int64=730) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+070574 VOTE S5 876 go thrd--3 exit
+070641 VOTE %!s(int64=737) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+070641 VOTE S2 351 go thrd--3 exit
+070641 VOTE %!s(int64=737) %!v(MISSING) ggggg
+070641 VOTE S2 now:737 vote again-- 1
+070642 LEAD S3 now:737 sendhert failed to 1
+070826 VOTE S2 755 start vote 1 has 7
+070830 VOTE S2 now:756 get vote from 6 allvote 1
+070830 VOTE S2 755 go thrd--6 exit
+070831 VOTE S2 now:756 get vote from 5 allvote 2
+070831 VOTE S2 756 go thrd--5 exit
+070831 VOTE S2 now:756 get vote from 4 allvote 3
+070832 VOTE S2 755 go thrd--4 exit
+070832 VOTE S2 now:756 get vote from 1 allvote 4
+070832 VOTE S2 756 go thrd--1 exit
+070965 LEAD S6 now:769 sendhert failed to 5
+071322 VOTE %!s(int64=805) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+071322 VOTE S2 8 go thrd--0 exit
+071463 LEAD S6 now:819 sendhert failed to 0
+071604 VOTE S1 833 start vote 1 has 7
+071606 VOTE S1 now:833 get vote from 4 allvote 1
+071606 VOTE S1 833 go thrd--4 exit
+071606 VOTE S1 now:833 get vote from 5 allvote 2
+071606 VOTE S1 now:833 get vote from 2 allvote 3
+071606 VOTE S1 833 go thrd--2 exit
+071606 VOTE S1 833 go thrd--5 exit
+071606 VOTE S1 now:833 get vote from 6 allvote 4
+071606 VOTE S1 833 go thrd--6 exit
+071626 VOTE %!s(int64=835) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+071626 VOTE S5 86 go thrd--6 exit
+071669 LEAD S3 now:840 sendhert failed to 5
+071712 LEAD S3 now:844 sendhert failed to 6
+071789 VOTE %!s(int64=852) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+071790 VOTE S6 50 go thrd--3 exit
+071811 VOTE %!s(int64=854) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+071811 VOTE S5 134 go thrd--2 exit
+071833 VOTE %!s(int64=856) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+071833 VOTE S2 494 go thrd--1 exit
+071898 VOTE S0 863 start vote 1 has 7
+071931 LEAD S1 now:866 sendhert failed to 6
+071952 VOTE S5 868 start vote 1 has 7
+071954 VOTE S5 now:868 get vote from 1 allvote 1
+071954 VOTE S5 868 go thrd--1 exit
+071954 VOTE S5 now:868 get vote from 6 allvote 2
+071955 VOTE S5 868 go thrd--6 exit
+071955 VOTE S5 now:868 get vote from 4 allvote 3
+071955 VOTE S5 868 go thrd--4 exit
+071955 VOTE S5 now:868 get vote from 2 allvote 4
+071955 VOTE S5 868 go thrd--2 exit
+072050 VOTE %!s(int64=878) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+072051 VOTE S5 102 go thrd--3 exit
+072060 VOTE S3 879 start vote 1 has 7
+072169 VOTE %!s(int64=890) 1 server 6 VoteCall failed to 1 had term %!d(MISSING)
+072169 VOTE S1 228 go thrd--6 exit
+072190 LEAD S4 now:892 sendhert failed to 0
+072278 VOTE %!s(int64=901) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+072278 VOTE S0 880 go thrd--5 exit
+072332 VOTE %!s(int64=906) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+072333 VOTE S0 438 go thrd--2 exit
+072354 VOTE %!s(int64=908) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+072354 VOTE S5 833 go thrd--2 exit
+072354 VOTE %!s(int64=908) %!v(MISSING) ggggg
+072354 VOTE S5 now:908 vote again-- 1
+072461 VOTE %!s(int64=919) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+072462 VOTE S0 838 go thrd--3 exit
+072571 LEAD S3 now:930 sendhert failed to 5
+072733 VOTE %!s(int64=946) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+072734 VOTE S4 921 go thrd--3 exit
+072874 LEAD S3 now:960 sendhert failed to 5
+073059 VOTE %!s(int64=979) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+073060 VOTE S5 326 go thrd--1 exit
+073214 VOTE %!s(int64=994) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+073214 VOTE S2 538 go thrd--3 exit
+073214 VOTE %!s(int64=994) 1 server 3 VoteCall failed to 1 had term %!d(MISSING)
+073214 VOTE S1 857 go thrd--3 exit
+073334 VOTE %!s(int64=6) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+073335 VOTE S1 200 go thrd--2 exit
+073335 VOTE %!s(int64=6) %!v(MISSING) ggggg
+073335 VOTE S1 now:6 become leaderr num:4 hashert:false
+073347 LEAD S1 dtime:7 send heart
+073350 INFO S6 now:8 node become 1 foller
+073350 INFO S2 now:8 node become 1 foller
+073350 INFO %!S(int=2)v 8 recv hert to 1
+073350 INFO %!S(int=6)v 8 recv hert to 1
+073351 INFO S5 now:8 node become 1 foller
+073351 INFO %!S(int=5)v 8 recv hert to 1
+073351 INFO S4 now:8 node become 1 foller
+073352 INFO %!S(int=4)v 8 recv hert to 1
+073495 LEAD S3 now:22 sendhert failed to 2
+073572 VOTE %!s(int64=30) 3 server 5 VoteCall failed to 1 had term %!d(MISSING)
+073572 VOTE S3 305 go thrd--5 exit
+073606 LEAD S3 now:33 sendhert failed to 5
+073616 LEAD S3 now:34 sendhert failed to 0
+073899 VOTE %!s(int64=63) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+073899 VOTE S2 344 go thrd--4 exit
+073910 VOTE %!s(int64=64) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+073910 VOTE S1 855 go thrd--5 exit
+074266 LEAD S6 now:99 sendhert failed to 4
+074266 VOTE %!s(int64=99) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+074266 VOTE S2 8 go thrd--4 exit
+074276 VOTE %!s(int64=100) 3 server 4 VoteCall failed to 1 had term %!d(MISSING)
+074276 VOTE S3 879 go thrd--4 exit
+074354 VOTE S0 108 start vote 1 has 7
+074354 LEAD S3 now:108 sendhert failed to 2
+074366 LEAD S3 now:109 sendhert failed to 5
+074443 VOTE %!s(int64=117) 3 server 0 VoteCall failed to 1 had term %!d(MISSING)
+074443 VOTE S3 305 go thrd--0 exit
+074454 LEAD S3 now:118 sendhert failed to 6
+074454 LEAD S1 dtime:118 send heart
+074457 INFO S6 now:118 node become 1 foller
+074458 INFO %!S(int=6)v 118 recv hert to 1
+074458 INFO S5 now:119 node become 1 foller
+074458 INFO %!S(int=5)v 119 recv hert to 1
+074458 INFO S2 now:119 node become 1 foller
+074459 INFO %!S(int=2)v 119 recv hert to 1
+074458 INFO S4 now:118 node become 1 foller
+074459 INFO %!S(int=4)v 119 recv hert to 1
+074476 VOTE %!s(int64=120) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+074476 VOTE S5 998 go thrd--1 exit
+074543 VOTE %!s(int64=127) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+074543 VOTE S4 297 go thrd--5 exit
+074576 VOTE %!s(int64=130) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+074576 VOTE S1 346 go thrd--2 exit
+074576 VOTE %!s(int64=130) %!v(MISSING) ggggg
+074576 VOTE S1 now:130 vote again-- 4
+074598 VOTE %!s(int64=133) 0 server 4 VoteCall failed to 1 had term %!d(MISSING)
+074598 VOTE S0 961 go thrd--4 exit
+074696 VOTE S3 142 start vote 1 has 7
+074890 VOTE %!s(int64=162) 0 server 4 VoteCall failed to 1 had term %!d(MISSING)
+074891 VOTE S0 863 go thrd--4 exit
+074978 VOTE %!s(int64=171) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+074978 VOTE S1 584 go thrd--2 exit
+074989 LEAD S3 now:172 sendhert failed to 4
+075143 VOTE %!s(int64=187) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+075143 VOTE S0 157 go thrd--5 exit
+075186 LEAD S0 now:191 sendhert failed to 6
+075275 LEAD S3 now:200 sendhert failed to 4
+075319 LEAD S3 now:205 sendhert failed to 6
+075440 VOTE %!s(int64=217) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+075440 VOTE S0 144 go thrd--2 exit
+075441 VOTE %!s(int64=217) %!v(MISSING) ggggg
+075441 VOTE S0 now:217 become leaderr num:4 hashert:false
+075441 LEAD S0 dtime:217 send heart
+075495 LEAD S3 now:222 sendhert failed to 5
+075529 LEAD S3 now:226 sendhert failed to 0
+075550 VOTE S1 228 start vote 1 has 7
+075552 VOTE S1 now:228 get vote from 6 allvote 1
+075552 VOTE S1 228 go thrd--6 exit
+075552 VOTE S1 now:228 get vote from 4 allvote 2
+075553 VOTE S1 228 go thrd--4 exit
+075553 VOTE S1 now:228 get vote from 5 allvote 3
+075553 VOTE S1 228 go thrd--5 exit
+075553 VOTE S1 now:228 get vote from 2 allvote 4
+075553 VOTE S1 228 go thrd--2 exit
+075772 LEAD S0 now:250 sendhert failed to 3
+075796 VOTE %!s(int64=252) 1 server 0 VoteCall failed to 5 had term %!d(MISSING)
+075796 VOTE S1 833 go thrd--0 exit
+075816 LEAD S3 now:254 sendhert failed to 2
+075915 VOTE %!s(int64=264) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+075915 VOTE S5 717 go thrd--1 exit
+075960 LEAD S3 now:269 sendhert failed to 6
+076459 VOTE %!s(int64=319) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+076460 VOTE S5 580 go thrd--6 exit
+076482 VOTE %!s(int64=321) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+076482 VOTE S4 545 go thrd--3 exit
+076546 LEAD S0 dtime:327 send heart
+076788 LEAD S0 now:351 sendhert failed to 5
+076834 LEAD S3 now:356 sendhert failed to 0
+076921 LEAD S0 now:365 sendhert failed to 1
+076956 VOTE %!s(int64=368) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+076956 VOTE S2 538 go thrd--0 exit
+076956 VOTE %!s(int64=368) %!v(MISSING) ggggg
+076956 VOTE S2 now:368 vote again-- 1
+077286 VOTE %!s(int64=401) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+077287 VOTE S0 838 go thrd--5 exit
+077287 VOTE %!s(int64=401) %!v(MISSING) ggggg
+077287 VOTE S0 now:401 vote again-- 4
+077408 LEAD S3 now:414 sendhert failed to 4
+077463 VOTE %!s(int64=419) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+077463 VOTE S1 477 go thrd--3 exit
+077597 VOTE %!s(int64=432) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+077597 VOTE S1 857 go thrd--0 exit
+077620 VOTE %!s(int64=435) 1 server 4 VoteCall failed to 1 had term %!d(MISSING)
+077620 VOTE S1 122 go thrd--4 exit
+077663 VOTE S0 439 start vote 1 has 7
+077718 LEAD S3 now:445 sendhert failed to 6
+077867 VOTE %!s(int64=459) 3 server 4 VoteCall failed to 1 had term %!d(MISSING)
+077868 VOTE S3 142 go thrd--4 exit
+077936 INFO S4 now:466 became Candidate
+077937 VOTE S4 466 start vote 1 has 7
+077938 VOTE %!s(int64=467) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+077938 VOTE S0 880 go thrd--2 exit
+077941 VOTE S4 now:467 get vote from 6 allvote 1
+077942 VOTE S4 466 go thrd--6 exit
+077942 VOTE S4 now:467 get vote from 1 allvote 2
+077942 VOTE S4 467 go thrd--1 exit
+077942 VOTE S4 now:467 get vote from 2 allvote 3
+077943 VOTE S4 466 go thrd--2 exit
+077943 VOTE S4 now:467 get vote from 5 allvote 4
+077943 VOTE S4 467 go thrd--5 exit
+077982 VOTE S2 471 start vote 1 has 7
+077987 VOTE S2 now:471 get vote from 6 allvote 1
+077987 VOTE S2 471 go thrd--6 exit
+077987 VOTE S2 now:471 get vote from 4 allvote 2
+077988 VOTE S2 471 go thrd--4 exit
+077988 VOTE S2 now:472 get vote from 1 allvote 3
+077988 VOTE S2 471 go thrd--1 exit
+077988 VOTE S2 now:472 get vote from 5 allvote 4
+077989 VOTE S2 471 go thrd--5 exit
+078092 VOTE %!s(int64=482) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+078093 VOTE S2 879 go thrd--3 exit
+078114 VOTE %!s(int64=484) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+078114 VOTE S5 134 go thrd--6 exit
+078274 VOTE %!s(int64=500) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+078274 VOTE S5 224 go thrd--4 exit
+078363 VOTE S3 509 start vote 1 has 7
+078681 VOTE %!s(int64=541) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+078681 VOTE S6 431 go thrd--5 exit
+078702 LEAD S3 now:543 sendhert failed to 2
+078779 LEAD S3 now:551 sendhert failed to 4
+078790 VOTE %!s(int64=552) 3 server 5 VoteCall failed to 1 had term %!d(MISSING)
+078791 VOTE S3 142 go thrd--5 exit
+079002 VOTE S1 573 start vote 1 has 7
+079006 VOTE S1 now:573 get vote from 6 allvote 1
+079007 VOTE S1 573 go thrd--6 exit
+079007 VOTE S1 now:573 get vote from 4 allvote 2
+079007 VOTE S1 573 go thrd--4 exit
+079007 VOTE S1 now:573 get vote from 5 allvote 3
+079008 VOTE S1 573 go thrd--5 exit
+079008 VOTE S1 now:574 get vote from 2 allvote 4
+079008 VOTE S1 573 go thrd--2 exit
+079035 VOTE %!s(int64=576) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+079036 VOTE S5 134 go thrd--4 exit
+079384 VOTE %!s(int64=611) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+079384 VOTE S2 75 go thrd--1 exit
+079419 LEAD S3 now:615 sendhert failed to 5
+079473 LEAD S3 now:620 sendhert failed to 4
+079531 VOTE %!s(int64=626) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+079531 VOTE S5 190 go thrd--0 exit
+079584 LEAD S3 now:631 sendhert failed to 4
+079595 VOTE %!s(int64=632) 0 server 5 VoteCall failed to 1 had term %!d(MISSING)
+079595 VOTE S0 605 go thrd--5 exit
+079595 VOTE %!s(int64=632) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+079596 VOTE S0 278 go thrd--1 exit
+079718 VOTE %!s(int64=644) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+079718 VOTE S5 224 go thrd--6 exit
+080110 VOTE %!s(int64=684) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+080111 VOTE S2 171 go thrd--1 exit
+080123 LEAD S3 now:685 sendhert failed to 1
+080158 LEAD S3 now:689 sendhert failed to 1
+080171 LEAD S3 now:690 sendhert failed to 0
+080192 VOTE S0 692 start vote 1 has 7
+080247 VOTE %!s(int64=697) 0 server 4 VoteCall failed to 1 had term %!d(MISSING)
+080247 VOTE S0 278 go thrd--4 exit
+080325 LEAD S0 now:705 sendhert failed to 6
+080448 LEAD S3 now:718 sendhert failed to 6
+080483 VOTE %!s(int64=721) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+080483 VOTE S5 102 go thrd--2 exit
+080483 VOTE %!s(int64=721) %!v(MISSING) ggggg
+080484 VOTE S5 now:721 vote again-- 1
+080673 VOTE %!s(int64=740) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+080674 VOTE S5 86 go thrd--4 exit
+080938 LEAD S6 now:767 sendhert failed to 5
+081102 LEAD S1 now:783 sendhert failed to 0
+081191 VOTE %!s(int64=792) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+081192 VOTE S1 979 go thrd--3 exit
+081192 VOTE %!s(int64=792) %!v(MISSING) ggggg
+081192 VOTE S1 now:792 become leaderr num:4 hashert:false
+081202 VOTE %!s(int64=793) 3 server 2 VoteCall failed to 1 had term %!d(MISSING)
+081203 VOTE S3 142 go thrd--2 exit
+081203 LEAD S1 dtime:793 send heart
+081209 INFO S2 now:794 node become 1 foller
+081210 INFO %!S(int=2)v 794 recv hert to 1
+081213 INFO S5 now:794 node become 1 foller
+081213 INFO %!S(int=5)v 794 recv hert to 1
+081210 INFO S6 now:794 node become 1 foller
+081214 INFO %!S(int=6)v 794 recv hert to 1
+081215 INFO S4 now:794 node become 1 foller
+081215 INFO %!S(int=4)v 794 recv hert to 1
+081325 LEAD S3 now:805 sendhert failed to 4
+081384 VOTE %!s(int64=811) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+081384 VOTE S5 224 go thrd--1 exit
+081384 VOTE %!s(int64=811) %!v(MISSING) ggggg
+081385 VOTE S5 now:811 vote again-- 1
+081633 LEAD S3 now:836 sendhert failed to 5
+081777 VOTE %!s(int64=850) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+081778 VOTE S5 822 go thrd--1 exit
+081986 LEAD S6 now:871 sendhert failed to 1
+082020 VOTE %!s(int64=875) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+082021 VOTE S5 509 go thrd--4 exit
+082087 LEAD S0 now:881 sendhert failed to 2
+082131 VOTE %!s(int64=886) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+082131 VOTE S0 258 go thrd--5 exit
+082164 LEAD S3 now:889 sendhert failed to 2
+082262 VOTE S3 899 start vote 1 has 7
+082328 LEAD S1 dtime:906 send heart
+082330 INFO S4 now:906 node become 1 foller
+082330 INFO %!S(int=4)v 906 recv hert to 1
+082330 INFO S5 now:906 node become 1 foller
+082330 INFO %!S(int=5)v 906 recv hert to 1
+082330 INFO S6 now:906 node become 1 foller
+082330 INFO %!S(int=6)v 906 recv hert to 1
+082330 INFO S2 now:906 node become 1 foller
+082331 INFO %!S(int=2)v 906 recv hert to 1
+082560 VOTE %!s(int64=929) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+082561 VOTE S5 876 go thrd--1 exit
+082658 VOTE %!s(int64=938) 0 server 6 VoteCall failed to 1 had term %!d(MISSING)
+082658 VOTE S0 278 go thrd--6 exit
+082713 VOTE %!s(int64=944) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+082714 VOTE S2 249 go thrd--5 exit
+082767 VOTE S0 949 start vote 1 has 7
+082811 LEAD S6 now:954 sendhert failed to 0
+083158 VOTE %!s(int64=989) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+083159 VOTE S5 190 go thrd--4 exit
+083234 VOTE %!s(int64=996) 2 server 3 VoteCall failed to 5 had term %!d(MISSING)
+083235 VOTE S2 471 go thrd--3 exit
+083256 VOTE %!s(int64=998) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+083257 VOTE S6 747 go thrd--5 exit
+083257 VOTE %!s(int64=998) %!v(MISSING) ggggg
+083257 VOTE S6 now:998 vote again-- 4
+083300 VOTE %!s(int64=3) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+083300 VOTE S2 494 go thrd--3 exit
+083420 LEAD S1 dtime:15 send heart
+083422 INFO S6 now:15 node become 1 foller
+083422 INFO %!S(int=6)v 15 recv hert to 1
+083423 INFO S4 now:15 node become 1 foller
+083423 INFO %!S(int=4)v 15 recv hert to 1
+083423 INFO S5 now:15 node become 1 foller
+083423 INFO %!S(int=5)v 15 recv hert to 1
+083422 INFO S2 now:15 node become 1 foller
+083424 INFO %!S(int=2)v 15 recv hert to 1
+083476 LEAD S3 now:20 sendhert failed to 0
+083650 LEAD S6 now:38 sendhert failed to 1
+083682 VOTE %!s(int64=41) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+083683 VOTE S4 573 go thrd--5 exit
+083683 VOTE %!s(int64=41) %!v(MISSING) ggggg
+083683 VOTE S4 now:41 vote again-- 4
+083769 LEAD S0 now:50 sendhert failed to 4
+083801 LEAD S0 now:53 sendhert failed to 2
+083844 LEAD S6 now:57 sendhert failed to 5
+084073 VOTE %!s(int64=80) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+084073 VOTE S2 344 go thrd--5 exit
+084085 VOTE %!s(int64=81) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+084085 VOTE S2 344 go thrd--1 exit
+084128 LEAD S0 now:86 sendhert failed to 1
+084149 VOTE %!s(int64=88) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+084149 VOTE S0 438 go thrd--5 exit
+084150 VOTE %!s(int64=88) %!v(MISSING) ggggg
+084150 VOTE S0 now:88 become leaderr num:4 hashert:false
+084160 LEAD S0 dtime:89 send heart
+084279 VOTE %!s(int64=101) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+084279 VOTE S2 171 go thrd--5 exit
+084311 VOTE %!s(int64=104) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+084312 VOTE S0 961 go thrd--2 exit
+084431 VOTE %!s(int64=116) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+084431 VOTE S0 157 go thrd--3 exit
+084431 VOTE %!s(int64=116) %!v(MISSING) ggggg
+084431 VOTE S0 now:116 vote again-- 4
+084465 VOTE %!s(int64=119) 0 server 5 VoteCall failed to 1 had term %!d(MISSING)
+084465 VOTE S0 961 go thrd--5 exit
+084507 LEAD S1 dtime:123 send heart
+084509 INFO S6 now:124 node become 1 foller
+084509 INFO %!S(int=6)v 124 recv hert to 1
+084509 INFO S4 now:124 node become 1 foller
+084509 INFO %!S(int=4)v 124 recv hert to 1
+084509 INFO S2 now:124 node become 1 foller
+084510 INFO %!S(int=2)v 124 recv hert to 1
+084509 INFO S5 now:124 node become 1 foller
+084510 INFO %!S(int=5)v 124 recv hert to 1
+084625 LEAD S3 now:135 sendhert failed to 1
+084755 VOTE S3 148 start vote 1 has 7
+084820 VOTE %!s(int64=155) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+084820 VOTE S5 822 go thrd--6 exit
+084862 VOTE %!s(int64=159) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+084863 VOTE S5 509 go thrd--0 exit
+084916 VOTE %!s(int64=164) 0 server 4 VoteCall failed to 1 had term %!d(MISSING)
+084917 VOTE S0 439 go thrd--4 exit
+085002 VOTE %!s(int64=173) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+085003 VOTE S4 296 go thrd--2 exit
+085003 VOTE %!s(int64=173) %!v(MISSING) ggggg
+085003 VOTE S4 now:173 vote again-- 4
+085014 VOTE %!s(int64=174) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+085014 VOTE S2 8 go thrd--1 exit
+085014 VOTE %!s(int64=174) %!v(MISSING) ggggg
+085014 VOTE S2 now:174 vote again-- 1
+085165 VOTE %!s(int64=189) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+085165 VOTE S0 258 go thrd--2 exit
+085164 VOTE %!s(int64=189) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+085165 VOTE %!s(int64=189) %!v(MISSING) ggggg
+085165 VOTE S0 now:189 become leaderr num:4 hashert:false
+085165 VOTE S5 822 go thrd--4 exit
+085240 LEAD S0 dtime:197 send heart
+085326 LEAD S0 now:205 sendhert failed to 1
+085585 LEAD S1 dtime:231 send heart
+085587 INFO S6 now:231 node become 1 foller
+085588 INFO S2 now:231 node become 1 foller
+085588 INFO %!S(int=2)v 232 recv hert to 1
+085587 INFO S5 now:231 node become 1 foller
+085589 INFO %!S(int=5)v 232 recv hert to 1
+085587 INFO S4 now:231 node become 1 foller
+085589 INFO %!S(int=4)v 232 recv hert to 1
+085588 INFO %!S(int=6)v 231 recv hert to 1
+085683 LEAD S0 now:241 sendhert failed to 5
+085727 VOTE %!s(int64=245) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+085728 VOTE S5 190 go thrd--2 exit
+085749 LEAD S3 now:248 sendhert failed to 2
+leader-----1
+2---3
+disconnect 0 5 0
+085910 VOTE %!s(int64=264) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+085910 VOTE S6 935 go thrd--3 exit
+085910 VOTE %!s(int64=264) %!v(MISSING) ggggg
+085910 VOTE S6 now:264 vote again-- 4
+086018 LEAD S3 now:274 sendhert failed to 1
+086083 VOTE %!s(int64=281) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+086083 VOTE S5 190 go thrd--6 exit
+086084 VOTE %!s(int64=281) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+086084 VOTE S5 326 go thrd--2 exit
+086320 LEAD S0 dtime:305 send heart
+086343 VOTE %!s(int64=307) 0 server 3 VoteCall failed to 4 had term %!d(MISSING)
+086343 VOTE S0 880 go thrd--3 exit
+086343 VOTE %!s(int64=307) %!v(MISSING) ggggg
+086343 VOTE S0 now:307 vote again-- 4
+086374 VOTE %!s(int64=310) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+086375 VOTE S5 418 go thrd--6 exit
+086375 VOTE %!s(int64=310) %!v(MISSING) ggggg
+086375 VOTE S5 now:310 vote again-- 1
+086407 VOTE %!s(int64=313) 3 server 4 VoteCall failed to 1 had term %!d(MISSING)
+086407 VOTE S3 148 go thrd--4 exit
+086407 LEAD S0 now:313 sendhert failed to 3
+086506 LEAD S3 now:323 sendhert failed to 1
+086668 LEAD S1 dtime:339 send heart
+086670 INFO S2 now:340 node become 1 foller
+086670 INFO S6 now:340 node become 1 foller
+086670 INFO %!S(int=6)v 340 recv hert to 1
+086670 INFO S3 now:340 node become 1 foller
+086670 INFO %!S(int=3)v 340 recv hert to 1
+086670 INFO %!S(int=2)v 340 recv hert to 1
+086670 INFO S4 now:340 node become 1 foller
+086671 INFO %!S(int=4)v 340 recv hert to 1
+086680 VOTE %!s(int64=341) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+086680 VOTE S1 191 go thrd--2 exit
+086681 VOTE %!s(int64=341) %!v(MISSING) ggggg
+086681 VOTE S1 now:341 vote again-- 4
+086745 VOTE %!s(int64=347) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+086746 VOTE S6 260 go thrd--5 exit
+086778 LEAD S6 now:350 sendhert failed to 4
+086853 VOTE %!s(int64=358) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+086854 VOTE S2 774 go thrd--3 exit
+086854 VOTE %!s(int64=358) %!v(MISSING) ggggg
+086854 VOTE S2 now:358 vote again-- 1
+086908 LEAD S1 now:364 sendhert failed to 3
+087086 VOTE %!s(int64=381) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+087086 VOTE S1 855 go thrd--2 exit
+087295 VOTE %!s(int64=402) 1 server 5 VoteCall failed to 1 had term %!d(MISSING)
+087295 VOTE S1 228 go thrd--5 exit
+087328 VOTE %!s(int64=406) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+087328 VOTE S2 879 go thrd--0 exit
+087414 VOTE S0 414 start vote 1 has 7
+087449 VOTE %!s(int64=418) 3 server 1 VoteCall failed to 1 had term %!d(MISSING)
+087449 VOTE S3 541 go thrd--1 exit
+087504 LEAD S3 now:423 sendhert failed to 5
+087540 LEAD S4 now:427 sendhert failed to 5
+087649 VOTE %!s(int64=438) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+087650 VOTE S2 74 go thrd--6 exit
+087650 VOTE %!s(int64=438) %!v(MISSING) ggggg
+087650 VOTE S2 now:438 vote again-- 1
+087649 VOTE %!s(int64=438) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+087650 VOTE S5 998 go thrd--3 exit
+087650 VOTE %!s(int64=438) %!v(MISSING) ggggg
+087650 VOTE S5 now:438 vote again-- 1
+087681 VOTE %!s(int64=441) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+087682 VOTE S0 863 go thrd--1 exit
+087714 VOTE %!s(int64=444) 4 server 2 VoteCall failed to 4 had term %!d(MISSING)
+087714 VOTE S4 545 go thrd--2 exit
+087714 VOTE %!s(int64=444) %!v(MISSING) ggggg
+087714 VOTE S4 now:444 vote again-- 4
+087767 VOTE S1 449 start vote 1 has 7
+087769 VOTE S1 now:450 get vote from 3 allvote 1
+087769 VOTE S1 449 go thrd--3 exit
+087769 VOTE S1 now:450 get vote from 2 allvote 2
+087769 VOTE S1 450 go thrd--2 exit
+087769 VOTE S1 now:450 get vote from 4 allvote 3
+087770 VOTE S1 449 go thrd--4 exit
+087770 VOTE S1 now:450 get vote from 6 allvote 4
+087770 VOTE S1 449 go thrd--6 exit
+087800 LEAD S0 now:453 sendhert failed to 2
+087800 LEAD S0 now:453 sendhert failed to 5
+087822 LEAD S0 now:455 sendhert failed to 5
+087844 LEAD S6 now:457 sendhert failed to 0
+087855 LEAD S4 now:458 sendhert failed to 1
+087899 LEAD S3 now:463 sendhert failed to 2
+088105 VOTE %!s(int64=483) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+088105 VOTE S1 525 go thrd--2 exit
+088202 LEAD S6 now:493 sendhert failed to 1
+088429 LEAD S3 now:516 sendhert failed to 6
+088451 LEAD S0 now:518 sendhert failed to 1
+088528 LEAD S3 now:525 sendhert failed to 4
+088582 VOTE S5 531 start vote 1 has 7
+088679 LEAD S3 now:541 sendhert failed to 1
+088713 VOTE %!s(int64=544) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+088714 VOTE S5 86 go thrd--0 exit
+088724 LEAD S6 now:545 sendhert failed to 5
+088736 LEAD S3 now:546 sendhert failed to 6
+088758 LEAD S0 now:549 sendhert failed to 5
+088959 LEAD S4 now:569 sendhert failed to 2
+088971 LEAD S3 now:570 sendhert failed to 1
+089124 VOTE S2 585 start vote 1 has 7
+089127 VOTE S2 now:585 get vote from 6 allvote 1
+089128 VOTE S2 585 go thrd--6 exit
+089128 VOTE S2 now:586 get vote from 4 allvote 2
+089128 VOTE S2 585 go thrd--4 exit
+089129 VOTE %!s(int64=586) 0 server 6 VoteCall failed to 1 had term %!d(MISSING)
+089130 VOTE S2 now:586 get vote from 3 allvote 3
+089130 VOTE S2 585 go thrd--3 exit
+089130 VOTE S0 863 go thrd--6 exit
+089130 VOTE S2 now:586 get vote from 1 allvote 4
+089130 VOTE S2 585 go thrd--1 exit
+089213 LEAD S0 now:594 sendhert failed to 6
+089344 VOTE %!s(int64=607) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+089344 VOTE S2 728 go thrd--1 exit
+089345 VOTE %!s(int64=607) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+089346 VOTE S2 494 go thrd--0 exit
+089389 VOTE %!s(int64=612) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+089389 VOTE S5 509 go thrd--6 exit
+089576 VOTE %!s(int64=630) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+089577 VOTE S5 513 go thrd--0 exit
+089577 VOTE %!s(int64=630) %!v(MISSING) ggggg
+089577 VOTE S5 now:630 vote again-- 1
+089620 LEAD S3 now:635 sendhert failed to 6
+089708 LEAD S3 now:644 sendhert failed to 4
+089763 LEAD S3 now:649 sendhert failed to 6
+089807 LEAD S3 now:653 sendhert failed to 0
+089817 VOTE %!s(int64=654) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+089817 VOTE S4 921 go thrd--5 exit
+089818 VOTE %!s(int64=654) %!v(MISSING) ggggg
+089818 VOTE S4 now:655 become leaderr num:4 hashert:false
+089818 LEAD S4 dtime:655 send heart
+089819 INFO S1 now:655 node become 4 foller
+089820 INFO %!S(int=1)v 655 recv hert to 4
+089819 INFO S6 now:655 node become 4 foller
+089820 INFO %!S(int=6)v 655 recv hert to 4
+089819 INFO S3 now:655 node become 4 foller
+089820 INFO %!S(int=3)v 655 recv hert to 4
+089820 INFO S2 now:655 node become 4 foller
+089820 INFO %!S(int=2)v 655 recv hert to 4
+089831 VOTE %!s(int64=656) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+089831 VOTE S2 556 go thrd--4 exit
+089973 LEAD S3 now:670 sendhert failed to 1
+090018 VOTE S0 675 start vote 1 has 7
+090051 VOTE %!s(int64=678) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+090051 VOTE S2 249 go thrd--1 exit
+090083 LEAD S3 now:681 sendhert failed to 6
+090160 LEAD S3 now:689 sendhert failed to 6
+090213 LEAD S3 now:694 sendhert failed to 1
+090213 VOTE %!s(int64=694) 3 server 5 VoteCall failed to 1 had term %!d(MISSING)
+090214 VOTE S3 879 go thrd--5 exit
+090378 VOTE %!s(int64=711) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+090378 VOTE S2 879 go thrd--4 exit
+090422 LEAD S3 now:715 sendhert failed to 1
+leader-----4
+2---3
+disconnect 1 2 2
+090642 LEAD S0 now:737 sendhert failed to 5
+090869 LEAD S1 now:760 sendhert failed to 0
+090912 LEAD S4 dtime:764 send heart
+090912 VOTE %!s(int64=764) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+090912 VOTE S5 476 go thrd--0 exit
+090913 INFO S3 now:764 node become 4 foller
+090914 INFO S6 now:764 node become 4 foller
+090914 INFO %!S(int=3)v 764 recv hert to 4
+090914 INFO %!S(int=6)v 764 recv hert to 4
+090914 INFO S5 now:764 node become 4 foller
+090914 INFO %!S(int=5)v 764 recv hert to 4
+090913 INFO S0 now:764 node become 4 foller
+090914 INFO %!S(int=0)v 764 recv hert to 4
+091042 VOTE %!s(int64=777) 1 server 5 VoteCall failed to 5 had term %!d(MISSING)
+091043 VOTE S1 450 go thrd--5 exit
+091161 LEAD S6 now:789 sendhert failed to 1
+091259 VOTE %!s(int64=799) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+091259 VOTE S2 494 go thrd--6 exit
+091259 VOTE %!s(int64=799) %!v(MISSING) ggggg
+091259 VOTE S2 now:799 vote again-- 1
+091269 VOTE %!s(int64=800) 3 server 0 VoteCall failed to 1 had term %!d(MISSING)
+091270 VOTE S3 148 go thrd--0 exit
+091368 VOTE %!s(int64=810) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+091369 VOTE S1 477 go thrd--5 exit
+091369 VOTE %!s(int64=810) %!v(MISSING) ggggg
+091369 VOTE S1 now:810 vote again-- 4
+091477 VOTE %!s(int64=820) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+091478 VOTE S5 717 go thrd--6 exit
+091717 LEAD S3 now:844 sendhert failed to 4
+091840 VOTE %!s(int64=857) 3 server 0 VoteCall failed to 1 had term %!d(MISSING)
+091840 VOTE S3 509 go thrd--0 exit
+091873 VOTE %!s(int64=860) 3 server 6 VoteCall failed to 1 had term %!d(MISSING)
+091873 VOTE S3 899 go thrd--6 exit
+091884 VOTE %!s(int64=861) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+091885 VOTE S5 876 go thrd--4 exit
+091951 VOTE %!s(int64=868) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+091951 VOTE S0 539 go thrd--2 exit
+092004 LEAD S4 dtime:873 send heart
+092006 INFO S0 now:873 node become 4 foller
+092006 INFO S5 now:873 node become 4 foller
+092006 INFO %!S(int=5)v 873 recv hert to 4
+092006 INFO %!S(int=0)v 873 recv hert to 4
+092006 INFO S6 now:873 node become 4 foller
+092008 INFO %!S(int=6)v 873 recv hert to 4
+092006 INFO S3 now:873 node become 4 foller
+092008 INFO %!S(int=3)v 874 recv hert to 4
+092048 VOTE %!s(int64=878) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+092049 VOTE S6 50 go thrd--2 exit
+092048 VOTE %!s(int64=878) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+092049 VOTE S2 171 go thrd--3 exit
+092070 VOTE %!s(int64=880) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+092070 VOTE S0 961 go thrd--1 exit
+092179 VOTE %!s(int64=891) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+092179 VOTE S2 556 go thrd--0 exit
+092200 VOTE %!s(int64=893) 1 server 0 VoteCall failed to 5 had term %!d(MISSING)
+092200 VOTE %!s(int64=893) 6 server 3 VoteCall failed to 4 had term %!d(MISSING)
+092200 VOTE S1 228 go thrd--0 exit
+092200 VOTE S6 260 go thrd--3 exit
+092232 VOTE %!s(int64=896) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+092233 VOTE S0 414 go thrd--1 exit
+092331 LEAD S3 now:906 sendhert failed to 0
+092451 VOTE %!s(int64=918) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+092452 VOTE S2 879 go thrd--6 exit
+092734 VOTE %!s(int64=946) 3 server 5 VoteCall failed to 1 had term %!d(MISSING)
+092735 VOTE S3 541 go thrd--5 exit
+092756 VOTE %!s(int64=948) 6 server 5 VoteCall failed to 4 had term %!d(MISSING)
+092756 VOTE S6 50 go thrd--5 exit
+092756 VOTE %!s(int64=948) %!v(MISSING) ggggg
+092756 VOTE S6 now:948 vote again-- 4
+092788 VOTE S2 952 start vote 1 has 7
+092875 VOTE %!s(int64=960) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+092876 VOTE S2 728 go thrd--0 exit
+093092 LEAD S4 now:982 sendhert failed to 1
+093092 LEAD S4 dtime:982 send heart
+093094 INFO S3 now:982 node become 4 foller
+093094 INFO %!S(int=3)v 982 recv hert to 4
+093094 INFO S5 now:982 node become 4 foller
+093094 INFO S6 now:982 node become 4 foller
+093094 INFO %!S(int=6)v 982 recv hert to 4
+093094 INFO S0 now:982 node become 4 foller
+093094 INFO %!S(int=0)v 982 recv hert to 4
+093094 INFO %!S(int=5)v 982 recv hert to 4
+093137 VOTE %!s(int64=986) 4 server 3 VoteCall failed to 4 had term %!d(MISSING)
+093138 VOTE S4 592 go thrd--3 exit
+093138 VOTE %!s(int64=986) %!v(MISSING) ggggg
+093138 VOTE S4 now:986 vote again-- 4
+093287 LEAD S3 now:1 sendhert failed to 0
+093298 VOTE %!s(int64=3) 1 server 2 VoteCall failed to 4 had term %!d(MISSING)
+093299 VOTE S1 100 go thrd--2 exit
+093330 VOTE S1 6 start vote 1 has 7
+093427 VOTE %!s(int64=15) 5 server 3 VoteCall failed to 5 had term %!d(MISSING)
+093428 VOTE S5 868 go thrd--3 exit
+093502 LEAD S3 now:23 sendhert failed to 0
+093502 VOTE %!s(int64=23) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+093503 VOTE S5 326 go thrd--3 exit
+093524 LEAD S1 now:25 sendhert failed to 3
+093536 VOTE %!s(int64=26) 0 server 5 VoteCall failed to 1 had term %!d(MISSING)
+093537 VOTE S0 950 go thrd--5 exit
+093600 VOTE %!s(int64=33) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+093600 VOTE S2 952 go thrd--0 exit
+093794 VOTE %!s(int64=52) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+093794 VOTE S0 863 go thrd--2 exit
+093880 VOTE %!s(int64=61) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+093881 VOTE S1 525 go thrd--5 exit
+093891 LEAD S3 now:62 sendhert failed to 1
+093988 LEAD S6 now:72 sendhert failed to 0
+094099 LEAD S6 now:83 sendhert failed to 4
+094121 LEAD S3 now:85 sendhert failed to 1
+094121 VOTE %!s(int64=85) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+094121 VOTE S5 86 go thrd--1 exit
+094179 VOTE %!s(int64=91) 6 server 1 VoteCall failed to 4 had term %!d(MISSING)
+094179 VOTE S6 56 go thrd--1 exit
+094188 VOTE %!s(int64=92) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+094188 VOTE S2 879 go thrd--1 exit
+094189 VOTE S4 92 start vote 1 has 7
+094192 VOTE S4 now:92 get vote from 6 allvote 1
+094192 VOTE S4 92 go thrd--6 exit
+094192 VOTE S4 now:92 get vote from 0 allvote 2
+094193 VOTE S4 92 go thrd--0 exit
+094193 VOTE S4 now:92 get vote from 5 allvote 3
+094193 VOTE S4 92 go thrd--5 exit
+094193 VOTE S4 now:92 get vote from 3 allvote 4
+094193 VOTE S4 92 go thrd--3 exit
+094212 VOTE %!s(int64=94) 0 server 4 VoteCall failed to 1 had term %!d(MISSING)
+094212 VOTE S0 692 go thrd--4 exit
+094314 LEAD S3 now:104 sendhert failed to 0
+094348 VOTE %!s(int64=108) 2 server 0 VoteCall failed to 5 had term %!d(MISSING)
+094348 VOTE S2 471 go thrd--0 exit
+094349 VOTE %!s(int64=108) %!v(MISSING) ggggg
+094349 VOTE S2 now:108 become leaderr num:5 hashert:false
+094359 LEAD S2 dtime:109 send heart
+094426 VOTE %!s(int64=115) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+094427 VOTE S5 876 go thrd--2 exit
+094427 VOTE %!s(int64=115) %!v(MISSING) ggggg
+094427 VOTE S5 now:115 vote again-- 1
+094470 VOTE %!s(int64=120) 0 server 5 VoteCall failed to 1 had term %!d(MISSING)
+094471 VOTE S0 863 go thrd--5 exit
+094616 VOTE %!s(int64=134) 3 server 1 VoteCall failed to 1 had term %!d(MISSING)
+094616 VOTE S3 899 go thrd--1 exit
+094684 LEAD S3 now:141 sendhert failed to 5
+094833 VOTE %!s(int64=156) 1 server 3 VoteCall failed to 5 had term %!d(MISSING)
+094834 VOTE S1 573 go thrd--3 exit
+094955 VOTE %!s(int64=168) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+094956 VOTE S5 134 go thrd--0 exit
+095098 LEAD S1 now:182 sendhert failed to 3
+095274 LEAD S4 now:200 sendhert failed to 1
+095408 LEAD S3 now:213 sendhert failed to 0
+095475 LEAD S2 dtime:220 send heart
+095508 LEAD S3 now:224 sendhert failed to 4
+095597 VOTE %!s(int64=232) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+095597 VOTE S6 431 go thrd--2 exit
+095597 VOTE %!s(int64=232) %!v(MISSING) ggggg
+095598 VOTE S6 now:232 vote again-- 4
+095642 VOTE %!s(int64=237) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+095642 VOTE S1 838 go thrd--3 exit
+095642 VOTE %!s(int64=237) %!v(MISSING) ggggg
+095642 VOTE S1 now:237 become leaderr num:4 hashert:false
+095652 LEAD S1 dtime:238 send heart
+095851 VOTE %!s(int64=258) 6 server 4 VoteCall failed to 4 had term %!d(MISSING)
+095851 VOTE S6 56 go thrd--4 exit
+095885 LEAD S3 now:261 sendhert failed to 2
+096086 VOTE %!s(int64=281) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+096086 VOTE S5 134 go thrd--1 exit
+096228 LEAD S3 now:296 sendhert failed to 4
+096283 LEAD S2 now:301 sendhert failed to 0
+096375 LEAD S3 now:310 sendhert failed to 5
+096431 VOTE %!s(int64=316) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+096431 VOTE S2 344 go thrd--0 exit
+096432 VOTE %!s(int64=316) %!v(MISSING) ggggg
+096432 VOTE S2 now:316 vote again-- 1
+096583 VOTE S2 331 start vote 1 has 7
+096625 VOTE S5 335 start vote 1 has 7
+096628 VOTE S5 now:335 get vote from 6 allvote 1
+096628 VOTE S5 335 go thrd--6 exit
+096628 VOTE S5 now:336 get vote from 3 allvote 2
+096628 VOTE S5 335 go thrd--3 exit
+096628 VOTE S5 now:336 get vote from 0 allvote 3
+096628 VOTE S5 335 go thrd--0 exit
+096628 VOTE S5 now:336 get vote from 4 allvote 4
+096628 VOTE S5 335 go thrd--4 exit
+096661 VOTE %!s(int64=339) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+096662 VOTE S0 950 go thrd--2 exit
+096684 LEAD S3 now:341 sendhert failed to 0
+096695 LEAD S1 now:342 sendhert failed to 4
+096749 VOTE %!s(int64=348) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+096749 VOTE S0 605 go thrd--2 exit
+096760 LEAD S1 dtime:349 send heart
+096792 VOTE %!s(int64=352) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+096792 VOTE S5 190 go thrd--3 exit
+096792 VOTE %!s(int64=352) %!v(MISSING) ggggg
+096792 VOTE S5 now:352 vote again-- 1
+096825 LEAD S3 now:355 sendhert failed to 2
+097203 VOTE S4 393 start vote 1 has 7
+097205 VOTE S4 now:393 get vote from 3 allvote 1
+097205 VOTE S4 393 go thrd--3 exit
+097205 VOTE S4 now:393 get vote from 5 allvote 2
+097205 VOTE S4 393 go thrd--5 exit
+097205 VOTE S4 now:393 get vote from 6 allvote 3
+097205 VOTE S4 393 go thrd--6 exit
+097205 VOTE S4 now:393 get vote from 0 allvote 4
+097206 VOTE S4 393 go thrd--0 exit
+097422 LEAD S2 now:415 sendhert failed to 3
+097605 VOTE %!s(int64=433) 1 server 4 VoteCall failed to 1 had term %!d(MISSING)
+097606 VOTE S1 6 go thrd--4 exit
+097842 LEAD S3 now:457 sendhert failed to 6
+097842 LEAD S1 dtime:457 send heart
+097917 VOTE S6 464 start vote 1 has 7
+097919 VOTE S6 now:465 get vote from 4 allvote 1
+097919 VOTE S6 465 go thrd--4 exit
+097920 VOTE S6 now:465 get vote from 5 allvote 2
+097920 VOTE S6 465 go thrd--5 exit
+097920 VOTE S6 now:465 get vote from 3 allvote 3
+097920 VOTE S6 465 go thrd--3 exit
+097920 VOTE S6 now:465 get vote from 0 allvote 4
+097920 VOTE S6 465 go thrd--0 exit
+097930 VOTE %!s(int64=466) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+097931 VOTE S1 99 go thrd--3 exit
+098006 VOTE %!s(int64=473) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+098007 VOTE S2 331 go thrd--4 exit
+098147 LEAD S3 now:487 sendhert failed to 2
+098168 VOTE %!s(int64=490) 0 server 2 VoteCall failed to 4 had term %!d(MISSING)
+098168 VOTE S0 824 go thrd--2 exit
+098168 VOTE %!s(int64=490) %!v(MISSING) ggggg
+098169 VOTE S0 now:490 vote again-- 4
+098168 LEAD S0 now:490 sendhert failed to 6
+098245 VOTE %!s(int64=497) 3 server 4 VoteCall failed to 1 had term %!d(MISSING)
+098245 VOTE S3 509 go thrd--4 exit
+098289 LEAD S4 now:502 sendhert failed to 0
+098332 LEAD S3 now:506 sendhert failed to 4
+098472 VOTE %!s(int64=520) 0 server 5 VoteCall failed to 4 had term %!d(MISSING)
+098473 VOTE S0 539 go thrd--5 exit
+098473 VOTE %!s(int64=520) %!v(MISSING) ggggg
+098473 VOTE S0 now:520 become leaderr num:4 hashert:false
+098484 LEAD S0 dtime:521 send heart
+098486 INFO S6 now:521 node become 0 foller
+098486 INFO S3 now:521 node become 0 foller
+098486 INFO S5 now:521 node become 0 foller
+098486 INFO %!S(int=5)v 521 recv hert to 0
+098486 INFO S4 now:521 node become 0 foller
+098486 INFO %!S(int=4)v 521 recv hert to 0
+098486 INFO %!S(int=3)v 521 recv hert to 0
+098486 INFO %!S(int=6)v 521 recv hert to 0
+098517 VOTE %!s(int64=524) 3 server 0 VoteCall failed to 1 had term %!d(MISSING)
+098518 VOTE S3 142 go thrd--0 exit
+098549 VOTE %!s(int64=528) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+098549 VOTE S5 86 go thrd--2 exit
+098572 VOTE %!s(int64=530) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+098572 VOTE S5 134 go thrd--3 exit
+098572 VOTE %!s(int64=530) %!v(MISSING) ggggg
+098572 VOTE S5 now:530 vote again-- 1
+098929 LEAD S1 dtime:566 send heart
+098995 LEAD S1 now:572 sendhert failed to 3
+099016 VOTE %!s(int64=574) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+099016 VOTE S5 476 go thrd--2 exit
+099016 VOTE S2 574 start vote 1 has 7
+099115 LEAD S1 now:584 sendhert failed to 5
+099576 LEAD S0 dtime:630 send heart
+099577 LEAD S6 now:630 sendhert failed to 1
+099578 INFO S3 now:630 node become 0 foller
+099578 INFO S6 now:630 node become 0 foller
+099578 INFO %!S(int=6)v 631 recv hert to 0
+099578 INFO S4 now:631 node become 0 foller
+099578 INFO S5 now:631 node become 0 foller
+099578 INFO %!S(int=4)v 631 recv hert to 0
+099578 INFO %!S(int=5)v 631 recv hert to 0
+099578 INFO %!S(int=3)v 631 recv hert to 0
+099589 LEAD S4 now:632 sendhert failed to 2
+099612 VOTE %!s(int64=634) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+099612 VOTE S5 580 go thrd--0 exit
+099756 LEAD S3 now:648 sendhert failed to 2
+099833 LEAD S3 now:656 sendhert failed to 4
+099856 LEAD S0 now:658 sendhert failed to 5
+099868 VOTE %!s(int64=660) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+099869 VOTE S2 728 go thrd--6 exit
+099869 VOTE %!s(int64=660) %!v(MISSING) ggggg
+099869 VOTE S2 now:660 vote again-- 1
+100032 LEAD S1 dtime:676 send heart
+100391 VOTE %!s(int64=712) 1 server 5 VoteCall failed to 1 had term %!d(MISSING)
+100392 VOTE S1 857 go thrd--5 exit
+100502 VOTE %!s(int64=723) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+100502 VOTE S1 857 go thrd--2 exit
+100619 VOTE %!s(int64=735) 3 server 6 VoteCall failed to 1 had term %!d(MISSING)
+100620 VOTE S3 509 go thrd--6 exit
+100675 LEAD S0 dtime:740 send heart
+100678 INFO S6 now:741 node become 0 foller
+100678 INFO %!S(int=6)v 741 recv hert to 0
+100678 INFO S3 now:741 node become 0 foller
+100679 INFO %!S(int=3)v 741 recv hert to 0
+100679 INFO S5 now:741 node become 0 foller
+100679 INFO S4 now:741 node become 0 foller
+100679 INFO %!S(int=4)v 741 recv hert to 0
+100679 INFO %!S(int=5)v 741 recv hert to 0
+100785 LEAD S3 now:751 sendhert failed to 2
+100806 LEAD S3 now:753 sendhert failed to 5
+100918 VOTE %!s(int64=764) 4 server 5 VoteCall failed to 4 had term %!d(MISSING)
+100918 VOTE S4 831 go thrd--5 exit
+100918 VOTE %!s(int64=765) %!v(MISSING) ggggg
+100918 VOTE S4 now:765 vote again-- 4
+leader-----0
+2---3
+disconnect 1 0 0
+101134 LEAD S1 dtime:786 send heart
+101222 VOTE %!s(int64=795) 4 server 3 VoteCall failed to 5 had term %!d(MISSING)
+101223 VOTE S4 466 go thrd--3 exit
+101353 VOTE %!s(int64=808) 0 server 3 VoteCall failed to 1 had term %!d(MISSING)
+101354 VOTE S0 278 go thrd--3 exit
+101497 VOTE %!s(int64=822) 0 server 4 VoteCall failed to 1 had term %!d(MISSING)
+101497 VOTE S0 414 go thrd--4 exit
+101775 LEAD S0 dtime:850 send heart
+101776 LEAD S6 now:850 sendhert failed to 3
+101885 LEAD S3 now:861 sendhert failed to 6
+101898 LEAD S3 now:863 sendhert failed to 0
+101941 VOTE S2 867 start vote 1 has 7
+101944 VOTE S2 now:867 not vote from 6
+101944 VOTE S2 867 go thrd--6 exit
+101945 VOTE S2 now:867 not vote from 5
+101946 VOTE S2 867 go thrd--5 exit
+101946 VOTE S2 now:867 not vote from 3
+101946 VOTE S2 867 go thrd--3 exit
+101946 VOTE S2 now:867 not vote from 4
+101947 VOTE S2 867 go thrd--4 exit
+101985 LEAD S6 now:871 sendhert failed to 1
+102153 VOTE %!s(int64=888) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+102154 VOTE S1 887 go thrd--2 exit
+102164 LEAD S3 now:889 sendhert failed to 6
+102188 VOTE %!s(int64=892) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+102189 VOTE S5 581 go thrd--1 exit
+102242 LEAD S1 dtime:897 send heart
+102510 VOTE %!s(int64=924) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+102511 VOTE S5 476 go thrd--6 exit
+102712 VOTE %!s(int64=944) 2 server 0 VoteCall failed to 1 had term %!d(MISSING)
+102713 VOTE S2 249 go thrd--0 exit
+102713 VOTE %!s(int64=944) %!v(MISSING) ggggg
+102713 VOTE S2 now:944 vote again-- 1
+102747 LEAD S3 now:947 sendhert failed to 5
+102836 VOTE %!s(int64=956) 1 server 3 VoteCall failed to 1 had term %!d(MISSING)
+102836 VOTE S1 6 go thrd--3 exit
+102890 VOTE %!s(int64=962) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+102891 VOTE S0 692 go thrd--2 exit
+102891 LEAD S0 dtime:962 send heart
+102936 LEAD S0 now:966 sendhert failed to 6
+102969 LEAD S0 now:970 sendhert failed to 5
+103116 LEAD S0 now:984 sendhert failed to 4
+103215 VOTE %!s(int64=994) 0 server 4 VoteCall failed to 1 had term %!d(MISSING)
+103215 VOTE S0 605 go thrd--4 exit
+103357 LEAD S1 dtime:8 send heart
+103399 INFO S5 now:13 became Candidate
+103400 VOTE S5 13 start vote 1 has 7
+103403 VOTE S5 now:13 get vote from 2 allvote 1
+103403 VOTE S5 13 go thrd--2 exit
+103404 VOTE S5 now:13 get vote from 6 allvote 2
+103404 VOTE S5 13 go thrd--6 exit
+103404 VOTE S5 now:13 get vote from 3 allvote 3
+103404 VOTE S5 13 go thrd--3 exit
+103404 VOTE S5 now:13 get vote from 4 allvote 4
+103404 VOTE S5 13 go thrd--4 exit
+103466 VOTE %!s(int64=19) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+103466 VOTE S0 605 go thrd--1 exit
+103477 LEAD S0 now:20 sendhert failed to 5
+103595 VOTE %!s(int64=32) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+103595 VOTE S1 525 go thrd--3 exit
+103595 VOTE %!s(int64=32) %!v(MISSING) ggggg
+103596 VOTE S1 now:32 vote again-- 4
+103757 VOTE %!s(int64=48) 0 server 5 VoteCall failed to 1 had term %!d(MISSING)
+103757 VOTE S0 692 go thrd--5 exit
+103779 VOTE %!s(int64=51) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+103780 VOTE S6 392 go thrd--2 exit
+103780 VOTE %!s(int64=51) %!v(MISSING) ggggg
+103780 VOTE S6 now:51 vote again-- 4
+103811 LEAD S3 now:54 sendhert failed to 0
+103822 LEAD S6 now:55 sendhert failed to 3
+103857 LEAD S0 now:58 sendhert failed to 3
+103997 LEAD S0 dtime:72 send heart
+104008 VOTE %!s(int64=73) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+104008 VOTE S2 574 go thrd--1 exit
+104191 VOTE %!s(int64=92) 1 server 0 VoteCall failed to 5 had term %!d(MISSING)
+104192 VOTE S1 573 go thrd--0 exit
+104192 VOTE %!s(int64=92) %!v(MISSING) ggggg
+104192 VOTE S1 now:92 become leaderr num:5 hashert:false
+104299 VOTE %!s(int64=103) 0 server 6 VoteCall failed to 1 had term %!d(MISSING)
+104300 VOTE S0 605 go thrd--6 exit
+104397 VOTE %!s(int64=112) 3 server 2 VoteCall failed to 1 had term %!d(MISSING)
+104397 VOTE S3 541 go thrd--2 exit
+104397 VOTE %!s(int64=112) 3 server 6 VoteCall failed to 1 had term %!d(MISSING)
+104398 VOTE S3 879 go thrd--6 exit
+104451 LEAD S1 dtime:118 send heart
+104495 VOTE S4 122 start vote 1 has 7
+104497 VOTE S4 now:122 get vote from 5 allvote 1
+104497 VOTE S4 122 go thrd--5 exit
+104497 VOTE S4 now:122 get vote from 6 allvote 2
+104497 VOTE S4 122 go thrd--6 exit
+104497 VOTE S4 now:122 get vote from 3 allvote 3
+104498 VOTE S4 122 go thrd--3 exit
+104498 VOTE S4 now:122 get vote from 2 allvote 4
+104498 VOTE S4 122 go thrd--2 exit
+104549 LEAD S1 now:128 sendhert failed to 5
+104549 VOTE S2 128 start vote 1 has 7
+104551 VOTE S2 now:128 get vote from 4 allvote 1
+104552 VOTE S2 128 go thrd--4 exit
+104552 VOTE S2 now:128 get vote from 6 allvote 2
+104552 VOTE S2 now:128 get vote from 3 allvote 3
+104552 VOTE S2 128 go thrd--3 exit
+104552 VOTE S2 128 go thrd--6 exit
+104552 VOTE S2 now:128 get vote from 5 allvote 4
+104552 VOTE S2 128 go thrd--5 exit
+104742 LEAD S0 now:147 sendhert failed to 4
+104861 VOTE %!s(int64=159) 1 server 0 VoteCall failed to 5 had term %!d(MISSING)
+104862 VOTE S1 513 go thrd--0 exit
+104873 LEAD S4 now:160 sendhert failed to 0
+105046 LEAD S3 now:177 sendhert failed to 6
+105078 LEAD S0 dtime:180 send heart
+105464 VOTE %!s(int64=219) 0 server 3 VoteCall failed to 1 had term %!d(MISSING)
+105464 VOTE S0 414 go thrd--3 exit
+105529 LEAD S1 dtime:226 send heart
+105690 LEAD S1 now:242 sendhert failed to 4
+105819 VOTE %!s(int64=255) 5 server 2 VoteCall failed to 5 had term %!d(MISSING)
+105819 VOTE S5 335 go thrd--2 exit
+105852 VOTE S5 258 start vote 1 has 7
+105854 VOTE S5 now:258 get vote from 3 allvote 1
+105854 VOTE S5 258 go thrd--3 exit
+105854 VOTE S5 now:258 get vote from 2 allvote 2
+105854 VOTE S5 258 go thrd--2 exit
+105854 VOTE S5 now:258 get vote from 4 allvote 3
+105855 VOTE S5 258 go thrd--4 exit
+105855 VOTE S5 now:258 get vote from 6 allvote 4
+105855 VOTE S5 258 go thrd--6 exit
+105863 VOTE %!s(int64=259) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+105864 VOTE S5 326 go thrd--0 exit
+105896 VOTE %!s(int64=262) 5 server 6 VoteCall failed to 1 had term %!d(MISSING)
+105897 VOTE S5 531 go thrd--6 exit
+105896 VOTE S6 262 start vote 1 has 7
+105899 VOTE S6 now:263 get vote from 3 allvote 1
+105899 VOTE S6 262 go thrd--3 exit
+105899 VOTE S6 now:263 get vote from 4 allvote 2
+105899 VOTE S6 262 go thrd--4 exit
+105899 VOTE S6 now:263 get vote from 5 allvote 3
+105899 VOTE S6 262 go thrd--5 exit
+105899 VOTE S6 now:263 get vote from 2 allvote 4
+105899 VOTE S6 262 go thrd--2 exit
+105918 LEAD S3 now:264 sendhert failed to 4
+106079 LEAD S1 now:281 sendhert failed to 2
+106079 VOTE %!s(int64=281) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+106080 VOTE S2 556 go thrd--3 exit
+106080 VOTE %!s(int64=281) %!v(MISSING) ggggg
+106080 VOTE S2 now:281 vote again-- 1
+106102 VOTE %!s(int64=283) 1 server 3 VoteCall failed to 1 had term %!d(MISSING)
+106102 VOTE S1 887 go thrd--3 exit
+106135 LEAD S6 now:286 sendhert failed to 0
+106157 LEAD S4 now:288 sendhert failed to 6
+106157 LEAD S0 dtime:288 send heart
+106322 LEAD S4 now:305 sendhert failed to 2
+106334 VOTE %!s(int64=306) 1 server 3 VoteCall failed to 4 had term %!d(MISSING)
+106334 VOTE S1 855 go thrd--3 exit
+106334 VOTE %!s(int64=306) %!v(MISSING) ggggg
+106334 VOTE S1 now:306 vote again-- 4
+106630 VOTE S1 336 start vote 1 has 7
+106662 LEAD S1 now:339 sendhert failed to 5
+106674 VOTE %!s(int64=340) 1 server 3 VoteCall failed to 1 had term %!d(MISSING)
+106674 VOTE S1 228 go thrd--3 exit
+106753 LEAD S4 now:348 sendhert failed to 5
+106776 VOTE %!s(int64=350) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+106776 VOTE S5 822 go thrd--2 exit
+106831 VOTE %!s(int64=356) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+106832 VOTE S6 630 go thrd--2 exit
+106832 VOTE %!s(int64=356) %!v(MISSING) ggggg
+106832 VOTE S6 now:356 become leaderr num:4 hashert:false
+106841 LEAD S6 dtime:357 send heart
+106844 INFO S5 now:357 node become 6 foller
+106844 INFO %!S(int=5)v 357 recv hert to 6
+106844 INFO S2 now:357 node become 6 foller
+106844 INFO %!S(int=2)v 357 recv hert to 6
+106844 INFO S3 now:357 node become 6 foller
+106845 INFO %!S(int=3)v 357 recv hert to 6
+106845 INFO S4 now:357 node become 6 foller
+106846 INFO %!S(int=4)v 357 recv hert to 6
+106897 VOTE %!s(int64=362) 5 server 1 VoteCall failed to 1 had term %!d(MISSING)
+106897 VOTE S5 509 go thrd--1 exit
+106897 VOTE %!s(int64=362) %!v(MISSING) ggggg
+106897 VOTE S5 now:362 vote again-- 1
+107177 VOTE %!s(int64=390) 0 server 3 VoteCall failed to 1 had term %!d(MISSING)
+107178 VOTE S0 675 go thrd--3 exit
+107274 LEAD S0 dtime:400 send heart
+107309 VOTE %!s(int64=404) 2 server 6 VoteCall failed to 1 had term %!d(MISSING)
+107309 VOTE S2 952 go thrd--6 exit
+107475 LEAD S0 now:420 sendhert failed to 3
+107497 LEAD S0 now:422 sendhert failed to 6
+107742 VOTE %!s(int64=447) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+107742 VOTE S5 822 go thrd--3 exit
+107767 LEAD S6 now:449 sendhert failed to 3
+107780 VOTE %!s(int64=451) 5 server 0 VoteCall failed to 5 had term %!d(MISSING)
+107780 VOTE S5 868 go thrd--0 exit
+107781 VOTE %!s(int64=451) %!v(MISSING) ggggg
+107781 VOTE S5 now:451 become leaderr num:5 hashert:false
+107790 LEAD S5 dtime:452 send heart
+107794 INFO S2 now:452 node become 5 foller
+107794 INFO S6 now:452 node become 5 foller
+107794 INFO %!S(int=2)v 452 recv hert to 5
+107794 INFO %!S(int=6)v 452 recv hert to 5
+107794 INFO S3 now:452 node become 5 foller
+107795 INFO S4 now:452 node become 5 foller
+107795 INFO %!S(int=4)v 452 recv hert to 5
+107795 INFO %!S(int=3)v 452 recv hert to 5
+107801 INFO S6 now:453 become foller 
+107915 VOTE %!s(int64=464) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+107916 VOTE S2 574 go thrd--4 exit
+108018 LEAD S3 now:475 sendhert failed to 4
+108018 VOTE %!s(int64=475) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+108019 VOTE S5 581 go thrd--4 exit
+108085 LEAD S2 now:481 sendhert failed to 1
+108377 LEAD S1 now:510 sendhert failed to 3
+108399 LEAD S0 dtime:513 send heart
+108400 VOTE %!s(int64=513) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+108400 VOTE S2 952 go thrd--5 exit
+108399 VOTE %!s(int64=513) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+108401 VOTE S5 86 go thrd--3 exit
+108401 VOTE %!s(int64=513) %!v(MISSING) ggggg
+108401 VOTE S5 now:513 vote again-- 1
+108413 VOTE %!s(int64=514) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+108413 VOTE S5 326 go thrd--4 exit
+108414 VOTE %!s(int64=514) %!v(MISSING) ggggg
+108414 VOTE S5 now:514 vote again-- 1
+108459 VOTE %!s(int64=519) 3 server 6 VoteCall failed to 1 had term %!d(MISSING)
+108460 VOTE S3 304 go thrd--6 exit
+108559 VOTE %!s(int64=529) 1 server 5 VoteCall failed to 4 had term %!d(MISSING)
+108560 VOTE S1 100 go thrd--5 exit
+108560 VOTE %!s(int64=529) %!v(MISSING) ggggg
+108560 VOTE S1 now:529 become leaderr num:4 hashert:false
+108571 LEAD S1 dtime:530 send heart
+108615 VOTE %!s(int64=534) 1 server 6 VoteCall failed to 1 had term %!d(MISSING)
+108616 VOTE S1 584 go thrd--6 exit
+108832 LEAD S3 now:556 sendhert failed to 2
+108897 LEAD S0 now:562 sendhert failed to 2
+108908 VOTE S5 563 start vote 1 has 7
+108910 VOTE S5 now:564 get vote from 6 allvote 1
+108910 VOTE S5 564 go thrd--6 exit
+108910 VOTE S5 now:564 get vote from 4 allvote 2
+108910 VOTE S5 564 go thrd--4 exit
+108910 VOTE S5 now:564 get vote from 3 allvote 3
+108910 VOTE S5 564 go thrd--3 exit
+108911 VOTE S5 now:564 get vote from 2 allvote 4
+108911 VOTE S5 564 go thrd--2 exit
+109155 VOTE %!s(int64=588) 3 server 5 VoteCall failed to 1 had term %!d(MISSING)
+109156 VOTE S3 148 go thrd--5 exit
+109220 VOTE %!s(int64=595) 1 server 3 VoteCall failed to 1 had term %!d(MISSING)
+109220 VOTE S1 584 go thrd--3 exit
+109328 LEAD S1 now:606 sendhert failed to 0
+109349 LEAD S2 now:608 sendhert failed to 0
+109393 VOTE %!s(int64=612) 2 server 4 VoteCall failed to 1 had term %!d(MISSING)
+109393 VOTE S2 171 go thrd--4 exit
+109393 VOTE %!s(int64=612) %!v(MISSING) ggggg
+109393 VOTE S2 now:612 vote again-- 1
+109425 LEAD S1 now:615 sendhert failed to 3
+109490 LEAD S0 dtime:622 send heart
+109652 LEAD S1 dtime:638 send heart
+109814 LEAD S1 now:654 sendhert failed to 2
+109846 VOTE %!s(int64=657) 2 server 3 VoteCall failed to 5 had term %!d(MISSING)
+109847 VOTE S2 755 go thrd--3 exit
+109901 LEAD S4 now:663 sendhert failed to 0
+109977 VOTE %!s(int64=670) 6 server 2 VoteCall failed to 4 had term %!d(MISSING)
+109977 VOTE S6 260 go thrd--2 exit
+109977 VOTE %!s(int64=670) %!v(MISSING) ggggg
+109978 VOTE S6 now:670 vote again-- 4
+110063 LEAD S1 now:679 sendhert failed to 5
+110107 LEAD S0 now:683 sendhert failed to 6
+110317 VOTE %!s(int64=704) 1 server 3 VoteCall failed to 5 had term %!d(MISSING)
+110317 VOTE S1 513 go thrd--3 exit
+110317 VOTE %!s(int64=704) %!v(MISSING) ggggg
+110318 VOTE S1 now:704 vote again-- 5
+110451 LEAD S1 now:718 sendhert failed to 4
+110451 LEAD S0 now:718 sendhert failed to 5
+110592 LEAD S0 dtime:732 send heart
+110656 VOTE %!s(int64=738) 0 server 6 VoteCall failed to 1 had term %!d(MISSING)
+110657 VOTE S0 961 go thrd--6 exit
+110657 VOTE %!s(int64=738) %!v(MISSING) ggggg
+110657 VOTE S0 now:738 vote again-- 1
+110734 VOTE %!s(int64=746) 0 server 2 VoteCall failed to 1 had term %!d(MISSING)
+110734 VOTE S0 439 go thrd--2 exit
+110777 VOTE S1 750 start vote 1 has 7
+110864 VOTE %!s(int64=759) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+110864 VOTE S5 717 go thrd--4 exit
+110864 VOTE %!s(int64=759) %!v(MISSING) ggggg
+110864 VOTE S5 now:759 vote again-- 1
+111093 VOTE %!s(int64=782) 5 server 2 VoteCall failed to 1 had term %!d(MISSING)
+111094 VOTE S5 581 go thrd--2 exit
+111094 VOTE %!s(int64=782) %!v(MISSING) ggggg
+111094 VOTE S5 now:782 vote again-- 1
+111147 LEAD S3 now:787 sendhert failed to 4
+111148 VOTE %!s(int64=788) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+111148 VOTE S2 879 go thrd--5 exit
+111148 VOTE %!s(int64=788) %!v(MISSING) ggggg
+111148 VOTE S2 now:788 vote again-- 1
+111315 LEAD S0 now:804 sendhert failed to 6
+111371 VOTE %!s(int64=810) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+111371 VOTE S5 822 go thrd--0 exit
+111372 VOTE %!s(int64=810) %!v(MISSING) ggggg
+111372 VOTE S5 now:810 vote again-- 1
+111383 LEAD S6 now:811 sendhert failed to 3
+111701 VOTE S0 843 start vote 1 has 7
+111745 LEAD S3 now:847 sendhert failed to 6
+111843 VOTE S5 857 start vote 1 has 7
+111847 VOTE S5 now:857 get vote from 6 allvote 1
+111847 VOTE S5 857 go thrd--6 exit
+111849 VOTE S5 now:858 get vote from 4 allvote 2
+111849 VOTE S5 857 go thrd--4 exit
+111849 VOTE S5 now:858 get vote from 3 allvote 3
+111850 VOTE S5 857 go thrd--3 exit
+111850 VOTE S5 now:858 get vote from 2 allvote 4
+111850 VOTE S5 857 go thrd--2 exit
+111930 VOTE S2 866 start vote 1 has 7
+111934 VOTE S2 now:866 get vote from 6 allvote 1
+111935 VOTE S2 866 go thrd--6 exit
+111936 VOTE S2 now:866 get vote from 3 allvote 2
+111937 VOTE S2 866 go thrd--3 exit
+111937 VOTE S2 now:866 get vote from 5 allvote 3
+111937 VOTE S2 866 go thrd--5 exit
+111937 VOTE S2 now:866 get vote from 4 allvote 4
+111937 VOTE S2 866 go thrd--4 exit
+111953 VOTE S6 868 start vote 1 has 7
+111957 VOTE S6 now:868 get vote from 5 allvote 1
+111958 VOTE S6 868 go thrd--5 exit
+111958 VOTE S6 now:869 get vote from 2 allvote 2
+111958 VOTE S6 868 go thrd--2 exit
+111958 VOTE S6 now:869 get vote from 4 allvote 3
+111958 VOTE S6 868 go thrd--4 exit
+111958 VOTE S6 now:869 get vote from 3 allvote 4
+111959 VOTE S6 868 go thrd--3 exit
+112206 LEAD S1 now:893 sendhert failed to 3
+112295 VOTE %!s(int64=902) 3 server 4 VoteCall failed to 1 had term %!d(MISSING)
+112296 VOTE S3 541 go thrd--4 exit
+112450 LEAD S0 now:918 sendhert failed to 2
+112659 LEAD S5 now:939 sendhert failed to 1
+112745 VOTE %!s(int64=947) 3 server 0 VoteCall failed to 1 had term %!d(MISSING)
+112746 VOTE S3 541 go thrd--0 exit
+112769 LEAD S0 now:950 sendhert failed to 4
+112790 VOTE %!s(int64=952) 0 server 3 VoteCall failed to 1 had term %!d(MISSING)
+112790 VOTE S0 863 go thrd--3 exit
+112790 VOTE %!s(int64=952) %!v(MISSING) ggggg
+112790 VOTE S0 now:952 vote again-- 1
+112822 VOTE %!s(int64=955) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+112823 VOTE S2 952 go thrd--3 exit
+112931 VOTE %!s(int64=966) 1 server 4 VoteCall failed to 1 had term %!d(MISSING)
+112931 VOTE S1 584 go thrd--4 exit
+113062 LEAD S3 now:979 sendhert failed to 0
+113097 LEAD S1 now:982 sendhert failed to 6
+113129 VOTE S1 986 start vote 1 has 7
+113510 LEAD S3 now:24 sendhert failed to 6
+113672 VOTE %!s(int64=40) 1 server 5 VoteCall failed to 1 had term %!d(MISSING)
+113673 VOTE S1 336 go thrd--5 exit
+113729 LEAD S6 now:46 sendhert failed to 1
+113760 VOTE %!s(int64=49) 0 server 5 VoteCall failed to 1 had term %!d(MISSING)
+113760 VOTE S0 414 go thrd--5 exit
+114408 LEAD S4 now:113 sendhert failed to 6
+114452 VOTE S2 118 start vote 1 has 7
+114456 VOTE S2 now:118 get vote from 3 allvote 1
+114456 VOTE S2 118 go thrd--3 exit
+114456 VOTE S2 now:118 get vote from 4 allvote 2
+114457 VOTE S2 118 go thrd--4 exit
+114457 VOTE S2 now:118 get vote from 6 allvote 3
+114457 VOTE S2 118 go thrd--6 exit
+114458 VOTE S2 now:118 get vote from 5 allvote 4
+114458 VOTE S2 118 go thrd--5 exit
+114486 VOTE S5 121 start vote 1 has 7
+114490 VOTE S5 now:122 get vote from 6 allvote 1
+114490 VOTE S5 121 go thrd--6 exit
+114491 VOTE S5 now:122 get vote from 2 allvote 2
+114491 VOTE S5 121 go thrd--2 exit
+114491 VOTE S5 now:122 get vote from 3 allvote 3
+114492 VOTE S5 121 go thrd--3 exit
+114492 VOTE S5 now:122 get vote from 4 allvote 4
+114492 VOTE S5 121 go thrd--4 exit
+114541 VOTE %!s(int64=127) 6 server 1 VoteCall failed to 5 had term %!d(MISSING)
+114541 VOTE S6 262 go thrd--1 exit
+114541 VOTE %!s(int64=127) 6 server 1 VoteCall failed to 5 had term %!d(MISSING)
+114542 VOTE S6 465 go thrd--1 exit
+114567 LEAD S2 now:129 sendhert failed to 6
+114577 LEAD S3 now:130 sendhert failed to 0
+114681 VOTE %!s(int64=141) 1 server 5 VoteCall failed to 1 had term %!d(MISSING)
+114681 VOTE S1 986 go thrd--5 exit
+114691 VOTE %!s(int64=142) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+114691 VOTE S2 574 go thrd--5 exit
+114703 LEAD S0 now:143 sendhert failed to 1
+114716 VOTE %!s(int64=144) 6 server 0 VoteCall failed to 4 had term %!d(MISSING)
+114716 VOTE S6 56 go thrd--0 exit
+114716 VOTE %!s(int64=144) %!v(MISSING) ggggg
+114716 VOTE S6 now:144 become leaderr num:4 hashert:false
+114726 LEAD S6 dtime:145 send heart
+114729 INFO S5 now:146 node become 6 foller
+114729 INFO %!S(int=5)v 146 recv hert to 6
+114729 INFO S3 now:146 node become 6 foller
+114730 INFO %!S(int=3)v 146 recv hert to 6
+114730 INFO S2 now:146 node become 6 foller
+114731 INFO %!S(int=2)v 146 recv hert to 6
+114730 INFO S4 now:146 node become 6 foller
+114731 INFO %!S(int=4)v 146 recv hert to 6
+114924 LEAD S4 now:165 sendhert failed to 2
+115228 VOTE %!s(int64=196) 1 server 0 VoteCall failed to 5 had term %!d(MISSING)
+115229 VOTE S1 449 go thrd--0 exit
+115229 VOTE %!s(int64=196) %!v(MISSING) ggggg
+115229 VOTE S1 now:196 become leaderr num:5 hashert:false
+115240 LEAD S1 dtime:197 send heart
+115251 VOTE S0 198 start vote 1 has 7
+115318 LEAD S0 now:205 sendhert failed to 2
+115343 LEAD S0 now:207 sendhert failed to 1
+115485 VOTE %!s(int64=221) 2 server 5 VoteCall failed to 1 had term %!d(MISSING)
+115485 VOTE S2 331 go thrd--5 exit
+115574 VOTE %!s(int64=230) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+115574 VOTE S5 476 go thrd--3 exit
+115574 VOTE %!s(int64=230) %!v(MISSING) ggggg
+115574 VOTE S5 now:230 vote again-- 1
+115753 VOTE %!s(int64=248) 0 server 4 VoteCall failed to 1 had term %!d(MISSING)
+115753 VOTE S0 950 go thrd--4 exit
+115753 LEAD S0 now:248 sendhert failed to 1
+115831 LEAD S6 dtime:256 send heart
+115833 INFO S5 now:256 node become 6 foller
+115833 INFO S2 now:256 node become 6 foller
+115834 INFO %!S(int=2)v 256 recv hert to 6
+115833 INFO %!S(int=5)v 256 recv hert to 6
+115834 INFO S4 now:256 node become 6 foller
+115835 INFO S3 now:256 node become 6 foller
+115835 INFO %!S(int=3)v 256 recv hert to 6
+115835 INFO %!S(int=4)v 256 recv hert to 6
+115843 LEAD S3 now:257 sendhert failed to 1
+115932 VOTE %!s(int64=266) 5 server 1 VoteCall failed to 5 had term %!d(MISSING)
+115932 VOTE S5 857 go thrd--1 exit
+116010 LEAD S0 now:274 sendhert failed to 5
+leader-----6
+2---3
+disconnect 6 6 3
+116218 LEAD S0 now:294 sendhert failed to 2
+116242 VOTE %!s(int64=297) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+116242 VOTE S1 122 go thrd--2 exit
+116275 LEAD S4 now:300 sendhert failed to 2
+116340 LEAD S1 now:307 sendhert failed to 5
+116340 LEAD S1 now:307 sendhert failed to 5
+116352 LEAD S1 dtime:308 send heart
+116354 INFO %!S(int=2)v 308 recv hert to 1
+116355 INFO %!S(int=4)v 308 recv hert to 1
+116355 INFO %!S(int=0)v 308 recv hert to 1
+116355 INFO %!S(int=5)v 308 recv hert to 1
+116644 LEAD S6 now:337 sendhert failed to 5
+116720 VOTE %!s(int64=345) 1 server 4 VoteCall failed to 1 had term %!d(MISSING)
+116720 VOTE S1 857 go thrd--4 exit
+116720 LEAD S0 now:345 sendhert failed to 1
+116819 VOTE %!s(int64=355) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+116819 VOTE S1 887 go thrd--0 exit
+116830 VOTE %!s(int64=356) 1 server 3 VoteCall failed to 1 had term %!d(MISSING)
+116831 VOTE S1 986 go thrd--3 exit
+116940 LEAD S6 now:367 sendhert failed to 0
+116950 LEAD S6 dtime:368 send heart
+116960 VOTE %!s(int64=369) 1 server 5 VoteCall failed to 1 had term %!d(MISSING)
+116961 VOTE S1 584 go thrd--5 exit
+116961 VOTE %!s(int64=369) %!v(MISSING) ggggg
+116961 VOTE S1 now:369 vote again-- 1
+117156 LEAD S0 now:388 sendhert failed to 3
+117320 LEAD S0 now:405 sendhert failed to 4
+117460 VOTE S1 419 start vote 1 has 7
+117463 VOTE S1 419 go thrd--4 exit
+117463 VOTE S1 419 go thrd--0 exit
+117464 VOTE S1 419 go thrd--2 exit
+117464 VOTE S1 419 go thrd--5 exit
+117524 LEAD S1 now:425 sendhert failed to 0
+117644 LEAD S0 now:437 sendhert failed to 2
+117798 LEAD S1 now:453 sendhert failed to 4
+118037 LEAD S6 dtime:476 send heart
+118093 VOTE %!s(int64=482) 1 server 3 VoteCall failed to 1 had term %!d(MISSING)
+118094 VOTE S1 122 go thrd--3 exit
+118159 LEAD S6 now:489 sendhert failed to 2
+118366 LEAD S0 now:509 sendhert failed to 2
+118399 VOTE %!s(int64=513) 1 server 5 VoteCall failed to 1 had term %!d(MISSING)
+118400 VOTE S1 750 go thrd--5 exit
+118476 INFO S4 now:520 became Candidate
+118476 VOTE S4 520 start vote 1 has 7
+118478 VOTE S4 now:521 get vote from 1 allvote 1
+118478 VOTE S4 520 go thrd--1 exit
+118478 VOTE S4 now:521 get vote from 2 allvote 2
+118479 VOTE S4 520 go thrd--2 exit
+118479 VOTE S4 now:521 get vote from 0 allvote 3
+118479 VOTE S4 520 go thrd--0 exit
+118479 VOTE S4 now:521 get vote from 5 allvote 4
+118479 VOTE S4 520 go thrd--5 exit
+118542 VOTE S0 527 start vote 1 has 7
+118546 VOTE S0 now:527 get vote from 5 allvote 1
+118546 VOTE S0 527 go thrd--5 exit
+118546 VOTE S0 now:527 get vote from 1 allvote 2
+118546 VOTE S0 527 go thrd--1 exit
+118546 VOTE S0 now:527 get vote from 4 allvote 3
+118547 VOTE S0 527 go thrd--4 exit
+118547 VOTE S0 now:527 get vote from 2 allvote 4
+118547 VOTE S0 527 go thrd--2 exit
+118695 LEAD S0 now:542 sendhert failed to 1
+118794 VOTE %!s(int64=552) 1 server 6 VoteCall failed to 1 had term %!d(MISSING)
+118794 VOTE S1 887 go thrd--6 exit
+118913 LEAD S0 now:564 sendhert failed to 1
+118935 VOTE %!s(int64=566) 5 server 1 VoteCall failed to 5 had term %!d(MISSING)
+118935 VOTE S5 121 go thrd--1 exit
+118999 INFO S3 now:573 became Candidate
+119000 VOTE S3 573 start vote 1 has 7
+119066 LEAD S0 now:579 sendhert failed to 1
+119132 LEAD S6 dtime:586 send heart
+119198 VOTE %!s(int64=593) 4 server 2 VoteCall failed to 5 had term %!d(MISSING)
+119199 VOTE S4 393 go thrd--2 exit
+119317 VOTE %!s(int64=604) 1 server 6 VoteCall failed to 1 had term %!d(MISSING)
+119317 VOTE S1 336 go thrd--6 exit
+119384 LEAD S6 now:611 sendhert failed to 0
+119482 VOTE %!s(int64=621) 0 server 3 VoteCall failed to 1 had term %!d(MISSING)
+119483 VOTE S0 108 go thrd--3 exit
+119867 VOTE %!s(int64=659) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+119868 VOTE S1 6 go thrd--2 exit
+120009 VOTE %!s(int64=674) 6 server 1 VoteCall failed to 1 had term %!d(MISSING)
+120010 VOTE S6 827 go thrd--1 exit
+120196 LEAD S0 now:692 sendhert failed to 6
+120229 LEAD S6 dtime:696 send heart
+120317 VOTE %!s(int64=704) 6 server 3 VoteCall failed to 1 had term %!d(MISSING)
+120317 VOTE S6 826 go thrd--3 exit
+120318 VOTE %!s(int64=704) %!v(MISSING) ggggg
+120318 VOTE S6 now:704 vote again-- 1
+120407 LEAD S1 now:713 sendhert failed to 6
+120430 VOTE %!s(int64=716) 1 server 6 VoteCall failed to 1 had term %!d(MISSING)
+120430 LEAD S0 now:716 sendhert failed to 1
+120431 VOTE S1 122 go thrd--6 exit
+120431 VOTE %!s(int64=716) %!v(MISSING) ggggg
+120431 VOTE S1 now:716 vote again-- 1
+120507 VOTE S1 723 start vote 1 has 7
+120513 VOTE S1 now:724 get vote from 5 allvote 1
+120513 VOTE S1 724 go thrd--5 exit
+120513 VOTE S1 now:724 get vote from 0 allvote 2
+120513 VOTE S1 724 go thrd--0 exit
+120514 VOTE S1 now:724 get vote from 2 allvote 3
+120514 VOTE S1 724 go thrd--2 exit
+120514 VOTE S1 now:724 get vote from 4 allvote 4
+120514 VOTE S1 724 go thrd--4 exit
+120769 VOTE %!s(int64=750) 1 server 6 VoteCall failed to 1 had term %!d(MISSING)
+120769 VOTE S1 856 go thrd--6 exit
+120769 VOTE %!s(int64=750) %!v(MISSING) ggggg
+120769 VOTE S1 now:750 vote again-- 1
+120964 LEAD S1 now:769 sendhert failed to 3
+120964 LEAD S1 now:769 sendhert failed to 2
+121116 LEAD S0 now:784 sendhert failed to 3
+121180 LEAD S1 now:791 sendhert failed to 0
+121245 LEAD S0 now:797 sendhert failed to 5
+121257 VOTE %!s(int64=798) 5 server 4 VoteCall failed to 1 had term %!d(MISSING)
+121257 VOTE S5 531 go thrd--4 exit
+121279 LEAD S1 now:801 sendhert failed to 2
+121322 VOTE S6 805 start vote 1 has 7
+121442 VOTE %!s(int64=817) 4 server 1 VoteCall failed to 5 had term %!d(MISSING)
+121443 VOTE S4 122 go thrd--1 exit
+121629 VOTE S4 836 start vote 1 has 7
+121631 VOTE S4 now:836 get vote from 2 allvote 1
+121631 VOTE S4 836 go thrd--2 exit
+121631 VOTE S4 now:836 get vote from 0 allvote 2
+121631 VOTE S4 836 go thrd--0 exit
+121631 VOTE S4 now:836 get vote from 5 allvote 3
+121632 VOTE S4 836 go thrd--5 exit
+121632 VOTE S4 now:836 get vote from 1 allvote 4
+121632 VOTE S4 836 go thrd--1 exit
+121925 LEAD S0 now:865 sendhert failed to 1
+121925 LEAD S0 now:865 sendhert failed to 4
+121980 VOTE S0 871 start vote 1 has 7
+121987 VOTE S0 now:871 get vote from 2 allvote 1
+121988 VOTE S0 871 go thrd--2 exit
+121988 VOTE S0 now:872 get vote from 1 allvote 2
+121989 LEAD S0 now:872 sendhert failed to 4
+121989 VOTE S0 871 go thrd--1 exit
+121989 VOTE S0 now:872 get vote from 5 allvote 3
+121989 VOTE S0 871 go thrd--5 exit
+121989 VOTE S0 now:872 get vote from 4 allvote 4
+121990 VOTE S0 871 go thrd--4 exit
+122032 VOTE %!s(int64=876) 1 server 4 VoteCall failed to 1 had term %!d(MISSING)
+122033 VOTE S1 887 go thrd--4 exit
+122033 LEAD S6 now:876 sendhert failed to 2
+122145 LEAD S1 now:887 sendhert failed to 3
+122255 VOTE %!s(int64=898) 1 server 2 VoteCall failed to 1 had term %!d(MISSING)
+122256 VOTE S1 228 go thrd--2 exit
+122311 VOTE %!s(int64=904) 3 server 2 VoteCall failed to 1 had term %!d(MISSING)
+122312 VOTE S3 879 go thrd--2 exit
+122376 VOTE %!s(int64=910) 5 server 1 VoteCall failed to 5 had term %!d(MISSING)
+122377 VOTE S5 258 go thrd--1 exit
+122388 LEAD S0 now:912 sendhert failed to 4
+122454 VOTE S3 918 start vote 1 has 7
+122674 LEAD S4 now:940 sendhert failed to 0
+122674 LEAD S1 now:940 sendhert failed to 5
+122686 LEAD S6 now:941 sendhert failed to 4
+122698 LEAD S0 now:942 sendhert failed to 6
+122698 VOTE %!s(int64=943) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+122699 VOTE S2 867 go thrd--1 exit
+122842 LEAD S4 now:957 sendhert failed to 3
+122854 VOTE %!s(int64=958) 4 server 0 VoteCall failed to 5 had term %!d(MISSING)
+122854 VOTE S4 466 go thrd--0 exit
+122854 VOTE %!s(int64=958) %!v(MISSING) ggggg
+122854 VOTE S4 now:958 become leaderr num:5 hashert:false
+122855 LEAD S4 dtime:958 send heart
+122858 INFO S2 now:958 node become 4 foller
+122858 INFO %!S(int=2)v 959 recv hert to 4
+122858 INFO S5 now:959 node become 4 foller
+122858 INFO %!S(int=5)v 959 recv hert to 4
+122858 INFO S0 now:959 node become 4 foller
+122859 INFO %!S(int=0)v 959 recv hert to 4
+122859 INFO S1 now:959 node become 4 foller
+122859 INFO %!S(int=1)v 959 recv hert to 4
+122916 LEAD S1 now:964 sendhert failed to 2
+122971 VOTE %!s(int64=970) 2 server 3 VoteCall failed to 1 had term %!d(MISSING)
+122971 VOTE S2 331 go thrd--3 exit
+122971 VOTE %!s(int64=970) 1 server 3 VoteCall failed to 1 had term %!d(MISSING)
+122972 VOTE S1 750 go thrd--3 exit
+123017 VOTE %!s(int64=974) 2 server 1 VoteCall failed to 1 had term %!d(MISSING)
+123017 VOTE S2 952 go thrd--1 exit
+123061 VOTE %!s(int64=979) 0 server 5 VoteCall failed to 1 had term %!d(MISSING)
+123062 VOTE S0 108 go thrd--5 exit
+123129 LEAD S1 now:986 sendhert failed to 0
+123230 LEAD S2 now:996 sendhert failed to 4
+123341 LEAD S0 now:7 sendhert failed to 2
+123353 LEAD S6 now:8 sendhert failed to 1
+123509 LEAD S1 now:24 sendhert failed to 3
+123687 VOTE %!s(int64=41) 1 server 4 VoteCall failed to 1 had term %!d(MISSING)
+123687 VOTE S1 228 go thrd--4 exit
+123687 VOTE %!s(int64=41) %!v(MISSING) ggggg
+123688 VOTE S1 now:41 vote again-- 1
+123721 LEAD S0 now:45 sendhert failed to 4
+123845 VOTE %!s(int64=57) 3 server 6 VoteCall failed to 1 had term %!d(MISSING)
+123845 VOTE S3 142 go thrd--6 exit
+123930 LEAD S4 now:66 sendhert failed to 3
+123975 LEAD S4 dtime:70 send heart
+123976 LEAD S6 now:70 sendhert failed to 2
+123979 INFO S0 now:71 node become 4 foller
+123979 INFO %!S(int=0)v 71 recv hert to 4
+123979 INFO S2 now:71 node become 4 foller
+123979 INFO S5 now:71 node become 4 foller
+123980 INFO %!S(int=2)v 71 recv hert to 4
+123980 INFO %!S(int=5)v 71 recv hert to 4
+123979 INFO S1 now:71 node become 4 foller
+123981 INFO %!S(int=1)v 71 recv hert to 4
+124055 LEAD S1 now:78 sendhert failed to 3
+124100 LEAD S1 now:83 sendhert failed to 0
+124144 VOTE %!s(int64=87) 3 server 0 VoteCall failed to 1 had term %!d(MISSING)
+124144 VOTE S3 573 go thrd--0 exit
+124198 LEAD S0 now:93 sendhert failed to 3
+124210 LEAD S2 now:94 sendhert failed to 4
+124301 VOTE %!s(int64=103) 3 server 0 VoteCall failed to 1 had term %!d(MISSING)
+124301 VOTE S3 899 go thrd--0 exit
+124344 LEAD S0 now:107 sendhert failed to 2
+124357 VOTE S6 108 start vote 1 has 7
+124380 LEAD S2 now:111 sendhert failed to 5
+124391 LEAD S6 now:112 sendhert failed to 0
+124511 LEAD S1 now:124 sendhert failed to 2
+124511 LEAD S1 now:124 sendhert failed to 4
+124588 VOTE %!s(int64=132) 4 server 3 VoteCall failed to 5 had term %!d(MISSING)
+124589 VOTE S4 836 go thrd--3 exit
+124611 VOTE %!s(int64=134) 0 server 3 VoteCall failed to 1 had term %!d(MISSING)
+124612 VOTE S0 692 go thrd--3 exit
+124678 LEAD S0 now:140 sendhert failed to 6
+124711 VOTE %!s(int64=144) 1 server 3 VoteCall failed to 5 had term %!d(MISSING)
+124712 VOTE S1 833 go thrd--3 exit
+124712 VOTE %!s(int64=144) %!v(MISSING) ggggg
+124712 VOTE S1 now:144 vote again-- 5
+124734 LEAD S0 now:146 sendhert failed to 3
+124800 LEAD S1 now:153 sendhert failed to 3
+124921 LEAD S6 now:165 sendhert failed to 5
+124943 VOTE %!s(int64=167) 0 server 3 VoteCall failed to 1 had term %!d(MISSING)
+124943 VOTE S0 198 go thrd--3 exit
+124976 LEAD S1 now:170 sendhert failed to 3
+125086 LEAD S4 dtime:181 send heart
+125090 INFO S1 now:182 node become 4 foller
+125090 INFO S0 now:182 node become 4 foller
+125091 INFO %!S(int=0)v 182 recv hert to 4
+125090 INFO S2 now:182 node become 4 foller
+125091 INFO %!S(int=2)v 182 recv hert to 4
+125090 INFO %!S(int=1)v 182 recv hert to 4
+125090 INFO S5 now:182 node become 4 foller
+125092 INFO %!S(int=5)v 182 recv hert to 4
+125187 LEAD S6 now:191 sendhert failed to 1
+125286 LEAD S6 now:201 sendhert failed to 4
+125330 VOTE %!s(int64=206) 3 server 6 VoteCall failed to 1 had term %!d(MISSING)
+125331 VOTE S3 148 go thrd--6 exit
+125398 LEAD S1 now:212 sendhert failed to 5
+125577 LEAD S6 now:230 sendhert failed to 1
+125654 VOTE %!s(int64=238) 5 server 0 VoteCall failed to 5 had term %!d(MISSING)
+125655 VOTE S5 121 go thrd--0 exit
+125655 VOTE %!s(int64=238) %!v(MISSING) ggggg
+125655 VOTE S5 now:238 vote again-- 5
+125743 VOTE S3 247 start vote 1 has 7
+leader-----4
+2---3
+125986 LEAD S4 now:271 sendhert failed to 2
+126196 LEAD S4 dtime:292 send heart
+126200 INFO S6 now:293 node become 4 foller
+126200 INFO S0 now:293 node become 4 foller
+126200 INFO %!S(int=0)v 293 recv hert to 4
+126200 INFO S1 now:293 node become 4 foller
+126201 INFO %!S(int=1)v 293 recv hert to 4
+126201 INFO S2 now:293 node become 4 foller
+126202 INFO %!S(int=2)v 293 recv hert to 4
+126200 INFO %!S(int=6)v 293 recv hert to 4
+126202 INFO S5 now:293 node become 4 foller
+126202 INFO %!S(int=5)v 293 recv hert to 4
+126200 INFO S3 now:293 node become 4 foller
+126203 VOTE %!s(int64=293) 1 server 5 VoteCall failed to 1 had term %!d(MISSING)
+126203 INFO %!S(int=3)v 293 recv hert to 4
+126204 VOTE S1 887 go thrd--5 exit
+126204 VOTE %!s(int64=293) %!v(MISSING) ggggg
+126204 VOTE S1 now:293 vote again-- 1
+126204 VOTE %!s(int64=293) 3 server 2 VoteCall failed to 1 had term %!d(MISSING)
+126204 VOTE S3 899 go thrd--2 exit
+126208 INFO S1 now:294 become foller 
+126386 LEAD S1 now:311 sendhert failed to 6
+126398 VOTE %!s(int64=313) 3 server 6 VoteCall failed to 1 had term %!d(MISSING)
+126398 VOTE S3 541 go thrd--6 exit
+126399 VOTE %!s(int64=313) %!v(MISSING) ggggg
+126399 VOTE S3 now:313 vote again-- 1
+126423 LEAD S1 now:315 sendhert failed to 0
+126523 VOTE %!s(int64=325) 1 server 0 VoteCall failed to 1 had term %!d(MISSING)
+126524 VOTE S1 986 go thrd--0 exit
+126535 VOTE %!s(int64=326) 3 server 2 VoteCall failed to 1 had term %!d(MISSING)
+126535 VOTE S3 509 go thrd--2 exit
+126682 LEAD S0 now:341 sendhert failed to 1
+126798 LEAD S1 now:353 sendhert failed to 0
+126932 VOTE %!s(int64=366) 5 server 1 VoteCall failed to 5 had term %!d(MISSING)
+126932 VOTE S5 13 go thrd--1 exit
+126933 LEAD S0 now:366 sendhert failed to 4
+127098 VOTE %!s(int64=383) 0 server 5 VoteCall failed to 1 had term %!d(MISSING)
+127098 VOTE S0 278 go thrd--5 exit
+127099 VOTE %!s(int64=383) 0 server 6 VoteCall failed to 1 had term %!d(MISSING)
+127099 VOTE S0 692 go thrd--6 exit
+127121 LEAD S1 now:385 sendhert failed to 2
+127132 VOTE %!s(int64=386) 5 server 0 VoteCall failed to 5 had term %!d(MISSING)
+127132 VOTE S5 13 go thrd--0 exit
+127133 VOTE %!s(int64=386) %!v(MISSING) ggggg
+127133 VOTE S5 now:386 vote again-- 5
+127209 VOTE %!s(int64=394) 2 server 0 VoteCall failed to 5 had term %!d(MISSING)
+127210 VOTE S2 755 go thrd--0 exit
+127210 VOTE %!s(int64=394) %!v(MISSING) ggggg
+127210 VOTE S2 now:394 vote again-- 5
+127241 LEAD S1 now:397 sendhert failed to 0
+127275 LEAD S6 now:400 sendhert failed to 0
+127319 VOTE %!s(int64=405) 0 server 5 VoteCall failed to 1 had term %!d(MISSING)
+127320 VOTE S0 439 go thrd--5 exit
+127320 LEAD S4 dtime:405 send heart
+127323 INFO S6 now:405 node become 4 foller
+127323 INFO S3 now:405 node become 4 foller
+127323 INFO %!S(int=3)v 405 recv hert to 4
+127324 INFO S1 now:405 node become 4 foller
+127324 INFO %!S(int=1)v 405 recv hert to 4
+127325 INFO S5 now:405 node become 4 foller
+127325 INFO %!S(int=5)v 405 recv hert to 4
+127323 INFO %!S(int=6)v 405 recv hert to 4
+127324 INFO S2 now:405 node become 4 foller
+127326 INFO %!S(int=2)v 405 recv hert to 4
+127326 INFO S0 now:405 node become 4 foller
+127327 INFO %!S(int=0)v 405 recv hert to 4
+127349 VOTE %!s(int64=408) 3 server 0 VoteCall failed to 1 had term %!d(MISSING)
+127349 VOTE S3 879 go thrd--0 exit
+127415 LEAD S2 now:414 sendhert failed to 1
+127729 VOTE %!s(int64=446) 3 server 5 VoteCall failed to 1 had term %!d(MISSING)
+127730 VOTE S3 899 go thrd--5 exit
+127909 LEAD S1 now:464 sendhert failed to 4
+127965 VOTE %!s(int64=469) 3 server 1 VoteCall failed to 1 had term %!d(MISSING)
+127966 VOTE S3 148 go thrd--1 exit
+127987 VOTE %!s(int64=471) 3 server 5 VoteCall failed to 1 had term %!d(MISSING)
+127987 VOTE S3 573 go thrd--5 exit
+127999 VOTE %!s(int64=473) 3 server 4 VoteCall failed to 1 had term %!d(MISSING)
+128000 VOTE S3 918 go thrd--4 exit
+128110 LEAD S4 now:484 sendhert failed to 1
+128110 LEAD S1 now:484 sendhert failed to 5
+128110 VOTE %!s(int64=484) 3 server 1 VoteCall failed to 1 had term %!d(MISSING)
+128111 VOTE S3 879 go thrd--1 exit
+128111 VOTE %!s(int64=484) %!v(MISSING) ggggg
+128111 VOTE S3 now:484 vote again-- 1
+128341 LEAD S0 now:507 sendhert failed to 6
+128374 VOTE %!s(int64=510) 5 server 3 VoteCall failed to 1 had term %!d(MISSING)
+128375 VOTE S5 531 go thrd--3 exit
+128442 LEAD S4 dtime:517 send heart
+128445 INFO S2 now:517 node become 4 foller
+128446 INFO %!S(int=2)v 517 recv hert to 4
+128446 INFO S0 now:517 node become 4 foller
+128446 INFO S3 now:517 node become 4 foller
+128446 INFO %!S(int=0)v 517 recv hert to 4
+128446 INFO %!S(int=3)v 517 recv hert to 4
+128446 INFO S6 now:517 node become 4 foller
+128448 INFO %!S(int=6)v 517 recv hert to 4
+128448 INFO S5 now:518 node become 4 foller
+128448 INFO %!S(int=5)v 518 recv hert to 4
+128449 INFO S1 now:518 node become 4 foller
+128449 INFO %!S(int=1)v 518 recv hert to 4
+129023 LEAD S6 now:575 sendhert failed to 0
+129023 LEAD S1 now:575 sendhert failed to 4
+129101 LEAD S6 now:583 sendhert failed to 1
+129210 VOTE %!s(int64=594) 0 server 3 VoteCall failed to 1 had term %!d(MISSING)
+129210 VOTE S0 605 go thrd--3 exit
+129210 VOTE %!s(int64=594) %!v(MISSING) ggggg
+129210 VOTE S0 now:594 vote again-- 1
+129461 VOTE %!s(int64=619) 3 server 2 VoteCall failed to 1 had term %!d(MISSING)
+129462 VOTE S3 573 go thrd--2 exit
+129484 VOTE %!s(int64=621) 6 server 1 VoteCall failed to 1 had term %!d(MISSING)
+129484 VOTE S6 805 go thrd--1 exit
+129495 VOTE %!s(int64=622) 0 server 6 VoteCall failed to 1 had term %!d(MISSING)
+129495 VOTE S0 108 go thrd--6 exit
+129495 LEAD S0 now:622 sendhert failed to 5
+129529 VOTE %!s(int64=626) 0 server 1 VoteCall failed to 1 had term %!d(MISSING)
+129530 VOTE S0 692 go thrd--1 exit
+129530 VOTE %!s(int64=626) %!v(MISSING) ggggg
+129530 VOTE S0 now:626 vote again-- 1
+129551 LEAD S4 dtime:628 send heart
+129554 INFO S1 now:628 node become 4 foller
+129554 INFO S3 now:628 node become 4 foller
+129554 INFO %!S(int=3)v 628 recv hert to 4
+129554 INFO %!S(int=1)v 628 recv hert to 4
+129555 INFO S0 now:628 node become 4 foller
+129555 INFO %!S(int=0)v 628 recv hert to 4
+129554 INFO S6 now:628 node become 4 foller
+129555 INFO %!S(int=6)v 628 recv hert to 4
+129554 INFO S2 now:628 node become 4 foller
+129556 INFO %!S(int=2)v 628 recv hert to 4
+129556 INFO S5 now:628 node become 4 foller
+129556 INFO %!S(int=5)v 628 recv hert to 4
+129659 LEAD S0 now:639 sendhert failed to 4
+129693 LEAD S0 now:642 sendhert failed to 2
+129747 LEAD S4 now:647 sendhert failed to 3
+129768 LEAD S1 now:650 sendhert failed to 0
+129792 LEAD S6 now:652 sendhert failed to 5
+130064 VOTE %!s(int64=679) 5 server 0 VoteCall failed to 1 had term %!d(MISSING)
+130065 VOTE S5 531 go thrd--0 exit
+130304 LEAD S1 now:703 sendhert failed to 6
+130337 LEAD S6 now:706 sendhert failed to 3
+130443 LEAD S6 now:717 sendhert failed to 3
+130660 LEAD S4 dtime:739 send heart
+130662 INFO S0 now:739 node become 4 foller
+130662 INFO S1 now:739 node become 4 foller
+130662 INFO S2 now:739 node become 4 foller
+130662 INFO %!S(int=2)v 739 recv hert to 4
+130662 INFO S3 now:739 node become 4 foller
+130662 INFO %!S(int=3)v 739 recv hert to 4
+130662 INFO %!S(int=1)v 739 recv hert to 4
+130663 INFO S6 now:739 node become 4 foller
+130663 INFO %!S(int=6)v 739 recv hert to 4
+130662 INFO %!S(int=0)v 739 recv hert to 4
+130662 INFO S5 now:739 node become 4 foller
+130664 INFO %!S(int=5)v 739 recv hert to 4
+130867 LEAD S4 now:759 sendhert failed to 6
+leader-----4
+2---end
+  ... Passed --  13.1  7 1704  234412    0
+PASS
+ok  	6.824/raft	23.410s
