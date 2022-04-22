@@ -1,0 +1,1658 @@
+Test (2A): initial election ...
+2022/04/21 14:02:58 579 2 became Candidate
+2022/04/21 14:02:58 580 2 start vote 1 term 1 has all 3
+2022/04/21 14:02:58 2 580 send vote to 0 has 1
+2022/04/21 14:02:58 2 580 send vote to 1 has 1
+2022/04/21 14:02:58 581 server 0 term 0 became 2 term 1 foller
+2022/04/21 14:02:58 581 server 1 term 0 became 2 term 1 foller
+2022/04/21 14:02:58 581 2 term 1 get vote form 0 term 0hasall 2
+2022/04/21 14:02:58 581 serve 2 become leaderr num:2 term:1 hashert:false
+2022/04/21 14:02:58 581 2 derver go exit--0
+2022/04/21 14:02:58 581 2 term 1 get vote form 1 term 0hasall 3
+2022/04/21 14:02:58 581 2 derver go exit--1
+2022/04/21 14:02:58 581 2 term:1 ggggg
+2022/04/21 14:02:58 S2 dtime:583 send heart
+2022/04/21 14:02:58 584 1 node become 2 foller
+2022/04/21 14:02:58 584 [1] server recv AppendEntries to 2
+2022/04/21 14:02:58 584 0 node become 2 foller
+2022/04/21 14:02:58 584 [0] server recv AppendEntries to 2
+2022/04/21 14:02:58 S2 dtime:693 send heart
+2022/04/21 14:02:58 693 0 node become 2 foller
+2022/04/21 14:02:58 693 [0] server recv AppendEntries to 2
+2022/04/21 14:02:58 693 1 node become 2 foller
+2022/04/21 14:02:58 693 [1] server recv AppendEntries to 2
+2022/04/21 14:02:58 S2 dtime:803 send heart
+2022/04/21 14:02:58 leader-----2
+2022/04/21 14:02:58 805 1 node become 2 foller
+2022/04/21 14:02:58 805 0 node become 2 foller
+2022/04/21 14:02:58 805 [1] server recv AppendEntries to 2
+2022/04/21 14:02:58 805 [0] server recv AppendEntries to 2
+2022/04/21 14:02:58 S2 dtime:915 send heart
+2022/04/21 14:02:58 917 1 node become 2 foller
+2022/04/21 14:02:58 917 [1] server recv AppendEntries to 2
+2022/04/21 14:02:58 917 0 node become 2 foller
+2022/04/21 14:02:58 917 [0] server recv AppendEntries to 2
+2022/04/21 14:02:59 S2 dtime:29 send heart
+2022/04/21 14:02:59 30 1 node become 2 foller
+2022/04/21 14:02:59 30 [1] server recv AppendEntries to 2
+2022/04/21 14:02:59 30 0 node become 2 foller
+2022/04/21 14:02:59 30 [0] server recv AppendEntries to 2
+2022/04/21 14:02:59 S2 dtime:142 send heart
+2022/04/21 14:02:59 143 0 node become 2 foller
+2022/04/21 14:02:59 143 1 node become 2 foller
+2022/04/21 14:02:59 143 [1] server recv AppendEntries to 2
+2022/04/21 14:02:59 143 [0] server recv AppendEntries to 2
+2022/04/21 14:02:59 S2 dtime:256 send heart
+2022/04/21 14:02:59 257 1 node become 2 foller
+2022/04/21 14:02:59 257 0 node become 2 foller
+2022/04/21 14:02:59 258 [0] server recv AppendEntries to 2
+2022/04/21 14:02:59 258 [1] server recv AppendEntries to 2
+2022/04/21 14:02:59 S2 dtime:366 send heart
+2022/04/21 14:02:59 367 0 node become 2 foller
+2022/04/21 14:02:59 367 1 node become 2 foller
+2022/04/21 14:02:59 367 [0] server recv AppendEntries to 2
+2022/04/21 14:02:59 367 [1] server recv AppendEntries to 2
+2022/04/21 14:02:59 S2 dtime:475 send heart
+2022/04/21 14:02:59 476 0 node become 2 foller
+2022/04/21 14:02:59 476 [0] server recv AppendEntries to 2
+2022/04/21 14:02:59 476 1 node become 2 foller
+2022/04/21 14:02:59 476 [1] server recv AppendEntries to 2
+2022/04/21 14:02:59 S2 dtime:584 send heart
+2022/04/21 14:02:59 584 0 node become 2 foller
+2022/04/21 14:02:59 584 1 node become 2 foller
+2022/04/21 14:02:59 584 [0] server recv AppendEntries to 2
+2022/04/21 14:02:59 584 [1] server recv AppendEntries to 2
+2022/04/21 14:02:59 S2 dtime:692 send heart
+2022/04/21 14:02:59 693 0 node become 2 foller
+2022/04/21 14:02:59 693 [0] server recv AppendEntries to 2
+2022/04/21 14:02:59 693 1 node become 2 foller
+2022/04/21 14:02:59 693 [1] server recv AppendEntries to 2
+2022/04/21 14:02:59 S2 dtime:807 send heart
+2022/04/21 14:02:59 808 0 node become 2 foller
+2022/04/21 14:02:59 808 [0] server recv AppendEntries to 2
+2022/04/21 14:02:59 808 1 node become 2 foller
+2022/04/21 14:02:59 808 [1] server recv AppendEntries to 2
+2022/04/21 14:02:59 S2 dtime:920 send heart
+2022/04/21 14:02:59 921 1 node become 2 foller
+2022/04/21 14:02:59 921 [1] server recv AppendEntries to 2
+2022/04/21 14:02:59 921 0 node become 2 foller
+2022/04/21 14:02:59 921 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 S2 dtime:30 send heart
+2022/04/21 14:03:00 31 0 node become 2 foller
+2022/04/21 14:03:00 31 1 node become 2 foller
+2022/04/21 14:03:00 31 [1] server recv AppendEntries to 2
+2022/04/21 14:03:00 31 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 S2 dtime:139 send heart
+2022/04/21 14:03:00 140 0 node become 2 foller
+2022/04/21 14:03:00 140 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 140 1 node become 2 foller
+2022/04/21 14:03:00 140 [1] server recv AppendEntries to 2
+2022/04/21 14:03:00 S2 dtime:248 send heart
+2022/04/21 14:03:00 249 1 node become 2 foller
+2022/04/21 14:03:00 249 0 node become 2 foller
+2022/04/21 14:03:00 249 [1] server recv AppendEntries to 2
+2022/04/21 14:03:00 249 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 S2 dtime:356 send heart
+2022/04/21 14:03:00 357 0 node become 2 foller
+2022/04/21 14:03:00 357 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 357 1 node become 2 foller
+2022/04/21 14:03:00 357 [1] server recv AppendEntries to 2
+2022/04/21 14:03:00 S2 dtime:466 send heart
+2022/04/21 14:03:00 466 0 node become 2 foller
+2022/04/21 14:03:00 466 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 466 1 node become 2 foller
+2022/04/21 14:03:00 466 [1] server recv AppendEntries to 2
+2022/04/21 14:03:00 S2 dtime:577 send heart
+2022/04/21 14:03:00 579 1 node become 2 foller
+2022/04/21 14:03:00 579 [1] server recv AppendEntries to 2
+2022/04/21 14:03:00 579 0 node become 2 foller
+2022/04/21 14:03:00 579 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 S2 dtime:692 send heart
+2022/04/21 14:03:00 693 0 node become 2 foller
+2022/04/21 14:03:00 693 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 693 1 node become 2 foller
+2022/04/21 14:03:00 693 [1] server recv AppendEntries to 2
+2022/04/21 14:03:00 S2 dtime:804 send heart
+2022/04/21 14:03:00 805 1 node become 2 foller
+2022/04/21 14:03:00 805 [1] server recv AppendEntries to 2
+2022/04/21 14:03:00 805 0 node become 2 foller
+2022/04/21 14:03:00 805 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 S2 dtime:916 send heart
+2022/04/21 14:03:00 917 1 node become 2 foller
+2022/04/21 14:03:00 917 0 node become 2 foller
+2022/04/21 14:03:00 917 [0] server recv AppendEntries to 2
+2022/04/21 14:03:00 917 [1] server recv AppendEntries to 2
+2022/04/21 14:03:01 S2 dtime:28 send heart
+2022/04/21 14:03:01 30 0 node become 2 foller
+2022/04/21 14:03:01 30 [0] server recv AppendEntries to 2
+2022/04/21 14:03:01 30 1 node become 2 foller
+2022/04/21 14:03:01 30 [1] server recv AppendEntries to 2
+2022/04/21 14:03:01 S2 dtime:140 send heart
+2022/04/21 14:03:01 141 1 node become 2 foller
+2022/04/21 14:03:01 141 0 node become 2 foller
+2022/04/21 14:03:01 141 [0] server recv AppendEntries to 2
+2022/04/21 14:03:01 141 [1] server recv AppendEntries to 2
+2022/04/21 14:03:01 S2 dtime:250 send heart
+2022/04/21 14:03:01 251 0 node become 2 foller
+2022/04/21 14:03:01 251 1 node become 2 foller
+2022/04/21 14:03:01 251 [1] server recv AppendEntries to 2
+2022/04/21 14:03:01 251 [0] server recv AppendEntries to 2
+2022/04/21 14:03:01 leader-----2
+  ... Passed --   3.0  3   52   10708    0
+Test (2A): election after network failure ...
+2022/04/21 14:03:01 663 2 became Candidate
+2022/04/21 14:03:01 663 2 start vote 1 term 1 has all 3
+2022/04/21 14:03:01 2 663 send vote to 0 has 1
+2022/04/21 14:03:01 2 663 send vote to 1 has 1
+2022/04/21 14:03:01 665 server 1 term 0 became 2 term 1 foller
+2022/04/21 14:03:01 665 server 0 term 0 became 2 term 1 foller
+2022/04/21 14:03:01 666 2 term 1 get vote form 1 term 0hasall 2
+2022/04/21 14:03:01 666 serve 2 become leaderr num:2 term:1 hashert:false
+2022/04/21 14:03:01 666 2 derver go exit--1
+2022/04/21 14:03:01 666 2 term 1 get vote form 0 term 0hasall 3
+2022/04/21 14:03:01 666 2 derver go exit--0
+2022/04/21 14:03:01 666 2 term:1 ggggg
+2022/04/21 14:03:01 S2 dtime:666 send heart
+2022/04/21 14:03:01 668 1 node become 2 foller
+2022/04/21 14:03:01 668 0 node become 2 foller
+2022/04/21 14:03:01 668 [1] server recv AppendEntries to 2
+2022/04/21 14:03:01 668 [0] server recv AppendEntries to 2
+2022/04/21 14:03:01 S2 dtime:778 send heart
+2022/04/21 14:03:01 779 0 node become 2 foller
+2022/04/21 14:03:01 779 1 node become 2 foller
+2022/04/21 14:03:01 779 [1] server recv AppendEntries to 2
+2022/04/21 14:03:01 779 [0] server recv AppendEntries to 2
+2022/04/21 14:03:01 leader-----2
+2022/04/21 14:03:01 2---1
+2022/04/21 14:03:01 S2 dtime:890 send heart
+2022/04/21 14:03:02 S2 dtime:3 send heart
+2022/04/21 14:03:02 72 0 became Candidate
+2022/04/21 14:03:02 72 0 start vote 1 term 2 has all 3
+2022/04/21 14:03:02 0 72 send vote to 1 has 1
+2022/04/21 14:03:02 0 72 send vote to 2 has 1
+2022/04/21 14:03:02 73 server 1 term 1 became 0 term 2 foller
+2022/04/21 14:03:02 74 0 term 2 get vote form 1 term 1hasall 2
+2022/04/21 14:03:02 74 serve 0 become leaderr num:2 term:2 hashert:false
+2022/04/21 14:03:02 74 0 derver go exit--1
+2022/04/21 14:03:02 S0 dtime:74 send heart
+2022/04/21 14:03:02 75 1 node become 0 foller
+2022/04/21 14:03:02 75 [1] server recv AppendEntries to 0
+2022/04/21 14:03:02 S2 dtime:114 send heart
+2022/04/21 14:03:02 S0 dtime:184 send heart
+2022/04/21 14:03:02 185 1 node become 0 foller
+2022/04/21 14:03:02 185 [1] server recv AppendEntries to 0
+2022/04/21 14:03:02 S2 dtime:224 send heart
+2022/04/21 14:03:02 leader-----0
+2022/04/21 14:03:02 2---2
+2022/04/21 14:03:02 S0 dtime:294 send heart
+2022/04/21 14:03:02 295 2 node become 0 foller
+2022/04/21 14:03:02 295 1 node become 0 foller
+2022/04/21 14:03:02 295 [1] server recv AppendEntries to 0
+2022/04/21 14:03:02 295 [2] server recv AppendEntries to 0
+2022/04/21 14:03:02 295 leader 2 become foller 
+2022/04/21 14:03:02 S0 dtime:403 send heart
+2022/04/21 14:03:02 404 2 node become 0 foller
+2022/04/21 14:03:02 404 [2] server recv AppendEntries to 0
+2022/04/21 14:03:02 404 1 node become 0 foller
+2022/04/21 14:03:02 404 [1] server recv AppendEntries to 0
+2022/04/21 14:03:02 S0 dtime:514 send heart
+2022/04/21 14:03:02 515 2 node become 0 foller
+2022/04/21 14:03:02 515 [2] server recv AppendEntries to 0
+2022/04/21 14:03:02 515 1 node become 0 foller
+2022/04/21 14:03:02 515 [1] server recv AppendEntries to 0
+2022/04/21 14:03:02 S0 dtime:625 send heart
+2022/04/21 14:03:02 625 1 node become 0 foller
+2022/04/21 14:03:02 625 [1] server recv AppendEntries to 0
+2022/04/21 14:03:02 625 2 node become 0 foller
+2022/04/21 14:03:02 625 [2] server recv AppendEntries to 0
+2022/04/21 14:03:02 S0 dtime:734 send heart
+2022/04/21 14:03:02 734 1 node become 0 foller
+2022/04/21 14:03:02 734 [1] server recv AppendEntries to 0
+2022/04/21 14:03:02 734 2 node become 0 foller
+2022/04/21 14:03:02 734 [2] server recv AppendEntries to 0
+2022/04/21 14:03:02 leader-----0
+2022/04/21 14:03:02 2---3
+2022/04/21 14:03:02 test leader 0
+2022/04/21 14:03:02 test foller 1
+2022/04/21 14:03:02 S0 dtime:843 send heart
+2022/04/21 14:03:02 S0 dtime:956 send heart
+2022/04/21 14:03:03 66 2 became Candidate
+2022/04/21 14:03:03 66 2 start vote 1 term 2 has all 3
+2022/04/21 14:03:03 2 67 send vote to 0 has 1
+2022/04/21 14:03:03 2 67 send vote to 1 has 1
+2022/04/21 14:03:03 S0 dtime:70 send heart
+2022/04/21 14:03:03 170 1 became Candidate
+2022/04/21 14:03:03 170 1 start vote 1 term 3 has all 3
+2022/04/21 14:03:03 1 170 send vote to 0 has 1
+2022/04/21 14:03:03 1 170 send vote to 2 has 1
+2022/04/21 14:03:03 S0 dtime:181 send heart
+2022/04/21 14:03:03 S280 2 sendhert failed to 0
+2022/04/21 14:03:03 280 2 derver go exit--0
+2022/04/21 14:03:03 S0 dtime:292 send heart
+2022/04/21 14:03:03 301 2 start vote 1 term 3 has all 3
+2022/04/21 14:03:03 2 301 send vote to 1 has 1
+2022/04/21 14:03:03 2 301 send vote to 0 has 1
+2022/04/21 14:03:03 S0 dtime:402 send heart
+2022/04/21 14:03:03 434 1 start vote 1 term 4 has all 3
+2022/04/21 14:03:03 1 434 send vote to 0 has 1
+2022/04/21 14:03:03 1 434 send vote to 2 has 1
+2022/04/21 14:03:03 S0 dtime:516 send heart
+2022/04/21 14:03:03 575 server 1 term 4 VoteCall failed to 2 had vote 1
+2022/04/21 14:03:03 575 1 derver go exit--2
+2022/04/21 14:03:03 600 2 start vote 1 term 4 has all 3
+2022/04/21 14:03:03 2 600 send vote to 0 has 1
+2022/04/21 14:03:03 2 600 send vote to 1 has 1
+2022/04/21 14:03:03 S0 dtime:629 send heart
+2022/04/21 14:03:03 685 1 start vote 1 term 5 has all 3
+2022/04/21 14:03:03 1 685 send vote to 0 has 1
+2022/04/21 14:03:03 1 685 send vote to 2 has 1
+2022/04/21 14:03:03 S0 dtime:741 send heart
+2022/04/21 14:03:03 S753 2 sendhert failed to 1
+2022/04/21 14:03:03 753 2 derver go exit--1
+2022/04/21 14:03:03 832 2 start vote 1 term 5 has all 3
+2022/04/21 14:03:03 2 832 send vote to 1 has 1
+2022/04/21 14:03:03 2 832 send vote to 0 has 1
+2022/04/21 14:03:03 S838 0 sendhert failed to 1
+2022/04/21 14:03:03 838 0 derver go exit--1
+2022/04/21 14:03:03 S0 dtime:853 send heart
+2022/04/21 14:03:03 S0 dtime:965 send heart
+2022/04/21 14:03:04 45 1 start vote 1 term 6 has all 3
+2022/04/21 14:03:04 1 45 send vote to 0 has 1
+2022/04/21 14:03:04 1 45 send vote to 2 has 1
+2022/04/21 14:03:04 S0 dtime:77 send heart
+2022/04/21 14:03:04 S0 dtime:186 send heart
+2022/04/21 14:03:04 191 2 start vote 1 term 6 has all 3
+2022/04/21 14:03:04 2 191 send vote to 0 has 1
+2022/04/21 14:03:04 2 191 send vote to 1 has 1
+2022/04/21 14:03:04 S245 2 sendhert failed to 0
+2022/04/21 14:03:04 245 2 derver go exit--0
+2022/04/21 14:03:04 292 server 1 term 6 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:04 292 1 derver go exit--0
+2022/04/21 14:03:04 S0 dtime:297 send heart
+2022/04/21 14:03:04 S386 2 sendhert failed to 0
+2022/04/21 14:03:04 386 2 derver go exit--0
+2022/04/21 14:03:04 400 1 start vote 1 term 7 has all 3
+2022/04/21 14:03:04 1 401 send vote to 0 has 1
+2022/04/21 14:03:04 1 401 send vote to 2 has 1
+2022/04/21 14:03:04 S0 dtime:412 send heart
+2022/04/21 14:03:04 S0 dtime:524 send heart
+2022/04/21 14:03:04 591 2 start vote 1 term 7 has all 3
+2022/04/21 14:03:04 2 592 send vote to 0 has 1
+2022/04/21 14:03:04 2 592 send vote to 1 has 1
+2022/04/21 14:03:04 S630 0 sendhert failed to 2
+2022/04/21 14:03:04 630 0 derver go exit--2
+2022/04/21 14:03:04 S0 dtime:633 send heart
+2022/04/21 14:03:04 S690 2 sendhert failed to 0
+2022/04/21 14:03:04 690 2 derver go exit--0
+2022/04/21 14:03:04 S736 2 sendhert failed to 1
+2022/04/21 14:03:04 736 2 derver go exit--1
+2022/04/21 14:03:04 S0 dtime:742 send heart
+2022/04/21 14:03:04 2---4
+2022/04/21 14:03:04 815 1 start vote 1 term 8 has all 3
+2022/04/21 14:03:04 1 815 send vote to 0 has 1
+2022/04/21 14:03:04 1 815 send vote to 2 has 1
+2022/04/21 14:03:04 816 server 2 term 7 became 1 term 8 foller
+2022/04/21 14:03:04 816 2 become foller 
+2022/04/21 14:03:04 816 1 term 8 get vote form 2 term 7hasall 2
+2022/04/21 14:03:04 816 serve 1 become leaderr num:2 term:8 hashert:false
+2022/04/21 14:03:04 816 1 derver go exit--2
+2022/04/21 14:03:04 S1 dtime:817 send heart
+2022/04/21 14:03:04 818 2 node become 1 foller
+2022/04/21 14:03:04 818 [2] server recv AppendEntries to 1
+2022/04/21 14:03:04 850 server 1 term 8 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:04 850 1 derver go exit--0
+2022/04/21 14:03:04 S0 dtime:851 send heart
+2022/04/21 14:03:04 S1 dtime:927 send heart
+2022/04/21 14:03:04 929 2 node become 1 foller
+2022/04/21 14:03:04 929 [2] server recv AppendEntries to 1
+2022/04/21 14:03:04 S0 dtime:963 send heart
+2022/04/21 14:03:05 S34 0 sendhert failed to 1
+2022/04/21 14:03:05 34 0 derver go exit--1
+2022/04/21 14:03:05 S1 dtime:40 send heart
+2022/04/21 14:03:05 41 2 node become 1 foller
+2022/04/21 14:03:05 41 [2] server recv AppendEntries to 1
+2022/04/21 14:03:05 S42 0 sendhert failed to 1
+2022/04/21 14:03:05 42 0 derver go exit--1
+2022/04/21 14:03:05 S0 dtime:75 send heart
+2022/04/21 14:03:05 93 server 2 term 8 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:05 93 2 derver go exit--0
+2022/04/21 14:03:05 101 server 2 term 8 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:05 101 2 derver go exit--1
+2022/04/21 14:03:05 S1 dtime:151 send heart
+2022/04/21 14:03:05 152 2 node become 1 foller
+2022/04/21 14:03:05 152 [2] server recv AppendEntries to 1
+2022/04/21 14:03:05 S157 0 sendhert failed to 2
+2022/04/21 14:03:05 157 0 derver go exit--2
+2022/04/21 14:03:05 S172 0 sendhert failed to 1
+2022/04/21 14:03:05 172 0 derver go exit--1
+2022/04/21 14:03:05 S0 dtime:188 send heart
+2022/04/21 14:03:05 198 server 2 term 8 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:05 198 2 derver go exit--1
+2022/04/21 14:03:05 leader-----1
+2022/04/21 14:03:05 2---5
+2022/04/21 14:03:05 S1 dtime:262 send heart
+2022/04/21 14:03:05 262 0 node become 1 foller
+2022/04/21 14:03:05 263 [0] server recv AppendEntries to 1
+2022/04/21 14:03:05 263 leader 0 become foller 
+2022/04/21 14:03:05 263 2 node become 1 foller
+2022/04/21 14:03:05 263 [2] server recv AppendEntries to 1
+2022/04/21 14:03:05 S304 2 sendhert failed to 1
+2022/04/21 14:03:05 304 2 derver go exit--1
+2022/04/21 14:03:05 S330 0 sendhert failed to 1
+2022/04/21 14:03:05 330 0 derver go exit--1
+2022/04/21 14:03:05 S1 dtime:370 send heart
+2022/04/21 14:03:05 371 2 node become 1 foller
+2022/04/21 14:03:05 371 [2] server recv AppendEntries to 1
+2022/04/21 14:03:05 371 0 node become 1 foller
+2022/04/21 14:03:05 371 [0] server recv AppendEntries to 1
+2022/04/21 14:03:05 S1 dtime:482 send heart
+2022/04/21 14:03:05 483 2 node become 1 foller
+2022/04/21 14:03:05 483 0 node become 1 foller
+2022/04/21 14:03:05 483 [2] server recv AppendEntries to 1
+2022/04/21 14:03:05 483 [0] server recv AppendEntries to 1
+2022/04/21 14:03:05 S538 2 sendhert failed to 1
+2022/04/21 14:03:05 538 2 derver go exit--1
+2022/04/21 14:03:05 S544 0 sendhert failed to 2
+2022/04/21 14:03:05 544 0 derver go exit--2
+2022/04/21 14:03:05 S1 dtime:593 send heart
+2022/04/21 14:03:05 594 2 node become 1 foller
+2022/04/21 14:03:05 594 [2] server recv AppendEntries to 1
+2022/04/21 14:03:05 594 0 node become 1 foller
+2022/04/21 14:03:05 594 [0] server recv AppendEntries to 1
+2022/04/21 14:03:05 636 server 2 term 8 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:05 636 2 derver go exit--0
+2022/04/21 14:03:05 S1 dtime:705 send heart
+2022/04/21 14:03:05 706 2 node become 1 foller
+2022/04/21 14:03:05 706 0 node become 1 foller
+2022/04/21 14:03:05 706 [0] server recv AppendEntries to 1
+2022/04/21 14:03:05 706 [2] server recv AppendEntries to 1
+2022/04/21 14:03:05 leader-----1
+2022/04/21 14:03:05 2---6
+  ... Passed --   4.5  3  116   17628    0
+2022/04/21 14:03:05 2---1
+Test (2A): multiple elections ...
+2022/04/21 14:03:05 S838 0 sendhert failed to 2
+2022/04/21 14:03:05 838 0 derver go exit--2
+2022/04/21 14:03:05 S850 0 sendhert failed to 2
+2022/04/21 14:03:05 850 0 derver go exit--2
+2022/04/21 14:03:06 S27 0 sendhert failed to 2
+2022/04/21 14:03:06 27 0 derver go exit--2
+2022/04/21 14:03:06 29 1 became Candidate
+2022/04/21 14:03:06 29 1 start vote 1 term 1 has all 7
+2022/04/21 14:03:06 1 30 send vote to 0 has 1
+2022/04/21 14:03:06 1 30 send vote to 3 has 1
+2022/04/21 14:03:06 1 30 send vote to 4 has 1
+2022/04/21 14:03:06 1 30 send vote to 2 has 1
+2022/04/21 14:03:06 1 30 send vote to 5 has 1
+2022/04/21 14:03:06 1 30 send vote to 6 has 1
+2022/04/21 14:03:06 31 server 0 term 0 became 1 term 1 foller
+2022/04/21 14:03:06 31 server 3 term 0 became 1 term 1 foller
+2022/04/21 14:03:06 32 server 4 term 0 became 1 term 1 foller
+2022/04/21 14:03:06 32 1 term 1 get vote form 0 term 0hasall 2
+2022/04/21 14:03:06 32 1 derver go exit--0
+2022/04/21 14:03:06 32 1 term 1 get vote form 3 term 0hasall 3
+2022/04/21 14:03:06 32 1 derver go exit--3
+2022/04/21 14:03:06 32 server 5 term 0 became 1 term 1 foller
+2022/04/21 14:03:06 32 server 2 term 0 became 1 term 1 foller
+2022/04/21 14:03:06 33 1 term 1 get vote form 4 term 0hasall 4
+2022/04/21 14:03:06 33 serve 1 become leaderr num:4 term:1 hashert:false
+2022/04/21 14:03:06 33 server 6 term 0 became 1 term 1 foller
+2022/04/21 14:03:06 33 1 derver go exit--4
+2022/04/21 14:03:06 33 1 term 1 get vote form 5 term 0hasall 5
+2022/04/21 14:03:06 33 1 derver go exit--5
+2022/04/21 14:03:06 34 1 term 1 get vote form 2 term 0hasall 6
+2022/04/21 14:03:06 34 1 derver go exit--2
+2022/04/21 14:03:06 S1 dtime:34 send heart
+2022/04/21 14:03:06 34 1 term 1 get vote form 6 term 0hasall 7
+2022/04/21 14:03:06 34 1 derver go exit--6
+2022/04/21 14:03:06 34 1 term:1 ggggg
+2022/04/21 14:03:06 35 0 node become 1 foller
+2022/04/21 14:03:06 35 [0] server recv AppendEntries to 1
+2022/04/21 14:03:06 35 2 node become 1 foller
+2022/04/21 14:03:06 35 [2] server recv AppendEntries to 1
+2022/04/21 14:03:06 36 3 node become 1 foller
+2022/04/21 14:03:06 36 [3] server recv AppendEntries to 1
+2022/04/21 14:03:06 37 5 node become 1 foller
+2022/04/21 14:03:06 37 [5] server recv AppendEntries to 1
+2022/04/21 14:03:06 37 6 node become 1 foller
+2022/04/21 14:03:06 37 [6] server recv AppendEntries to 1
+2022/04/21 14:03:06 38 4 node become 1 foller
+2022/04/21 14:03:06 38 [4] server recv AppendEntries to 1
+2022/04/21 14:03:06 S124 0 sendhert failed to 2
+2022/04/21 14:03:06 124 0 derver go exit--2
+2022/04/21 14:03:06 S125 0 sendhert failed to 2
+2022/04/21 14:03:06 125 0 derver go exit--2
+2022/04/21 14:03:06 S134 0 sendhert failed to 2
+2022/04/21 14:03:06 134 0 derver go exit--2
+2022/04/21 14:03:06 S1 dtime:147 send heart
+2022/04/21 14:03:06 149 2 node become 1 foller
+2022/04/21 14:03:06 149 0 node become 1 foller
+2022/04/21 14:03:06 149 3 node become 1 foller
+2022/04/21 14:03:06 149 [0] server recv AppendEntries to 1
+2022/04/21 14:03:06 150 5 node become 1 foller
+2022/04/21 14:03:06 150 [5] server recv AppendEntries to 1
+2022/04/21 14:03:06 150 4 node become 1 foller
+2022/04/21 14:03:06 150 [4] server recv AppendEntries to 1
+2022/04/21 14:03:06 149 [2] server recv AppendEntries to 1
+2022/04/21 14:03:06 149 [3] server recv AppendEntries to 1
+2022/04/21 14:03:06 150 6 node become 1 foller
+2022/04/21 14:03:06 151 [6] server recv AppendEntries to 1
+2022/04/21 14:03:06 S220 0 sendhert failed to 1
+2022/04/21 14:03:06 221 0 derver go exit--1
+2022/04/21 14:03:06 S1 dtime:262 send heart
+2022/04/21 14:03:06 263 0 node become 1 foller
+2022/04/21 14:03:06 263 [0] server recv AppendEntries to 1
+2022/04/21 14:03:06 263 3 node become 1 foller
+2022/04/21 14:03:06 263 [3] server recv AppendEntries to 1
+2022/04/21 14:03:06 264 4 node become 1 foller
+2022/04/21 14:03:06 264 2 node become 1 foller
+2022/04/21 14:03:06 264 [2] server recv AppendEntries to 1
+2022/04/21 14:03:06 264 5 node become 1 foller
+2022/04/21 14:03:06 264 [5] server recv AppendEntries to 1
+2022/04/21 14:03:06 264 [4] server recv AppendEntries to 1
+2022/04/21 14:03:06 265 6 node become 1 foller
+2022/04/21 14:03:06 265 [6] server recv AppendEntries to 1
+2022/04/21 14:03:06 leader-----1
+2022/04/21 14:03:06 2---2
+2022/04/21 14:03:06 disconnect 2 2 1
+2022/04/21 14:03:06 S351 0 sendhert failed to 2
+2022/04/21 14:03:06 351 0 derver go exit--2
+2022/04/21 14:03:06 S1 dtime:376 send heart
+2022/04/21 14:03:06 S417 0 sendhert failed to 1
+2022/04/21 14:03:06 417 0 derver go exit--1
+2022/04/21 14:03:06 S454 0 sendhert failed to 1
+2022/04/21 14:03:06 454 0 derver go exit--1
+2022/04/21 14:03:06 S1 dtime:485 send heart
+2022/04/21 14:03:06 S485 1 sendhert failed to 4
+2022/04/21 14:03:06 485 1 derver go exit--4
+2022/04/21 14:03:06 492 6 became Candidate
+2022/04/21 14:03:06 492 6 start vote 1 term 2 has all 7
+2022/04/21 14:03:06 6 492 send vote to 0 has 1
+2022/04/21 14:03:06 6 492 send vote to 1 has 1
+2022/04/21 14:03:06 6 492 send vote to 2 has 1
+2022/04/21 14:03:06 6 492 send vote to 4 has 1
+2022/04/21 14:03:06 6 492 send vote to 3 has 1
+2022/04/21 14:03:06 6 492 send vote to 5 has 1
+2022/04/21 14:03:06 493 server 0 term 1 became 6 term 2 foller
+2022/04/21 14:03:06 493 server 4 term 1 became 6 term 2 foller
+2022/04/21 14:03:06 493 server 5 term 1 became 6 term 2 foller
+2022/04/21 14:03:06 493 server 3 term 1 became 6 term 2 foller
+2022/04/21 14:03:06 493 6 term 2 get vote form 0 term 1hasall 2
+2022/04/21 14:03:06 493 6 derver go exit--0
+2022/04/21 14:03:06 494 6 term 2 get vote form 4 term 1hasall 3
+2022/04/21 14:03:06 494 6 derver go exit--4
+2022/04/21 14:03:06 494 6 term 2 get vote form 5 term 1hasall 4
+2022/04/21 14:03:06 494 serve 6 become leaderr num:4 term:2 hashert:false
+2022/04/21 14:03:06 494 6 derver go exit--5
+2022/04/21 14:03:06 494 6 term 2 get vote form 3 term 1hasall 5
+2022/04/21 14:03:06 494 6 derver go exit--3
+2022/04/21 14:03:06 S6 dtime:495 send heart
+2022/04/21 14:03:06 495 0 node become 6 foller
+2022/04/21 14:03:06 495 [0] server recv AppendEntries to 6
+2022/04/21 14:03:06 495 5 node become 6 foller
+2022/04/21 14:03:06 495 [5] server recv AppendEntries to 6
+2022/04/21 14:03:06 496 4 node become 6 foller
+2022/04/21 14:03:06 496 [4] server recv AppendEntries to 6
+2022/04/21 14:03:06 496 3 node become 6 foller
+2022/04/21 14:03:06 496 [3] server recv AppendEntries to 6
+2022/04/21 14:03:06 520 server 0 term 2 VoteCall failed to 2 had vote 2
+2022/04/21 14:03:06 520 0 derver go exit--2
+2022/04/21 14:03:06 520 0 term:2 ggggg
+2022/04/21 14:03:06 520 0 server term:2 should vote again-- 2 false
+2022/04/21 14:03:06 535 2 became Candidate
+2022/04/21 14:03:06 535 2 start vote 1 term 2 has all 7
+2022/04/21 14:03:06 2 536 send vote to 0 has 1
+2022/04/21 14:03:06 2 536 send vote to 1 has 1
+2022/04/21 14:03:06 2 536 send vote to 3 has 1
+2022/04/21 14:03:06 2 536 send vote to 5 has 1
+2022/04/21 14:03:06 2 536 send vote to 6 has 1
+2022/04/21 14:03:06 2 536 send vote to 4 has 1
+2022/04/21 14:03:06 S585 0 sendhert failed to 1
+2022/04/21 14:03:06 585 0 derver go exit--1
+2022/04/21 14:03:06 S1 dtime:597 send heart
+2022/04/21 14:03:06 S6 dtime:607 send heart
+2022/04/21 14:03:06 609 0 node become 6 foller
+2022/04/21 14:03:06 609 [0] server recv AppendEntries to 6
+2022/04/21 14:03:06 609 3 node become 6 foller
+2022/04/21 14:03:06 609 [3] server recv AppendEntries to 6
+2022/04/21 14:03:06 609 4 node become 6 foller
+2022/04/21 14:03:06 609 [4] server recv AppendEntries to 6
+2022/04/21 14:03:06 610 5 node become 6 foller
+2022/04/21 14:03:06 610 [5] server recv AppendEntries to 6
+2022/04/21 14:03:06 682 server 1 term 8 VoteCall failed to 0 had vote 2
+2022/04/21 14:03:06 682 1 derver go exit--0
+2022/04/21 14:03:06 682 1 term:8 ggggg
+2022/04/21 14:03:06 S1 dtime:709 send heart
+2022/04/21 14:03:06 S6 dtime:718 send heart
+2022/04/21 14:03:06 720 0 node become 6 foller
+2022/04/21 14:03:06 720 [0] server recv AppendEntries to 6
+2022/04/21 14:03:06 720 3 node become 6 foller
+2022/04/21 14:03:06 720 [3] server recv AppendEntries to 6
+2022/04/21 14:03:06 720 5 node become 6 foller
+2022/04/21 14:03:06 721 4 node become 6 foller
+2022/04/21 14:03:06 721 [4] server recv AppendEntries to 6
+2022/04/21 14:03:06 721 [5] server recv AppendEntries to 6
+2022/04/21 14:03:06 S753 0 sendhert failed to 1
+2022/04/21 14:03:06 753 0 derver go exit--1
+2022/04/21 14:03:06 S1 dtime:822 send heart
+2022/04/21 14:03:06 S6 dtime:832 send heart
+2022/04/21 14:03:06 836 0 node become 6 foller
+2022/04/21 14:03:06 836 [0] server recv AppendEntries to 6
+2022/04/21 14:03:06 836 4 node become 6 foller
+2022/04/21 14:03:06 837 [4] server recv AppendEntries to 6
+2022/04/21 14:03:06 836 5 node become 6 foller
+2022/04/21 14:03:06 837 [5] server recv AppendEntries to 6
+2022/04/21 14:03:06 837 3 node become 6 foller
+2022/04/21 14:03:06 838 [3] server recv AppendEntries to 6
+2022/04/21 14:03:06 854 2 start vote 1 term 3 has all 7
+2022/04/21 14:03:06 2 855 send vote to 1 has 1
+2022/04/21 14:03:06 2 855 send vote to 3 has 1
+2022/04/21 14:03:06 2 855 send vote to 5 has 1
+2022/04/21 14:03:06 2 855 send vote to 6 has 1
+2022/04/21 14:03:06 2 855 send vote to 0 has 1
+2022/04/21 14:03:06 2 855 send vote to 4 has 1
+2022/04/21 14:03:06 leader-----6
+2022/04/21 14:03:06 2---3
+2022/04/21 14:03:06 disconnect 2 1 6
+2022/04/21 14:03:06 890 server 2 term 3 VoteCall failed to 4 had vote 1
+2022/04/21 14:03:06 890 2 derver go exit--4
+2022/04/21 14:03:06 S917 1 sendhert failed to 2
+2022/04/21 14:03:06 917 1 derver go exit--2
+2022/04/21 14:03:06 S1 dtime:935 send heart
+2022/04/21 14:03:06 S6 dtime:944 send heart
+2022/04/21 14:03:06 S971 0 sendhert failed to 1
+2022/04/21 14:03:06 971 0 derver go exit--1
+2022/04/21 14:03:07 S1 dtime:46 send heart
+2022/04/21 14:03:07 S6 dtime:55 send heart
+2022/04/21 14:03:07 S55 0 sendhert failed to 2
+2022/04/21 14:03:07 55 0 derver go exit--2
+2022/04/21 14:03:07 S65 1 sendhert failed to 4
+2022/04/21 14:03:07 65 1 derver go exit--4
+2022/04/21 14:03:07 71 4 became Candidate
+2022/04/21 14:03:07 71 4 start vote 1 term 3 has all 7
+2022/04/21 14:03:07 4 71 send vote to 1 has 1
+2022/04/21 14:03:07 4 71 send vote to 2 has 1
+2022/04/21 14:03:07 4 71 send vote to 0 has 1
+2022/04/21 14:03:07 4 71 send vote to 3 has 1
+2022/04/21 14:03:07 4 72 send vote to 6 has 1
+2022/04/21 14:03:07 S71 6 sendhert failed to 1
+2022/04/21 14:03:07 72 6 derver go exit--1
+2022/04/21 14:03:07 4 72 send vote to 5 has 1
+2022/04/21 14:03:07 S73 0 sendhert failed to 1
+2022/04/21 14:03:07 73 0 derver go exit--1
+2022/04/21 14:03:07 73 server 3 term 2 became 4 term 3 foller
+2022/04/21 14:03:07 73 server 0 term 2 became 4 term 3 foller
+2022/04/21 14:03:07 73 server 5 term 2 became 4 term 3 foller
+2022/04/21 14:03:07 74 4 term 3 get vote form 3 term 2hasall 2
+2022/04/21 14:03:07 74 4 derver go exit--3
+2022/04/21 14:03:07 74 4 term 3 get vote form 0 term 2hasall 3
+2022/04/21 14:03:07 74 4 derver go exit--0
+2022/04/21 14:03:07 74 4 term 3 get vote form 5 term 2hasall 4
+2022/04/21 14:03:07 74 serve 4 become leaderr num:4 term:3 hashert:false
+2022/04/21 14:03:07 74 4 derver go exit--5
+2022/04/21 14:03:07 S75 1 sendhert failed to 3
+2022/04/21 14:03:07 75 1 derver go exit--3
+2022/04/21 14:03:07 S4 dtime:75 send heart
+2022/04/21 14:03:07 76 0 node become 4 foller
+2022/04/21 14:03:07 76 [0] server recv AppendEntries to 4
+2022/04/21 14:03:07 76 3 node become 4 foller
+2022/04/21 14:03:07 77 5 node become 4 foller
+2022/04/21 14:03:07 77 [3] server recv AppendEntries to 4
+2022/04/21 14:03:07 77 [5] server recv AppendEntries to 4
+2022/04/21 14:03:07 S130 6 sendhert failed to 1
+2022/04/21 14:03:07 130 6 derver go exit--1
+2022/04/21 14:03:07 139 server 2 term 8 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:07 139 2 derver go exit--0
+2022/04/21 14:03:07 139 2 term:2 ggggg
+2022/04/21 14:03:07 139 2 server term:8 should vote again-- 1 false
+2022/04/21 14:03:07 S1 dtime:159 send heart
+2022/04/21 14:03:07 S6 dtime:169 send heart
+2022/04/21 14:03:07 S4 dtime:186 send heart
+2022/04/21 14:03:07 187 0 node become 4 foller
+2022/04/21 14:03:07 187 [0] server recv AppendEntries to 4
+2022/04/21 14:03:07 187 5 node become 4 foller
+2022/04/21 14:03:07 187 3 node become 4 foller
+2022/04/21 14:03:07 187 [5] server recv AppendEntries to 4
+2022/04/21 14:03:07 187 [3] server recv AppendEntries to 4
+2022/04/21 14:03:07 S244 0 sendhert failed to 2
+2022/04/21 14:03:07 244 0 derver go exit--2
+2022/04/21 14:03:07 248 server 2 term 3 VoteCall failed to 6 had vote 1
+2022/04/21 14:03:07 248 2 derver go exit--6
+2022/04/21 14:03:07 S250 6 sendhert failed to 5
+2022/04/21 14:03:07 250 6 derver go exit--5
+2022/04/21 14:03:07 S251 1 sendhert failed to 0
+2022/04/21 14:03:07 251 1 derver go exit--0
+2022/04/21 14:03:07 S263 0 sendhert failed to 1
+2022/04/21 14:03:07 263 0 derver go exit--1
+2022/04/21 14:03:07 272 2 start vote 1 term 4 has all 7
+2022/04/21 14:03:07 2 272 send vote to 0 has 1
+2022/04/21 14:03:07 2 272 send vote to 1 has 1
+2022/04/21 14:03:07 2 272 send vote to 3 has 1
+2022/04/21 14:03:07 2 272 send vote to 5 has 1
+2022/04/21 14:03:07 2 272 send vote to 4 has 1
+2022/04/21 14:03:07 2 272 send vote to 6 has 1
+2022/04/21 14:03:07 S1 dtime:273 send heart
+2022/04/21 14:03:07 S6 dtime:283 send heart
+2022/04/21 14:03:07 S290 6 sendhert failed to 2
+2022/04/21 14:03:07 290 6 derver go exit--2
+2022/04/21 14:03:07 S4 dtime:300 send heart
+2022/04/21 14:03:07 302 0 node become 4 foller
+2022/04/21 14:03:07 302 [0] server recv AppendEntries to 4
+2022/04/21 14:03:07 303 5 node become 4 foller
+2022/04/21 14:03:07 303 [5] server recv AppendEntries to 4
+2022/04/21 14:03:07 303 3 node become 4 foller
+2022/04/21 14:03:07 303 [3] server recv AppendEntries to 4
+2022/04/21 14:03:07 327 server 2 term 8 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:07 327 2 derver go exit--0
+2022/04/21 14:03:07 327 2 term:5 ggggg
+2022/04/21 14:03:07 327 2 server term:8 should vote again-- 1 false
+2022/04/21 14:03:07 leader-----4
+2022/04/21 14:03:07 2---3
+2022/04/21 14:03:07 disconnect 4 1 4
+2022/04/21 14:03:07 S1 dtime:386 send heart
+2022/04/21 14:03:07 S6 dtime:396 send heart
+2022/04/21 14:03:07 399 [3] server recv AppendEntries to 6
+2022/04/21 14:03:07 399 [0] server recv AppendEntries to 6
+2022/04/21 14:03:07 399 [2] server recv AppendEntries to 6
+2022/04/21 14:03:07 399 [5] server recv AppendEntries to 6
+2022/04/21 14:03:07 S4 dtime:414 send heart
+2022/04/21 14:03:07 S414 1 sendhert failed to 5
+2022/04/21 14:03:07 414 1 derver go exit--5
+2022/04/21 14:03:07 S414 6 sendhert failed to 4
+2022/04/21 14:03:07 414 6 derver go exit--4
+2022/04/21 14:03:07 S499 6 sendhert failed to 0
+2022/04/21 14:03:07 499 6 derver go exit--0
+2022/04/21 14:03:07 S1 dtime:500 send heart
+2022/04/21 14:03:07 S504 0 sendhert failed to 2
+2022/04/21 14:03:07 504 0 derver go exit--2
+2022/04/21 14:03:07 S6 dtime:509 send heart
+2022/04/21 14:03:07 511 [2] server recv AppendEntries to 6
+2022/04/21 14:03:07 511 [0] server recv AppendEntries to 6
+2022/04/21 14:03:07 512 [5] server recv AppendEntries to 6
+2022/04/21 14:03:07 512 [3] server recv AppendEntries to 6
+2022/04/21 14:03:07 S4 dtime:527 send heart
+2022/04/21 14:03:07 576 2 start vote 1 term 5 has all 7
+2022/04/21 14:03:07 2 577 send vote to 0 has 1
+2022/04/21 14:03:07 2 577 send vote to 1 has 1
+2022/04/21 14:03:07 2 577 send vote to 3 has 1
+2022/04/21 14:03:07 2 577 send vote to 4 has 1
+2022/04/21 14:03:07 2 577 send vote to 5 has 1
+2022/04/21 14:03:07 2 578 send vote to 6 has 1
+2022/04/21 14:03:07 579 server 0 term 3 became 2 term 5 foller
+2022/04/21 14:03:07 579 server 3 term 3 became 2 term 5 foller
+2022/04/21 14:03:07 579 server 5 term 3 became 2 term 5 foller
+2022/04/21 14:03:07 579 server 6 term 2 became 2 term 5 foller
+2022/04/21 14:03:07 580 2 term 5 get vote form 0 term 3hasall 2
+2022/04/21 14:03:07 580 2 derver go exit--0
+2022/04/21 14:03:07 580 2 term 5 get vote form 3 term 3hasall 3
+2022/04/21 14:03:07 580 2 derver go exit--3
+2022/04/21 14:03:07 580 leader 6 become foller 
+2022/04/21 14:03:07 580 2 term 5 get vote form 5 term 3hasall 4
+2022/04/21 14:03:07 580 serve 2 become leaderr num:4 term:5 hashert:false
+2022/04/21 14:03:07 580 2 derver go exit--5
+2022/04/21 14:03:07 580 2 term 5 get vote form 6 term 2hasall 5
+2022/04/21 14:03:07 580 2 derver go exit--6
+2022/04/21 14:03:07 S2 dtime:581 send heart
+2022/04/21 14:03:07 582 0 node become 2 foller
+2022/04/21 14:03:07 582 [0] server recv AppendEntries to 2
+2022/04/21 14:03:07 582 3 node become 2 foller
+2022/04/21 14:03:07 582 [3] server recv AppendEntries to 2
+2022/04/21 14:03:07 583 5 node become 2 foller
+2022/04/21 14:03:07 583 [5] server recv AppendEntries to 2
+2022/04/21 14:03:07 583 6 node become 2 foller
+2022/04/21 14:03:07 583 [6] server recv AppendEntries to 2
+2022/04/21 14:03:07 S585 1 sendhert failed to 5
+2022/04/21 14:03:07 585 1 derver go exit--5
+2022/04/21 14:03:07 614 server 1 term 8 VoteCall failed to 2 had vote 1
+2022/04/21 14:03:07 614 1 derver go exit--2
+2022/04/21 14:03:07 614 1 term:3 ggggg
+2022/04/21 14:03:07 S1 dtime:615 send heart
+2022/04/21 14:03:07 625 server 1 term 8 VoteCall failed to 2 had vote 1
+2022/04/21 14:03:07 625 1 derver go exit--2
+2022/04/21 14:03:07 S625 1 sendhert failed to 5
+2022/04/21 14:03:07 625 1 derver go exit--5
+2022/04/21 14:03:07 S4 dtime:641 send heart
+2022/04/21 14:03:07 S2 dtime:694 send heart
+2022/04/21 14:03:07 696 0 node become 2 foller
+2022/04/21 14:03:07 696 3 node become 2 foller
+2022/04/21 14:03:07 696 [3] server recv AppendEntries to 2
+2022/04/21 14:03:07 696 6 node become 2 foller
+2022/04/21 14:03:07 696 [6] server recv AppendEntries to 2
+2022/04/21 14:03:07 696 [0] server recv AppendEntries to 2
+2022/04/21 14:03:07 696 5 node become 2 foller
+2022/04/21 14:03:07 696 [5] server recv AppendEntries to 2
+2022/04/21 14:03:07 S715 0 sendhert failed to 1
+2022/04/21 14:03:07 716 0 derver go exit--1
+2022/04/21 14:03:07 S1 dtime:728 send heart
+2022/04/21 14:03:07 S4 dtime:754 send heart
+2022/04/21 14:03:07 S757 4 sendhert failed to 3
+2022/04/21 14:03:07 757 4 derver go exit--3
+2022/04/21 14:03:07 S765 0 sendhert failed to 1
+2022/04/21 14:03:07 765 0 derver go exit--1
+2022/04/21 14:03:07 S779 0 sendhert failed to 2
+2022/04/21 14:03:07 779 0 derver go exit--2
+2022/04/21 14:03:07 S2 dtime:808 send heart
+2022/04/21 14:03:07 810 5 node become 2 foller
+2022/04/21 14:03:07 810 [5] server recv AppendEntries to 2
+2022/04/21 14:03:07 810 0 node become 2 foller
+2022/04/21 14:03:07 810 [0] server recv AppendEntries to 2
+2022/04/21 14:03:07 811 3 node become 2 foller
+2022/04/21 14:03:07 811 [3] server recv AppendEntries to 2
+2022/04/21 14:03:07 811 6 node become 2 foller
+2022/04/21 14:03:07 811 [6] server recv AppendEntries to 2
+2022/04/21 14:03:07 leader-----2
+2022/04/21 14:03:07 2---3
+2022/04/21 14:03:07 disconnect 6 1 2
+2022/04/21 14:03:07 S1 dtime:843 send heart
+2022/04/21 14:03:07 S847 1 sendhert failed to 3
+2022/04/21 14:03:07 847 1 derver go exit--3
+2022/04/21 14:03:07 S4 dtime:870 send heart
+2022/04/21 14:03:07 872 [0] server recv AppendEntries to 4
+2022/04/21 14:03:07 873 [3] server recv AppendEntries to 4
+2022/04/21 14:03:07 873 [5] server recv AppendEntries to 4
+2022/04/21 14:03:07 S874 1 sendhert failed to 3
+2022/04/21 14:03:07 874 1 derver go exit--3
+2022/04/21 14:03:07 S880 1 sendhert failed to 2
+2022/04/21 14:03:07 880 1 derver go exit--2
+2022/04/21 14:03:07 S895 6 sendhert failed to 3
+2022/04/21 14:03:07 895 6 derver go exit--3
+2022/04/21 14:03:07 S903 0 sendhert failed to 1
+2022/04/21 14:03:07 903 0 derver go exit--1
+2022/04/21 14:03:07 S912 6 sendhert failed to 0
+2022/04/21 14:03:07 912 6 derver go exit--0
+2022/04/21 14:03:07 S921 4 sendhert failed to 1
+2022/04/21 14:03:07 921 4 derver go exit--1
+2022/04/21 14:03:07 S2 dtime:923 send heart
+2022/04/21 14:03:07 S941 4 sendhert failed to 0
+2022/04/21 14:03:07 941 4 derver go exit--0
+2022/04/21 14:03:07 S1 dtime:958 send heart
+2022/04/21 14:03:07 S4 dtime:985 send heart
+2022/04/21 14:03:07 987 [0] server recv AppendEntries to 4
+2022/04/21 14:03:07 988 [5] server recv AppendEntries to 4
+2022/04/21 14:03:07 988 [3] server recv AppendEntries to 4
+2022/04/21 14:03:07 S996 4 sendhert failed to 1
+2022/04/21 14:03:07 996 4 derver go exit--1
+2022/04/21 14:03:08 S9 6 sendhert failed to 1
+2022/04/21 14:03:08 9 6 derver go exit--1
+2022/04/21 14:03:08 23 server 2 term 5 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:08 23 2 derver go exit--0
+2022/04/21 14:03:08 S2 dtime:35 send heart
+2022/04/21 14:03:08 S69 1 sendhert failed to 2
+2022/04/21 14:03:08 69 1 derver go exit--2
+2022/04/21 14:03:08 S1 dtime:70 send heart
+2022/04/21 14:03:08 S87 0 sendhert failed to 1
+2022/04/21 14:03:08 88 0 derver go exit--1
+2022/04/21 14:03:08 S90 0 sendhert failed to 2
+2022/04/21 14:03:08 90 0 derver go exit--2
+2022/04/21 14:03:08 S4 dtime:98 send heart
+2022/04/21 14:03:08 100 [0] server recv AppendEntries to 4
+2022/04/21 14:03:08 100 [3] server recv AppendEntries to 4
+2022/04/21 14:03:08 101 [5] server recv AppendEntries to 4
+2022/04/21 14:03:08 S122 1 sendhert failed to 3
+2022/04/21 14:03:08 122 1 derver go exit--3
+2022/04/21 14:03:08 140 0 became Candidate
+2022/04/21 14:03:08 141 0 start vote 1 term 6 has all 7
+2022/04/21 14:03:08 0 141 send vote to 1 has 1
+2022/04/21 14:03:08 0 141 send vote to 4 has 1
+2022/04/21 14:03:08 0 141 send vote to 5 has 1
+2022/04/21 14:03:08 0 141 send vote to 6 has 1
+2022/04/21 14:03:08 0 141 send vote to 2 has 1
+2022/04/21 14:03:08 0 141 send vote to 3 has 1
+2022/04/21 14:03:08 142 server 4 term 3 became 0 term 6 foller
+2022/04/21 14:03:08 143 leader 4 become foller 
+2022/04/21 14:03:08 143 server 5 term 5 became 0 term 6 foller
+2022/04/21 14:03:08 143 server 3 term 5 became 0 term 6 foller
+2022/04/21 14:03:08 143 0 term 6 get vote form 4 term 3hasall 2
+2022/04/21 14:03:08 144 0 derver go exit--4
+2022/04/21 14:03:08 144 0 term 6 get vote form 3 term 5hasall 3
+2022/04/21 14:03:08 144 0 derver go exit--3
+2022/04/21 14:03:08 144 0 term 6 get vote form 5 term 5hasall 4
+2022/04/21 14:03:08 144 serve 0 become leaderr num:4 term:6 hashert:false
+2022/04/21 14:03:08 144 0 derver go exit--5
+2022/04/21 14:03:08 S0 dtime:144 send heart
+2022/04/21 14:03:08 146 5 node become 0 foller
+2022/04/21 14:03:08 146 [5] server recv AppendEntries to 0
+2022/04/21 14:03:08 146 3 node become 0 foller
+2022/04/21 14:03:08 146 [3] server recv AppendEntries to 0
+2022/04/21 14:03:08 146 4 node become 0 foller
+2022/04/21 14:03:08 147 [4] server recv AppendEntries to 0
+2022/04/21 14:03:08 S147 0 sendhert failed to 2
+2022/04/21 14:03:08 147 0 derver go exit--2
+2022/04/21 14:03:08 S2 dtime:148 send heart
+2022/04/21 14:03:08 S1 dtime:182 send heart
+2022/04/21 14:03:08 S192 0 sendhert failed to 2
+2022/04/21 14:03:08 192 0 derver go exit--2
+2022/04/21 14:03:08 S195 2 sendhert failed to 5
+2022/04/21 14:03:08 195 2 derver go exit--5
+2022/04/21 14:03:08 219 6 became Candidate
+2022/04/21 14:03:08 219 6 start vote 1 term 6 has all 7
+2022/04/21 14:03:08 6 219 send vote to 0 has 1
+2022/04/21 14:03:08 6 219 send vote to 1 has 1
+2022/04/21 14:03:08 6 219 send vote to 3 has 1
+2022/04/21 14:03:08 6 219 send vote to 2 has 1
+2022/04/21 14:03:08 6 220 send vote to 5 has 1
+2022/04/21 14:03:08 6 220 send vote to 4 has 1
+2022/04/21 14:03:08 S228 4 sendhert failed to 2
+2022/04/21 14:03:08 228 4 derver go exit--2
+2022/04/21 14:03:08 242 server 2 term 8 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:08 242 2 derver go exit--1
+2022/04/21 14:03:08 S243 4 sendhert failed to 5
+2022/04/21 14:03:08 243 4 derver go exit--5
+2022/04/21 14:03:08 S0 dtime:255 send heart
+2022/04/21 14:03:08 256 3 node become 0 foller
+2022/04/21 14:03:08 256 [3] server recv AppendEntries to 0
+2022/04/21 14:03:08 256 4 node become 0 foller
+2022/04/21 14:03:08 257 [4] server recv AppendEntries to 0
+2022/04/21 14:03:08 257 5 node become 0 foller
+2022/04/21 14:03:08 257 [5] server recv AppendEntries to 0
+2022/04/21 14:03:08 S2 dtime:259 send heart
+2022/04/21 14:03:08 S273 4 sendhert failed to 3
+2022/04/21 14:03:08 273 4 derver go exit--3
+2022/04/21 14:03:08 S287 4 sendhert failed to 5
+2022/04/21 14:03:08 287 4 derver go exit--5
+2022/04/21 14:03:08 S1 dtime:294 send heart
+2022/04/21 14:03:08 leader-----0
+2022/04/21 14:03:08 2---3
+2022/04/21 14:03:08 disconnect 3 3 2
+2022/04/21 14:03:08 S0 dtime:365 send heart
+2022/04/21 14:03:08 368 1 node become 0 foller
+2022/04/21 14:03:08 368 [1] server recv AppendEntries to 0
+2022/04/21 14:03:08 368 5 node become 0 foller
+2022/04/21 14:03:08 368 [5] server recv AppendEntries to 0
+2022/04/21 14:03:08 368 4 node become 0 foller
+2022/04/21 14:03:08 368 [4] server recv AppendEntries to 0
+2022/04/21 14:03:08 368 6 node become 0 foller
+2022/04/21 14:03:08 368 [6] server recv AppendEntries to 0
+2022/04/21 14:03:08 368 leader 1 become foller 
+2022/04/21 14:03:08 S369 1 sendhert failed to 2
+2022/04/21 14:03:08 S2 dtime:369 send heart
+2022/04/21 14:03:08 369 1 derver go exit--2
+2022/04/21 14:03:08 S370 6 sendhert failed to 2
+2022/04/21 14:03:08 370 6 derver go exit--2
+2022/04/21 14:03:08 372 server 2 term 5 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:08 372 2 derver go exit--0
+2022/04/21 14:03:08 S376 1 sendhert failed to 0
+2022/04/21 14:03:08 376 1 derver go exit--0
+2022/04/21 14:03:08 417 server 6 term 6 VoteCall failed to 3 had vote 1
+2022/04/21 14:03:08 417 6 derver go exit--3
+2022/04/21 14:03:08 S419 1 sendhert failed to 0
+2022/04/21 14:03:08 419 1 derver go exit--0
+2022/04/21 14:03:08 S424 1 sendhert failed to 0
+2022/04/21 14:03:08 424 1 derver go exit--0
+2022/04/21 14:03:08 S464 0 sendhert failed to 2
+2022/04/21 14:03:08 464 0 derver go exit--2
+2022/04/21 14:03:08 S469 4 sendhert failed to 2
+2022/04/21 14:03:08 469 4 derver go exit--2
+2022/04/21 14:03:08 S471 2 sendhert failed to 4
+2022/04/21 14:03:08 471 2 derver go exit--4
+2022/04/21 14:03:08 S0 dtime:478 send heart
+2022/04/21 14:03:08 479 6 node become 0 foller
+2022/04/21 14:03:08 479 1 node become 0 foller
+2022/04/21 14:03:08 479 [1] server recv AppendEntries to 0
+2022/04/21 14:03:08 479 [6] server recv AppendEntries to 0
+2022/04/21 14:03:08 479 4 node become 0 foller
+2022/04/21 14:03:08 479 5 node become 0 foller
+2022/04/21 14:03:08 479 [5] server recv AppendEntries to 0
+2022/04/21 14:03:08 479 [4] server recv AppendEntries to 0
+2022/04/21 14:03:08 S2 dtime:483 send heart
+2022/04/21 14:03:08 S518 1 sendhert failed to 0
+2022/04/21 14:03:08 518 1 derver go exit--0
+2022/04/21 14:03:08 S575 2 sendhert failed to 6
+2022/04/21 14:03:08 575 2 derver go exit--6
+2022/04/21 14:03:08 S588 1 sendhert failed to 5
+2022/04/21 14:03:08 589 1 derver go exit--5
+2022/04/21 14:03:08 S0 dtime:589 send heart
+2022/04/21 14:03:08 590 1 node become 0 foller
+2022/04/21 14:03:08 590 [1] server recv AppendEntries to 0
+2022/04/21 14:03:08 591 4 node become 0 foller
+2022/04/21 14:03:08 591 [4] server recv AppendEntries to 0
+2022/04/21 14:03:08 591 6 node become 0 foller
+2022/04/21 14:03:08 591 5 node become 0 foller
+2022/04/21 14:03:08 591 [5] server recv AppendEntries to 0
+2022/04/21 14:03:08 591 [6] server recv AppendEntries to 0
+2022/04/21 14:03:08 S2 dtime:595 send heart
+2022/04/21 14:03:08 S598 6 sendhert failed to 2
+2022/04/21 14:03:08 598 6 derver go exit--2
+2022/04/21 14:03:08 S628 2 sendhert failed to 3
+2022/04/21 14:03:08 628 2 derver go exit--3
+2022/04/21 14:03:08 641 3 became Candidate
+2022/04/21 14:03:08 641 3 start vote 1 term 7 has all 7
+2022/04/21 14:03:08 3 642 send vote to 1 has 1
+2022/04/21 14:03:08 3 642 send vote to 2 has 1
+2022/04/21 14:03:08 3 642 send vote to 4 has 1
+2022/04/21 14:03:08 3 642 send vote to 5 has 1
+2022/04/21 14:03:08 3 641 send vote to 0 has 1
+2022/04/21 14:03:08 3 642 send vote to 6 has 1
+2022/04/21 14:03:08 S649 6 sendhert failed to 5
+2022/04/21 14:03:08 649 6 derver go exit--5
+2022/04/21 14:03:08 S650 1 sendhert failed to 4
+2022/04/21 14:03:08 650 1 derver go exit--4
+2022/04/21 14:03:08 S659 0 sendhert failed to 1
+2022/04/21 14:03:08 659 0 derver go exit--1
+2022/04/21 14:03:08 S679 6 sendhert failed to 4
+2022/04/21 14:03:08 679 6 derver go exit--4
+2022/04/21 14:03:08 S0 dtime:703 send heart
+2022/04/21 14:03:08 705 1 node become 0 foller
+2022/04/21 14:03:08 705 4 node become 0 foller
+2022/04/21 14:03:08 705 [1] server recv AppendEntries to 0
+2022/04/21 14:03:08 705 [4] server recv AppendEntries to 0
+2022/04/21 14:03:08 705 6 node become 0 foller
+2022/04/21 14:03:08 706 [6] server recv AppendEntries to 0
+2022/04/21 14:03:08 706 5 node become 0 foller
+2022/04/21 14:03:08 706 [5] server recv AppendEntries to 0
+2022/04/21 14:03:08 S2 dtime:710 send heart
+2022/04/21 14:03:08 S713 2 sendhert failed to 6
+2022/04/21 14:03:08 713 2 derver go exit--6
+2022/04/21 14:03:08 S738 0 sendhert failed to 1
+2022/04/21 14:03:08 739 0 derver go exit--1
+2022/04/21 14:03:08 S749 0 sendhert failed to 2
+2022/04/21 14:03:08 749 0 derver go exit--2
+2022/04/21 14:03:08 S765 1 sendhert failed to 3
+2022/04/21 14:03:08 765 1 derver go exit--3
+2022/04/21 14:03:08 leader-----0
+2022/04/21 14:03:08 2---3
+2022/04/21 14:03:08 S767 1 sendhert failed to 4
+2022/04/21 14:03:08 767 1 derver go exit--4
+2022/04/21 14:03:08 disconnect 4 6 2
+2022/04/21 14:03:08 815 server 3 term 7 VoteCall failed to 4 had vote 1
+2022/04/21 14:03:08 815 3 derver go exit--4
+2022/04/21 14:03:08 S0 dtime:819 send heart
+2022/04/21 14:03:08 820 [3] server recv AppendEntries to 0
+2022/04/21 14:03:08 820 1 node become 0 foller
+2022/04/21 14:03:08 821 [1] server recv AppendEntries to 0
+2022/04/21 14:03:08 821 5 node become 0 foller
+2022/04/21 14:03:08 821 [5] server recv AppendEntries to 0
+2022/04/21 14:03:08 S822 0 sendhert failed to 2
+2022/04/21 14:03:08 822 0 derver go exit--2
+2022/04/21 14:03:08 S2 dtime:823 send heart
+2022/04/21 14:03:08 S851 2 sendhert failed to 1
+2022/04/21 14:03:08 851 2 derver go exit--1
+2022/04/21 14:03:08 853 server 2 term 5 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:08 853 2 derver go exit--1
+2022/04/21 14:03:08 S863 4 sendhert failed to 6
+2022/04/21 14:03:08 863 4 derver go exit--6
+2022/04/21 14:03:08 S876 4 sendhert failed to 3
+2022/04/21 14:03:08 876 4 derver go exit--3
+2022/04/21 14:03:08 892 server 2 term 8 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:08 893 2 derver go exit--0
+2022/04/21 14:03:08 893 2 term:4 ggggg
+2022/04/21 14:03:08 893 2 server term:8 should vote again-- 1 false
+2022/04/21 14:03:08 S896 1 sendhert failed to 3
+2022/04/21 14:03:08 896 1 derver go exit--3
+2022/04/21 14:03:08 S0 dtime:928 send heart
+2022/04/21 14:03:08 929 [3] server recv AppendEntries to 0
+2022/04/21 14:03:08 929 5 node become 0 foller
+2022/04/21 14:03:08 929 1 node become 0 foller
+2022/04/21 14:03:08 930 [1] server recv AppendEntries to 0
+2022/04/21 14:03:08 929 [5] server recv AppendEntries to 0
+2022/04/21 14:03:08 S2 dtime:934 send heart
+2022/04/21 14:03:08 S957 2 sendhert failed to 1
+2022/04/21 14:03:08 958 2 derver go exit--1
+2022/04/21 14:03:08 S986 2 sendhert failed to 5
+2022/04/21 14:03:08 986 2 derver go exit--5
+2022/04/21 14:03:09 S1 4 sendhert failed to 1
+2022/04/21 14:03:09 1 4 derver go exit--1
+2022/04/21 14:03:09 S10 6 sendhert failed to 2
+2022/04/21 14:03:09 10 6 derver go exit--2
+2022/04/21 14:03:09 S21 1 sendhert failed to 6
+2022/04/21 14:03:09 21 1 derver go exit--6
+2022/04/21 14:03:09 S28 6 sendhert failed to 1
+2022/04/21 14:03:09 29 6 derver go exit--1
+2022/04/21 14:03:09 S0 dtime:42 send heart
+2022/04/21 14:03:09 42 1 node become 0 foller
+2022/04/21 14:03:09 42 [1] server recv AppendEntries to 0
+2022/04/21 14:03:09 42 [3] server recv AppendEntries to 0
+2022/04/21 14:03:09 43 5 node become 0 foller
+2022/04/21 14:03:09 43 [5] server recv AppendEntries to 0
+2022/04/21 14:03:09 S2 dtime:48 send heart
+2022/04/21 14:03:09 S78 4 sendhert failed to 6
+2022/04/21 14:03:09 78 4 derver go exit--6
+2022/04/21 14:03:09 S85 0 sendhert failed to 1
+2022/04/21 14:03:09 85 0 derver go exit--1
+2022/04/21 14:03:09 90 3 start vote 1 term 8 has all 7
+2022/04/21 14:03:09 3 90 send vote to 0 has 1
+2022/04/21 14:03:09 3 91 send vote to 1 has 1
+2022/04/21 14:03:09 3 91 send vote to 4 has 1
+2022/04/21 14:03:09 3 91 send vote to 2 has 1
+2022/04/21 14:03:09 3 91 send vote to 6 has 1
+2022/04/21 14:03:09 3 91 send vote to 5 has 1
+2022/04/21 14:03:09 92 server 0 term 6 became 3 term 8 foller
+2022/04/21 14:03:09 92 leader 0 become foller 
+2022/04/21 14:03:09 92 server 1 term 1 became 3 term 8 foller
+2022/04/21 14:03:09 93 server 5 term 6 became 3 term 8 foller
+2022/04/21 14:03:09 93 3 term 8 get vote form 0 term 6hasall 2
+2022/04/21 14:03:09 93 3 derver go exit--0
+2022/04/21 14:03:09 93 3 term 8 get vote form 1 term 1hasall 3
+2022/04/21 14:03:09 93 3 derver go exit--1
+2022/04/21 14:03:09 93 3 term 8 get vote form 5 term 6hasall 4
+2022/04/21 14:03:09 94 serve 3 become leaderr num:4 term:8 hashert:false
+2022/04/21 14:03:09 94 3 derver go exit--5
+2022/04/21 14:03:09 S3 dtime:94 send heart
+2022/04/21 14:03:09 95 0 node become 3 foller
+2022/04/21 14:03:09 95 [0] server recv AppendEntries to 3
+2022/04/21 14:03:09 96 1 node become 3 foller
+2022/04/21 14:03:09 96 [1] server recv AppendEntries to 3
+2022/04/21 14:03:09 96 5 node become 3 foller
+2022/04/21 14:03:09 96 [5] server recv AppendEntries to 3
+2022/04/21 14:03:09 S103 0 sendhert failed to 2
+2022/04/21 14:03:09 103 0 derver go exit--2
+2022/04/21 14:03:09 106 6 became Candidate
+2022/04/21 14:03:09 106 6 start vote 1 term 7 has all 7
+2022/04/21 14:03:09 6 107 send vote to 0 has 1
+2022/04/21 14:03:09 6 107 send vote to 1 has 1
+2022/04/21 14:03:09 6 107 send vote to 3 has 1
+2022/04/21 14:03:09 6 107 send vote to 4 has 1
+2022/04/21 14:03:09 6 107 send vote to 2 has 1
+2022/04/21 14:03:09 S107 0 sendhert failed to 1
+2022/04/21 14:03:09 107 0 derver go exit--1
+2022/04/21 14:03:09 6 107 send vote to 5 has 1
+2022/04/21 14:03:09 114 4 became Candidate
+2022/04/21 14:03:09 115 4 start vote 1 term 7 has all 7
+2022/04/21 14:03:09 4 115 send vote to 0 has 1
+2022/04/21 14:03:09 4 115 send vote to 1 has 1
+2022/04/21 14:03:09 4 115 send vote to 3 has 1
+2022/04/21 14:03:09 4 116 send vote to 5 has 1
+2022/04/21 14:03:09 4 115 send vote to 2 has 1
+2022/04/21 14:03:09 4 115 send vote to 6 has 1
+2022/04/21 14:03:09 S128 2 sendhert failed to 4
+2022/04/21 14:03:09 128 2 derver go exit--4
+2022/04/21 14:03:09 S139 4 sendhert failed to 1
+2022/04/21 14:03:09 139 4 derver go exit--1
+2022/04/21 14:03:09 S148 1 sendhert failed to 6
+2022/04/21 14:03:09 149 1 derver go exit--6
+2022/04/21 14:03:09 155 server 1 term 8 VoteCall failed to 2 had vote 1
+2022/04/21 14:03:09 155 1 derver go exit--2
+2022/04/21 14:03:09 155 1 term:6 ggggg
+2022/04/21 14:03:09 S157 1 sendhert failed to 6
+2022/04/21 14:03:09 158 1 derver go exit--6
+2022/04/21 14:03:09 S2 dtime:162 send heart
+2022/04/21 14:03:09 S162 4 sendhert failed to 1
+2022/04/21 14:03:09 162 4 derver go exit--1
+2022/04/21 14:03:09 S164 1 sendhert failed to 0
+2022/04/21 14:03:09 164 1 derver go exit--0
+2022/04/21 14:03:09 S202 1 sendhert failed to 0
+2022/04/21 14:03:09 S202 4 sendhert failed to 6
+2022/04/21 14:03:09 202 4 derver go exit--6
+2022/04/21 14:03:09 202 1 derver go exit--0
+2022/04/21 14:03:09 S3 dtime:207 send heart
+2022/04/21 14:03:09 S208 1 sendhert failed to 6
+2022/04/21 14:03:09 208 1 derver go exit--6
+2022/04/21 14:03:09 209 0 node become 3 foller
+2022/04/21 14:03:09 209 [0] server recv AppendEntries to 3
+2022/04/21 14:03:09 209 1 node become 3 foller
+2022/04/21 14:03:09 209 [1] server recv AppendEntries to 3
+2022/04/21 14:03:09 209 5 node become 3 foller
+2022/04/21 14:03:09 210 [5] server recv AppendEntries to 3
+2022/04/21 14:03:09 S238 4 sendhert failed to 1
+2022/04/21 14:03:09 238 4 derver go exit--1
+2022/04/21 14:03:09 leader-----3
+2022/04/21 14:03:09 2---3
+2022/04/21 14:03:09 disconnect 1 3 4
+2022/04/21 14:03:09 S2 dtime:274 send heart
+2022/04/21 14:03:09 277 [0] server recv AppendEntries to 2
+2022/04/21 14:03:09 277 [6] server recv AppendEntries to 2
+2022/04/21 14:03:09 277 [5] server recv AppendEntries to 2
+2022/04/21 14:03:09 282 server 2 term 8 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:09 282 2 derver go exit--1
+2022/04/21 14:03:09 282 2 term:3 ggggg
+2022/04/21 14:03:09 282 2 server term:8 should vote again-- 1 false
+2022/04/21 14:03:09 S3 dtime:319 send heart
+2022/04/21 14:03:09 S322 1 sendhert failed to 6
+2022/04/21 14:03:09 322 1 derver go exit--6
+2022/04/21 14:03:09 323 server 2 term 5 VoteCall failed to 3 had vote 1
+2022/04/21 14:03:09 323 2 derver go exit--3
+2022/04/21 14:03:09 S335 2 sendhert failed to 5
+2022/04/21 14:03:09 335 2 derver go exit--5
+2022/04/21 14:03:09 339 4 start vote 1 term 8 has all 7
+2022/04/21 14:03:09 4 340 send vote to 0 has 1
+2022/04/21 14:03:09 4 340 send vote to 1 has 1
+2022/04/21 14:03:09 4 340 send vote to 6 has 1
+2022/04/21 14:03:09 4 340 send vote to 5 has 1
+2022/04/21 14:03:09 4 340 send vote to 3 has 1
+2022/04/21 14:03:09 4 340 send vote to 2 has 1
+2022/04/21 14:03:09 340 server 4 term 8 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:09 340 4 derver go exit--1
+2022/04/21 14:03:09 S343 4 sendhert failed to 1
+2022/04/21 14:03:09 344 4 derver go exit--1
+2022/04/21 14:03:09 S358 1 sendhert failed to 4
+2022/04/21 14:03:09 358 1 derver go exit--4
+2022/04/21 14:03:09 S360 2 sendhert failed to 4
+2022/04/21 14:03:09 360 2 derver go exit--4
+2022/04/21 14:03:09 S365 0 sendhert failed to 4
+2022/04/21 14:03:09 365 0 derver go exit--4
+2022/04/21 14:03:09 S2 dtime:386 send heart
+2022/04/21 14:03:09 387 [0] server recv AppendEntries to 2
+2022/04/21 14:03:09 388 [5] server recv AppendEntries to 2
+2022/04/21 14:03:09 388 [6] server recv AppendEntries to 2
+2022/04/21 14:03:09 S417 1 sendhert failed to 6
+2022/04/21 14:03:09 417 1 derver go exit--6
+2022/04/21 14:03:09 S3 dtime:431 send heart
+2022/04/21 14:03:09 S476 6 sendhert failed to 1
+2022/04/21 14:03:09 476 6 derver go exit--1
+2022/04/21 14:03:09 477 5 became Candidate
+2022/04/21 14:03:09 477 5 start vote 1 term 9 has all 7
+2022/04/21 14:03:09 5 478 send vote to 0 has 1
+2022/04/21 14:03:09 S478 0 sendhert failed to 2
+2022/04/21 14:03:09 5 478 send vote to 1 has 1
+2022/04/21 14:03:09 5 478 send vote to 3 has 1
+2022/04/21 14:03:09 5 478 send vote to 4 has 1
+2022/04/21 14:03:09 478 0 derver go exit--2
+2022/04/21 14:03:09 5 478 send vote to 6 has 1
+2022/04/21 14:03:09 5 478 send vote to 2 has 1
+2022/04/21 14:03:09 S479 3 sendhert failed to 4
+2022/04/21 14:03:09 479 3 derver go exit--4
+2022/04/21 14:03:09 479 server 0 term 8 became 5 term 9 foller
+2022/04/21 14:03:09 480 server 2 term 5 became 5 term 9 foller
+2022/04/21 14:03:09 480 server 6 term 7 became 5 term 9 foller
+2022/04/21 14:03:09 480 leader 2 become foller 
+2022/04/21 14:03:09 480 5 term 9 get vote form 0 term 8hasall 2
+2022/04/21 14:03:09 480 5 derver go exit--0
+2022/04/21 14:03:09 481 6 become foller 
+2022/04/21 14:03:09 481 5 term 9 get vote form 2 term 5hasall 3
+2022/04/21 14:03:09 481 5 derver go exit--2
+2022/04/21 14:03:09 481 5 term 9 get vote form 6 term 7hasall 4
+2022/04/21 14:03:09 481 serve 5 become leaderr num:4 term:9 hashert:false
+2022/04/21 14:03:09 481 5 derver go exit--6
+2022/04/21 14:03:09 S5 dtime:481 send heart
+2022/04/21 14:03:09 483 0 node become 5 foller
+2022/04/21 14:03:09 483 [0] server recv AppendEntries to 5
+2022/04/21 14:03:09 484 2 node become 5 foller
+2022/04/21 14:03:09 484 [2] server recv AppendEntries to 5
+2022/04/21 14:03:09 484 6 node become 5 foller
+2022/04/21 14:03:09 484 [6] server recv AppendEntries to 5
+2022/04/21 14:03:09 S522 6 sendhert failed to 1
+2022/04/21 14:03:09 522 6 derver go exit--1
+2022/04/21 14:03:09 S3 dtime:544 send heart
+2022/04/21 14:03:09 577 1 became Candidate
+2022/04/21 14:03:09 577 1 start vote 1 term 9 has all 7
+2022/04/21 14:03:09 1 577 send vote to 0 has 1
+2022/04/21 14:03:09 1 578 send vote to 2 has 1
+2022/04/21 14:03:09 1 578 send vote to 4 has 1
+2022/04/21 14:03:09 1 578 send vote to 3 has 1
+2022/04/21 14:03:09 1 578 send vote to 5 has 1
+2022/04/21 14:03:09 1 578 send vote to 6 has 1
+2022/04/21 14:03:09 S583 2 sendhert failed to 0
+2022/04/21 14:03:09 584 2 derver go exit--0
+2022/04/21 14:03:09 587 server 1 term 8 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:09 587 1 derver go exit--0
+2022/04/21 14:03:09 587 1 term:5 ggggg
+2022/04/21 14:03:09 S589 2 sendhert failed to 1
+2022/04/21 14:03:09 589 2 derver go exit--1
+2022/04/21 14:03:09 S5 dtime:598 send heart
+2022/04/21 14:03:09 600 0 node become 5 foller
+2022/04/21 14:03:09 600 [0] server recv AppendEntries to 5
+2022/04/21 14:03:09 601 2 node become 5 foller
+2022/04/21 14:03:09 601 [2] server recv AppendEntries to 5
+2022/04/21 14:03:09 601 6 node become 5 foller
+2022/04/21 14:03:09 601 [6] server recv AppendEntries to 5
+2022/04/21 14:03:09 S613 2 sendhert failed to 1
+2022/04/21 14:03:09 613 2 derver go exit--1
+2022/04/21 14:03:09 S616 3 sendhert failed to 4
+2022/04/21 14:03:09 617 3 derver go exit--4
+2022/04/21 14:03:09 652 server 2 term 9 VoteCall failed to 5 had vote 1
+2022/04/21 14:03:09 652 2 derver go exit--5
+2022/04/21 14:03:09 S3 dtime:662 send heart
+2022/04/21 14:03:09 665 4 start vote 1 term 9 has all 7
+2022/04/21 14:03:09 4 666 send vote to 1 has 1
+2022/04/21 14:03:09 4 666 send vote to 2 has 1
+2022/04/21 14:03:09 4 666 send vote to 0 has 1
+2022/04/21 14:03:09 4 666 send vote to 5 has 1
+2022/04/21 14:03:09 4 666 send vote to 3 has 1
+2022/04/21 14:03:09 4 666 send vote to 6 has 1
+2022/04/21 14:03:09 684 server 6 term 9 VoteCall failed to 1 had vote 5
+2022/04/21 14:03:09 684 6 derver go exit--1
+2022/04/21 14:03:09 685 server 4 term 9 VoteCall failed to 3 had vote 1
+2022/04/21 14:03:09 686 4 derver go exit--3
+2022/04/21 14:03:09 S698 2 sendhert failed to 6
+2022/04/21 14:03:09 698 2 derver go exit--6
+2022/04/21 14:03:09 S5 dtime:713 send heart
+2022/04/21 14:03:09 714 0 node become 5 foller
+2022/04/21 14:03:09 714 [0] server recv AppendEntries to 5
+2022/04/21 14:03:09 715 2 node become 5 foller
+2022/04/21 14:03:09 715 [2] server recv AppendEntries to 5
+2022/04/21 14:03:09 715 6 node become 5 foller
+2022/04/21 14:03:09 715 [6] server recv AppendEntries to 5
+2022/04/21 14:03:09 S733 1 sendhert failed to 6
+2022/04/21 14:03:09 733 1 derver go exit--6
+2022/04/21 14:03:09 S749 1 sendhert failed to 4
+2022/04/21 14:03:09 749 1 derver go exit--4
+2022/04/21 14:03:09 S768 1 sendhert failed to 4
+2022/04/21 14:03:09 768 1 derver go exit--4
+2022/04/21 14:03:09 S3 dtime:777 send heart
+2022/04/21 14:03:09 leader-----5
+2022/04/21 14:03:09 2---3
+2022/04/21 14:03:09 disconnect 4 6 6
+2022/04/21 14:03:09 S789 0 sendhert failed to 3
+2022/04/21 14:03:09 789 0 derver go exit--3
+2022/04/21 14:03:09 S789 6 sendhert failed to 1
+2022/04/21 14:03:09 789 6 derver go exit--1
+2022/04/21 14:03:09 S798 2 sendhert failed to 3
+2022/04/21 14:03:09 799 2 derver go exit--3
+2022/04/21 14:03:09 S814 2 sendhert failed to 0
+2022/04/21 14:03:09 814 2 derver go exit--0
+2022/04/21 14:03:09 S5 dtime:826 send heart
+2022/04/21 14:03:09 828 0 node become 5 foller
+2022/04/21 14:03:09 828 [0] server recv AppendEntries to 5
+2022/04/21 14:03:09 828 1 node become 5 foller
+2022/04/21 14:03:09 828 [1] server recv AppendEntries to 5
+2022/04/21 14:03:09 828 2 node become 5 foller
+2022/04/21 14:03:09 828 [2] server recv AppendEntries to 5
+2022/04/21 14:03:09 828 3 node become 5 foller
+2022/04/21 14:03:09 829 [3] server recv AppendEntries to 5
+2022/04/21 14:03:09 830 leader 3 become foller 
+2022/04/21 14:03:09 S845 1 sendhert failed to 5
+2022/04/21 14:03:09 845 1 derver go exit--5
+2022/04/21 14:03:09 S853 4 sendhert failed to 6
+2022/04/21 14:03:09 853 4 derver go exit--6
+2022/04/21 14:03:09 S868 6 sendhert failed to 4
+2022/04/21 14:03:09 868 6 derver go exit--4
+2022/04/21 14:03:09 S872 1 sendhert failed to 3
+2022/04/21 14:03:09 872 1 derver go exit--3
+2022/04/21 14:03:09 906 server 6 term 9 VoteCall failed to 2 had vote 5
+2022/04/21 14:03:09 906 6 derver go exit--2
+2022/04/21 14:03:09 907 6 term:2 ggggg
+2022/04/21 14:03:09 907 6 server term:9 should vote again-- 5 false
+2022/04/21 14:03:09 907 server 3 term 8 VoteCall failed to 5 had vote 1
+2022/04/21 14:03:09 907 3 derver go exit--5
+2022/04/21 14:03:09 S930 2 sendhert failed to 3
+2022/04/21 14:03:09 930 2 derver go exit--3
+2022/04/21 14:03:09 937 server 2 term 8 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:09 937 2 derver go exit--1
+2022/04/21 14:03:09 940 server 4 term 9 VoteCall failed to 3 had vote 1
+2022/04/21 14:03:09 940 4 derver go exit--3
+2022/04/21 14:03:09 S5 dtime:943 send heart
+2022/04/21 14:03:09 945 1 node become 5 foller
+2022/04/21 14:03:09 945 [1] server recv AppendEntries to 5
+2022/04/21 14:03:09 945 2 node become 5 foller
+2022/04/21 14:03:09 946 [2] server recv AppendEntries to 5
+2022/04/21 14:03:09 945 0 node become 5 foller
+2022/04/21 14:03:09 946 [0] server recv AppendEntries to 5
+2022/04/21 14:03:09 946 3 node become 5 foller
+2022/04/21 14:03:09 946 [3] server recv AppendEntries to 5
+2022/04/21 14:03:09 S949 0 sendhert failed to 3
+2022/04/21 14:03:09 949 0 derver go exit--3
+2022/04/21 14:03:09 S977 0 sendhert failed to 2
+2022/04/21 14:03:09 977 0 derver go exit--2
+2022/04/21 14:03:09 S979 1 sendhert failed to 6
+2022/04/21 14:03:09 979 1 derver go exit--6
+2022/04/21 14:03:09 S984 1 sendhert failed to 2
+2022/04/21 14:03:09 984 1 derver go exit--2
+2022/04/21 14:03:09 S993 5 sendhert failed to 3
+2022/04/21 14:03:09 993 5 derver go exit--3
+2022/04/21 14:03:10 7 server 4 term 9 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:10 8 4 derver go exit--0
+2022/04/21 14:03:10 S25 0 sendhert failed to 2
+2022/04/21 14:03:10 26 0 derver go exit--2
+2022/04/21 14:03:10 S31 1 sendhert failed to 6
+2022/04/21 14:03:10 31 1 derver go exit--6
+2022/04/21 14:03:10 42 server 2 term 9 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:10 42 2 derver go exit--1
+2022/04/21 14:03:10 S5 dtime:57 send heart
+2022/04/21 14:03:10 59 0 node become 5 foller
+2022/04/21 14:03:10 59 [0] server recv AppendEntries to 5
+2022/04/21 14:03:10 59 2 node become 5 foller
+2022/04/21 14:03:10 59 [2] server recv AppendEntries to 5
+2022/04/21 14:03:10 59 1 node become 5 foller
+2022/04/21 14:03:10 59 [1] server recv AppendEntries to 5
+2022/04/21 14:03:10 60 3 node become 5 foller
+2022/04/21 14:03:10 60 [3] server recv AppendEntries to 5
+2022/04/21 14:03:10 S73 0 sendhert failed to 3
+2022/04/21 14:03:10 73 0 derver go exit--3
+2022/04/21 14:03:10 S89 0 sendhert failed to 1
+2022/04/21 14:03:10 89 0 derver go exit--1
+2022/04/21 14:03:10 96 4 start vote 1 term 10 has all 7
+2022/04/21 14:03:10 4 97 send vote to 0 has 1
+2022/04/21 14:03:10 4 97 send vote to 2 has 1
+2022/04/21 14:03:10 4 97 send vote to 3 has 1
+2022/04/21 14:03:10 4 97 send vote to 6 has 1
+2022/04/21 14:03:10 4 97 send vote to 1 has 1
+2022/04/21 14:03:10 4 97 send vote to 5 has 1
+2022/04/21 14:03:10 S110 0 sendhert failed to 4
+2022/04/21 14:03:10 110 0 derver go exit--4
+2022/04/21 14:03:10 S128 6 sendhert failed to 0
+2022/04/21 14:03:10 128 6 derver go exit--0
+2022/04/21 14:03:10 S129 0 sendhert failed to 2
+2022/04/21 14:03:10 129 0 derver go exit--2
+2022/04/21 14:03:10 S145 1 sendhert failed to 3
+2022/04/21 14:03:10 145 1 derver go exit--3
+2022/04/21 14:03:10 153 server 4 term 10 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:10 153 4 derver go exit--0
+2022/04/21 14:03:10 S166 1 sendhert failed to 0
+2022/04/21 14:03:10 166 1 derver go exit--0
+2022/04/21 14:03:10 170 6 became Candidate
+2022/04/21 14:03:10 170 6 start vote 1 term 10 has all 7
+2022/04/21 14:03:10 6 171 send vote to 0 has 1
+2022/04/21 14:03:10 6 171 send vote to 2 has 1
+2022/04/21 14:03:10 6 171 send vote to 5 has 1
+2022/04/21 14:03:10 6 171 send vote to 4 has 1
+2022/04/21 14:03:10 6 171 send vote to 3 has 1
+2022/04/21 14:03:10 6 171 send vote to 1 has 1
+2022/04/21 14:03:10 S5 dtime:173 send heart
+2022/04/21 14:03:10 174 0 node become 5 foller
+2022/04/21 14:03:10 174 [0] server recv AppendEntries to 5
+2022/04/21 14:03:10 175 2 node become 5 foller
+2022/04/21 14:03:10 175 [2] server recv AppendEntries to 5
+2022/04/21 14:03:10 175 1 node become 5 foller
+2022/04/21 14:03:10 175 3 node become 5 foller
+2022/04/21 14:03:10 175 [3] server recv AppendEntries to 5
+2022/04/21 14:03:10 175 [1] server recv AppendEntries to 5
+2022/04/21 14:03:10 S203 4 sendhert failed to 6
+2022/04/21 14:03:10 203 4 derver go exit--6
+2022/04/21 14:03:10 S221 2 sendhert failed to 3
+2022/04/21 14:03:10 221 2 derver go exit--3
+2022/04/21 14:03:10 225 server 1 term 8 VoteCall failed to 2 had vote 1
+2022/04/21 14:03:10 225 1 derver go exit--2
+2022/04/21 14:03:10 S226 3 sendhert failed to 2
+2022/04/21 14:03:10 226 3 derver go exit--2
+2022/04/21 14:03:10 229 server 1 term 8 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:10 229 1 derver go exit--0
+2022/04/21 14:03:10 230 1 term:4 ggggg
+2022/04/21 14:03:10 S237 0 sendhert failed to 2
+2022/04/21 14:03:10 238 0 derver go exit--2
+2022/04/21 14:03:10 S247 1 sendhert failed to 0
+2022/04/21 14:03:10 247 1 derver go exit--0
+2022/04/21 14:03:10 S268 2 sendhert failed to 0
+2022/04/21 14:03:10 268 2 derver go exit--0
+2022/04/21 14:03:10 S287 2 sendhert failed to 3
+2022/04/21 14:03:10 287 2 derver go exit--3
+2022/04/21 14:03:10 S5 dtime:287 send heart
+2022/04/21 14:03:10 288 0 node become 5 foller
+2022/04/21 14:03:10 288 [0] server recv AppendEntries to 5
+2022/04/21 14:03:10 288 1 node become 5 foller
+2022/04/21 14:03:10 289 [1] server recv AppendEntries to 5
+2022/04/21 14:03:10 289 2 node become 5 foller
+2022/04/21 14:03:10 289 3 node become 5 foller
+2022/04/21 14:03:10 289 [2] server recv AppendEntries to 5
+2022/04/21 14:03:10 289 [3] server recv AppendEntries to 5
+2022/04/21 14:03:10 leader-----5
+2022/04/21 14:03:10 2---3
+2022/04/21 14:03:10 disconnect 0 2 5
+2022/04/21 14:03:10 S302 3 sendhert failed to 1
+2022/04/21 14:03:10 302 3 derver go exit--1
+2022/04/21 14:03:10 S320 2 sendhert failed to 1
+2022/04/21 14:03:10 320 2 derver go exit--1
+2022/04/21 14:03:10 S350 4 sendhert failed to 2
+2022/04/21 14:03:10 350 4 derver go exit--2
+2022/04/21 14:03:10 384 server 1 term 9 VoteCall failed to 5 had vote 1
+2022/04/21 14:03:10 384 1 derver go exit--5
+2022/04/21 14:03:10 S5 dtime:401 send heart
+2022/04/21 14:03:10 S411 2 sendhert failed to 1
+2022/04/21 14:03:10 411 2 derver go exit--1
+2022/04/21 14:03:10 414 4 start vote 1 term 11 has all 7
+2022/04/21 14:03:10 4 414 send vote to 0 has 1
+2022/04/21 14:03:10 4 414 send vote to 1 has 1
+2022/04/21 14:03:10 4 414 send vote to 2 has 1
+2022/04/21 14:03:10 4 414 send vote to 6 has 1
+2022/04/21 14:03:10 4 414 send vote to 5 has 1
+2022/04/21 14:03:10 4 414 send vote to 3 has 1
+2022/04/21 14:03:10 415 server 1 term 9 became 4 term 11 foller
+2022/04/21 14:03:10 415 server 6 term 10 became 4 term 11 foller
+2022/04/21 14:03:10 415 server 3 term 8 became 4 term 11 foller
+2022/04/21 14:03:10 416 6 become foller 
+2022/04/21 14:03:10 416 4 term 11 get vote form 1 term 9hasall 2
+2022/04/21 14:03:10 416 4 derver go exit--1
+2022/04/21 14:03:10 416 4 term 11 get vote form 6 term 10hasall 3
+2022/04/21 14:03:10 416 4 derver go exit--6
+2022/04/21 14:03:10 416 4 term 11 get vote form 3 term 8hasall 4
+2022/04/21 14:03:10 416 serve 4 become leaderr num:4 term:11 hashert:false
+2022/04/21 14:03:10 416 4 derver go exit--3
+2022/04/21 14:03:10 S4 dtime:417 send heart
+2022/04/21 14:03:10 419 1 node become 4 foller
+2022/04/21 14:03:10 419 [1] server recv AppendEntries to 4
+2022/04/21 14:03:10 419 3 node become 4 foller
+2022/04/21 14:03:10 419 6 node become 4 foller
+2022/04/21 14:03:10 419 [6] server recv AppendEntries to 4
+2022/04/21 14:03:10 419 [3] server recv AppendEntries to 4
+2022/04/21 14:03:10 S431 2 sendhert failed to 5
+2022/04/21 14:03:10 431 2 derver go exit--5
+2022/04/21 14:03:10 S431 1 sendhert failed to 5
+2022/04/21 14:03:10 431 1 derver go exit--5
+2022/04/21 14:03:10 434 server 4 term 11 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:10 434 4 derver go exit--1
+2022/04/21 14:03:10 S447 1 sendhert failed to 3
+2022/04/21 14:03:10 447 1 derver go exit--3
+2022/04/21 14:03:10 S493 3 sendhert failed to 2
+2022/04/21 14:03:10 493 3 derver go exit--2
+2022/04/21 14:03:10 S513 1 sendhert failed to 5
+2022/04/21 14:03:10 513 1 derver go exit--5
+2022/04/21 14:03:10 S5 dtime:517 send heart
+2022/04/21 14:03:10 517 server 3 term 11 VoteCall failed to 2 had vote 1
+2022/04/21 14:03:10 517 3 derver go exit--2
+2022/04/21 14:03:10 524 server 6 term 11 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:10 524 6 derver go exit--0
+2022/04/21 14:03:10 S4 dtime:531 send heart
+2022/04/21 14:03:10 532 1 node become 4 foller
+2022/04/21 14:03:10 532 [1] server recv AppendEntries to 4
+2022/04/21 14:03:10 532 3 node become 4 foller
+2022/04/21 14:03:10 533 6 node become 4 foller
+2022/04/21 14:03:10 533 [6] server recv AppendEntries to 4
+2022/04/21 14:03:10 533 [3] server recv AppendEntries to 4
+2022/04/21 14:03:10 S569 1 sendhert failed to 3
+2022/04/21 14:03:10 569 1 derver go exit--3
+2022/04/21 14:03:10 S580 1 sendhert failed to 4
+2022/04/21 14:03:10 580 1 derver go exit--4
+2022/04/21 14:03:10 583 server 6 term 11 VoteCall failed to 2 had vote 1
+2022/04/21 14:03:10 584 6 derver go exit--2
+2022/04/21 14:03:10 596 2 became Candidate
+2022/04/21 14:03:10 596 2 start vote 1 term 10 has all 7
+2022/04/21 14:03:10 2 596 send vote to 0 has 1
+2022/04/21 14:03:10 2 596 send vote to 1 has 1
+2022/04/21 14:03:10 2 597 send vote to 3 has 1
+2022/04/21 14:03:10 2 597 send vote to 4 has 1
+2022/04/21 14:03:10 2 597 send vote to 5 has 1
+2022/04/21 14:03:10 2 597 send vote to 6 has 1
+2022/04/21 14:03:10 S605 2 sendhert failed to 4
+2022/04/21 14:03:10 606 2 derver go exit--4
+2022/04/21 14:03:10 610 0 became Candidate
+2022/04/21 14:03:10 610 0 start vote 1 term 10 has all 7
+2022/04/21 14:03:10 0 610 send vote to 1 has 1
+2022/04/21 14:03:10 0 610 send vote to 2 has 1
+2022/04/21 14:03:10 0 610 send vote to 3 has 1
+2022/04/21 14:03:10 0 611 send vote to 5 has 1
+2022/04/21 14:03:10 0 611 send vote to 4 has 1
+2022/04/21 14:03:10 0 611 send vote to 6 has 1
+2022/04/21 14:03:10 S617 1 sendhert failed to 6
+2022/04/21 14:03:10 617 1 derver go exit--6
+2022/04/21 14:03:10 S5 dtime:633 send heart
+2022/04/21 14:03:10 639 server 4 term 11 VoteCall failed to 6 had vote 4
+2022/04/21 14:03:10 639 4 derver go exit--6
+2022/04/21 14:03:10 S4 dtime:646 send heart
+2022/04/21 14:03:10 647 1 node become 4 foller
+2022/04/21 14:03:10 647 [1] server recv AppendEntries to 4
+2022/04/21 14:03:10 648 3 node become 4 foller
+2022/04/21 14:03:10 648 6 node become 4 foller
+2022/04/21 14:03:10 648 [3] server recv AppendEntries to 4
+2022/04/21 14:03:10 648 [6] server recv AppendEntries to 4
+2022/04/21 14:03:10 664 server 6 term 11 VoteCall failed to 4 had vote 1
+2022/04/21 14:03:10 664 6 derver go exit--4
+2022/04/21 14:03:10 S673 1 sendhert failed to 4
+2022/04/21 14:03:10 673 1 derver go exit--4
+2022/04/21 14:03:10 S732 2 sendhert failed to 4
+2022/04/21 14:03:10 732 2 derver go exit--4
+2022/04/21 14:03:10 S734 1 sendhert failed to 0
+2022/04/21 14:03:10 734 1 derver go exit--0
+2022/04/21 14:03:10 734 server 6 term 11 VoteCall failed to 4 had vote 1
+2022/04/21 14:03:10 734 6 derver go exit--4
+2022/04/21 14:03:10 742 server 0 term 10 VoteCall failed to 6 had vote 4
+2022/04/21 14:03:10 743 0 derver go exit--6
+2022/04/21 14:03:10 S5 dtime:746 send heart
+2022/04/21 14:03:10 S752 4 sendhert failed to 2
+2022/04/21 14:03:10 S752 0 sendhert failed to 6
+2022/04/21 14:03:10 752 4 derver go exit--2
+2022/04/21 14:03:10 752 0 derver go exit--6
+2022/04/21 14:03:10 S755 2 sendhert failed to 3
+2022/04/21 14:03:10 755 2 derver go exit--3
+2022/04/21 14:03:10 S4 dtime:759 send heart
+2022/04/21 14:03:10 761 1 node become 4 foller
+2022/04/21 14:03:10 761 [1] server recv AppendEntries to 4
+2022/04/21 14:03:10 761 3 node become 4 foller
+2022/04/21 14:03:10 761 [3] server recv AppendEntries to 4
+2022/04/21 14:03:10 761 6 node become 4 foller
+2022/04/21 14:03:10 761 [6] server recv AppendEntries to 4
+2022/04/21 14:03:10 S801 6 sendhert failed to 0
+2022/04/21 14:03:10 801 6 derver go exit--0
+2022/04/21 14:03:10 S801 5 sendhert failed to 2
+2022/04/21 14:03:10 801 5 derver go exit--2
+2022/04/21 14:03:10 leader-----4
+2022/04/21 14:03:10 2---3
+2022/04/21 14:03:10 S842 1 sendhert failed to 0
+2022/04/21 14:03:10 842 1 derver go exit--0
+2022/04/21 14:03:10 S5 dtime:860 send heart
+2022/04/21 14:03:10 861 [0] server recv AppendEntries to 5
+2022/04/21 14:03:10 861 [1] server recv AppendEntries to 5
+2022/04/21 14:03:10 862 [2] server recv AppendEntries to 5
+2022/04/21 14:03:10 S862 1 sendhert failed to 0
+2022/04/21 14:03:10 862 1 derver go exit--0
+2022/04/21 14:03:10 S862 1 sendhert failed to 0
+2022/04/21 14:03:10 862 1 derver go exit--0
+2022/04/21 14:03:10 863 [3] server recv AppendEntries to 5
+2022/04/21 14:03:10 863 [6] server recv AppendEntries to 5
+2022/04/21 14:03:10 863 [4] server recv AppendEntries to 5
+2022/04/21 14:03:10 865 server 2 term 10 VoteCall failed to 5 had vote 1
+2022/04/21 14:03:10 865 2 derver go exit--5
+2022/04/21 14:03:10 873 server 2 term 10 VoteCall failed to 4 had vote 1
+2022/04/21 14:03:10 873 2 derver go exit--4
+2022/04/21 14:03:10 S4 dtime:874 send heart
+2022/04/21 14:03:10 875 server 0 term 10 VoteCall failed to 2 had vote 1
+2022/04/21 14:03:10 875 0 derver go exit--2
+2022/04/21 14:03:10 875 0 node become 4 foller
+2022/04/21 14:03:10 876 [0] server recv AppendEntries to 4
+2022/04/21 14:03:10 876 5 node become 4 foller
+2022/04/21 14:03:10 876 [5] server recv AppendEntries to 4
+2022/04/21 14:03:10 876 6 node become 4 foller
+2022/04/21 14:03:10 876 [6] server recv AppendEntries to 4
+2022/04/21 14:03:10 877 2 node become 4 foller
+2022/04/21 14:03:10 877 [2] server recv AppendEntries to 4
+2022/04/21 14:03:10 877 1 node become 4 foller
+2022/04/21 14:03:10 877 [1] server recv AppendEntries to 4
+2022/04/21 14:03:10 877 3 node become 4 foller
+2022/04/21 14:03:10 877 [3] server recv AppendEntries to 4
+2022/04/21 14:03:10 878 leader 5 become foller 
+2022/04/21 14:03:10 S892 1 sendhert failed to 5
+2022/04/21 14:03:10 892 1 derver go exit--5
+2022/04/21 14:03:10 S913 2 sendhert failed to 0
+2022/04/21 14:03:10 913 2 derver go exit--0
+2022/04/21 14:03:10 S927 1 sendhert failed to 3
+2022/04/21 14:03:10 928 1 derver go exit--3
+2022/04/21 14:03:10 S933 6 sendhert failed to 4
+2022/04/21 14:03:10 933 6 derver go exit--4
+2022/04/21 14:03:10 S936 0 sendhert failed to 6
+2022/04/21 14:03:10 936 0 derver go exit--6
+2022/04/21 14:03:10 S938 1 sendhert failed to 3
+2022/04/21 14:03:10 938 1 derver go exit--3
+2022/04/21 14:03:10 S943 4 sendhert failed to 0
+2022/04/21 14:03:10 944 4 derver go exit--0
+2022/04/21 14:03:10 S945 0 sendhert failed to 2
+2022/04/21 14:03:10 945 0 derver go exit--2
+2022/04/21 14:03:10 S958 1 sendhert failed to 6
+2022/04/21 14:03:10 958 server 4 term 11 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:10 958 4 derver go exit--1
+2022/04/21 14:03:10 958 1 derver go exit--6
+2022/04/21 14:03:10 S968 4 sendhert failed to 2
+2022/04/21 14:03:10 968 4 derver go exit--2
+2022/04/21 14:03:10 S981 3 sendhert failed to 4
+2022/04/21 14:03:10 981 3 derver go exit--4
+2022/04/21 14:03:10 988 server 4 term 11 VoteCall failed to 5 had vote 1
+2022/04/21 14:03:10 988 4 derver go exit--5
+2022/04/21 14:03:10 S4 dtime:991 send heart
+2022/04/21 14:03:10 992 0 node become 4 foller
+2022/04/21 14:03:10 992 [0] server recv AppendEntries to 4
+2022/04/21 14:03:10 992 1 node become 4 foller
+2022/04/21 14:03:10 992 [1] server recv AppendEntries to 4
+2022/04/21 14:03:10 993 3 node become 4 foller
+2022/04/21 14:03:10 993 [3] server recv AppendEntries to 4
+2022/04/21 14:03:10 993 6 node become 4 foller
+2022/04/21 14:03:10 993 [6] server recv AppendEntries to 4
+2022/04/21 14:03:10 993 2 node become 4 foller
+2022/04/21 14:03:10 994 [2] server recv AppendEntries to 4
+2022/04/21 14:03:10 994 5 node become 4 foller
+2022/04/21 14:03:10 994 [5] server recv AppendEntries to 4
+2022/04/21 14:03:10 S999 2 sendhert failed to 0
+2022/04/21 14:03:10 999 2 derver go exit--0
+2022/04/21 14:03:11 5 server 2 term 10 VoteCall failed to 6 had vote 1
+2022/04/21 14:03:11 6 2 derver go exit--6
+2022/04/21 14:03:11 S12 2 sendhert failed to 4
+2022/04/21 14:03:11 12 2 derver go exit--4
+2022/04/21 14:03:11 S13 1 sendhert failed to 2
+2022/04/21 14:03:11 13 1 derver go exit--2
+2022/04/21 14:03:11 S15 1 sendhert failed to 2
+2022/04/21 14:03:11 15 1 derver go exit--2
+2022/04/21 14:03:11 S27 2 sendhert failed to 5
+2022/04/21 14:03:11 27 2 derver go exit--5
+2022/04/21 14:03:11 S68 1 sendhert failed to 4
+2022/04/21 14:03:11 69 1 derver go exit--4
+2022/04/21 14:03:11 S70 1 sendhert failed to 3
+2022/04/21 14:03:11 70 1 derver go exit--3
+2022/04/21 14:03:11 S4 dtime:108 send heart
+2022/04/21 14:03:11 110 1 node become 4 foller
+2022/04/21 14:03:11 111 [1] server recv AppendEntries to 4
+2022/04/21 14:03:11 111 5 node become 4 foller
+2022/04/21 14:03:11 111 [5] server recv AppendEntries to 4
+2022/04/21 14:03:11 111 6 node become 4 foller
+2022/04/21 14:03:11 111 2 node become 4 foller
+2022/04/21 14:03:11 111 [2] server recv AppendEntries to 4
+2022/04/21 14:03:11 111 [6] server recv AppendEntries to 4
+2022/04/21 14:03:11 112 0 node become 4 foller
+2022/04/21 14:03:11 112 [0] server recv AppendEntries to 4
+2022/04/21 14:03:11 112 3 node become 4 foller
+2022/04/21 14:03:11 112 [3] server recv AppendEntries to 4
+2022/04/21 14:03:11 S113 5 sendhert failed to 0
+2022/04/21 14:03:11 113 5 derver go exit--0
+2022/04/21 14:03:11 S131 2 sendhert failed to 0
+2022/04/21 14:03:11 131 2 derver go exit--0
+2022/04/21 14:03:11 134 server 1 term 11 VoteCall failed to 2 had vote 1
+2022/04/21 14:03:11 134 1 derver go exit--2
+2022/04/21 14:03:11 S141 1 sendhert failed to 0
+2022/04/21 14:03:11 141 1 derver go exit--0
+2022/04/21 14:03:11 141 server 2 term 8 VoteCall failed to 1 had vote 1
+2022/04/21 14:03:11 141 2 derver go exit--1
+2022/04/21 14:03:11 142 2 term:6 ggggg
+2022/04/21 14:03:11 142 2 server term:8 should vote again-- 1 false
+2022/04/21 14:03:11 S149 1 sendhert failed to 5
+2022/04/21 14:03:11 150 1 derver go exit--5
+2022/04/21 14:03:11 S159 2 sendhert failed to 4
+2022/04/21 14:03:11 159 2 derver go exit--4
+2022/04/21 14:03:11 S191 1 sendhert failed to 5
+2022/04/21 14:03:11 191 1 derver go exit--5
+2022/04/21 14:03:11 191 server 6 term 11 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:11 191 6 derver go exit--0
+2022/04/21 14:03:11 194 server 2 term 10 VoteCall failed to 4 had vote 1
+2022/04/21 14:03:11 195 2 derver go exit--4
+2022/04/21 14:03:11 213 server 6 term 11 VoteCall failed to 5 had vote 1
+2022/04/21 14:03:11 213 6 derver go exit--5
+2022/04/21 14:03:11 S4 dtime:224 send heart
+2022/04/21 14:03:11 225 1 node become 4 foller
+2022/04/21 14:03:11 225 [1] server recv AppendEntries to 4
+2022/04/21 14:03:11 226 3 node become 4 foller
+2022/04/21 14:03:11 226 0 node become 4 foller
+2022/04/21 14:03:11 226 [0] server recv AppendEntries to 4
+2022/04/21 14:03:11 226 [3] server recv AppendEntries to 4
+2022/04/21 14:03:11 227 6 node become 4 foller
+2022/04/21 14:03:11 227 [6] server recv AppendEntries to 4
+2022/04/21 14:03:11 227 5 node become 4 foller
+2022/04/21 14:03:11 227 [5] server recv AppendEntries to 4
+2022/04/21 14:03:11 226 2 node become 4 foller
+2022/04/21 14:03:11 227 [2] server recv AppendEntries to 4
+2022/04/21 14:03:11 230 server 0 term 10 VoteCall failed to 2 had vote 4
+2022/04/21 14:03:11 231 0 derver go exit--2
+2022/04/21 14:03:11 S235 2 sendhert failed to 0
+2022/04/21 14:03:11 235 2 derver go exit--0
+2022/04/21 14:03:11 243 server 2 term 8 VoteCall failed to 0 had vote 1
+2022/04/21 14:03:11 243 2 derver go exit--0
+2022/04/21 14:03:11 243 2 term:7 ggggg
+2022/04/21 14:03:11 243 2 server term:8 should vote again-- 1 false
+2022/04/21 14:03:11 S245 3 sendhert failed to 0
+2022/04/21 14:03:11 245 3 derver go exit--0
+2022/04/21 14:03:11 S260 0 sendhert failed to 2
+2022/04/21 14:03:11 260 0 derver go exit--2
+2022/04/21 14:03:11 275 server 3 term 11 VoteCall failed to 2 had vote 4
+2022/04/21 14:03:11 275 3 derver go exit--2
+2022/04/21 14:03:11 leader-----4
+2022/04/21 14:03:11 2---end
+  ... Passed --   5.5  7  702  109724    0
+PASS
+2022/04/21 14:03:11 S291 5 sendhert failed to 6
+2022/04/21 14:03:11 291 5 derver go exit--6
+2022/04/21 14:03:11 S301 0 sendhert failed to 1
+2022/04/21 14:03:11 301 0 derver go exit--1
+ok  	6.824/raft	13.022s

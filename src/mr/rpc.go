@@ -6,7 +6,9 @@ package mr
 // remember to capitalize all names.
 //
 
-import "os"
+import (
+	"os"
+)
 import "strconv"
 
 //
@@ -21,9 +23,22 @@ type ExampleArgs struct {
 type ExampleReply struct {
 	Y int
 }
+type Args struct {
+	Filepath   string
+	Tasknum    int
+	Localstate int
+	Beforstate int
+	Nodenum    int
+}
+type Reply struct {
+	Filepath []string
+	Get      bool
+	Num      int //任务编号
+	T        int //返回调用函数 0：Map,1:Reduce
+	Nodenum  int
+}
 
 // Add your RPC definitions here.
-
 
 // Cook up a unique-ish UNIX-domain socket name
 // in /var/tmp, for the coordinator.

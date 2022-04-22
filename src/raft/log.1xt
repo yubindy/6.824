@@ -1,0 +1,349 @@
+Test (2A): initial election ...
+2022/04/19 17:59:34 0 became Candidate
+2022/04/19 17:59:34 0 start vote
+2022/04/19 17:59:34 [N:1-T:0-VF:-1] server vote term to [N:0-T:1]
+2022/04/19 17:59:34 [N:2-T:0-VF:-1] server vote term to [N:0-T:1]
+2022/04/19 17:59:34 serve[0] become leaderr  hashert:false
+2022/04/19 17:59:34 0 start send heart
+2022/04/19 17:59:34 1 node become 0 foller
+2022/04/19 17:59:34 2 node become 0 foller
+2022/04/19 17:59:34 [2] server recv AppendEntries to 0
+2022/04/19 17:59:34 [1] server recv AppendEntries to 0
+2022/04/19 17:59:34 0 start send heart
+2022/04/19 17:59:34 1 node become 0 foller
+2022/04/19 17:59:34 [1] server recv AppendEntries to 0
+2022/04/19 17:59:34 2 node become 0 foller
+2022/04/19 17:59:34 [2] server recv AppendEntries to 0
+2022/04/19 17:59:34 leader-----0
+2022/04/19 17:59:35 0 start send heart
+2022/04/19 17:59:35 1 node become 0 foller
+2022/04/19 17:59:35 2 node become 0 foller
+2022/04/19 17:59:35 [2] server recv AppendEntries to 0
+2022/04/19 17:59:35 [1] server recv AppendEntries to 0
+2022/04/19 17:59:35 0 start send heart
+2022/04/19 17:59:35 2 node become 0 foller
+2022/04/19 17:59:35 [2] server recv AppendEntries to 0
+2022/04/19 17:59:35 1 node become 0 foller
+2022/04/19 17:59:35 [1] server recv AppendEntries to 0
+2022/04/19 17:59:35 0 start send heart
+2022/04/19 17:59:35 1 node become 0 foller
+2022/04/19 17:59:35 [1] server recv AppendEntries to 0
+2022/04/19 17:59:35 2 node become 0 foller
+2022/04/19 17:59:35 [2] server recv AppendEntries to 0
+2022/04/19 17:59:35 0 start send heart
+2022/04/19 17:59:35 1 node become 0 foller
+2022/04/19 17:59:35 [1] server recv AppendEntries to 0
+2022/04/19 17:59:35 2 node become 0 foller
+2022/04/19 17:59:35 [2] server recv AppendEntries to 0
+2022/04/19 17:59:35 0 start send heart
+2022/04/19 17:59:35 2 node become 0 foller
+2022/04/19 17:59:35 [2] server recv AppendEntries to 0
+2022/04/19 17:59:35 1 node become 0 foller
+2022/04/19 17:59:35 [1] server recv AppendEntries to 0
+2022/04/19 17:59:35 0 start send heart
+2022/04/19 17:59:35 1 node become 0 foller
+2022/04/19 17:59:35 [1] server recv AppendEntries to 0
+2022/04/19 17:59:35 2 node become 0 foller
+2022/04/19 17:59:35 [2] server recv AppendEntries to 0
+2022/04/19 17:59:35 0 start send heart
+2022/04/19 17:59:35 1 node become 0 foller
+2022/04/19 17:59:35 2 node become 0 foller
+2022/04/19 17:59:35 [1] server recv AppendEntries to 0
+2022/04/19 17:59:35 [2] server recv AppendEntries to 0
+2022/04/19 17:59:35 0 start send heart
+2022/04/19 17:59:35 2 node become 0 foller
+2022/04/19 17:59:35 [2] server recv AppendEntries to 0
+2022/04/19 17:59:35 1 node become 0 foller
+2022/04/19 17:59:35 [1] server recv AppendEntries to 0
+2022/04/19 17:59:35 0 start send heart
+2022/04/19 17:59:35 2 node become 0 foller
+2022/04/19 17:59:35 1 node become 0 foller
+2022/04/19 17:59:35 [2] server recv AppendEntries to 0
+2022/04/19 17:59:35 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 0 start send heart
+2022/04/19 17:59:36 1 node become 0 foller
+2022/04/19 17:59:36 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 2 node become 0 foller
+2022/04/19 17:59:36 [2] server recv AppendEntries to 0
+2022/04/19 17:59:36 0 start send heart
+2022/04/19 17:59:36 2 node become 0 foller
+2022/04/19 17:59:36 [2] server recv AppendEntries to 0
+2022/04/19 17:59:36 1 node become 0 foller
+2022/04/19 17:59:36 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 0 start send heart
+2022/04/19 17:59:36 2 node become 0 foller
+2022/04/19 17:59:36 [2] server recv AppendEntries to 0
+2022/04/19 17:59:36 1 node become 0 foller
+2022/04/19 17:59:36 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 0 start send heart
+2022/04/19 17:59:36 2 node become 0 foller
+2022/04/19 17:59:36 [2] server recv AppendEntries to 0
+2022/04/19 17:59:36 1 node become 0 foller
+2022/04/19 17:59:36 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 0 start send heart
+2022/04/19 17:59:36 1 node become 0 foller
+2022/04/19 17:59:36 2 node become 0 foller
+2022/04/19 17:59:36 [2] server recv AppendEntries to 0
+2022/04/19 17:59:36 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 0 start send heart
+2022/04/19 17:59:36 1 node become 0 foller
+2022/04/19 17:59:36 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 2 node become 0 foller
+2022/04/19 17:59:36 [2] server recv AppendEntries to 0
+2022/04/19 17:59:36 0 start send heart
+2022/04/19 17:59:36 1 node become 0 foller
+2022/04/19 17:59:36 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 2 node become 0 foller
+2022/04/19 17:59:36 [2] server recv AppendEntries to 0
+2022/04/19 17:59:36 0 start send heart
+2022/04/19 17:59:36 1 node become 0 foller
+2022/04/19 17:59:36 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 2 node become 0 foller
+2022/04/19 17:59:36 [2] server recv AppendEntries to 0
+2022/04/19 17:59:36 0 start send heart
+2022/04/19 17:59:36 1 node become 0 foller
+2022/04/19 17:59:36 [1] server recv AppendEntries to 0
+2022/04/19 17:59:36 2 node become 0 foller
+2022/04/19 17:59:36 [2] server recv AppendEntries to 0
+2022/04/19 17:59:37 0 start send heart
+2022/04/19 17:59:37 1 node become 0 foller
+2022/04/19 17:59:37 [1] server recv AppendEntries to 0
+2022/04/19 17:59:37 2 node become 0 foller
+2022/04/19 17:59:37 [2] server recv AppendEntries to 0
+2022/04/19 17:59:37 0 start send heart
+2022/04/19 17:59:37 1 node become 0 foller
+2022/04/19 17:59:37 [1] server recv AppendEntries to 0
+2022/04/19 17:59:37 2 node become 0 foller
+2022/04/19 17:59:37 [2] server recv AppendEntries to 0
+2022/04/19 17:59:37 0 start send heart
+2022/04/19 17:59:37 1 node become 0 foller
+2022/04/19 17:59:37 [1] server recv AppendEntries to 0
+2022/04/19 17:59:37 2 node become 0 foller
+2022/04/19 17:59:37 [2] server recv AppendEntries to 0
+2022/04/19 17:59:37 0 start send heart
+2022/04/19 17:59:37 2 node become 0 foller
+2022/04/19 17:59:37 [2] server recv AppendEntries to 0
+2022/04/19 17:59:37 1 node become 0 foller
+2022/04/19 17:59:37 [1] server recv AppendEntries to 0
+2022/04/19 17:59:37 0 start send heart
+2022/04/19 17:59:37 2 node become 0 foller
+2022/04/19 17:59:37 [2] server recv AppendEntries to 0
+2022/04/19 17:59:37 1 node become 0 foller
+2022/04/19 17:59:37 [1] server recv AppendEntries to 0
+2022/04/19 17:59:37 leader-----0
+  ... Passed --   3.0  3   52   10604    0
+Test (2A): election after network failure ...
+2022/04/19 17:59:37 0 became Candidate
+2022/04/19 17:59:37 0 start vote
+2022/04/19 17:59:37 [N:1-T:0-VF:-1] server vote term to [N:0-T:1]
+2022/04/19 17:59:37 [N:2-T:0-VF:-1] server vote term to [N:0-T:1]
+2022/04/19 17:59:37 serve[0] become leaderr  hashert:false
+2022/04/19 17:59:37 0 start send heart
+2022/04/19 17:59:37 2 node become 0 foller
+2022/04/19 17:59:37 [2] server recv AppendEntries to 0
+2022/04/19 17:59:37 1 node become 0 foller
+2022/04/19 17:59:37 [1] server recv AppendEntries to 0
+2022/04/19 17:59:37 0 start send heart
+2022/04/19 17:59:37 1 node become 0 foller
+2022/04/19 17:59:37 [1] server recv AppendEntries to 0
+2022/04/19 17:59:37 2 node become 0 foller
+2022/04/19 17:59:37 [2] server recv AppendEntries to 0
+2022/04/19 17:59:37 0 start send heart
+2022/04/19 17:59:37 1 node become 0 foller
+2022/04/19 17:59:37 [1] server recv AppendEntries to 0
+2022/04/19 17:59:37 2 node become 0 foller
+2022/04/19 17:59:37 [2] server recv AppendEntries to 0
+2022/04/19 17:59:37 leader-----0
+2022/04/19 17:59:38 0 start send heart
+2022/04/19 17:59:38 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:38 0 start send heart
+2022/04/19 17:59:38 1 became Candidate
+2022/04/19 17:59:38 1 start vote
+2022/04/19 17:59:38 [N:2-T:1-VF:0] server vote term to [N:1-T:2]
+2022/04/19 17:59:38 0 start send heart
+2022/04/19 17:59:38 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:38 0 start send heart
+2022/04/19 17:59:38 2 became Candidate
+2022/04/19 17:59:38 2 start vote
+2022/04/19 17:59:38 [N:1-T:2-VF:1] server vote term to [N:2-T:3]
+2022/04/19 17:59:38 1 start vote
+2022/04/19 17:59:38 [N:2-T:3-VF:2] server vote term to [N:1-T:4]
+2022/04/19 17:59:38 0 start send heart
+2022/04/19 17:59:38 0 start send heart
+2022/04/19 17:59:38 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:38 2 start vote
+2022/04/19 17:59:38 [N:1-T:4-VF:1] server vote term to [N:2-T:5]
+2022/04/19 17:59:38 0 start send heart
+2022/04/19 17:59:38 1 start vote
+2022/04/19 17:59:38 [N:2-T:5-VF:2] server vote term to [N:1-T:6]
+2022/04/19 17:59:38 0 start send heart
+2022/04/19 17:59:38 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:38 0 start send heart
+2022/04/19 17:59:39 0 start send heart
+2022/04/19 17:59:39 2 start vote
+2022/04/19 17:59:39 [N:1-T:6-VF:1] server vote term to [N:2-T:7]
+2022/04/19 17:59:39 1 start vote
+2022/04/19 17:59:39 [N:2-T:7-VF:2] server vote term to [N:1-T:8]
+2022/04/19 17:59:39 0 start send heart
+2022/04/19 17:59:39 0 start send heart
+2022/04/19 17:59:39 0 start send heart
+2022/04/19 17:59:39 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:39 1 start vote
+2022/04/19 17:59:39 [N:2-T:8-VF:1] server vote term to [N:1-T:9]
+2022/04/19 17:59:39 2 start vote
+2022/04/19 17:59:39 [N:1-T:9-VF:1] server vote term to [N:2-T:10]
+2022/04/19 17:59:39 0 start send heart
+2022/04/19 17:59:39 0 start send heart
+2022/04/19 17:59:39 2 start vote
+2022/04/19 17:59:39 [N:1-T:10-VF:2] server vote term to [N:2-T:11]
+2022/04/19 17:59:39 1 start vote
+2022/04/19 17:59:39 [N:2-T:11-VF:2] server vote term to [N:1-T:12]
+2022/04/19 17:59:39 0 start send heart
+2022/04/19 17:59:39 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:39 0 start send heart
+2022/04/19 17:59:39 2 start vote
+2022/04/19 17:59:39 [N:1-T:12-VF:1] server vote term to [N:2-T:13]
+2022/04/19 17:59:39 0 start send heart
+2022/04/19 17:59:40 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:40 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:40 0 start send heart
+2022/04/19 17:59:40 1 start vote
+2022/04/19 17:59:40 [N:2-T:13-VF:2] server vote term to [N:1-T:14]
+2022/04/19 17:59:40 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:40 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:40 2 start vote
+2022/04/19 17:59:40 [N:1-T:14-VF:1] server vote term to [N:2-T:15]
+2022/04/19 17:59:40 0 start send heart
+2022/04/19 17:59:40 0 start send heart
+2022/04/19 17:59:40 1 start vote
+2022/04/19 17:59:40 [N:2-T:15-VF:2] server vote term to [N:1-T:16]
+2022/04/19 17:59:40 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:40 server 1 VoteCall failed to 0
+2022/04/19 17:59:40 serve[1] become leaderr  hashert:false
+2022/04/19 17:59:40 1 start send heart
+2022/04/19 17:59:40 2 node become 1 foller
+2022/04/19 17:59:40 [2] server recv AppendEntries to 1
+2022/04/19 17:59:40 0 start send heart
+2022/04/19 17:59:40 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:40 1 start send heart
+2022/04/19 17:59:40 2 node become 1 foller
+2022/04/19 17:59:40 [2] server recv AppendEntries to 1
+2022/04/19 17:59:40 0 start send heart
+2022/04/19 17:59:40 leader-----1
+2022/04/19 17:59:40 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:40 1 start send heart
+2022/04/19 17:59:40 0 node become 1 foller
+2022/04/19 17:59:40 [0] server recv AppendEntries to 1
+2022/04/19 17:59:40 2 node become 1 foller
+2022/04/19 17:59:40 [2] server recv AppendEntries to 1
+2022/04/19 17:59:40 0 become foller 
+2022/04/19 17:59:40 1 start send heart
+2022/04/19 17:59:40 2 node become 1 foller
+2022/04/19 17:59:40 [2] server recv AppendEntries to 1
+2022/04/19 17:59:40 0 node become 1 foller
+2022/04/19 17:59:40 [0] server recv AppendEntries to 1
+2022/04/19 17:59:40 1 start send heart
+2022/04/19 17:59:40 0 node become 1 foller
+2022/04/19 17:59:40 [0] server recv AppendEntries to 1
+2022/04/19 17:59:40 2 node become 1 foller
+2022/04/19 17:59:40 [2] server recv AppendEntries to 1
+2022/04/19 17:59:40 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:40 1 start send heart
+2022/04/19 17:59:40 0 node become 1 foller
+2022/04/19 17:59:40 [0] server recv AppendEntries to 1
+2022/04/19 17:59:40 2 node become 1 foller
+2022/04/19 17:59:40 [2] server recv AppendEntries to 1
+2022/04/19 17:59:41 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:41 1 start send heart
+2022/04/19 17:59:41 leader-----1
+2022/04/19 17:59:41 2 node become 1 foller
+2022/04/19 17:59:41 0 node become 1 foller
+2022/04/19 17:59:41 [2] server recv AppendEntries to 1
+2022/04/19 17:59:41 [0] server recv AppendEntries to 1
+2022/04/19 17:59:41 server 1 - 3 sendappendentries failed to 2
+2022/04/19 17:59:41 server 1 - 3 sendappendentries failed to 0
+2022/04/19 17:59:41 server 1 - 3 sendappendentries failed to 0
+2022/04/19 17:59:41 1 start send heart
+2022/04/19 17:59:41 server 2 VoteCall failed to 0
+2022/04/19 17:59:41 1 start send heart
+2022/04/19 17:59:41 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:41 server 1 VoteCall failed to 0
+2022/04/19 17:59:41 1 start send heart
+2022/04/19 17:59:41 0 became Candidate
+2022/04/19 17:59:41 0 start vote
+2022/04/19 17:59:41 2 became Candidate
+2022/04/19 17:59:41 2 start vote
+2022/04/19 17:59:41 1 start send heart
+2022/04/19 17:59:41 1 start send heart
+2022/04/19 17:59:41 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:41 2 start vote
+2022/04/19 17:59:41 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:41 1 start send heart
+2022/04/19 17:59:41 server 1 VoteCall failed to 0
+2022/04/19 17:59:41 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:41 0 start vote
+2022/04/19 17:59:41 1 start send heart
+2022/04/19 17:59:41 1 start send heart
+2022/04/19 17:59:41 2 start vote
+2022/04/19 17:59:42 0 start vote
+2022/04/19 17:59:42 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:42 server 2 VoteCall failed to 1
+2022/04/19 17:59:42 1 start send heart
+2022/04/19 17:59:42 1 start send heart
+2022/04/19 17:59:42 2 start vote
+2022/04/19 17:59:42 server 2 VoteCall failed to 0
+2022/04/19 17:59:42 1 start send heart
+2022/04/19 17:59:42 0 start vote
+2022/04/19 17:59:42 server 1 - 3 sendappendentries failed to 2
+2022/04/19 17:59:42 1 start send heart
+2022/04/19 17:59:42 server 1 - 3 sendappendentries failed to 2
+2022/04/19 17:59:42 1 start send heart
+2022/04/19 17:59:42 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:42 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:42 server 2 VoteCall failed to 0
+2022/04/19 17:59:42 serve[2] become leaderr  hashert:false
+2022/04/19 17:59:42 2 start send heart
+2022/04/19 17:59:42 0 start vote
+2022/04/19 17:59:42 server 0 VoteCall failed to 2
+2022/04/19 17:59:42 1 start send heart
+2022/04/19 17:59:42 2 start send heart
+2022/04/19 17:59:42 1 start send heart
+2022/04/19 17:59:42 server 1 - 3 sendappendentries failed to 0
+2022/04/19 17:59:42 2 start send heart
+2022/04/19 17:59:42 1 start send heart
+2022/04/19 17:59:42 server 1 - 3 sendappendentries failed to 2
+2022/04/19 17:59:42 2 start send heart
+2022/04/19 17:59:42 server 0 VoteCall failed to 1
+2022/04/19 17:59:42 0 start vote
+2022/04/19 17:59:42 server 1 - 3 sendappendentries failed to 0
+2022/04/19 17:59:42 server 2 - 3 sendappendentries failed to 1
+2022/04/19 17:59:42 1 start send heart
+2022/04/19 17:59:42 server 2 - 3 sendappendentries failed to 0
+2022/04/19 17:59:42 2 start send heart
+2022/04/19 17:59:43 server 1 - 3 sendappendentries failed to 0
+2022/04/19 17:59:43 server 1 - 3 sendappendentries failed to 0
+2022/04/19 17:59:43 1 start send heart
+2022/04/19 17:59:43 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:43 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:43 2 start send heart
+2022/04/19 17:59:43 0 node become 2 foller
+2022/04/19 17:59:43 [0] server recv AppendEntries to 2
+2022/04/19 17:59:43 server 0 - 3 sendappendentries failed to 2
+2022/04/19 17:59:43 server 0 - 3 sendappendentries failed to 1
+2022/04/19 17:59:43 1 start send heart
+2022/04/19 17:59:43 2 start send heart
+2022/04/19 17:59:43 0 node become 2 foller
+2022/04/19 17:59:43 [0] server recv AppendEntries to 2
+2022/04/19 17:59:43 1 start send heart
+2022/04/19 17:59:43 2 start send heart
+2022/04/19 17:59:43 0 node become 2 foller
+2022/04/19 17:59:43 [0] server recv AppendEntries to 2
+2022/04/19 17:59:43 1 start send heart
+2022/04/19 17:59:43 2 start send heart
+2022/04/19 17:59:43 0 node become 2 foller
+2022/04/19 17:59:43 [0] server recv AppendEntries to 2
+2022/04/19 17:59:43 server 0 VoteCall failed to 2
+2022/04/19 17:59:43 1 start send heart
+2022/04/19 17:59:43 2 start send heart
+2022/04/19 17:59:43 0 node become 2 foller
+2022/04/19 17:59:43 [0] server recv AppendEntries to 2
