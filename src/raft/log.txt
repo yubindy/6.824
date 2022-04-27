@@ -1,1003 +1,362 @@
-2022/04/19 15:48:06 Num:0--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:06 Num:1--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:06 Num:2--State:1--hasvote:true--hashert:true
-Test (2A): initial election ...
-2022/04/19 15:48:07 Num:2--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:07 2 became Candidate
-2022/04/19 15:48:07 2 start vote
-2022/04/19 15:48:07 [N:0-T:0-VF:-1] server vote term to [N:2-T:1]
-2022/04/19 15:48:07 [N:1-T:0-VF:-1] server vote term to [N:2-T:1]
-2022/04/19 15:48:07 serve[2] become leaderr
-2022/04/19 15:48:07 Num:1--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:07 Num:0--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:07 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:07 2 start send heart
-2022/04/19 15:48:07 0 node become 2 foller
-2022/04/19 15:48:07 1 node become 2 foller
-2022/04/19 15:48:07 [1] server recv AppendEntries to 2
-2022/04/19 15:48:07 [0] server recv AppendEntries to 2
-2022/04/19 15:48:07 Num:1--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:07 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:07 2 start send heart
-2022/04/19 15:48:07 1 node become 2 foller
-2022/04/19 15:48:07 [1] server recv AppendEntries to 2
-2022/04/19 15:48:07 0 node become 2 foller
-2022/04/19 15:48:07 [0] server recv AppendEntries to 2
-2022/04/19 15:48:07 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:07 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:07 2 start send heart
-2022/04/19 15:48:07 0 node become 2 foller
-2022/04/19 15:48:07 [0] server recv AppendEntries to 2
-2022/04/19 15:48:07 1 node become 2 foller
-2022/04/19 15:48:07 [1] server recv AppendEntries to 2
-2022/04/19 15:48:07 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:07 2 start send heart
-2022/04/19 15:48:07 0 node become 2 foller
-2022/04/19 15:48:07 1 node become 2 foller
-2022/04/19 15:48:07 [1] server recv AppendEntries to 2
-2022/04/19 15:48:07 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:08 2 start send heart
-2022/04/19 15:48:08 0 node become 2 foller
-2022/04/19 15:48:08 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 1 node become 2 foller
-2022/04/19 15:48:08 [1] server recv AppendEntries to 2
-2022/04/19 15:48:08 Num:1--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:08 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:08 2 start send heart
-2022/04/19 15:48:08 0 node become 2 foller
-2022/04/19 15:48:08 1 node become 2 foller
-2022/04/19 15:48:08 [1] server recv AppendEntries to 2
-2022/04/19 15:48:08 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:08 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:08 2 start send heart
-2022/04/19 15:48:08 0 node become 2 foller
-2022/04/19 15:48:08 1 node become 2 foller
-2022/04/19 15:48:08 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 [1] server recv AppendEntries to 2
-2022/04/19 15:48:08 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:08 2 start send heart
-2022/04/19 15:48:08 0 node become 2 foller
-2022/04/19 15:48:08 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 1 node become 2 foller
-2022/04/19 15:48:08 [1] server recv AppendEntries to 2
-2022/04/19 15:48:08 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:08 2 start send heart
-2022/04/19 15:48:08 1 node become 2 foller
-2022/04/19 15:48:08 0 node become 2 foller
-2022/04/19 15:48:08 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 [1] server recv AppendEntries to 2
-2022/04/19 15:48:08 Num:1--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:08 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:08 2 start send heart
-2022/04/19 15:48:08 1 node become 2 foller
-2022/04/19 15:48:08 [1] server recv AppendEntries to 2
-2022/04/19 15:48:08 0 node become 2 foller
-2022/04/19 15:48:08 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:08 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:08 2 start send heart
-2022/04/19 15:48:08 0 node become 2 foller
-2022/04/19 15:48:08 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 1 node become 2 foller
-2022/04/19 15:48:08 [1] server recv AppendEntries to 2
-2022/04/19 15:48:08 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:08 2 start send heart
-2022/04/19 15:48:08 0 node become 2 foller
-2022/04/19 15:48:08 1 node become 2 foller
-2022/04/19 15:48:08 [1] server recv AppendEntries to 2
-2022/04/19 15:48:08 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:08 2 start send heart
-2022/04/19 15:48:08 0 node become 2 foller
-2022/04/19 15:48:08 [0] server recv AppendEntries to 2
-2022/04/19 15:48:08 1 node become 2 foller
-2022/04/19 15:48:08 [1] server recv AppendEntries to 2
-2022/04/19 15:48:09 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:09 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:09 2 start send heart
-2022/04/19 15:48:09 0 node become 2 foller
-2022/04/19 15:48:09 [0] server recv AppendEntries to 2
-2022/04/19 15:48:09 1 node become 2 foller
-2022/04/19 15:48:09 [1] server recv AppendEntries to 2
-2022/04/19 15:48:09 Num:1--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:09 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:09 2 start send heart
-2022/04/19 15:48:09 1 node become 2 foller
-2022/04/19 15:48:09 [1] server recv AppendEntries to 2
-2022/04/19 15:48:09 0 node become 2 foller
-2022/04/19 15:48:09 [0] server recv AppendEntries to 2
-2022/04/19 15:48:09 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:09 2 start send heart
-2022/04/19 15:48:09 1 node become 2 foller
-2022/04/19 15:48:09 0 node become 2 foller
-2022/04/19 15:48:09 [1] server recv AppendEntries to 2
-2022/04/19 15:48:09 [0] server recv AppendEntries to 2
-2022/04/19 15:48:09 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:09 2 start send heart
-2022/04/19 15:48:09 0 node become 2 foller
-2022/04/19 15:48:09 [0] server recv AppendEntries to 2
-2022/04/19 15:48:09 1 node become 2 foller
-2022/04/19 15:48:09 [1] server recv AppendEntries to 2
-2022/04/19 15:48:09 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:09 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:09 2 start send heart
-2022/04/19 15:48:09 0 node become 2 foller
-2022/04/19 15:48:09 [0] server recv AppendEntries to 2
-2022/04/19 15:48:09 1 node become 2 foller
-2022/04/19 15:48:09 [1] server recv AppendEntries to 2
-2022/04/19 15:48:09 Num:1--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:09 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:09 2 start send heart
-2022/04/19 15:48:09 0 node become 2 foller
-2022/04/19 15:48:09 1 node become 2 foller
-2022/04/19 15:48:09 [0] server recv AppendEntries to 2
-2022/04/19 15:48:09 [1] server recv AppendEntries to 2
-2022/04/19 15:48:09 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:09 2 start send heart
-2022/04/19 15:48:09 1 node become 2 foller
-2022/04/19 15:48:09 0 node become 2 foller
-2022/04/19 15:48:09 [0] server recv AppendEntries to 2
-2022/04/19 15:48:09 [1] server recv AppendEntries to 2
-2022/04/19 15:48:09 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:09 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:09 2 start send heart
-2022/04/19 15:48:09 0 node become 2 foller
-2022/04/19 15:48:09 1 node become 2 foller
-2022/04/19 15:48:09 [1] server recv AppendEntries to 2
-2022/04/19 15:48:09 [0] server recv AppendEntries to 2
-  ... Passed --   3.0  3   44    9044    0
-2022/04/19 15:48:09 Num:0--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:09 Num:1--State:1--hasvote:true--hashert:true
-Test (2A): election after network failure ...
-2022/04/19 15:48:09 Num:2--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:10 Num:1--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:10 1 became Candidate
-2022/04/19 15:48:10 1 start vote
-2022/04/19 15:48:10 [N:0-T:0-VF:-1] server vote term to [N:1-T:1]
-2022/04/19 15:48:10 [N:2-T:0-VF:-1] server vote term to [N:1-T:1]
-2022/04/19 15:48:10 serve[1] become leaderr
-2022/04/19 15:48:10 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:10 Num:0--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:10 Num:2--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:10 2 became Candidate
-2022/04/19 15:48:10 2 start vote
-2022/04/19 15:48:10 [N:0-T:1-VF:1] server vote term to [N:2-T:2]
-2022/04/19 15:48:10 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:10 1 start send heart
-2022/04/19 15:48:10 Num:0--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:10 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:10 1 start send heart
-2022/04/19 15:48:10 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:10 1 start send heart
-2022/04/19 15:48:10 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:10 1 start send heart
-2022/04/19 15:48:10 Num:2--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:10 2 start vote
-2022/04/19 15:48:10 [N:0-T:2-VF:2] server vote term to [N:2-T:3]
-2022/04/19 15:48:11 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:11 1 start send heart
-2022/04/19 15:48:11 Num:0--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:11 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:11 1 start send heart
-2022/04/19 15:48:11 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:11 1 start send heart
-2022/04/19 15:48:11 Num:2--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:11 2 start vote
-2022/04/19 15:48:11 [N:0-T:3-VF:2] server vote term to [N:2-T:4]
-2022/04/19 15:48:11 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:11 1 start send heart
-2022/04/19 15:48:11 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:11 1 start send heart
-2022/04/19 15:48:11 Num:0--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:11 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:11 1 start send heart
-2022/04/19 15:48:11 server 1 sendappendentries failed to 0
-2022/04/19 15:48:11 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:11 1 start send heart
-2022/04/19 15:48:11 Num:2--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:11 2 start vote
-2022/04/19 15:48:11 [N:0-T:4-VF:2] server vote term to [N:2-T:5]
-2022/04/19 15:48:11 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:11 1 start send heart
-2022/04/19 15:48:11 Num:0--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:11 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:11 server 1 sendappendentries failed to 0
-2022/04/19 15:48:11 1 start send heart
-2022/04/19 15:48:11 server 1 sendappendentries failed to 2
-2022/04/19 15:48:12 server 1 sendappendentries failed to 2
-2022/04/19 15:48:12 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 1 start send heart
-2022/04/19 15:48:12 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 1 start send heart
-2022/04/19 15:48:12 Num:2--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:12 2 start vote
-2022/04/19 15:48:12 [N:0-T:5-VF:2] server vote term to [N:2-T:6]
-2022/04/19 15:48:12 Num:0--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:12 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 1 start send heart
-2022/04/19 15:48:12 server 2 VoteCall failed to 1
-2022/04/19 15:48:12 serve[2] become leaderr
-2022/04/19 15:48:12 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 1 start send heart
-2022/04/19 15:48:12 server 1 sendappendentries failed to 0
-2022/04/19 15:48:12 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 1 start send heart
-2022/04/19 15:48:12 [2] server recv AppendEntries to 1
-2022/04/19 15:48:12 [0] server recv AppendEntries to 1
-2022/04/19 15:48:12 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 2 start send heart
-2022/04/19 15:48:12 0 node become 2 foller
-2022/04/19 15:48:12 [0] server recv AppendEntries to 2
-2022/04/19 15:48:12 1 node become 2 foller
-2022/04/19 15:48:12 [1] server recv AppendEntries to 2
-2022/04/19 15:48:12 1 become foller for leader
-2022/04/19 15:48:12 Num:1--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:12 server 1 sendappendentries failed to 2
-2022/04/19 15:48:12 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:12 server 1 sendappendentries failed to 2
-2022/04/19 15:48:12 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 2 start send heart
-2022/04/19 15:48:12 0 node become 2 foller
-2022/04/19 15:48:12 1 node become 2 foller
-2022/04/19 15:48:12 [1] server recv AppendEntries to 2
-2022/04/19 15:48:12 [0] server recv AppendEntries to 2
-2022/04/19 15:48:12 server 2 VoteCall failed to 1
-2022/04/19 15:48:12 serve[2] become leaderr
-2022/04/19 15:48:12 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 2 start send heart
-2022/04/19 15:48:12 1 node become 2 foller
-2022/04/19 15:48:12 [1] server recv AppendEntries to 2
-2022/04/19 15:48:12 0 node become 2 foller
-2022/04/19 15:48:12 [0] server recv AppendEntries to 2
-2022/04/19 15:48:12 server 1 sendappendentries failed to 0
-2022/04/19 15:48:12 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 2 start send heart
-2022/04/19 15:48:12 0 node become 2 foller
-2022/04/19 15:48:12 [0] server recv AppendEntries to 2
-2022/04/19 15:48:12 1 node become 2 foller
-2022/04/19 15:48:12 [1] server recv AppendEntries to 2
-2022/04/19 15:48:12 Num:1--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:12 server 1 sendappendentries failed to 2
-2022/04/19 15:48:12 server 1 sendappendentries failed to 0
-2022/04/19 15:48:12 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:12 2 start send heart
-2022/04/19 15:48:13 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:13 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:13 2 start send heart
-2022/04/19 15:48:13 server 2 sendappendentries failed to 1
-2022/04/19 15:48:13 server 1 sendappendentries failed to 2
-2022/04/19 15:48:13 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:13 2 start send heart
-2022/04/19 15:48:13 server 1 sendappendentries failed to 0
-2022/04/19 15:48:13 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:13 2 start send heart
-2022/04/19 15:48:13 Num:1--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:13 1 became Candidate
-2022/04/19 15:48:13 1 start vote
-2022/04/19 15:48:13 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:13 2 start send heart
-2022/04/19 15:48:13 Num:0--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:13 0 became Candidate
-2022/04/19 15:48:13 0 start vote
-2022/04/19 15:48:13 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:13 2 start send heart
-2022/04/19 15:48:13 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:13 2 start send heart
-2022/04/19 15:48:13 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:13 2 start send heart
-2022/04/19 15:48:13 server 1 sendappendentries failed to 0
-2022/04/19 15:48:13 Num:0--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:13 0 start vote
-2022/04/19 15:48:13 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:13 1 start vote
-2022/04/19 15:48:13 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:13 2 start send heart
-2022/04/19 15:48:13 server 1 sendappendentries failed to 0
-2022/04/19 15:48:13 server 1 sendappendentries failed to 2
-2022/04/19 15:48:13 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:13 2 start send heart
-2022/04/19 15:48:14 server 1 sendappendentries failed to 0
-2022/04/19 15:48:14 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:14 2 start send heart
-2022/04/19 15:48:14 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:14 1 start vote
-2022/04/19 15:48:14 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:14 2 start send heart
-2022/04/19 15:48:14 Num:0--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:14 0 start vote
-2022/04/19 15:48:14 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:14 2 start send heart
-2022/04/19 15:48:14 server 2 sendappendentries failed to 0
-2022/04/19 15:48:14 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:14 2 start send heart
-2022/04/19 15:48:14 server 2 sendappendentries failed to 0
-2022/04/19 15:48:14 server 2 sendappendentries failed to 1
-2022/04/19 15:48:14 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:14 1 start vote
-2022/04/19 15:48:14 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:14 2 start send heart
-2022/04/19 15:48:14 Num:0--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:14 0 start vote
-2022/04/19 15:48:14 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:14 2 start send heart
-2022/04/19 15:48:14 server 2 sendappendentries failed to 0
-2022/04/19 15:48:14 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:14 2 start send heart
-2022/04/19 15:48:14 server 2 sendappendentries failed to 0
-2022/04/19 15:48:14 server 1 sendappendentries failed to 2
-2022/04/19 15:48:14 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:14 1 start vote
-2022/04/19 15:48:14 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:14 2 start send heart
-2022/04/19 15:48:14 server 2 sendappendentries failed to 1
-2022/04/19 15:48:14 server 1 sendappendentries failed to 2
-2022/04/19 15:48:14 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:14 2 start send heart
-2022/04/19 15:48:15 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:15 2 start send heart
-2022/04/19 15:48:15 Num:0--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:15 0 start vote
-2022/04/19 15:48:15 [N:1-T:6-VF:1] server vote term to [N:0-T:11]
-2022/04/19 15:48:15 server 1 sendappendentries failed to 2
-2022/04/19 15:48:15 server 1 sendappendentries failed to 0
-2022/04/19 15:48:15 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:15 2 start send heart
-2022/04/19 15:48:15 Num:1--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:15 1 start vote
-2022/04/19 15:48:15 [N:0-T:11-VF:0] server vote term to [N:1-T:12]
-2022/04/19 15:48:15 server 1 VoteCall failed to 0
-2022/04/19 15:48:15 server 1 sendappendentries failed to 0
-2022/04/19 15:48:15 server 2 sendappendentries failed to 1
-2022/04/19 15:48:15 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:15 2 start send heart
-2022/04/19 15:48:15 server 2 sendappendentries failed to 0
-2022/04/19 15:48:15 server 1 sendappendentries failed to 0
-2022/04/19 15:48:15 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:15 2 start send heart
-2022/04/19 15:48:15 server 2 sendappendentries failed to 1
-2022/04/19 15:48:15 server 2 sendappendentries failed to 0
-2022/04/19 15:48:15 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:15 2 start send heart
-2022/04/19 15:48:15 Num:0--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:15 0 start vote
-2022/04/19 15:48:15 [N:1-T:12-VF:1] server vote term to [N:0-T:13]
-2022/04/19 15:48:15 server 2 sendappendentries failed to 1
-2022/04/19 15:48:15 server 2 sendappendentries failed to 1
-2022/04/19 15:48:15 server 1 sendappendentries failed to 2
-2022/04/19 15:48:15 server 2 VoteCall failed to 1
-2022/04/19 15:48:15 serve[2] become leaderr
-2022/04/19 15:48:15 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:15 2 start send heart
-2022/04/19 15:48:15 Num:1--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:15 1 start vote
-2022/04/19 15:48:15 [N:0-T:13-VF:0] server vote term to [N:1-T:14]
-2022/04/19 15:48:15 server 1 sendappendentries failed to 2
-2022/04/19 15:48:15 server 0 VoteCall failed to 2
-2022/04/19 15:48:15 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:15 2 start send heart
-2022/04/19 15:48:15 server 1 VoteCall failed to 2
-2022/04/19 15:48:15 server 2 sendappendentries failed to 1
-2022/04/19 15:48:15 server 0 VoteCall failed to 1
-2022/04/19 15:48:15 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:15 2 start send heart
-2022/04/19 15:48:15 Num:0--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:15 0 start vote
-2022/04/19 15:48:15 [N:1-T:14-VF:1] server vote term to [N:0-T:15]
-2022/04/19 15:48:15 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:15 2 start send heart
-2022/04/19 15:48:15 server 2 sendappendentries failed to 0
-2022/04/19 15:48:16 server 2 sendappendentries failed to 0
-2022/04/19 15:48:16 Num:1--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:16 server 2 sendappendentries failed to 0
-2022/04/19 15:48:16 1 start vote
-2022/04/19 15:48:16 [N:0-T:15-VF:0] server vote term to [N:1-T:16]
-2022/04/19 15:48:16 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 2 start send heart
-2022/04/19 15:48:16 server 0 VoteCall failed to 2
-2022/04/19 15:48:16 server 2 sendappendentries failed to 1
-2022/04/19 15:48:16 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 2 start send heart
-2022/04/19 15:48:16 server 2 sendappendentries failed to 0
-2022/04/19 15:48:16 server 2 sendappendentries failed to 0
-2022/04/19 15:48:16 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 2 start send heart
-2022/04/19 15:48:16 Num:0--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:16 0 start vote
-2022/04/19 15:48:16 [N:1-T:16-VF:1] server vote term to [N:0-T:17]
-2022/04/19 15:48:16 server 2 sendappendentries failed to 1
-2022/04/19 15:48:16 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 2 start send heart
-2022/04/19 15:48:16 server 1 VoteCall failed to 2
-2022/04/19 15:48:16 serve[1] become leaderr
-2022/04/19 15:48:16 server 2 sendappendentries failed to 0
-2022/04/19 15:48:16 Num:1--State:3--hasvote:true--hashert:false
-2022/04/19 15:48:16 1 start send heart
-2022/04/19 15:48:16 0 node become 1 foller
-2022/04/19 15:48:16 [0] server recv AppendEntries to 1
-2022/04/19 15:48:16 server 1 sendappendentries failed to 0
-2022/04/19 15:48:16 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 2 start send heart
-2022/04/19 15:48:16 server 1 VoteCall failed to 2
-2022/04/19 15:48:16 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 1 start send heart
-2022/04/19 15:48:16 0 node become 1 foller
-2022/04/19 15:48:16 [0] server recv AppendEntries to 1
-2022/04/19 15:48:16 server 2 sendappendentries failed to 0
-2022/04/19 15:48:16 server 2 sendappendentries failed to 0
-2022/04/19 15:48:16 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 2 start send heart
-2022/04/19 15:48:16 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 1 start send heart
-2022/04/19 15:48:16 0 node become 1 foller
-2022/04/19 15:48:16 [0] server recv AppendEntries to 1
-2022/04/19 15:48:16 server 0 VoteCall failed to 1
-2022/04/19 15:48:16 server 1 VoteCall failed to 0
-2022/04/19 15:48:16 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 2 start send heart
-2022/04/19 15:48:16 server 1 sendappendentries failed to 0
-2022/04/19 15:48:16 server 0 VoteCall failed to 1
-2022/04/19 15:48:16 server 1 sendappendentries failed to 2
-2022/04/19 15:48:16 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 1 start send heart
-2022/04/19 15:48:16 0 node become 1 foller
-2022/04/19 15:48:16 [0] server recv AppendEntries to 1
-2022/04/19 15:48:16 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:16 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 2 start send heart
-2022/04/19 15:48:16 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 1 start send heart
-2022/04/19 15:48:16 0 node become 1 foller
-2022/04/19 15:48:16 [0] server recv AppendEntries to 1
-2022/04/19 15:48:16 Num:2--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:16 2 start send heart
-2022/04/19 15:48:16 [0] server recv AppendEntries to 2
-2022/04/19 15:48:16 [1] server recv AppendEntries to 2
-2022/04/19 15:48:16 server 1 sendappendentries failed to 2
-2022/04/19 15:48:16 server 1 sendappendentries failed to 0
-2022/04/19 15:48:16 server 2 sendappendentries failed to 1
-2022/04/19 15:48:17 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:17 1 start send heart
-2022/04/19 15:48:17 0 node become 1 foller
-2022/04/19 15:48:17 [0] server recv AppendEntries to 1
-2022/04/19 15:48:17 2 node become 1 foller
-2022/04/19 15:48:17 [2] server recv AppendEntries to 1
-2022/04/19 15:48:17 2 become foller for leader
-2022/04/19 15:48:17 Num:2--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:17 server 2 sendappendentries failed to 1
-2022/04/19 15:48:17 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:17 1 start send heart
-2022/04/19 15:48:17 server 0 VoteCall failed to 2
-2022/04/19 15:48:17 2 node become 1 foller
-2022/04/19 15:48:17 0 node become 1 foller
-2022/04/19 15:48:17 [0] server recv AppendEntries to 1
-2022/04/19 15:48:17 [2] server recv AppendEntries to 1
-2022/04/19 15:48:17 server 1 sendappendentries failed to 0
-2022/04/19 15:48:17 Num:0--State:1--hasvote:false--hashert:true
-2022/04/19 15:48:17 server 2 sendappendentries failed to 0
-2022/04/19 15:48:17 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:17 1 start send heart
-2022/04/19 15:48:17 0 node become 1 foller
-2022/04/19 15:48:17 [0] server recv AppendEntries to 1
-2022/04/19 15:48:17 2 node become 1 foller
-2022/04/19 15:48:17 [2] server recv AppendEntries to 1
-2022/04/19 15:48:17 server 1 sendappendentries failed to 2
-2022/04/19 15:48:17 Num:1--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:17 1 start send heart
-2022/04/19 15:48:17 0 node become 1 foller
-2022/04/19 15:48:17 2 node become 1 foller
-2022/04/19 15:48:17 [2] server recv AppendEntries to 1
-2022/04/19 15:48:17 [0] server recv AppendEntries to 1
-2022/04/19 15:48:17 server 2 VoteCall failed to 1
-2022/04/19 15:48:17 server 2 sendappendentries failed to 1
-2022/04/19 15:48:17 server 2 sendappendentries failed to 1
-  ... Passed --   7.6  3  180   26648    0
-2022/04/19 15:48:17 server 2 sendappendentries failed to 1
-2022/04/19 15:48:17 Num:0--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:17 Num:1--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:17 Num:2--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:17 Num:3--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:17 Num:4--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:17 Num:5--State:1--hasvote:true--hashert:true
-2022/04/19 15:48:17 Num:6--State:1--hasvote:true--hashert:true
-Test (2A): multiple elections ...
-2022/04/19 15:48:17 server 1 VoteCall failed to 0
-2022/04/19 15:48:17 server 2 sendappendentries failed to 0
-2022/04/19 15:48:17 server 1 sendappendentries failed to 2
-2022/04/19 15:48:17 server 1 sendappendentries failed to 2
-2022/04/19 15:48:17 server 2 sendappendentries failed to 0
-2022/04/19 15:48:17 Num:0--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:17 0 became Candidate
-2022/04/19 15:48:17 0 start vote
-2022/04/19 15:48:17 [N:1-T:0-VF:-1] server vote term to [N:0-T:1]
-2022/04/19 15:48:17 [N:4-T:0-VF:-1] server vote term to [N:0-T:1]
-2022/04/19 15:48:17 [N:2-T:0-VF:-1] server vote term to [N:0-T:1]
-2022/04/19 15:48:17 [N:6-T:0-VF:-1] server vote term to [N:0-T:1]
-2022/04/19 15:48:17 [N:3-T:0-VF:-1] server vote term to [N:0-T:1]
-2022/04/19 15:48:17 [N:5-T:0-VF:-1] server vote term to [N:0-T:1]
-2022/04/19 15:48:17 serve[0] become leaderr
-2022/04/19 15:48:17 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:17 Num:1--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:17 Num:3--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:17 Num:4--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:17 Num:6--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:17 Num:5--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:17 server 2 VoteCall failed to 1
-2022/04/19 15:48:17 server 2 sendappendentries failed to 1
-2022/04/19 15:48:17 server 2 sendappendentries failed to 1
-2022/04/19 15:48:18 server 2 sendappendentries failed to 1
-2022/04/19 15:48:18 server 2 sendappendentries failed to 1
-2022/04/19 15:48:18 server 2 sendappendentries failed to 0
-2022/04/19 15:48:18 Num:4--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:18 4 became Candidate
-2022/04/19 15:48:18 4 start vote
-2022/04/19 15:48:18 [N:2-T:1-VF:0] server vote term to [N:4-T:2]
-2022/04/19 15:48:18 [N:5-T:1-VF:0] server vote term to [N:4-T:2]
-2022/04/19 15:48:18 [N:3-T:1-VF:0] server vote term to [N:4-T:2]
-2022/04/19 15:48:18 server 0 VoteCall failed to 2
-2022/04/19 15:48:18 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:18 0 start send heart
-2022/04/19 15:48:18 server 2 sendappendentries failed to 0
-2022/04/19 15:48:18 Num:6--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:18 6 became Candidate
-2022/04/19 15:48:18 6 start vote
-2022/04/19 15:48:18 Num:5--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:18 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:18 server 2 sendappendentries failed to 1
-2022/04/19 15:48:18 Num:1--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:18 1 became Candidate
-2022/04/19 15:48:18 1 start vote
-2022/04/19 15:48:18 server 2 sendappendentries failed to 1
-2022/04/19 15:48:18 server 0 VoteCall failed to 2
-2022/04/19 15:48:18 Num:3--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:18 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:18 0 start send heart
-2022/04/19 15:48:18 server 2 sendappendentries failed to 1
-2022/04/19 15:48:18 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:18 0 start send heart
-2022/04/19 15:48:18 server 2 sendappendentries failed to 0
-2022/04/19 15:48:18 server 2 sendappendentries failed to 0
-2022/04/19 15:48:18 server 0 sendappendentries failed to 5
-2022/04/19 15:48:18 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:18 0 start send heart
-2022/04/19 15:48:18 server 0 sendappendentries failed to 2
-2022/04/19 15:48:18 server 2 sendappendentries failed to 0
-2022/04/19 15:48:18 Num:4--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:18 4 start vote
-2022/04/19 15:48:18 [N:3-T:2-VF:4] server vote term to [N:4-T:3]
-2022/04/19 15:48:18 [N:2-T:2-VF:4] server vote term to [N:4-T:3]
-2022/04/19 15:48:18 [N:5-T:2-VF:4] server vote term to [N:4-T:3]
-2022/04/19 15:48:18 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:18 0 start send heart
-2022/04/19 15:48:18 server 0 sendappendentries failed to 6
-2022/04/19 15:48:18 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:18 server 0 sendappendentries failed to 2
-2022/04/19 15:48:18 Num:5--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:18 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:18 1 start vote
-2022/04/19 15:48:18 server 0 VoteCall failed to 2
-2022/04/19 15:48:18 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:18 6 start vote
-2022/04/19 15:48:18 server 1 sendappendentries failed to 2
-2022/04/19 15:48:18 server 1 sendappendentries failed to 2
-2022/04/19 15:48:18 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:18 0 start send heart
-2022/04/19 15:48:18 server 2 sendappendentries failed to 1
-2022/04/19 15:48:18 server 0 VoteCall failed to 2
-2022/04/19 15:48:18 Num:3--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:18 server 1 sendappendentries failed to 0
-2022/04/19 15:48:18 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:18 0 start send heart
-2022/04/19 15:48:18 server 2 sendappendentries failed to 0
-2022/04/19 15:48:18 server 0 sendappendentries failed to 2
-2022/04/19 15:48:19 server 1 VoteCall failed to 2
-2022/04/19 15:48:19 serve[1] become leaderr
-2022/04/19 15:48:19 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:19 0 start send heart
-2022/04/19 15:48:19 server 6 VoteCall failed to 0
-2022/04/19 15:48:19 server 2 sendappendentries failed to 0
-2022/04/19 15:48:19 server 2 sendappendentries failed to 0
-2022/04/19 15:48:19 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:19 1 start vote
-2022/04/19 15:48:19 server 6 VoteCall failed to 1
-2022/04/19 15:48:19 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:19 6 start vote
-2022/04/19 15:48:19 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:19 0 start send heart
-2022/04/19 15:48:19 server 1 VoteCall failed to 4
-2022/04/19 15:48:19 Num:4--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:19 4 start vote
-2022/04/19 15:48:19 [N:2-T:3-VF:4] server vote term to [N:4-T:4]
-2022/04/19 15:48:19 [N:3-T:3-VF:4] server vote term to [N:4-T:4]
-2022/04/19 15:48:19 [N:5-T:3-VF:4] server vote term to [N:4-T:4]
-2022/04/19 15:48:19 Num:5--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:19 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:19 Num:3--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:19 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:19 0 start send heart
-2022/04/19 15:48:19 server 2 sendappendentries failed to 0
-2022/04/19 15:48:19 server 1 VoteCall failed to 2
-2022/04/19 15:48:19 server 2 sendappendentries failed to 1
-2022/04/19 15:48:19 server 0 sendappendentries failed to 1
-2022/04/19 15:48:19 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:19 0 start send heart
-2022/04/19 15:48:19 server 2 sendappendentries failed to 0
-2022/04/19 15:48:19 server 0 sendappendentries failed to 3
-2022/04/19 15:48:19 server 6 VoteCall failed to 3
-2022/04/19 15:48:19 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:19 1 start vote
-2022/04/19 15:48:19 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:19 0 start send heart
-2022/04/19 15:48:19 server 0 VoteCall failed to 2
-2022/04/19 15:48:19 server 2 sendappendentries failed to 1
-2022/04/19 15:48:19 server 0 sendappendentries failed to 2
-2022/04/19 15:48:19 server 2 sendappendentries failed to 1
-2022/04/19 15:48:19 Num:4--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:19 4 start vote
-2022/04/19 15:48:19 [N:5-T:4-VF:4] server vote term to [N:4-T:5]
-2022/04/19 15:48:19 [N:3-T:4-VF:4] server vote term to [N:4-T:5]
-2022/04/19 15:48:19 [N:2-T:4-VF:4] server vote term to [N:4-T:5]
-2022/04/19 15:48:19 Num:5--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:19 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:19 6 start vote
-2022/04/19 15:48:19 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:19 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:19 0 start send heart
-2022/04/19 15:48:19 server 0 sendappendentries failed to 1
-2022/04/19 15:48:19 Num:3--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:19 server 1 VoteCall failed to 6
-2022/04/19 15:48:19 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:19 0 start send heart
-2022/04/19 15:48:19 server 0 sendappendentries failed to 3
-2022/04/19 15:48:19 server 4 VoteCall failed to 1
-2022/04/19 15:48:19 server 2 sendappendentries failed to 0
-2022/04/19 15:48:19 server 0 sendappendentries failed to 4
-2022/04/19 15:48:19 server 0 sendappendentries failed to 4
-2022/04/19 15:48:19 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:19 0 start send heart
-2022/04/19 15:48:19 server 1 VoteCall failed to 0
-2022/04/19 15:48:19 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:19 1 start vote
-2022/04/19 15:48:19 server 6 VoteCall failed to 1
-2022/04/19 15:48:19 server 1 VoteCall failed to 4
-2022/04/19 15:48:19 server 0 sendappendentries failed to 4
-2022/04/19 15:48:19 server 1 VoteCall failed to 2
-2022/04/19 15:48:19 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:19 0 start send heart
-2022/04/19 15:48:19 Num:4--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:19 4 start vote
-2022/04/19 15:48:19 [N:2-T:5-VF:4] server vote term to [N:4-T:6]
-2022/04/19 15:48:19 [N:3-T:5-VF:4] server vote term to [N:4-T:6]
-2022/04/19 15:48:19 [N:5-T:5-VF:4] server vote term to [N:4-T:6]
-2022/04/19 15:48:19 Num:5--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:20 server 2 sendappendentries failed to 0
-2022/04/19 15:48:20 server 6 VoteCall failed to 1
-2022/04/19 15:48:20 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:20 6 start vote
-2022/04/19 15:48:20 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:20 0 start send heart
-2022/04/19 15:48:20 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:20 Num:3--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:20 server 0 sendappendentries failed to 2
-2022/04/19 15:48:20 server 0 sendappendentries failed to 1
-2022/04/19 15:48:20 server 2 sendappendentries failed to 1
-2022/04/19 15:48:20 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:20 0 start send heart
-2022/04/19 15:48:20 server 2 sendappendentries failed to 0
-2022/04/19 15:48:20 server 2 sendappendentries failed to 1
-2022/04/19 15:48:20 server 1 VoteCall failed to 0
-2022/04/19 15:48:20 server 0 sendappendentries failed to 3
-2022/04/19 15:48:20 server 0 VoteCall failed to 1
-2022/04/19 15:48:20 server 1 VoteCall failed to 0
-2022/04/19 15:48:20 server 4 VoteCall failed to 6
-2022/04/19 15:48:20 server 1 sendappendentries failed to 2
-2022/04/19 15:48:20 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:20 1 start vote
-2022/04/19 15:48:20 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:20 0 start send heart
-2022/04/19 15:48:20 server 0 sendappendentries failed to 6
-2022/04/19 15:48:20 server 1 VoteCall failed to 2
-2022/04/19 15:48:20 serve[1] become leaderr
-2022/04/19 15:48:20 server 1 VoteCall failed to 2
-2022/04/19 15:48:20 server 0 sendappendentries failed to 5
-2022/04/19 15:48:20 Num:4--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:20 4 start vote
-2022/04/19 15:48:20 [N:2-T:6-VF:4] server vote term to [N:4-T:7]
-2022/04/19 15:48:20 [N:5-T:6-VF:4] server vote term to [N:4-T:7]
-2022/04/19 15:48:20 [N:3-T:6-VF:4] server vote term to [N:4-T:7]
-2022/04/19 15:48:20 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:20 0 start send heart
-2022/04/19 15:48:20 Num:5--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:20 server 1 VoteCall failed to 6
-2022/04/19 15:48:20 server 0 sendappendentries failed to 5
-2022/04/19 15:48:20 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:20 server 0 sendappendentries failed to 4
-2022/04/19 15:48:20 Num:3--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:20 server 0 sendappendentries failed to 2
-2022/04/19 15:48:20 server 0 sendappendentries failed to 1
-2022/04/19 15:48:20 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:20 0 start send heart
-2022/04/19 15:48:20 server 0 sendappendentries failed to 3
-2022/04/19 15:48:20 server 1 VoteCall failed to 0
-2022/04/19 15:48:20 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:20 6 start vote
-2022/04/19 15:48:20 server 0 sendappendentries failed to 5
-2022/04/19 15:48:20 server 2 sendappendentries failed to 1
-2022/04/19 15:48:20 server 4 VoteCall failed to 1
-2022/04/19 15:48:20 server 6 VoteCall failed to 2
-2022/04/19 15:48:20 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:20 0 start send heart
-2022/04/19 15:48:20 server 0 sendappendentries failed to 1
-2022/04/19 15:48:20 server 0 sendappendentries failed to 5
-2022/04/19 15:48:20 server 2 sendappendentries failed to 0
-2022/04/19 15:48:20 server 2 sendappendentries failed to 1
-2022/04/19 15:48:20 server 2 sendappendentries failed to 0
-2022/04/19 15:48:20 server 2 sendappendentries failed to 1
-2022/04/19 15:48:20 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:20 server 0 sendappendentries failed to 3
-2022/04/19 15:48:20 1 start vote
-2022/04/19 15:48:20 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:20 0 start send heart
-2022/04/19 15:48:20 server 0 sendappendentries failed to 6
-2022/04/19 15:48:20 server 0 sendappendentries failed to 1
-2022/04/19 15:48:20 Num:4--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:20 4 start vote
-2022/04/19 15:48:20 [N:2-T:7-VF:4] server vote term to [N:4-T:8]
-2022/04/19 15:48:20 [N:3-T:7-VF:4] server vote term to [N:4-T:8]
-2022/04/19 15:48:20 [N:5-T:7-VF:4] server vote term to [N:4-T:8]
-2022/04/19 15:48:20 server 2 sendappendentries failed to 1
-2022/04/19 15:48:20 server 1 VoteCall failed to 4
-2022/04/19 15:48:20 server 0 sendappendentries failed to 6
-2022/04/19 15:48:20 Num:5--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:20 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:20 0 start send heart
-2022/04/19 15:48:20 Num:3--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:20 server 6 VoteCall failed to 2
-2022/04/19 15:48:20 server 1 VoteCall failed to 2
-2022/04/19 15:48:20 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:20 6 start vote
-2022/04/19 15:48:20 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:20 server 1 VoteCall failed to 0
-2022/04/19 15:48:20 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:20 0 start send heart
-2022/04/19 15:48:20 server 2 sendappendentries failed to 1
-2022/04/19 15:48:21 server 0 sendappendentries failed to 4
-2022/04/19 15:48:21 server 2 sendappendentries failed to 1
-2022/04/19 15:48:21 server 6 VoteCall failed to 2
-2022/04/19 15:48:21 server 0 sendappendentries failed to 3
-2022/04/19 15:48:21 server 6 VoteCall failed to 0
-2022/04/19 15:48:21 server 4 VoteCall failed to 1
-2022/04/19 15:48:21 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:21 0 start send heart
-2022/04/19 15:48:21 server 2 sendappendentries failed to 1
-2022/04/19 15:48:21 server 0 sendappendentries failed to 6
-2022/04/19 15:48:21 server 0 sendappendentries failed to 5
-2022/04/19 15:48:21 server 0 sendappendentries failed to 6
-2022/04/19 15:48:21 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:21 1 start vote
-2022/04/19 15:48:21 server 2 sendappendentries failed to 0
-2022/04/19 15:48:21 server 1 VoteCall failed to 3
-2022/04/19 15:48:21 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:21 0 start send heart
-2022/04/19 15:48:21 server 1 sendappendentries failed to 2
-2022/04/19 15:48:21 Num:3--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:21 3 became Candidate
-2022/04/19 15:48:21 3 start vote
-2022/04/19 15:48:21 [N:2-T:8-VF:4] server vote term to [N:3-T:9]
-2022/04/19 15:48:21 [N:4-T:8-VF:4] server vote term to [N:3-T:9]
-2022/04/19 15:48:21 Num:5--State:1--hasvote:false--hashert:false
-2022/04/19 15:48:21 5 became Candidate
-2022/04/19 15:48:21 [N:5-T:8-VF:4] server vote term to [N:3-T:9]
-2022/04/19 15:48:21 5 start vote
-2022/04/19 15:48:21 [N:3-T:9-VF:3] server vote term to [N:5-T:10]
-2022/04/19 15:48:21 [N:2-T:9-VF:3] server vote term to [N:5-T:10]
-2022/04/19 15:48:21 [N:4-T:9-VF:3] server vote term to [N:5-T:10]
-2022/04/19 15:48:21 server 0 sendappendentries failed to 1
-2022/04/19 15:48:21 Num:4--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:21 4 start vote
-2022/04/19 15:48:21 [N:2-T:10-VF:5] server vote term to [N:4-T:11]
-2022/04/19 15:48:21 [N:5-T:10-VF:5] server vote term to [N:4-T:11]
-2022/04/19 15:48:21 [N:3-T:10-VF:5] server vote term to [N:4-T:11]
-2022/04/19 15:48:21 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:21 0 start send heart
-2022/04/19 15:48:21 server 0 sendappendentries failed to 6
-2022/04/19 15:48:21 server 0 sendappendentries failed to 5
-2022/04/19 15:48:21 server 0 sendappendentries failed to 3
-2022/04/19 15:48:21 server 0 sendappendentries failed to 4
-2022/04/19 15:48:21 server 0 sendappendentries failed to 5
-2022/04/19 15:48:21 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:21 6 start vote
-2022/04/19 15:48:21 server 6 VoteCall failed to 5
-2022/04/19 15:48:21 server 6 VoteCall failed to 0
-2022/04/19 15:48:21 server 1 VoteCall failed to 5
-2022/04/19 15:48:21 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:21 0 start send heart
-2022/04/19 15:48:21 server 0 sendappendentries failed to 1
-2022/04/19 15:48:21 server 1 VoteCall failed to 6
-2022/04/19 15:48:21 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:21 server 0 sendappendentries failed to 3
-2022/04/19 15:48:21 server 4 VoteCall failed to 6
-2022/04/19 15:48:21 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:21 0 start send heart
-2022/04/19 15:48:21 server 6 VoteCall failed to 4
-2022/04/19 15:48:21 server 6 VoteCall failed to 2
-2022/04/19 15:48:21 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:21 1 start vote
-2022/04/19 15:48:21 Num:3--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:21 3 start vote
-2022/04/19 15:48:21 [N:4-T:11-VF:4] server vote term to [N:3-T:12]
-2022/04/19 15:48:21 [N:2-T:11-VF:4] server vote term to [N:3-T:12]
-2022/04/19 15:48:21 [N:5-T:11-VF:4] server vote term to [N:3-T:12]
-2022/04/19 15:48:21 server 0 sendappendentries failed to 4
-2022/04/19 15:48:21 server 6 VoteCall failed to 0
-2022/04/19 15:48:21 server 2 sendappendentries failed to 0
-2022/04/19 15:48:21 server 0 sendappendentries failed to 4
-2022/04/19 15:48:21 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:21 0 start send heart
-2022/04/19 15:48:21 Num:5--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:21 5 start vote
-2022/04/19 15:48:21 server 4 VoteCall failed to 1
-2022/04/19 15:48:21 [N:2-T:12-VF:3] server vote term to [N:5-T:13]
-2022/04/19 15:48:21 [N:4-T:12-VF:3] server vote term to [N:5-T:13]
-2022/04/19 15:48:21 [N:3-T:12-VF:3] server vote term to [N:5-T:13]
-2022/04/19 15:48:21 server 6 VoteCall failed to 0
-2022/04/19 15:48:21 Num:4--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:21 4 start vote
-2022/04/19 15:48:21 [N:5-T:13-VF:5] server vote term to [N:4-T:14]
-2022/04/19 15:48:21 [N:2-T:13-VF:5] server vote term to [N:4-T:14]
-2022/04/19 15:48:21 [N:3-T:13-VF:5] server vote term to [N:4-T:14]
-2022/04/19 15:48:21 server 0 sendappendentries failed to 3
-2022/04/19 15:48:21 server 5 VoteCall failed to 6
-2022/04/19 15:48:21 server 0 sendappendentries failed to 4
-2022/04/19 15:48:21 server 0 sendappendentries failed to 4
-2022/04/19 15:48:21 server 0 sendappendentries failed to 4
-2022/04/19 15:48:21 server 1 VoteCall failed to 3
-2022/04/19 15:48:21 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:21 0 start send heart
-2022/04/19 15:48:21 server 4 VoteCall failed to 0
-2022/04/19 15:48:21 server 1 sendappendentries failed to 2
-2022/04/19 15:48:21 server 2 sendappendentries failed to 0
-2022/04/19 15:48:21 server 6 VoteCall failed to 0
-2022/04/19 15:48:21 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:21 server 0 sendappendentries failed to 6
-2022/04/19 15:48:21 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:21 6 start vote
-2022/04/19 15:48:21 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:21 0 start send heart
-2022/04/19 15:48:21 server 0 sendappendentries failed to 4
-2022/04/19 15:48:21 server 1 VoteCall failed to 5
-2022/04/19 15:48:21 server 1 VoteCall failed to 2
-2022/04/19 15:48:21 Num:3--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:21 3 start vote
-2022/04/19 15:48:21 [N:2-T:14-VF:4] server vote term to [N:3-T:15]
-2022/04/19 15:48:21 [N:4-T:14-VF:4] server vote term to [N:3-T:15]
-2022/04/19 15:48:21 [N:5-T:14-VF:4] server vote term to [N:3-T:15]
-2022/04/19 15:48:21 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:21 0 start send heart
-2022/04/19 15:48:21 server 0 sendappendentries failed to 3
-2022/04/19 15:48:22 server 0 sendappendentries failed to 6
-2022/04/19 15:48:22 server 1 VoteCall failed to 6
-2022/04/19 15:48:22 server 1 VoteCall failed to 6
-2022/04/19 15:48:22 server 0 sendappendentries failed to 1
-2022/04/19 15:48:22 server 6 VoteCall failed to 4
-2022/04/19 15:48:22 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:22 1 start vote
-2022/04/19 15:48:22 Num:4--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:22 4 start vote
-2022/04/19 15:48:22 [N:2-T:15-VF:3] server vote term to [N:4-T:16]
-2022/04/19 15:48:22 [N:3-T:15-VF:3] server vote term to [N:4-T:16]
-2022/04/19 15:48:22 [N:5-T:15-VF:3] server vote term to [N:4-T:16]
-2022/04/19 15:48:22 server 1 VoteCall failed to 4
-2022/04/19 15:48:22 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:22 0 start send heart
-2022/04/19 15:48:22 Num:5--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:22 5 start vote
-2022/04/19 15:48:22 [N:2-T:16-VF:4] server vote term to [N:5-T:17]
-2022/04/19 15:48:22 [N:3-T:16-VF:4] server vote term to [N:5-T:17]
-2022/04/19 15:48:22 [N:4-T:16-VF:4] server vote term to [N:5-T:17]
-2022/04/19 15:48:22 server 4 VoteCall failed to 0
-2022/04/19 15:48:22 server 6 VoteCall failed to 5
-2022/04/19 15:48:22 server 0 sendappendentries failed to 5
-2022/04/19 15:48:22 server 0 sendappendentries failed to 3
-2022/04/19 15:48:22 server 0 sendappendentries failed to 4
-2022/04/19 15:48:22 server 0 sendappendentries failed to 3
-2022/04/19 15:48:22 server 0 sendappendentries failed to 3
-2022/04/19 15:48:22 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:22 0 start send heart
-2022/04/19 15:48:22 server 0 sendappendentries failed to 5
-2022/04/19 15:48:22 server 0 sendappendentries failed to 3
-2022/04/19 15:48:22 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:22 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:22 6 start vote
-2022/04/19 15:48:22 server 6 VoteCall failed to 3
-2022/04/19 15:48:22 server 1 VoteCall failed to 5
-2022/04/19 15:48:22 server 0 sendappendentries failed to 1
-2022/04/19 15:48:22 server 0 sendappendentries failed to 1
-2022/04/19 15:48:22 server 1 VoteCall failed to 5
-2022/04/19 15:48:22 server 0 sendappendentries failed to 5
-2022/04/19 15:48:22 server 2 sendappendentries failed to 0
-2022/04/19 15:48:22 server 4 VoteCall failed to 0
-2022/04/19 15:48:22 server 0 sendappendentries failed to 1
-2022/04/19 15:48:22 server 5 VoteCall failed to 1
-2022/04/19 15:48:22 server 2 sendappendentries failed to 1
-2022/04/19 15:48:22 server 0 sendappendentries failed to 2
-2022/04/19 15:48:22 server 0 sendappendentries failed to 4
-2022/04/19 15:48:22 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:22 0 start send heart
-2022/04/19 15:48:22 server 6 VoteCall failed to 3
-2022/04/19 15:48:22 Num:3--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:22 3 start vote
-2022/04/19 15:48:22 server 1 VoteCall failed to 3
-2022/04/19 15:48:22 [N:2-T:17-VF:5] server vote term to [N:3-T:18]
-2022/04/19 15:48:22 [N:5-T:17-VF:5] server vote term to [N:3-T:18]
-2022/04/19 15:48:22 [N:4-T:17-VF:5] server vote term to [N:3-T:18]
-2022/04/19 15:48:22 server 0 sendappendentries failed to 5
-2022/04/19 15:48:22 server 1 VoteCall failed to 5
-2022/04/19 15:48:22 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:22 0 start send heart
-2022/04/19 15:48:22 server 0 sendappendentries failed to 4
-2022/04/19 15:48:22 server 0 sendappendentries failed to 4
-2022/04/19 15:48:22 Num:4--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:22 4 start vote
-2022/04/19 15:48:22 [N:3-T:18-VF:3] server vote term to [N:4-T:19]
-2022/04/19 15:48:22 [N:2-T:18-VF:3] server vote term to [N:4-T:19]
-2022/04/19 15:48:22 [N:5-T:18-VF:3] server vote term to [N:4-T:19]
-2022/04/19 15:48:22 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:22 0 start send heart
-2022/04/19 15:48:22 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:22 1 start vote
-2022/04/19 15:48:22 server 0 sendappendentries failed to 6
-2022/04/19 15:48:22 Num:6--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:22 6 start vote
-2022/04/19 15:48:22 server 0 sendappendentries failed to 6
-2022/04/19 15:48:22 server 1 VoteCall failed to 6
-2022/04/19 15:48:22 Num:5--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:22 5 start vote
-2022/04/19 15:48:22 server 0 sendappendentries failed to 2
-2022/04/19 15:48:22 [N:3-T:19-VF:4] server vote term to [N:5-T:20]
-2022/04/19 15:48:22 [N:2-T:19-VF:4] server vote term to [N:5-T:20]
-2022/04/19 15:48:22 [N:4-T:19-VF:4] server vote term to [N:5-T:20]
-2022/04/19 15:48:22 server 0 sendappendentries failed to 4
-2022/04/19 15:48:22 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:22 0 start send heart
-2022/04/19 15:48:22 server 0 sendappendentries failed to 2
-2022/04/19 15:48:22 server 0 sendappendentries failed to 4
-2022/04/19 15:48:22 server 1 VoteCall failed to 4
-2022/04/19 15:48:22 server 0 sendappendentries failed to 6
-2022/04/19 15:48:22 Num:2--State:1--hasvote:true--hashert:false
-2022/04/19 15:48:22 server 0 sendappendentries failed to 1
-2022/04/19 15:48:22 server 4 VoteCall failed to 0
-2022/04/19 15:48:22 server 1 VoteCall failed to 2
-2022/04/19 15:48:22 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:22 0 start send heart
-2022/04/19 15:48:22 server 0 sendappendentries failed to 5
-2022/04/19 15:48:22 server 6 VoteCall failed to 3
-2022/04/19 15:48:22 Num:3--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:22 3 start vote
-2022/04/19 15:48:22 [N:2-T:20-VF:5] server vote term to [N:3-T:21]
-2022/04/19 15:48:22 [N:4-T:20-VF:5] server vote term to [N:3-T:21]
-2022/04/19 15:48:22 [N:5-T:20-VF:5] server vote term to [N:3-T:21]
-2022/04/19 15:48:22 server 0 sendappendentries failed to 4
-2022/04/19 15:48:22 server 3 VoteCall failed to 1
-2022/04/19 15:48:22 server 0 sendappendentries failed to 4
-2022/04/19 15:48:22 server 0 sendappendentries failed to 1
-2022/04/19 15:48:22 server 0 sendappendentries failed to 3
-2022/04/19 15:48:22 server 1 VoteCall failed to 0
-2022/04/19 15:48:22 Num:0--State:3--hasvote:false--hashert:false
-2022/04/19 15:48:22 0 start send heart
-2022/04/19 15:48:22 server 6 VoteCall failed to 0
-2022/04/19 15:48:22 Num:4--State:2--hasvote:true--hashert:false
-2022/04/19 15:48:22 4 start vote
-2022/04/19 15:48:22 [N:3-T:21-VF:3] server vote term to [N:4-T:22]
-2022/04/19 15:48:22 [N:2-T:21-VF:3] server vote term to [N:4-T:22]
-2022/04/19 15:48:22 [N:5-T:21-VF:3] server vote term to [N:4-T:22]
-2022/04/19 15:48:22 server 0 sendappendentries failed to 5
-2022/04/19 15:48:22 Num:1--State:2--hasvote:false--hashert:false
-2022/04/19 15:48:22 1 start vote
-2022/04/19 15:48:22 server 0 sendappendentries failed to 5
---- FAIL: TestManyElections2A (5.50s)
-    config.go:460: expected one leader, got none
-FAIL
+Test (2B): basic agreement ...
+2022/04/27 17:23:32 250 0 became Candidate
+2022/04/27 17:23:32 251 0 start vote 1 term 1 has all 3
+2022/04/27 17:23:32 0 251 send vote to 1 has 1
+2022/04/27 17:23:32 0 251 send vote to 2 has 1
+2022/04/27 17:23:32 253 0 term 1 get vote form 1 term 0hasall 2
+2022/04/27 17:23:32 253 serve 0 become leaderr num:2 term:1 hashert:false
+2022/04/27 17:23:32 253 0 derver go exit--1
+2022/04/27 17:23:32 253 0 term 1 get vote form 2 term 0hasall 3
+2022/04/27 17:23:32 253 0 derver go exit--2
+2022/04/27 17:23:32 253 0 term:1 ggggg
+2022/04/27 17:23:32 S0 dtime:254 send log [[] [] []]
+2022/04/27 17:23:32 S255 0 sendlog to 1 infomation {1 0 0 0 [] 0}
+labgob error: lower-case field logact of nlog in RPC or persist/snapshot will break your Raft
+2022/04/27 17:23:32 S255 0 sendlog to 2 infomation {1 0 0 0 [] 0}
+2022/04/27 17:23:32 256 2 recv hert 0 
+2022/04/27 17:23:32 257 1 recv hert 0 
+2022/04/27 17:23:32 S0 dtime:374 send log [[{1 100}] [{1 100}] [{1 100}]]
+2022/04/27 17:23:32 S375 0 sendlog to 1 infomation {1 0 0 0 [{1 100}] 0}
+2022/04/27 17:23:32 S375 0 sendlog to 2 infomation {1 0 0 0 [{1 100}] 0}
+2022/04/27 17:23:32 S0 dtime:494 send log [[{1 100}] [] []]
+2022/04/27 17:23:32 S494 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 S495 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 495 1 recv hert 0 
+2022/04/27 17:23:32 496 2 recv hert 0 
+2022/04/27 17:23:32 S0 dtime:616 send log [[{1 100}] [] []]
+2022/04/27 17:23:32 S616 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 S616 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 617 1 recv hert 0 
+2022/04/27 17:23:32 617 2 recv hert 0 
+2022/04/27 17:23:32 S0 dtime:742 send log [[{1 100}] [] []]
+2022/04/27 17:23:32 S742 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 S742 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 744 1 recv hert 0 
+2022/04/27 17:23:32 744 2 recv hert 0 
+2022/04/27 17:23:32 S0 dtime:866 send log [[{1 100}] [] []]
+2022/04/27 17:23:32 S866 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 S866 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 868 1 recv hert 0 
+2022/04/27 17:23:32 868 2 recv hert 0 
+2022/04/27 17:23:32 S0 dtime:989 send log [[{1 100}] [] []]
+2022/04/27 17:23:32 S989 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 S990 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:32 990 2 recv hert 0 
+2022/04/27 17:23:32 991 1 recv hert 0 
+2022/04/27 17:23:33 S0 dtime:116 send log [[{1 100}] [] []]
+2022/04/27 17:23:33 S116 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 S116 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 117 1 recv hert 0 
+2022/04/27 17:23:33 117 2 recv hert 0 
+2022/04/27 17:23:33 S0 dtime:250 send log [[{1 100}] [] []]
+2022/04/27 17:23:33 S250 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 S250 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 251 1 recv hert 0 
+2022/04/27 17:23:33 251 2 recv hert 0 
+2022/04/27 17:23:33 S0 dtime:383 send log [[{1 100}] [] []]
+2022/04/27 17:23:33 S383 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 S383 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 385 1 recv hert 0 
+2022/04/27 17:23:33 385 2 recv hert 0 
+2022/04/27 17:23:33 S0 dtime:510 send log [[{1 100}] [] []]
+2022/04/27 17:23:33 S510 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 S511 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 511 1 recv hert 0 
+2022/04/27 17:23:33 512 2 recv hert 0 
+2022/04/27 17:23:33 S0 dtime:642 send log [[{1 100}] [] []]
+2022/04/27 17:23:33 S642 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 S642 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 643 2 recv hert 0 
+2022/04/27 17:23:33 643 1 recv hert 0 
+2022/04/27 17:23:33 S0 dtime:772 send log [[{1 100}] [] []]
+2022/04/27 17:23:33 S772 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 S772 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 773 2 recv hert 0 
+2022/04/27 17:23:33 773 1 recv hert 0 
+2022/04/27 17:23:33 S0 dtime:902 send log [[{1 100}] [] []]
+2022/04/27 17:23:33 S902 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 S902 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:33 903 2 recv hert 0 
+2022/04/27 17:23:33 903 1 recv hert 0 
+2022/04/27 17:23:34 S0 dtime:29 send log [[{1 100}] [] []]
+2022/04/27 17:23:34 S30 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:34 S30 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:34 30 2 recv hert 0 
+2022/04/27 17:23:34 30 1 recv hert 0 
+2022/04/27 17:23:34 S0 dtime:159 send log [[{1 100}] [] []]
+2022/04/27 17:23:34 S159 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:34 S160 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:34 160 2 recv hert 0 
+2022/04/27 17:23:34 161 1 recv hert 0 
+--- FAIL: TestBasicAgree2B (2.36s)
+    config.go:603: one(100) failed to reach agreement
+Test (2B): RPC byte count ...
+2022/04/27 17:23:34 690 0 became Candidate
+2022/04/27 17:23:34 690 0 start vote 1 term 1 has all 3
+2022/04/27 17:23:34 0 690 send vote to 2 has 1
+2022/04/27 17:23:34 0 691 send vote to 1 has 1
+2022/04/27 17:23:34 692 0 term 1 get vote form 2 term 0hasall 2
+2022/04/27 17:23:34 692 serve 0 become leaderr num:2 term:1 hashert:false
+2022/04/27 17:23:34 692 0 derver go exit--2
+2022/04/27 17:23:34 694 0 term 1 get vote form 1 term 0hasall 3
+2022/04/27 17:23:34 694 0 derver go exit--1
+2022/04/27 17:23:34 S0 dtime:694 send log [[] [] []]
+2022/04/27 17:23:34 S694 0 sendlog to 2 infomation {1 0 0 0 [] 0}
+2022/04/27 17:23:34 694 0 term:1 ggggg
+2022/04/27 17:23:34 S694 0 sendlog to 1 infomation {1 0 0 0 [] 0}
+2022/04/27 17:23:34 695 2 recv hert 0 
+2022/04/27 17:23:34 696 1 recv hert 0 
+2022/04/27 17:23:34 S0 dtime:897 send log [[{1 99}] [{1 99}] [{1 99}]]
+2022/04/27 17:23:34 S897 0 sendlog to 2 infomation {1 0 0 0 [{1 99}] 0}
+2022/04/27 17:23:34 S898 0 sendlog to 1 infomation {1 0 0 0 [{1 99}] 0}
+2022/04/27 17:23:35 S0 dtime:98 send log [[{1 99}] [] []]
+2022/04/27 17:23:35 S99 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 S99 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 100 2 recv hert 0 
+2022/04/27 17:23:35 100 1 recv hert 0 
+2022/04/27 17:23:35 S0 dtime:301 send log [[{1 99}] [] []]
+2022/04/27 17:23:35 S301 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 S301 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 301 2 recv hert 0 
+2022/04/27 17:23:35 303 1 recv hert 0 
+2022/04/27 17:23:35 S0 dtime:504 send log [[{1 99}] [] []]
+2022/04/27 17:23:35 S504 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 S505 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 505 1 recv hert 0 
+2022/04/27 17:23:35 506 2 recv hert 0 
+2022/04/27 17:23:35 S0 dtime:707 send log [[{1 99}] [] []]
+2022/04/27 17:23:35 S707 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 S707 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 708 2 recv hert 0 
+2022/04/27 17:23:35 709 1 recv hert 0 
+2022/04/27 17:23:35 S0 dtime:910 send log [[{1 99}] [] []]
+2022/04/27 17:23:35 S910 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 S910 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:35 912 2 recv hert 0 
+2022/04/27 17:23:35 912 1 recv hert 0 
+2022/04/27 17:23:36 S0 dtime:113 send log [[{1 99}] [] []]
+2022/04/27 17:23:36 S113 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:36 S113 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:36 115 2 recv hert 0 
+2022/04/27 17:23:36 115 1 recv hert 0 
+2022/04/27 17:23:36 S0 dtime:317 send log [[{1 99}] [] []]
+2022/04/27 17:23:36 S318 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:36 S318 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:36 318 2 recv hert 0 
+2022/04/27 17:23:36 319 1 recv hert 0 
+2022/04/27 17:23:36 S0 dtime:518 send log [[{1 99}] [] []]
+2022/04/27 17:23:36 S519 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:36 S519 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:36 520 1 recv hert 0 
+2022/04/27 17:23:36 520 2 recv hert 0 
+2022/04/27 17:23:36 S0 dtime:722 send log [[{1 99}] [] []]
+2022/04/27 17:23:36 S722 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:36 S722 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:36 724 2 recv hert 0 
+2022/04/27 17:23:36 724 1 recv hert 0 
+--- FAIL: TestRPCBytes2B (2.47s)
+    config.go:603: one(99) failed to reach agreement
+Test (2B): agreement after follower reconnects ...
+2022/04/27 17:23:37 169 2 became Candidate
+2022/04/27 17:23:37 170 2 start vote 1 term 1 has all 3
+2022/04/27 17:23:37 2 170 send vote to 1 has 1
+2022/04/27 17:23:37 2 171 send vote to 0 has 1
+2022/04/27 17:23:37 172 2 term 1 get vote form 0 term 0hasall 2
+2022/04/27 17:23:37 172 serve 2 become leaderr num:2 term:1 hashert:false
+2022/04/27 17:23:37 172 2 derver go exit--0
+2022/04/27 17:23:37 172 2 term 1 get vote form 1 term 0hasall 3
+2022/04/27 17:23:37 172 2 derver go exit--1
+2022/04/27 17:23:37 172 2 term:1 ggggg
+2022/04/27 17:23:37 S2 dtime:176 send log [[] [] []]
+2022/04/27 17:23:37 S176 2 sendlog to 0 infomation {1 2 0 0 [] 0}
+2022/04/27 17:23:37 S176 2 sendlog to 1 infomation {1 2 0 0 [] 0}
+2022/04/27 17:23:37 177 1 recv hert 2 
+2022/04/27 17:23:37 178 0 recv hert 2 
+2022/04/27 17:23:37 S2 dtime:379 send log [[{1 101}] [{1 101}] [{1 101}]]
+2022/04/27 17:23:37 S379 2 sendlog to 0 infomation {1 2 0 0 [{1 101}] 0}
+2022/04/27 17:23:37 S379 2 sendlog to 1 infomation {1 2 0 0 [{1 101}] 0}
+2022/04/27 17:23:37 S2 dtime:585 send log [[] [] [{1 101}]]
+2022/04/27 17:23:37 S585 2 sendlog to 1 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:37 S585 2 sendlog to 0 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:37 586 1 recv hert 2 
+2022/04/27 17:23:37 587 0 recv hert 2 
+2022/04/27 17:23:37 S2 dtime:794 send log [[] [] [{1 101}]]
+2022/04/27 17:23:37 S794 2 sendlog to 0 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:37 S795 2 sendlog to 1 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:37 796 0 recv hert 2 
+2022/04/27 17:23:37 796 1 recv hert 2 
+2022/04/27 17:23:38 S2 dtime:2 send log [[] [] [{1 101}]]
+2022/04/27 17:23:38 S2 2 sendlog to 0 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 S2 2 sendlog to 1 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 4 0 recv hert 2 
+2022/04/27 17:23:38 5 1 recv hert 2 
+2022/04/27 17:23:38 S2 dtime:208 send log [[] [] [{1 101}]]
+2022/04/27 17:23:38 S208 2 sendlog to 0 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 S208 2 sendlog to 1 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 209 0 recv hert 2 
+2022/04/27 17:23:38 210 1 recv hert 2 
+2022/04/27 17:23:38 S2 dtime:414 send log [[] [] [{1 101}]]
+2022/04/27 17:23:38 S414 2 sendlog to 1 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 S415 2 sendlog to 0 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 416 0 recv hert 2 
+2022/04/27 17:23:38 416 1 recv hert 2 
+2022/04/27 17:23:38 S2 dtime:621 send log [[] [] [{1 101}]]
+2022/04/27 17:23:38 S621 2 sendlog to 0 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 S621 2 sendlog to 1 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 622 0 recv hert 2 
+2022/04/27 17:23:38 622 1 recv hert 2 
+2022/04/27 17:23:38 S2 dtime:826 send log [[] [] [{1 101}]]
+2022/04/27 17:23:38 S826 2 sendlog to 0 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 S827 2 sendlog to 1 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:38 827 1 recv hert 2 
+2022/04/27 17:23:38 828 0 recv hert 2 
+2022/04/27 17:23:39 S2 dtime:32 send log [[] [] [{1 101}]]
+2022/04/27 17:23:39 S32 2 sendlog to 1 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:39 S33 2 sendlog to 0 infomation {1 2 1 1 [] 1}
+2022/04/27 17:23:39 34 1 recv hert 2 
+2022/04/27 17:23:39 34 0 recv hert 2 
+--- FAIL: TestFailAgree2B (2.44s)
+    config.go:603: one(101) failed to reach agreement
+Test (2B): no agreement if too many followers disconnect ...
+2022/04/27 17:23:39 601 0 became Candidate
+2022/04/27 17:23:39 601 0 start vote 1 term 1 has all 5
+2022/04/27 17:23:39 0 601 send vote to 2 has 1
+2022/04/27 17:23:39 0 601 send vote to 1 has 1
+2022/04/27 17:23:39 0 601 send vote to 4 has 1
+2022/04/27 17:23:39 0 601 send vote to 3 has 1
+2022/04/27 17:23:39 605 0 term 1 get vote form 1 term 0hasall 2
+2022/04/27 17:23:39 605 0 derver go exit--1
+2022/04/27 17:23:39 605 0 term 1 get vote form 3 term 0hasall 3
+2022/04/27 17:23:39 605 serve 0 become leaderr num:3 term:1 hashert:false
+2022/04/27 17:23:39 605 0 derver go exit--3
+2022/04/27 17:23:39 605 0 term 1 get vote form 4 term 0hasall 4
+2022/04/27 17:23:39 605 0 derver go exit--4
+2022/04/27 17:23:39 S0 dtime:605 send log [[] [] [] [] []]
+2022/04/27 17:23:39 S605 0 sendlog to 3 infomation {1 0 0 0 [] 0}
+2022/04/27 17:23:39 S605 0 sendlog to 1 infomation {1 0 0 0 [] 0}
+2022/04/27 17:23:39 S606 0 sendlog to 2 infomation {1 0 0 0 [] 0}
+2022/04/27 17:23:39 S606 0 sendlog to 4 infomation {1 0 0 0 [] 0}
+2022/04/27 17:23:39 607 1 recv hert 0 
+2022/04/27 17:23:39 607 4 recv hert 0 
+2022/04/27 17:23:39 608 2 recv hert 0 
+2022/04/27 17:23:39 608 3 recv hert 0 
+2022/04/27 17:23:39 608 0 term 1 get vote form 2 term 0hasall 5
+2022/04/27 17:23:39 608 0 derver go exit--2
+2022/04/27 17:23:39 609 0 term:1 ggggg
+2022/04/27 17:23:39 S0 dtime:817 send log [[{1 10}] [{1 10}] [{1 10}] [{1 10}] [{1 10}]]
+2022/04/27 17:23:39 S817 0 sendlog to 1 infomation {1 0 0 0 [{1 10}] 0}
+2022/04/27 17:23:39 S817 0 sendlog to 2 infomation {1 0 0 0 [{1 10}] 0}
+2022/04/27 17:23:39 S818 0 sendlog to 3 infomation {1 0 0 0 [{1 10}] 0}
+2022/04/27 17:23:39 S818 0 sendlog to 4 infomation {1 0 0 0 [{1 10}] 0}
+2022/04/27 17:23:40 S0 dtime:34 send log [[{1 10}] [] [] [] []]
+2022/04/27 17:23:40 S35 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S35 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S35 0 sendlog to 3 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S35 0 sendlog to 4 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 37 4 recv hert 0 
+2022/04/27 17:23:40 38 1 recv hert 0 
+2022/04/27 17:23:40 39 2 recv hert 0 
+2022/04/27 17:23:40 39 3 recv hert 0 
+2022/04/27 17:23:40 S0 dtime:249 send log [[{1 10}] [] [] [] []]
+2022/04/27 17:23:40 S249 0 sendlog to 3 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S249 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S250 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S250 0 sendlog to 4 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 250 2 recv hert 0 
+2022/04/27 17:23:40 251 4 recv hert 0 
+2022/04/27 17:23:40 252 3 recv hert 0 
+2022/04/27 17:23:40 252 1 recv hert 0 
+2022/04/27 17:23:40 S0 dtime:462 send log [[{1 10}] [] [] [] []]
+2022/04/27 17:23:40 S462 0 sendlog to 4 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S462 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S462 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S462 0 sendlog to 3 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 463 4 recv hert 0 
+2022/04/27 17:23:40 465 3 recv hert 0 
+2022/04/27 17:23:40 465 2 recv hert 0 
+2022/04/27 17:23:40 466 1 recv hert 0 
+2022/04/27 17:23:40 S0 dtime:670 send log [[{1 10}] [] [] [] []]
+2022/04/27 17:23:40 S671 0 sendlog to 3 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S671 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S671 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S671 0 sendlog to 4 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 673 1 recv hert 0 
+2022/04/27 17:23:40 673 3 recv hert 0 
+2022/04/27 17:23:40 673 2 recv hert 0 
+2022/04/27 17:23:40 674 4 recv hert 0 
+2022/04/27 17:23:40 S0 dtime:883 send log [[{1 10}] [] [] [] []]
+2022/04/27 17:23:40 S883 0 sendlog to 4 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S883 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S884 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 S884 0 sendlog to 3 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:40 885 1 recv hert 0 
+2022/04/27 17:23:40 885 2 recv hert 0 
+2022/04/27 17:23:40 886 3 recv hert 0 
+2022/04/27 17:23:40 886 4 recv hert 0 
+2022/04/27 17:23:41 S0 dtime:92 send log [[{1 10}] [] [] [] []]
+2022/04/27 17:23:41 S92 0 sendlog to 3 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 S92 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 S92 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 S92 0 sendlog to 4 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 94 4 recv hert 0 
+2022/04/27 17:23:41 94 3 recv hert 0 
+2022/04/27 17:23:41 95 1 recv hert 0 
+2022/04/27 17:23:41 95 2 recv hert 0 
+2022/04/27 17:23:41 S0 dtime:303 send log [[{1 10}] [] [] [] []]
+2022/04/27 17:23:41 S303 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 S303 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 S303 0 sendlog to 3 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 S304 0 sendlog to 4 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 305 2 recv hert 0 
+2022/04/27 17:23:41 305 3 recv hert 0 
+2022/04/27 17:23:41 305 4 recv hert 0 
+2022/04/27 17:23:41 306 1 recv hert 0 
+2022/04/27 17:23:41 S0 dtime:518 send log [[{1 10}] [] [] [] []]
+2022/04/27 17:23:41 S518 0 sendlog to 1 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 S518 0 sendlog to 2 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 S519 0 sendlog to 3 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 S519 0 sendlog to 4 infomation {1 0 1 1 [] 1}
+2022/04/27 17:23:41 521 4 recv hert 0 
+2022/04/27 17:23:41 522 1 recv hert 0 
+2022/04/27 17:23:41 522 3 recv hert 0 
+2022/04/27 17:23:41 523 2 recv hert 0 
+--- FAIL: TestFailNoAgree2B (2.46s)
+    config.go:603: one(10) failed to reach agreement
+Test (2B): concurrent Start()s ...
+2022/04/27 17:23:42 130 1 became Candidate
+2022/04/27 17:23:42 131 1 start vote 1 term 1 has all 3
+2022/04/27 17:23:42 1 132 send vote to 0 has 1
+2022/04/27 17:23:42 1 132 send vote to 2 has 1
+2022/04/27 17:23:42 134 1 term 1 get vote form 0 term 0hasall 2
+2022/04/27 17:23:42 134 serve 1 become leaderr num:2 term:1 hashert:false
+2022/04/27 17:23:42 134 1 derver go exit--0
+2022/04/27 17:23:42 135 1 term 1 get vote form 2 term 0hasall 3
+2022/04/27 17:23:42 135 1 derver go exit--2
+2022/04/27 17:23:42 S1 dtime:135 send log [[] [] []]
+2022/04/27 17:23:42 S135 1 sendlog to 0 infomation {1 1 0 0 [] 0}
+2022/04/27 17:23:42 135 1 term:1 ggggg
+2022/04/27 17:23:42 S136 1 sendlog to 2 infomation {1 1 0 0 [] 0}
+2022/04/27 17:23:42 137 0 recv hert 1 
+2022/04/27 17:23:42 137 2 recv hert 1 
+2022/04/27 17:23:42 S1 dtime:348 send log [[] [] []]
+2022/04/27 17:23:42 S349 1 sendlog to 2 infomation {1 1 0 0 [] 0}
+2022/04/27 17:23:42 S349 1 sendlog to 0 infomation {1 1 0 0 [] 0}
+2022/04/27 17:23:42 350 2 recv hert 1 
+2022/04/27 17:23:42 351 0 recv hert 1 
+2022/04/27 17:23:42 S1 dtime:562 send log [[] [] []]
+2022/04/27 17:23:42 S562 1 sendlog to 0 infomation {1 1 0 0 [] 0}
+2022/04/27 17:23:42 S563 1 sendlog to 2 infomation {1 1 0 0 [] 0}
+2022/04/27 17:23:42 563 2 recv hert 1 
+2022/04/27 17:23:42 564 0 recv hert 1 
+2022/04/27 17:23:42 leader-----1
+2022/04/27 17:23:42 S1 dtime:773 send log [[{1 1} {1 100} {1 103} {1 101} {1 104} {1 102}] [{1 1} {1 100} {1 103} {1 101} {1 104} {1 102}] [{1 1} {1 100} {1 103} {1 101} {1 104} {1 102}]]
+2022/04/27 17:23:42 S774 1 sendlog to 2 infomation {1 1 0 0 [{1 1} {1 100} {1 103} {1 101} {1 104} {1 102}] 0}
+2022/04/27 17:23:42 S774 1 sendlog to 0 infomation {1 1 0 0 [{1 1} {1 100} {1 103} {1 101} {1 104} {1 102}] 0}
+2022/04/27 17:23:42 S1 dtime:993 send log [[] [{1 1} {1 100} {1 103} {1 101} {1 104} {1 102}] []]
+2022/04/27 17:23:42 S993 1 sendlog to 0 infomation {1 1 6 1 [] 6}
+2022/04/27 17:23:42 S993 1 sendlog to 2 infomation {1 1 6 1 [] 6}
+2022/04/27 17:23:43 2 0 recv hert 1 
+2022/04/27 17:23:43 0: log map[0:{0 <nil>}]; server map[0:{0 <nil>} 1:{1 1} 2:{1 100} 3:{1 103} 4:{1 101} 5:{1 104}]
+2022/04/27 17:23:43 apply error: commit index=1 server=0 {1 <nil>} != server=1 {1 1}
 exit status 1
-FAIL	6.824/raft	16.130s
+FAIL	6.824/raft	11.097s
