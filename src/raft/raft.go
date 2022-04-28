@@ -58,7 +58,7 @@ type ApplyMsg struct {
 }
 type nlog struct {
 	Term   int
-	logact interface{}
+	Logact interface{}
 }
 
 //
@@ -238,20 +238,23 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	} else {
 		reply.Success = false
 	}
-	if reply.Success && args.Entries == nil {
+	if reply.Success && args.Entries != nil { //如果有log加入其中
+		for i := 0; i < len(args.Entries); i++ {
+			info := args.Entries[i]
+			rf.logs = append(rf.logs, info)
+		}
+	}
+	if reply.Success && rf.commitIndex < args.LeaderCommit {
 		if args.LeaderCommit > args.PrevLogIndex {
 			rf.commitIndex = args.PrevLogIndex
 		} else {
 			rf.commitIndex = args.LeaderCommit
 		}
 		rf.cond.Signal()
-		log.Printf("%v %d recv hert %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, args.Leaderid)
-	} else if reply.Success && args.Entries != nil {
-		for i := 0; i < len(args.Entries); i++ {
-			rf.logs = append(rf.logs, args.Entries[i])
-		}
+		log.Printf("%v %d add commit to %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.commitIndex)
 	}
-	//log.Printf("%v [%d] server recv AppendEntries to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, args.Leaderid)
+	log.Printf("%v %d recv hert from %d succes:%v term:%d log:%v commit:%d appindex%d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000,
+		rf.me, args.Leaderid, reply.Success, rf.currentTerm, rf.logs, rf.commitIndex, rf.lastapplied)
 }
 
 //
@@ -315,12 +318,12 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	if isLeader {
 		rf.logs = append(rf.logs, nlog{
 			Term:   term,
-			logact: command})
+			Logact: command})
+		log.Printf("leader get log %v", command)
 	}
 	index = len(rf.logs) - 1
 	rf.mu.Unlock()
 	// Your code here (2B).
-
 	return index, term, isLeader
 }
 
@@ -355,7 +358,7 @@ func (rf *Raft) startvote() {
 	var num int64
 	num = 1
 	n := len(rf.peers)
-	log.Printf("%v %d start vote %d term %d has all %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.currentTerm, n)
+	log.Printf("%v %d start vote %d term %d in all %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.currentTerm, n)
 	wg := sync.WaitGroup{}
 	rf.mu.Unlock()
 	wg.Add(n - 1)
@@ -369,17 +372,12 @@ func (rf *Raft) startvote() {
 					Lastlogindex: laslogindex,
 					Lastlogterm:  lastlogterm,
 				}
-				log.Printf("%v %v send vote to %v has %d", me, time.Now().UnixNano()/1e6-time.Now().Unix()*1000, node, atomic.LoadInt64(&num))
 				reply := RequestVoteReply{}
-				//log.Printf(" %v%d has vote  %d int %d 337",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, me, atomic.LoadInt64(&num), node)
 				ok := rf.sendRequestVote(node, &args, &reply)
 				rf.mu.Lock()
 				defer rf.mu.Unlock()
-				//log.Printf(" %v%d has vote  %d int %d 339",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, me, atomic.LoadInt64(&num), node)
 				if !ok {
 					log.Printf("%v server %d term %d VoteCall failed to %d had vote %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node, atomic.LoadInt64(&num))
-					//log.Printf("%v %d finally has  vote %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num)
-					log.Printf("%v %d derver go exit--%d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 					return
 				}
 				if reply.Term > args.Term {
@@ -387,7 +385,7 @@ func (rf *Raft) startvote() {
 				}
 				if reply.Votefor {
 					atomic.AddInt64(&num, 1)
-					log.Printf("%v %d term %d get vote form %d term %dhasall %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node, reply.Term, atomic.LoadInt64(&num))
+					log.Printf("%v %d term %d get vote form %d term %d hasall %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node, reply.Term, atomic.LoadInt64(&num))
 					if int(atomic.LoadInt64(&num)) > n/2 && !rf.hasheat && rf.state == Candidate {
 						log.Printf("%v serve %d become leaderr num:%d term:%d hashert:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.currentTerm, rf.hasheat)
 						rf.state = Leader
@@ -396,17 +394,13 @@ func (rf *Raft) startvote() {
 				} else {
 					log.Printf("%v %d term %d not get vote from %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node)
 				}
-				log.Printf("%v %d derver go exit--%d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 			}(node)
-			//log.Printf("V%v ote:%d,num:%d,votefor:%v",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, me, num, reply.Votefor)
 		}
 	}
 	wg.Wait()
-	log.Printf("%v %d term:%d ggggg", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, currentTerm)
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	if rf.state != Leader {
-		log.Printf("%v %d server term:%d should vote again-- %d %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, num, rf.hasheat)
 	} else {
 		loglen := len(rf.logs)
 		for i := 0; i < len(rf.peers); i++ {
@@ -419,6 +413,7 @@ func (rf *Raft) sendlog() {
 	var prevterm []int
 	var numlog int64
 	var entries [][]nlog
+	numlog = 1
 	rf.mu.Lock()
 	currentTerm := rf.currentTerm
 	me := rf.me
@@ -432,7 +427,7 @@ func (rf *Raft) sendlog() {
 			entries[i] = append(entries[i], rf.logs[t])
 		}
 	}
-	log.Printf("S%v dtime:%v send log %v", rf.me, time.Now().UnixNano()/1e6-time.Now().Unix()*1000, entries)
+	log.Printf("%v %v start send log", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
 	rf.mu.Unlock()
 	wg := sync.WaitGroup{}
 	num := len(rf.peers) - 1
@@ -450,11 +445,10 @@ func (rf *Raft) sendlog() {
 					LeaderCommit: commit,
 				}
 				reply := AppendEntriesReply{}
-				log.Printf("S%v %v sendlog to %d infomation %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node, args)
+				//log.Printf("%v %v sendlog to %d info Term,Leadid,PrevIndex,PrevTerm,Entries,LeadCommit%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node, args)
 				ok := rf.sendAppendEntries(node, &args, &reply)
 				if !ok {
 					log.Printf("S%v %v sendlog failed to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
-					log.Printf("%v %d derver go exit--%d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 					return
 				}
 				if reply.Term > args.Term {
@@ -463,7 +457,6 @@ func (rf *Raft) sendlog() {
 					rf.state = Foller
 					log.Printf("%v %d become foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
 					rf.mu.Unlock()
-					//log.Printf("%v %d derver go exit--%d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 					return
 				}
 				if args.Entries != nil {
@@ -471,7 +464,7 @@ func (rf *Raft) sendlog() {
 						atomic.AddInt64(&numlog, 1)
 						rf.mu.Lock()
 						rf.nextIndex[node] += len(args.Entries)
-						rf.matchIndex[node] = rf.nextIndex[node] - 1
+						rf.matchIndex[node] += len(args.Entries)
 						if atomic.LoadInt64(&numlog) > int64(num)/2 {
 							rf.commitIndex = loglen - 1
 							rf.cond.Signal()
@@ -581,7 +574,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.hasvote = true
 	rf.hasheat = true
 	rf.cond = sync.NewCond(&rf.mu)
-	rf.logs = append(rf.logs, nlog{0, nil})
+	rf.logs = append(rf.logs, nlog{0, 123456})
 	for i := 0; i < len(rf.peers); i++ {
 		rf.matchIndex = append(rf.matchIndex, 0)
 		rf.nextIndex = append(rf.nextIndex, 1)
@@ -590,20 +583,21 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
 	go func() { //通过applech 发送AppleMsg消息
-		index := 0
 		for {
 			apply := ApplyMsg{}
 			rf.mu.Lock()
-			for rf.commitIndex == index {
+			for rf.commitIndex == rf.lastapplied {
 				rf.cond.Wait()
 			}
-			if index != rf.commitIndex {
-				apply.Command = rf.logs[index]
-				apply.CommandIndex = index
-				index++
+			for rf.lastapplied != rf.commitIndex {
+				rf.lastapplied++
+				apply.Command = rf.logs[rf.lastapplied].Logact
+				apply.CommandIndex = rf.lastapplied
 				apply.CommandValid = true
+				applyCh <- apply
+				log.Printf("%d log apploginde++to %d log %v", rf.me, rf.lastapplied, apply.Command)
 			}
-			applyCh <- apply
+			log.Printf("%d term %d logs %v comitindex%d", rf.me, rf.currentTerm, rf.logs, rf.commitIndex)
 			rf.mu.Unlock()
 		}
 	}()
