@@ -86,7 +86,6 @@ type Raft struct {
 	// Your data here (2A, 2B, 2C).
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
-
 }
 
 // return currentTerm and whether this server
@@ -212,11 +211,14 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		//log.Printf("%%v v[N:%d-T:%d-VF:%d] server vote term to [N:%d-T:%d]",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, time.Now().UnixMicro(), rf.me, rf.currentTerm, rf.votedFor, args.Candidateid, args.Term)
 		rf.votedFor = args.Candidateid
 	} else if rf.currentTerm < args.Term {
-		reply.Votefor = true
-		rf.hasvote = true
-		//log.Printf("%v server %d term %d became %d term %d foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, args.Candidateid, args.Term)
-		rf.votedFor = args.Candidateid
 		rf.currentTerm = args.Term
+		if rf.logs[len(rf.logs)-1].Term <= args.Lastlogterm && len(rf.logs)-1 <= args.Lastlogindex {
+			reply.Votefor = true
+			rf.hasvote = true
+		} else {
+			reply.Votefor = false
+		}
+		//log.Printf("%v server %d term %d became %d term %d foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, args.Candidateid, args.Term)
 	} else {
 		reply.Votefor = false
 		//log.Printf("[%v %d] server not vote term to %d",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, rf.me, args.Candidateid)
@@ -226,35 +228,43 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
+	log.Printf("node %d recv %v", rf.me, args)
 	if rf.currentTerm <= args.Term { //线判断任期
+		rf.currentTerm = args.Term
 		rf.hasheat = true
 		rf.state = Foller
-		if args.PrevLogIndex == len(rf.logs)-1 { //再判断log长度
-			reply.Success = true
-			//log.Printf("%v %d fail append log %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, args.Leaderid)
-		} else {
-			reply.Success = false
-		}
+		reply.Success = true
+		//log.Printf("%v %d fail append log %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, args.Leaderid)
 	} else {
 		reply.Success = false
 	}
-	if reply.Success && args.Entries != nil { //如果有log加入其中
+	if reply.Success && args.Entries != nil { //log加入其中
+		lens := len(rf.logs)
 		for i := 0; i < len(args.Entries); i++ {
+			if i+args.PrevLogIndex+1 < lens {
+				if rf.logs[i+args.PrevLogIndex+1] != args.Entries[i] {
+					rf.logs = rf.logs[:i+args.PrevLogIndex+1]
+					continue
+				}
+			}
 			info := args.Entries[i]
 			rf.logs = append(rf.logs, info)
 		}
 	}
 	if reply.Success && rf.commitIndex < args.LeaderCommit {
-		if args.LeaderCommit > args.PrevLogIndex {
-			rf.commitIndex = args.PrevLogIndex
+		if args.LeaderCommit > len(rf.logs)-1 {
+			rf.commitIndex = len(rf.logs) - 1
 		} else {
 			rf.commitIndex = args.LeaderCommit
 		}
 		rf.cond.Signal()
 		log.Printf("%v %d add commit to %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.commitIndex)
 	}
-	log.Printf("%v %d recv hert from %d succes:%v term:%d log:%v commit:%d appindex%d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000,
-		rf.me, args.Leaderid, reply.Success, rf.currentTerm, rf.logs, rf.commitIndex, rf.lastapplied)
+	//log.Printf("%v %d recv hert from %d succes:%v term:%d log:%v commit:%d appindex%d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000,
+	//rf.me, args.Leaderid, reply.Success, rf.currentTerm, rf.logs, rf.commitIndex, rf.lastapplied)
+	if !reply.Success {
+		log.Printf("%d log %d term %v fail addlog %v", rf.me, rf.currentTerm, rf.logs, args)
+	}
 }
 
 //
@@ -427,7 +437,7 @@ func (rf *Raft) sendlog() {
 			entries[i] = append(entries[i], rf.logs[t])
 		}
 	}
-	log.Printf("%v %v start send log", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
+	log.Printf("%v %v start send log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.logs)
 	rf.mu.Unlock()
 	wg := sync.WaitGroup{}
 	num := len(rf.peers) - 1
@@ -464,7 +474,7 @@ func (rf *Raft) sendlog() {
 						atomic.AddInt64(&numlog, 1)
 						rf.mu.Lock()
 						rf.nextIndex[node] += len(args.Entries)
-						rf.matchIndex[node] += len(args.Entries)
+						rf.matchIndex[node] = rf.nextIndex[node] - 1
 						if atomic.LoadInt64(&numlog) > int64(num)/2 {
 							rf.commitIndex = loglen - 1
 							rf.cond.Signal()
@@ -473,6 +483,9 @@ func (rf *Raft) sendlog() {
 					} else {
 						rf.mu.Lock()
 						rf.nextIndex[node]--
+						if rf.nextIndex[node] < rf.commitIndex {
+							rf.nextIndex[node] = rf.commitIndex
+						}
 						rf.mu.Unlock()
 					}
 				}
@@ -574,7 +587,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.hasvote = true
 	rf.hasheat = true
 	rf.cond = sync.NewCond(&rf.mu)
-	rf.logs = append(rf.logs, nlog{0, 123456})
+	rf.logs = append(rf.logs, nlog{0, 123})
 	for i := 0; i < len(rf.peers); i++ {
 		rf.matchIndex = append(rf.matchIndex, 0)
 		rf.nextIndex = append(rf.nextIndex, 1)
@@ -589,7 +602,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 			for rf.commitIndex == rf.lastapplied {
 				rf.cond.Wait()
 			}
-			for rf.lastapplied != rf.commitIndex {
+			for rf.lastapplied < rf.commitIndex {
 				rf.lastapplied++
 				apply.Command = rf.logs[rf.lastapplied].Logact
 				apply.CommandIndex = rf.lastapplied
