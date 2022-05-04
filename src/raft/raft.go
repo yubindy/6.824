@@ -228,12 +228,14 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
-	log.Printf("node %d recv %v", rf.me, args)
+	log.Printf("node %d log %v recv %v", rf.me, rf.logs, args)
 	if rf.currentTerm <= args.Term { //线判断任期
 		rf.currentTerm = args.Term
-		rf.hasheat = true
 		rf.state = Foller
-		reply.Success = true
+		if rf.logs[len(rf.logs)-1].Term == args.PrevLogTerm && len(rf.logs)-1 == args.PrevLogIndex {
+			rf.hasheat = true
+			reply.Success = true
+		}
 		//log.Printf("%v %d fail append log %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, args.Leaderid)
 	} else {
 		reply.Success = false
@@ -410,8 +412,7 @@ func (rf *Raft) startvote() {
 	wg.Wait()
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
-	if rf.state != Leader {
-	} else {
+	if rf.state == Leader {
 		loglen := len(rf.logs)
 		for i := 0; i < len(rf.peers); i++ {
 			rf.nextIndex[i] = loglen
