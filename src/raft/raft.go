@@ -261,6 +261,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			info := args.Entries[i]
 			rf.logs = append(rf.logs, info)
 		}
+		log.Printf("node %d become %v", rf.me, rf.logs)
 	}
 	if reply.Success && rf.commitIndex < args.LeaderCommit {
 		if args.LeaderCommit > len(rf.logs)-1 {
@@ -347,7 +348,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 		rf.logs = append(rf.logs, nlog{
 			Term:   term,
 			Logact: command})
-		log.Printf("leader get log %v", command)
+		log.Printf("%d leader get log %v", rf.me, command)
 	}
 	index = len(rf.logs) - 1
 	rf.mu.Unlock()
@@ -520,9 +521,6 @@ func (rf *Raft) sendlog() {
 					}
 					rf.nextIndex[node] = reply.Failindex
 					log.Printf("%v %d set nextindex [%d] = %d next:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, rf.nextIndex[node], rf.nextIndex)
-					//if rf.nextIndex[node] < rf.commitIndex {
-					//rf.nextIndex[node] = rf.commitIndex
-					//}
 				}
 				rf.mu.Unlock()
 			}(node)
