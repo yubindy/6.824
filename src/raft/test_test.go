@@ -477,7 +477,7 @@ func TestRejoin2B(t *testing.T) {
 	// leader network failure
 	leader1 := cfg.checkOneLeader()
 	cfg.disconnect(leader1)
-
+	log.Printf("%d---------is old leader disconn", leader1)
 	// make old leader try to agree on some entries
 	cfg.rafts[leader1].Start(102)
 	cfg.rafts[leader1].Start(103)
@@ -489,15 +489,15 @@ func TestRejoin2B(t *testing.T) {
 	// new leader network failure
 	leader2 := cfg.checkOneLeader()
 	cfg.disconnect(leader2)
-
+	log.Printf("%d---------is new leader disconn", leader2)
 	// old leader connected again
 	cfg.connect(leader1)
-
+	log.Printf("%d---------is old leader reconn", leader1)
 	cfg.one(104, 2, true)
 
 	// all together now
 	cfg.connect(leader2)
-
+	log.Printf("%d---------is new leader reconn", leader2)
 	cfg.one(105, servers, true)
 
 	cfg.end()
@@ -522,17 +522,17 @@ func TestBackup2B(t *testing.T) {
 	for i := 0; i < 50; i++ {
 		cfg.rafts[leader1].Start(rand.Int())
 	}
-
+	log.Printf("add log error command")
 	time.Sleep(RaftElectionTimeout / 2)
 
 	cfg.disconnect((leader1 + 0) % servers)
 	cfg.disconnect((leader1 + 1) % servers)
-
+	log.Printf("%d----------%d disconnect", (leader1+0)%servers, (leader1+1)%servers)
 	// allow other partition to recover
 	cfg.connect((leader1 + 2) % servers)
 	cfg.connect((leader1 + 3) % servers)
 	cfg.connect((leader1 + 4) % servers)
-
+	log.Printf("%d----------%d--%d reconnect", (leader1+2)%servers, (leader1+3)%servers, (leader1+4)%servers)
 	// lots of successful commands to new group.
 	for i := 0; i < 50; i++ {
 		cfg.one(rand.Int(), 3, true)
