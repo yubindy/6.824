@@ -18,14 +18,15 @@ package raft
 //
 
 import (
+	"bytes"
 	"log"
 	"math/rand"
 	"time"
 
+	"6.824/labgob"
+	"6.824/labrpc"
 	"sync"
 	"sync/atomic"
-	//	"6.824/labgob"
-	"6.824/labrpc"
 )
 
 const (
@@ -60,6 +61,11 @@ type nlog struct {
 	Term   int
 	Logact interface{}
 }
+type persistent struct {
+	CurrentTerm int
+	VotedFor    int
+	Logs        []nlog
+}
 
 //
 // A Go object implementing a single Raft peer.
@@ -83,6 +89,8 @@ type Raft struct {
 	nextIndex   []int //next log的索引位置,即刚好i匹配上的index
 	matchIndex  []int //已经复制log的的索引
 	cond        *sync.Cond
+
+	Persistinfo persistent
 	// Your data here (2A, 2B, 2C).
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
@@ -111,14 +119,15 @@ func (rf *Raft) GetState() (int, bool) {
 // see paper's Figure 2 for a description of what should be persistent.
 //
 func (rf *Raft) persist() {
-	// Your code here (2C).
-	// Example:
-	// w := new(bytes.Buffer)
-	// e := labgob.NewEncoder(w)
-	// e.Encode(rf.xxx)
-	// e.Encode(rf.yyy)
-	// data := w.Bytes()
-	// rf.persister.SaveRaftState(data)
+	w := new(bytes.Buffer)
+	e := labgob.NewEncoder(w)
+	log.Printf("start persist %d term %d log %v", rf.me, rf.currentTerm, rf.logs)
+	rf.Persistinfo.CurrentTerm = rf.currentTerm
+	rf.Persistinfo.VotedFor = rf.votedFor
+	rf.Persistinfo.Logs = rf.logs
+	e.Encode(rf.Persistinfo)
+	data := w.Bytes()
+	rf.persister.SaveRaftState(data)
 }
 
 //
@@ -128,19 +137,22 @@ func (rf *Raft) readPersist(data []byte) {
 	if data == nil || len(data) < 1 { // bootstrap without any state?
 		return
 	}
-	// Your code here (2C).
-	// Example:
-	// r := bytes.NewBuffer(data)
-	// d := labgob.NewDecoder(r)
-	// var xxx
-	// var yyy
-	// if d.Decode(&xxx) != nil ||
-	//    d.Decode(&yyy) != nil {
-	//   error...
-	// } else {
-	//   rf.xxx = xxx
-	//   rf.yyy = yyy
-	// }
+	r := bytes.NewBuffer(data)
+	d := labgob.NewDecoder(r)
+	var Persistinfo persistent
+	if d.Decode(&Persistinfo) != nil {
+		rf.mu.Lock()
+		log.Printf("node%d decode==nil", rf.me)
+		rf.mu.Unlock()
+	} else {
+		rf.mu.Lock()
+		//log.Printf("start radpersist %d term %d log %v read term%d vote%d log%v", rf.me, rf.currentTerm, rf.logs,
+		//Persistinfo.CurrentTerm, Persistinfo.VotedFor, Persistinfo.Logs)
+		rf.currentTerm = Persistinfo.CurrentTerm
+		rf.votedFor = Persistinfo.VotedFor
+		rf.logs = Persistinfo.Logs
+		rf.mu.Unlock()
+	}
 }
 
 //
@@ -209,12 +221,13 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
 	if rf.currentTerm <= args.Term {
-		rf.currentTerm = args.Term
 		if rf.logs[len(rf.logs)-1].Term < args.Lastlogterm { //先比较term然后比len
+			rf.currentTerm = args.Term
 			reply.Votefor = true
 			rf.hasvote = true
 			rf.votedFor = args.Candidateid
 		} else if rf.logs[len(rf.logs)-1].Term == args.Lastlogterm && len(rf.logs)-1 <= args.Lastlogindex {
+			rf.currentTerm = args.Term
 			reply.Votefor = true
 			rf.hasvote = true
 			rf.votedFor = args.Candidateid
@@ -225,6 +238,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			}
 			log.Printf("why not got vote me:%v berterm: %v len:%v logsterm: %v to:%v", rf.me, reply.Term, len(rf.logs)-1, rf.logs[len(rf.logs)-1], args)
 		}
+		rf.persist()
 		//log.Printf("%v server %d term %d became %d term %d foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, args.Candidateid, args.Term)
 	} else {
 		reply.Votefor = false
@@ -268,6 +282,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 					continue
 				}
 				rf.logs = rf.logs[:i+args.PrevLogIndex+1]
+				log.Printf("node %d become %v", rf.me, rf.logs)
 				lens = len(rf.logs)
 			}
 			info := args.Entries[i]
@@ -275,6 +290,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		}
 		log.Printf("node %d become %v", rf.me, rf.logs)
 	}
+	rf.persist()
 	if reply.Success && rf.commitIndex < args.LeaderCommit {
 		if args.LeaderCommit > len(rf.logs)-1 {
 			rf.commitIndex = len(rf.logs) - 1
@@ -355,12 +371,13 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	term := -1
 	isLeader := true
 	term, isLeader = rf.GetState()
-	rf.mu.Lock()
 	if isLeader {
+		log.Printf("%v node %d should add %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, command)
+		rf.mu.Lock()
 		rf.logs = append(rf.logs, nlog{
 			Term:   term,
 			Logact: command})
-		log.Printf("%d term %d leader get log %v", rf.me, rf.currentTerm, command)
+		log.Printf("%v %d term %d leader get log %v", rf.me, rf.currentTerm, command)
 	}
 	index = len(rf.logs) - 1
 	rf.mu.Unlock()
@@ -392,6 +409,7 @@ func (rf *Raft) startvote() {
 	rf.mu.Lock()
 	rf.currentTerm++
 	rf.votedFor = rf.me
+	rf.persist()
 	me := rf.me
 	currentTerm := rf.currentTerm
 	laslogindex := len(rf.logs) - 1
@@ -468,6 +486,9 @@ func (rf *Raft) sendlog() {
 		if rf.nextIndex[i] > len(rf.logs) {
 			log.Printf("sb bug---%d", rf.nextIndex[i])
 			rf.nextIndex[i] = len(rf.logs)
+		} else if rf.nextIndex[i] < 0 {
+			log.Printf("sb two bug---%d", rf.nextIndex[i])
+			rf.nextIndex[i] = 0
 		}
 		prevlog = append(prevlog, rf.nextIndex[i]-1)
 		prevterm = append(prevterm, rf.logs[prevlog[i]].Term)
@@ -476,6 +497,7 @@ func (rf *Raft) sendlog() {
 			entries[i] = append(entries[i], rf.logs[t])
 		}
 	}
+	rf.persist()
 	rf.mu.Unlock()
 	wg := sync.WaitGroup{}
 	num := len(rf.peers) - 1
@@ -535,6 +557,9 @@ func (rf *Raft) sendlog() {
 						reply.Failindex = len(rf.logs) - 1
 					}
 					rf.nextIndex[node] = reply.Failindex
+					if reply.Failindex == 0 {
+						rf.nextIndex[node] = 1
+					}
 					log.Printf("%v %d set nextindex [%d] = %d next:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, rf.nextIndex[node], rf.nextIndex)
 				}
 				rf.mu.Unlock()
@@ -557,7 +582,7 @@ func (rf *Raft) ticker() {
 			heat := rf.hasheat
 			vote := rf.hasvote
 			if heat == false && vote == false {
-				log.Printf("%v %d became Candidate", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
+				log.Printf("%v %d became Candidate log%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.logs)
 				rf.state = Candidate
 				go rf.startvote()
 			}
@@ -641,6 +666,9 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		rf.matchIndex = append(rf.matchIndex, 0)
 		rf.nextIndex = append(rf.nextIndex, 1)
 	}
+	w := new(bytes.Buffer)
+	data := w.Bytes()
+	rf.readPersist(data)
 	// Your initialization code here (2A, 2B, 2C).
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
@@ -657,7 +685,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 				apply.CommandIndex = rf.lastapplied
 				apply.CommandValid = true
 				applyCh <- apply
-				log.Printf("%d log apploginde++to %d log %v", rf.me, rf.lastapplied, apply.Command)
+				log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.lastapplied, apply.Command)
 			}
 			log.Printf("%d term %d logs %v comitindex%d", rf.me, rf.currentTerm, rf.logs, rf.commitIndex)
 			rf.mu.Unlock()
