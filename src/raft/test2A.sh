@@ -26,7 +26,7 @@ do
 # 8 TestUnreliableChurn2C  5
 
 
-go test -run 2B > output.log
+go test -run 2C > output.log
 echo $i
 if cat output.log | grep FAIL
 then

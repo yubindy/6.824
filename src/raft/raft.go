@@ -146,8 +146,7 @@ func (rf *Raft) readPersist(data []byte) {
 		rf.mu.Unlock()
 	} else {
 		rf.mu.Lock()
-		//log.Printf("start radpersist %d term %d log %v read term%d vote%d log%v", rf.me, rf.currentTerm, rf.logs,
-		//Persistinfo.CurrentTerm, Persistinfo.VotedFor, Persistinfo.Logs)
+		log.Printf("node %d readPersist term %d log %v", rf.me, rf.me, rf.logs)
 		rf.currentTerm = Persistinfo.CurrentTerm
 		rf.votedFor = Persistinfo.VotedFor
 		rf.logs = Persistinfo.Logs
@@ -205,11 +204,11 @@ type AppendEntriesArgs struct {
 	LeaderCommit int    //领导人的已知已提交的最高的日志条目的索引
 }
 type AppendEntriesReply struct {
-	Term       int  //当前任期
-	Success    bool //如果跟随者所含有的条目和 prevLogIndex 以及 prevLogTerm 匹配上了，则为 true
-	Failterm   int
-	Failindex  int
-	Chancommit int
+	Term        int  //当前任期
+	Success     bool //如果跟随者所含有的条目和 prevLogIndex 以及 prevLogTerm 匹配上了，则为 true
+	Failterm    int
+	Failindex   int
+	Cmatchindex int
 }
 
 //
@@ -236,11 +235,12 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			if rf.state == Leader {
 				rf.hasheat = true
 			}
-			log.Printf("why not got vote me:%v berterm: %v len:%v logsterm: %v to:%v", rf.me, reply.Term, len(rf.logs)-1, rf.logs[len(rf.logs)-1], args)
+			log.Printf("why not got vote me:%v berterm: %v len:%v logsterm: %v to:%v", rf.me, reply.Term, len(rf.logs)-1, rf.logs[len(rf.logs)-1].Term, args)
 		}
 		rf.persist()
 		//log.Printf("%v server %d term %d became %d term %d foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, args.Candidateid, args.Term)
 	} else {
+		rf.currentTerm = args.Term
 		reply.Votefor = false
 		log.Printf("why not 226 got vote me:%v %v %v to:%v", rf.me, rf.currentTerm, len(rf.logs)-1, args)
 		//log.Printf("[%v %d] server not vote term to %d",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, rf.me, args.Candidateid)
@@ -278,17 +278,18 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		lens := len(rf.logs)
 		for i := 0; i < len(args.Entries); i++ {
 			if i+args.PrevLogIndex+1 < lens {
-				if rf.logs[i+args.PrevLogIndex+1].Term == args.Entries[i].Term {
+				if rf.logs[i+args.PrevLogIndex+1].Term == args.Entries[i].Term && rf.logs[i+args.PrevLogIndex+1].Logact == args.Entries[i].Logact {
 					continue
 				}
 				rf.logs = rf.logs[:i+args.PrevLogIndex+1]
-				log.Printf("node %d become %v", rf.me, rf.logs)
+				log.Printf("node %d change become %v", rf.me, rf.logs)
 				lens = len(rf.logs)
 			}
 			info := args.Entries[i]
 			rf.logs = append(rf.logs, info)
 		}
 		log.Printf("node %d become %v", rf.me, rf.logs)
+		reply.Cmatchindex = len(rf.logs) - 1
 	}
 	rf.persist()
 	if reply.Success && rf.commitIndex < args.LeaderCommit {
@@ -299,13 +300,18 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		}
 		rf.cond.Signal()
 		log.Printf("%v %d add commit to %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.commitIndex)
-	} else if rf.commitIndex > args.Leaderid {
-		reply.Chancommit = rf.commitIndex
 	}
 	if !reply.Success {
 		reply.Failterm = args.PrevLogTerm
-		for i, t := range rf.logs {
-			if t.Term == rf.logs[len(rf.logs)-1].Term {
+		var tt int
+		if len(rf.logs) > args.PrevLogIndex {
+			tt = args.PrevLogIndex
+		} else {
+			tt = len(rf.logs) - 1
+		}
+		for i := tt; i > 1; i-- {
+			//for i, t := range rf.logs {
+			if rf.logs[tt].Term == rf.logs[tt].Term {
 				reply.Failindex = i
 				log.Printf("%d term %d failindex %v log %v fail add fail addlog %v", rf.me, rf.currentTerm, reply.Failindex, rf.logs, args)
 				break
@@ -371,16 +377,16 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	term := -1
 	isLeader := true
 	term, isLeader = rf.GetState()
+	log.Printf("%v node %d isleader %v should add %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, isLeader, command)
 	if isLeader {
-		log.Printf("%v node %d should add %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, command)
 		rf.mu.Lock()
 		rf.logs = append(rf.logs, nlog{
 			Term:   term,
 			Logact: command})
-		log.Printf("%v %d term %d leader get log %v", rf.me, rf.currentTerm, command)
+		log.Printf("%v %d term %d leader get log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, command)
+		index = len(rf.logs) - 1
+		rf.mu.Unlock()
 	}
-	index = len(rf.logs) - 1
-	rf.mu.Unlock()
 	// Your code here (2B).
 	return index, term, isLeader
 }
@@ -530,17 +536,6 @@ func (rf *Raft) sendlog() {
 					return
 				}
 				rf.mu.Lock()
-				if reply.Chancommit > rf.commitIndex {
-					numcommit := 0
-					for i := range rf.matchIndex {
-						if rf.matchIndex[i] >= reply.Chancommit {
-							numcommit++
-						}
-					}
-					if numcommit > num/2 && rf.logs[reply.Chancommit].Term == rf.currentTerm {
-						rf.commitIndex = reply.Chancommit
-					}
-				}
 				if reply.Success {
 					atomic.AddInt64(&numlog, 1)
 					rf.nextIndex[node] += len(args.Entries)
@@ -561,6 +556,18 @@ func (rf *Raft) sendlog() {
 						rf.nextIndex[node] = 1
 					}
 					log.Printf("%v %d set nextindex [%d] = %d next:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, rf.nextIndex[node], rf.nextIndex)
+				}
+				rf.matchIndex[node] = reply.Cmatchindex
+				if rf.matchIndex[node] > rf.commitIndex {
+					numcommit := 0
+					for i := range rf.matchIndex {
+						if rf.matchIndex[i] >= rf.matchIndex[node] {
+							numcommit++
+						}
+					}
+					if numcommit > num/2 && rf.logs[rf.matchIndex[node]].Term == rf.currentTerm {
+						rf.commitIndex = rf.matchIndex[node]
+					}
 				}
 				rf.mu.Unlock()
 			}(node)
