@@ -570,6 +570,7 @@ func (rf *Raft) sendlog() {
 					}
 					if numcommit > num/2 && rf.logs[rf.matchIndex[node]].Term == rf.currentTerm {
 						rf.commitIndex = rf.matchIndex[node]
+						rf.persist()
 					}
 				}
 				rf.mu.Unlock()
