@@ -210,6 +210,18 @@ type AppendEntriesReply struct {
 	Failindex   int
 	Cmatchindex int
 }
+type InstallSnapshotArgs struct {
+	Term              int //当前任期
+	Leaderid          int
+	LastIncludedIndex int
+	lastIncludedTerm  int
+	Offset            int   //分块在快照中的字节偏移量
+	Data              []any //从偏移量开始的快照分块的原始字节
+	Done              bool  //是否是最后一个分快
+}
+type InstallSnapshotReply struct {
+	Term int
+}
 
 //
 // example RequestVote RPC handler.
@@ -294,6 +306,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		log.Printf("node %d become %v", rf.me, rf.logs)
 		reply.Cmatchindex = len(rf.logs) - 1
 	}
+	rf.persist()
 	if reply.Success && rf.commitIndex < args.LeaderCommit {
 		if args.LeaderCommit > len(rf.logs)-1 {
 			rf.commitIndex = len(rf.logs) - 1
@@ -303,7 +316,6 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		rf.cond.Signal()
 		log.Printf("%v %d add commit to %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.commitIndex)
 	}
-	rf.persist()
 	if !reply.Success {
 		reply.Failterm = args.PrevLogTerm
 		var tt int
@@ -321,6 +333,15 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			}
 		}
 	}
+}
+func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	reply.Term = rf.currentTerm
+	if args.Term < rf.currentTerm {
+		return
+	}
+
 }
 
 //
@@ -375,23 +396,26 @@ func (rf *Raft) sendAppendEntries(server int, args *AppendEntriesArgs, reply *Ap
 // term. the third return value is true if this server believes it is
 // the leader.
 //
-func (rf *Raft) Start(command interface{}) (int, int, bool) {
-	index := -1
-	term := -1
-	isLeader := true
-	term, isLeader = rf.GetState()
-	log.Printf("%v node %d isleader %v should add %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, isLeader, command)
-	if isLeader {
+func (rf *Raft) CondInstallSnapshot() bool {
+	for {
+		apply := ApplyMsg{}
 		rf.mu.Lock()
-		rf.logs = append(rf.logs, nlog{
-			Term:   term,
-			Logact: command})
-		log.Printf("%v %d term %d leader get log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, command)
-		index = len(rf.logs) - 1
+		for rf.commitIndex == rf.lastapplied {
+			rf.cond.Wait()
+		}
+		for rf.lastapplied < rf.commitIndex {
+			rf.lastapplied++
+			apply.Command = rf.logs[rf.lastapplied].Logact
+			apply.CommandIndex = rf.lastapplied
+			apply.CommandValid = true
+			applyCh <- apply
+			log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.lastapplied, apply.Command)
+		}
+		log.Printf("%d term %d logs %v comitindex%d", rf.me, rf.currentTerm, rf.logs, rf.commitIndex)
 		rf.mu.Unlock()
 	}
-	// Your code here (2B).
-	return index, term, isLeader
+}
+func (rf *Raft) Start(command interface{}) (int, int, bool) {
 }
 
 //
