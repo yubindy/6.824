@@ -210,15 +210,16 @@ type AppendEntriesReply struct {
 	Failindex   int
 	Cmatchindex int
 }
-type InstallSnapshotArgs struct {
-	Term              int //当前任期
-	Leaderid          int
-	LastIncludedIndex int
-	lastIncludedTerm  int
-	Offset            int   //分块在快照中的字节偏移量
-	Data              []any //从偏移量开始的快照分块的原始字节
-	Done              bool  //是否是最后一个分快
-}
+
+//type InstallSnapshotArgs struct {
+//	Term              int //当前任期
+//	Leaderid          int
+//	LastIncludedIndex int
+//	lastIncludedTerm  int
+//	Offset            int   //分块在快照中的字节偏移量
+//	Data              []any //从偏移量开始的快照分块的原始字节
+//	Done              bool  //是否是最后一个分快
+//}
 type InstallSnapshotReply struct {
 	Term int
 }
@@ -334,15 +335,16 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		}
 	}
 }
-func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
-	rf.mu.Lock()
-	defer rf.mu.Unlock()
-	reply.Term = rf.currentTerm
-	if args.Term < rf.currentTerm {
-		return
-	}
 
-}
+//func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
+//	rf.mu.Lock()
+//	defer rf.mu.Unlock()
+//	reply.Term = rf.currentTerm
+//	if args.Term < rf.currentTerm {
+//		return
+//	}
+//
+//}
 
 //
 // example code to send a RequestVote RPC to a server.
@@ -396,27 +398,44 @@ func (rf *Raft) sendAppendEntries(server int, args *AppendEntriesArgs, reply *Ap
 // term. the third return value is true if this server believes it is
 // the leader.
 //
-func (rf *Raft) CondInstallSnapshot() bool {
-	for {
-		apply := ApplyMsg{}
+func (rf *Raft) Start(command interface{}) (int, int, bool) {
+	index := -1
+	term := -1
+	isLeader := true
+	term, isLeader = rf.GetState()
+	log.Printf("%v node %d isleader %v should add %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, isLeader, command)
+	if isLeader {
 		rf.mu.Lock()
-		for rf.commitIndex == rf.lastapplied {
-			rf.cond.Wait()
-		}
-		for rf.lastapplied < rf.commitIndex {
-			rf.lastapplied++
-			apply.Command = rf.logs[rf.lastapplied].Logact
-			apply.CommandIndex = rf.lastapplied
-			apply.CommandValid = true
-			applyCh <- apply
-			log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.lastapplied, apply.Command)
-		}
-		log.Printf("%d term %d logs %v comitindex%d", rf.me, rf.currentTerm, rf.logs, rf.commitIndex)
+		rf.logs = append(rf.logs, nlog{
+			Term:   term,
+			Logact: command})
+		log.Printf("%v %d term %d leader get log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, command)
+		index = len(rf.logs) - 1
 		rf.mu.Unlock()
 	}
+	// Your code here (2B).
+	return index, term, isLeader
 }
-func (rf *Raft) Start(command interface{}) (int, int, bool) {
-}
+
+//func (rf *Raft) CondInstallSnapshot() bool {
+//	for {
+//		apply := ApplyMsg{}
+//		rf.mu.Lock()
+//		for rf.commitIndex == rf.lastapplied {
+//			rf.cond.Wait()
+//		}
+//		for rf.lastapplied < rf.commitIndex {
+//			rf.lastapplied++
+//			apply.Command = rf.logs[rf.lastapplied].Logact
+//			apply.CommandIndex = rf.lastapplied
+//			apply.CommandValid = true
+//			applyCh <- apply
+//			log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.lastapplied, apply.Command)
+//		}
+//		log.Printf("%d term %d logs %v comitindex%d", rf.me, rf.currentTerm, rf.logs, rf.commitIndex)
+//		rf.mu.Unlock()
+//	}
+//}
 
 //
 // the tester doesn't halt goroutines created by Raft after each test,
@@ -484,6 +503,7 @@ func (rf *Raft) startvote() {
 						loglen := len(rf.logs)
 						for i := 0; i < len(rf.peers); i++ {
 							rf.nextIndex[i] = loglen
+							rf.matchIndex[i] = 0
 						}
 					}
 					//atomic.AddInt64(&num, 1)
@@ -563,7 +583,7 @@ func (rf *Raft) sendlog() {
 					return
 				}
 				rf.mu.Lock()
-				if reply.Success {
+				if reply.Success && rf.logs[loglen-1].Term == rf.currentTerm {
 					atomic.AddInt64(&numlog, 1)
 					rf.nextIndex[node] += len(args.Entries)
 					log.Printf("%v %d recv log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, len(args.Entries), rf.nextIndex)
@@ -584,15 +604,15 @@ func (rf *Raft) sendlog() {
 					}
 					log.Printf("%v %d set nextindex [%d] = %d next:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, rf.nextIndex[node], rf.nextIndex)
 				}
-				rf.matchIndex[node] = reply.Cmatchindex
-				if rf.matchIndex[node] > rf.commitIndex {
+				// rf.matchIndex[node] = reply.Cmatchindex
+				if rf.matchIndex[node] > rf.commitIndex && rf.logs[rf.matchIndex[node]].Term == rf.currentTerm {
 					numcommit := 0
 					for i := range rf.matchIndex {
 						if rf.matchIndex[i] >= rf.matchIndex[node] {
 							numcommit++
 						}
 					}
-					if numcommit > num/2 && rf.logs[rf.matchIndex[node]].Term == rf.currentTerm {
+					if numcommit > num/2 {
 						rf.commitIndex = rf.matchIndex[node]
 						rf.persist()
 					}
