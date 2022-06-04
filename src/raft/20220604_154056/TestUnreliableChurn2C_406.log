@@ -1,0 +1,138 @@
+Test (2C): unreliable churn ...
+2022/06/04 15:52:34 743 node 0 isleader false should add 7881906323771183417
+2022/06/04 15:52:34 743 node 0 isleader false should add 1391984657732791523
+2022/06/04 15:52:34 743 node 1 isleader false should add 7881906323771183417
+2022/06/04 15:52:34 743 node 1 isleader false should add 1391984657732791523
+2022/06/04 15:52:34 743 node 0 isleader false should add 6470932851300179936
+2022/06/04 15:52:34 743 node 2 isleader false should add 1391984657732791523
+2022/06/04 15:52:34 743 node 1 isleader false should add 6470932851300179936
+2022/06/04 15:52:34 743 node 2 isleader false should add 6470932851300179936
+2022/06/04 15:52:34 744 node 3 isleader false should add 6470932851300179936
+2022/06/04 15:52:34 744 node 4 isleader false should add 6470932851300179936
+2022/06/04 15:52:34 743 node 3 isleader false should add 1391984657732791523
+2022/06/04 15:52:34 743 node 2 isleader false should add 7881906323771183417
+2022/06/04 15:52:34 744 node 4 isleader false should add 1391984657732791523
+2022/06/04 15:52:34 744 node 3 isleader false should add 7881906323771183417
+2022/06/04 15:52:34 744 node 4 isleader false should add 7881906323771183417
+2022/06/04 15:52:34 823 node 0 isleader false should add 1035515532566604759
+2022/06/04 15:52:34 824 node 1 isleader false should add 1035515532566604759
+2022/06/04 15:52:34 824 node 2 isleader false should add 1035515532566604759
+2022/06/04 15:52:34 824 node 3 isleader false should add 1035515532566604759
+2022/06/04 15:52:34 824 node 4 isleader false should add 1035515532566604759
+2022/06/04 15:52:34 840 node 0 isleader false should add 4704847014973848847
+2022/06/04 15:52:34 840 node 1 isleader false should add 4704847014973848847
+2022/06/04 15:52:34 840 node 2 isleader false should add 4704847014973848847
+2022/06/04 15:52:34 840 node 3 isleader false should add 4704847014973848847
+2022/06/04 15:52:34 840 node 4 isleader false should add 4704847014973848847
+2022/06/04 15:52:34 857 node 0 isleader false should add 94035647909647415
+2022/06/04 15:52:34 857 node 1 isleader false should add 94035647909647415
+2022/06/04 15:52:34 857 node 2 isleader false should add 94035647909647415
+2022/06/04 15:52:34 857 node 3 isleader false should add 94035647909647415
+2022/06/04 15:52:34 857 node 4 isleader false should add 94035647909647415
+2022/06/04 15:52:34 903 node 0 isleader false should add 253955303746604140
+2022/06/04 15:52:34 903 node 1 isleader false should add 253955303746604140
+2022/06/04 15:52:34 903 node 2 isleader false should add 253955303746604140
+2022/06/04 15:52:34 903 node 3 isleader false should add 253955303746604140
+2022/06/04 15:52:34 903 node 4 isleader false should add 253955303746604140
+2022/06/04 15:52:34 936 node 0 isleader false should add 1405993078188887196
+2022/06/04 15:52:34 936 node 1 isleader false should add 1405993078188887196
+2022/06/04 15:52:34 937 node 2 isleader false should add 1405993078188887196
+2022/06/04 15:52:34 937 node 3 isleader false should add 1405993078188887196
+2022/06/04 15:52:34 937 node 4 isleader false should add 1405993078188887196
+2022/06/04 15:52:34 970 node 0 isleader false should add 2160310551915750846
+2022/06/04 15:52:34 970 node 1 isleader false should add 2160310551915750846
+2022/06/04 15:52:34 970 node 2 isleader false should add 2160310551915750846
+2022/06/04 15:52:34 970 node 3 isleader false should add 2160310551915750846
+2022/06/04 15:52:34 970 node 4 isleader false should add 2160310551915750846
+2022/06/04 15:52:34 982 node 0 isleader false should add 3001030280199732045
+2022/06/04 15:52:34 982 node 1 isleader false should add 3001030280199732045
+2022/06/04 15:52:34 982 node 2 isleader false should add 3001030280199732045
+2022/06/04 15:52:34 982 node 3 isleader false should add 3001030280199732045
+2022/06/04 15:52:34 982 node 4 isleader false should add 3001030280199732045
+2022/06/04 15:52:35 33 node 0 isleader false should add 4456254852523617755
+2022/06/04 15:52:35 33 node 1 isleader false should add 4456254852523617755
+2022/06/04 15:52:35 33 node 2 isleader false should add 4456254852523617755
+2022/06/04 15:52:35 33 node 3 isleader false should add 4456254852523617755
+2022/06/04 15:52:35 33 node 4 isleader false should add 4456254852523617755
+2022/06/04 15:52:35 62 node 0 isleader false should add 2555283695101931834
+2022/06/04 15:52:35 62 node 1 isleader false should add 2555283695101931834
+2022/06/04 15:52:35 62 node 2 isleader false should add 2555283695101931834
+2022/06/04 15:52:35 62 node 3 isleader false should add 2555283695101931834
+2022/06/04 15:52:35 62 node 4 isleader false should add 2555283695101931834
+2022/06/04 15:52:35 84 node 0 isleader false should add 4995920146339646320
+2022/06/04 15:52:35 84 node 1 isleader false should add 4995920146339646320
+2022/06/04 15:52:35 84 node 2 isleader false should add 4995920146339646320
+2022/06/04 15:52:35 84 node 3 isleader false should add 4995920146339646320
+2022/06/04 15:52:35 84 node 4 isleader false should add 4995920146339646320
+2022/06/04 15:52:35 102 3 became Candidate log[{0 123}]
+2022/06/04 15:52:35 start persist 3 term 1 log [{0 123}]
+2022/06/04 15:52:35 104 3 start vote 1 term 1 in all 5
+2022/06/04 15:52:35 113 2 became Candidate log[{0 123}]
+2022/06/04 15:52:35 start persist 2 term 1 log [{0 123}]
+2022/06/04 15:52:35 114 2 start vote 1 term 1 in all 5
+2022/06/04 15:52:35 115 server 2 term 1 VoteCall failed to 0 had vote 1
+2022/06/04 15:52:35 why not 226 got vote me:2 1 0 to:&{1 3 0 0}
+2022/06/04 15:52:35 117 3 term 1 not get vote from 2
+2022/06/04 15:52:35 start persist 0 term 1 log [{0 123}]
+2022/06/04 15:52:35 0 give vote to 3  mylog [{0 123}]
+2022/06/04 15:52:35 122 3 term 1 get vote form 0 term 0 logs[{0 123}]
+2022/06/04 15:52:35 start persist 4 term 1 log [{0 123}]
+2022/06/04 15:52:35 4 give vote to 3  mylog [{0 123}]
+2022/06/04 15:52:35 122 3 term 1 get vote form 4 term 0 logs[{0 123}]
+2022/06/04 15:52:35 122 serve 3 become leader------- num:3 term:1 log:[{0 123}]
+2022/06/04 15:52:35 123 3 term 1 start send log [{0 123}] nextindex[1 1 1 1 1]
+2022/06/04 15:52:35 start persist 3 term 1 log [{0 123}]
+2022/06/04 15:52:35 start persist 1 term 1 log [{0 123}]
+2022/06/04 15:52:35 1 give vote to 3  mylog [{0 123}]
+2022/06/04 15:52:35 126 3 term 1 get vote form 1 term 0 logs[{0 123}]
+2022/06/04 15:52:35 start persist 1 term 1 log [{0 123}]
+2022/06/04 15:52:35 1 give vote to 2  mylog [{0 123}]
+2022/06/04 15:52:35 128 2 term 1 get vote form 1 term 1 logs[{0 123}]
+2022/06/04 15:52:35 start persist 4 term 1 log [{0 123}]
+2022/06/04 15:52:35 4 give vote to 2  mylog [{0 123}]
+2022/06/04 15:52:35 129 2 term 1 get vote form 4 term 1 logs[{0 123}]
+2022/06/04 15:52:35 129 serve 2 become leader------- num:3 term:1 log:[{0 123}]
+2022/06/04 15:52:35 129 node 0 isleader false should add 1463385026156865685
+2022/06/04 15:52:35 129 node 1 isleader false should add 1463385026156865685
+2022/06/04 15:52:35 129 node 2 isleader true should add 1463385026156865685
+2022/06/04 15:52:35 129 2 term 1 leader get log 1463385026156865685
+2022/06/04 15:52:35 129 node 3 isleader true should add 1463385026156865685
+2022/06/04 15:52:35 129 3 term 1 leader get log 1463385026156865685
+2022/06/04 15:52:35 129 node 4 isleader false should add 1463385026156865685
+2022/06/04 15:52:35 130 2 term 1 start send log [{0 123} {1 1463385026156865685}] nextindex[1 1 1 1 1]
+2022/06/04 15:52:35 start persist 2 term 1 log [{0 123} {1 1463385026156865685}]
+2022/06/04 15:52:35 why not 226 got vote me:3 1 1 to:&{1 2 0 0}
+2022/06/04 15:52:35 131 2 term 1 not get vote from 3
+2022/06/04 15:52:35 node 4 term 1 recvterm 1 log [{0 123}] recv &{1 3 0 0 [] 0}
+2022/06/04 15:52:35 start persist 4 term 1 log [{0 123}]
+2022/06/04 15:52:35 136 3 set nextindex [4] = 1 next:[1 1 1 1 1]
+2022/06/04 15:52:35 node 2 term 1 recvterm 1 log [{0 123} {1 1463385026156865685}] recv &{1 3 0 0 [] 0}
+2022/06/04 15:52:35 start persist 2 term 1 log [{0 123} {1 1463385026156865685}]
+2022/06/04 15:52:35 141 leader 2 become foller 
+2022/06/04 15:52:35 141 node 0 isleader false should add 661149455592580798
+2022/06/04 15:52:35 141 node 1 isleader false should add 661149455592580798
+2022/06/04 15:52:35 141 3 set nextindex [2] = 1 next:[1 1 1 1 1]
+2022/06/04 15:52:35 141 node 2 isleader false should add 661149455592580798
+2022/06/04 15:52:35 141 node 3 isleader true should add 661149455592580798
+2022/06/04 15:52:35 141 3 term 1 leader get log 661149455592580798
+2022/06/04 15:52:35 142 node 4 isleader false should add 661149455592580798
+2022/06/04 15:52:35 node 0 term 1 recvterm 1 log [{0 123}] recv &{1 3 0 0 [] 0}
+2022/06/04 15:52:35 start persist 0 term 1 log [{0 123}]
+2022/06/04 15:52:35 146 3 set nextindex [0] = 1 next:[1 1 1 1 1]
+2022/06/04 15:52:35 node 0 term 1 recvterm 1 log [{0 123}] recv &{1 2 0 0 [{1 1463385026156865685}] 0}
+2022/06/04 15:52:35 node 3 term 1 recvterm 1 log [{0 123} {1 1463385026156865685} {1 661149455592580798}] recv &{1 2 0 0 [{1 1463385026156865685}] 0}
+2022/06/04 15:52:35 node 3 become [{0 123} {1 1463385026156865685} {1 661149455592580798}]
+2022/06/04 15:52:35 node 0 become [{0 123} {1 1463385026156865685}]
+2022/06/04 15:52:35 start persist 3 term 1 log [{0 123} {1 1463385026156865685} {1 661149455592580798}]
+2022/06/04 15:52:35 start persist 0 term 1 log [{0 123} {1 1463385026156865685}]
+2022/06/04 15:52:35 S147 2 sendlog failed to 0
+2022/06/04 15:52:35 148 2 recv log nextindex add 1 to [2 2 2 3 2]
+panic: runtime error: index out of range [2] with length 2
+
+goroutine 16 [running]:
+6.824/raft.(*Raft).sendlog.func1(0x3)
+	/home/yubtin/Desktop/codes/6.824/src/raft/raft.go:614 +0x175d
+created by 6.824/raft.(*Raft).sendlog
+	/home/yubtin/Desktop/codes/6.824/src/raft/raft.go:566 +0xf94
+exit status 2
+FAIL	6.824/raft	0.420s

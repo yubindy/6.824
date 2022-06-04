@@ -232,19 +232,27 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
-	if rf.currentTerm <= args.Term {
+	if rf.currentTerm < args.Term || rf.currentTerm == args.Term && rf.votedFor == -1 {
 		if rf.logs[len(rf.logs)-1].Term < args.Lastlogterm { //先比较term然后比len
-			rf.currentTerm = args.Term
+			if args.Term > rf.currentTerm {
+				rf.currentTerm = args.Term
+				rf.votedFor = -1
+			} else {
+				rf.votedFor = args.Candidateid
+			}
 			reply.Votefor = true
 			rf.hasvote = true
 			rf.state = Foller
-			rf.votedFor = args.Candidateid
 		} else if rf.logs[len(rf.logs)-1].Term == args.Lastlogterm && len(rf.logs)-1 <= args.Lastlogindex {
-			rf.currentTerm = args.Term
+			if args.Term > rf.currentTerm {
+				rf.currentTerm = args.Term
+				rf.votedFor = -1
+			} else {
+				rf.votedFor = args.Candidateid
+			}
 			reply.Votefor = true
 			rf.hasvote = true
 			rf.state = Foller
-			rf.votedFor = args.Candidateid
 		} else {
 			reply.Votefor = false
 			if rf.state == Leader {
@@ -538,10 +546,8 @@ func (rf *Raft) sendlog() {
 	for i := 0; i < len(rf.peers); i++ {
 		if rf.nextIndex[i] > len(rf.logs) {
 			log.Printf("sb bug---%d", rf.nextIndex[i])
-			rf.nextIndex[i] = len(rf.logs)
 		} else if rf.nextIndex[i] < 0 {
 			log.Printf("sb two bug---%d", rf.nextIndex[i])
-			rf.nextIndex[i] = 0
 		}
 		prevlog = append(prevlog, rf.nextIndex[i]-1)
 		prevterm = append(prevterm, rf.logs[prevlog[i]].Term)
@@ -577,6 +583,7 @@ func (rf *Raft) sendlog() {
 				if reply.Term > args.Term {
 					rf.mu.Lock()
 					rf.currentTerm = reply.Term
+					rf.votedFor = -1
 					rf.state = Foller
 					log.Printf("%v %d term%d become foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm)
 					rf.mu.Unlock()
@@ -585,7 +592,7 @@ func (rf *Raft) sendlog() {
 				rf.mu.Lock()
 				if reply.Success && rf.logs[loglen-1].Term == rf.currentTerm {
 					atomic.AddInt64(&numlog, 1)
-					rf.nextIndex[node] += len(args.Entries)
+					rf.nextIndex[node] = reply.Cmatchindex + 1
 					log.Printf("%v %d recv log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, len(args.Entries), rf.nextIndex)
 					rf.matchIndex[node] = reply.Cmatchindex
 					if atomic.LoadInt64(&numlog) > int64(num)/2 {
@@ -654,7 +661,7 @@ func (rf *Raft) ticker() {
 		rf.mu.Unlock()
 		rand.Seed(time.Now().UnixNano())
 		if state != Leader {
-			t = rand.Intn(200) + 200
+			t = rand.Intn(300) + 300
 			for i := 0; i < t; i++ {
 				rf.mu.Lock()
 				if rf.state == Candidate && (rf.hasheat == true || rf.hasvote == true) {
