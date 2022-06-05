@@ -140,13 +140,14 @@ func (rf *Raft) readPersist(data []byte) {
 	r := bytes.NewBuffer(data)
 	d := labgob.NewDecoder(r)
 	var Persistinfo persistent
+	log.Printf("node %d ****** readPersist", rf.me)
 	if d.Decode(&Persistinfo) != nil {
 		rf.mu.Lock()
 		log.Printf("node%d decode==nil", rf.me)
 		rf.mu.Unlock()
 	} else {
 		rf.mu.Lock()
-		log.Printf("node %d readPersist term %d log %v", rf.me, rf.me, rf.logs)
+		log.Printf("node %d ********* readPersist term %d log %v", rf.me, rf.me, rf.logs)
 		rf.currentTerm = Persistinfo.CurrentTerm
 		rf.votedFor = Persistinfo.VotedFor
 		rf.logs = Persistinfo.Logs
@@ -232,27 +233,21 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
-	if rf.currentTerm < args.Term || rf.currentTerm == args.Term && rf.votedFor == -1 {
-		if rf.logs[len(rf.logs)-1].Term < args.Lastlogterm { //先比较term然后比len
-			if args.Term > rf.currentTerm {
-				rf.currentTerm = args.Term
-				rf.votedFor = -1
-			} else {
-				rf.votedFor = args.Candidateid
-			}
+	if rf.currentTerm <= args.Term {
+		if args.Term > rf.currentTerm {
+			rf.currentTerm = args.Term
+			rf.votedFor = -1
+		}
+		if rf.logs[len(rf.logs)-1].Term < args.Lastlogterm && rf.votedFor == -1 { //先比较term然后比len
 			reply.Votefor = true
 			rf.hasvote = true
 			rf.state = Foller
-		} else if rf.logs[len(rf.logs)-1].Term == args.Lastlogterm && len(rf.logs)-1 <= args.Lastlogindex {
-			if args.Term > rf.currentTerm {
-				rf.currentTerm = args.Term
-				rf.votedFor = -1
-			} else {
-				rf.votedFor = args.Candidateid
-			}
+			rf.votedFor = args.Candidateid
+		} else if rf.logs[len(rf.logs)-1].Term == args.Lastlogterm && len(rf.logs)-1 <= args.Lastlogindex && rf.votedFor == -1 {
 			reply.Votefor = true
 			rf.hasvote = true
 			rf.state = Foller
+			rf.votedFor = args.Candidateid
 		} else {
 			reply.Votefor = false
 			if rf.state == Leader {
@@ -279,7 +274,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
-	log.Printf("node %d term %d recvterm %d log %v recv %v", rf.me, rf.currentTerm, args.Term, rf.logs, args)
+	log.Printf("node %d term %d recvterm %d recvfrom %d log %v recv %v", rf.me, rf.currentTerm, args.Term, args.Leaderid, rf.logs, args)
 	if rf.currentTerm <= args.Term { //线判断任期
 		rf.hasheat = true
 		rf.state = Foller
@@ -337,7 +332,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			//for i, t := range rf.logs {
 			if rf.logs[i].Term != rf.logs[tt].Term {
 				reply.Failindex = i
-				log.Printf("%d term %d failindex %v log %v fail add fail addlog %v", rf.me, rf.currentTerm, reply.Failindex, rf.logs, args)
+				log.Printf("node %d term %d failindex %v log %v fail add fail addlog %v", rf.me, rf.currentTerm, reply.Failindex, rf.logs, args)
 				break
 			}
 		}
@@ -540,7 +535,7 @@ func (rf *Raft) sendlog() {
 	rf.mu.Lock()
 	currentTerm := rf.currentTerm
 	me := rf.me
-	loglen := len(rf.logs)
+	loglens := len(rf.logs)
 	commit := rf.commitIndex
 	log.Printf("%v %v term %d start send log %v nextindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, rf.logs, rf.nextIndex)
 	for i := 0; i < len(rf.peers); i++ {
@@ -552,7 +547,7 @@ func (rf *Raft) sendlog() {
 		prevlog = append(prevlog, rf.nextIndex[i]-1)
 		prevterm = append(prevterm, rf.logs[prevlog[i]].Term)
 		entries = append(entries, nil)
-		for t := rf.nextIndex[i]; t < loglen; t++ {
+		for t := rf.nextIndex[i]; t < loglens; t++ {
 			entries[i] = append(entries[i], rf.logs[t])
 		}
 	}
@@ -590,14 +585,14 @@ func (rf *Raft) sendlog() {
 					return
 				}
 				rf.mu.Lock()
-				if reply.Success && rf.logs[loglen-1].Term == rf.currentTerm {
+				if reply.Success && rf.logs[loglens-1].Term == rf.currentTerm {
 					atomic.AddInt64(&numlog, 1)
 					rf.nextIndex[node] = reply.Cmatchindex + 1
 					log.Printf("%v %d recv log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, len(args.Entries), rf.nextIndex)
 					rf.matchIndex[node] = reply.Cmatchindex
 					if atomic.LoadInt64(&numlog) > int64(num)/2 {
 						if rf.state == Leader {
-							rf.commitIndex = loglen - 1
+							rf.commitIndex = loglens - 1
 							rf.cond.Signal()
 						}
 					}
@@ -728,12 +723,13 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		rf.matchIndex = append(rf.matchIndex, 0)
 		rf.nextIndex = append(rf.nextIndex, 1)
 	}
-	w := new(bytes.Buffer)
-	data := w.Bytes()
-	rf.readPersist(data)
+	//w := new(bytes.Buffer)
+	//data := w.Bytes()
+	//rf.readPersist(data)
 	// Your initialization code here (2A, 2B, 2C).
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
+	log.Printf("node %d start ====", rf.me)
 	go func() { //通过applech 发送AppleMsg消息
 		for {
 			apply := ApplyMsg{}
