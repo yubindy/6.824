@@ -237,7 +237,9 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		if args.Term > rf.currentTerm {
 			rf.currentTerm = args.Term
 			rf.votedFor = -1
+			rf.state = Foller
 		}
+		rf.persist()
 		if rf.logs[len(rf.logs)-1].Term < args.Lastlogterm && rf.votedFor == -1 { //先比较term然后比len
 			reply.Votefor = true
 			rf.hasvote = true
