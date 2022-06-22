@@ -334,10 +334,12 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			//for i, t := range rf.logs {
 			if rf.logs[i].Term != rf.logs[tt].Term {
 				reply.Failindex = i
-				log.Printf("node %d term %d failindex %v log %v fail add fail addlog %v", rf.me, rf.currentTerm, reply.Failindex, rf.logs, args)
+				log.Printf("node %d failindex %v term %d ------- log %v fail add fail addlog %v", rf.me, reply.Failindex, rf.currentTerm, rf.logs, args)
 				break
 			}
 		}
+	} else {
+		log.Printf("node %d succes some term %d", rf.me, rf.currentTerm)
 	}
 }
 
