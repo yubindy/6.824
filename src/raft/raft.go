@@ -212,15 +212,15 @@ type AppendEntriesReply struct {
 	Cmatchindex int
 }
 
-//type InstallSnapshotArgs struct {
-//	Term              int //当前任期
-//	Leaderid          int
-//	LastIncludedIndex int
-//	lastIncludedTerm  int
-//	Offset            int   //分块在快照中的字节偏移量
-//	Data              []any //从偏移量开始的快照分块的原始字节
-//	Done              bool  //是否是最后一个分快
-//}
+type InstallSnapshotArgs struct {
+	Term              int //当前任期
+	Leaderid          int
+	LastIncludedIndex int
+	lastIncludedTerm  int
+	Offset            int    //分块在快照中的字节偏移量
+	Data              []byte //从偏移量开始的快照分块的原始字节
+	Done              bool   //是否是最后一个分快
+}
 type InstallSnapshotReply struct {
 	Term int
 }
@@ -343,15 +343,15 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	}
 }
 
-//func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
-//	rf.mu.Lock()
-//	defer rf.mu.Unlock()
-//	reply.Term = rf.currentTerm
-//	if args.Term < rf.currentTerm {
-//		return
-//	}
-//
-//}
+func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	reply.Term = rf.currentTerm
+	if args.Term < rf.currentTerm {
+		return
+	}
+
+}
 
 //
 // example code to send a RequestVote RPC to a server.
