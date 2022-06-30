@@ -306,14 +306,15 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 					continue
 				}
 				rf.logs = rf.logs[:i+args.PrevLogIndex+1]
-				log.Printf("node %d change become %v", rf.me, rf.logs)
 				lens = len(rf.logs)
 			}
 			info := args.Entries[i]
 			rf.logs = append(rf.logs, info)
 		}
-		log.Printf("node %d become %v", rf.me, rf.logs)
 		reply.Cmatchindex = args.PrevLogIndex + len(args.Entries)
+		log.Printf("node %d change cmatch %v Entrieslen %v become %v", rf.me, reply.Cmatchindex, len(args.Entries), rf.logs)
+	} else if reply.Success && args.Entries == nil {
+		reply.Cmatchindex = args.PrevLogIndex
 	}
 	rf.persist()
 	if reply.Success && rf.commitIndex < args.LeaderCommit {
@@ -325,7 +326,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		rf.cond.Signal()
 		log.Printf("%v %d add commit to %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.commitIndex)
 	}
-	if !reply.Success {
+	if !reply.Success && args.Entries != nil {
 		reply.Failterm = args.PrevLogTerm
 		var tt int
 		if len(rf.logs) > args.PrevLogIndex {
@@ -341,7 +342,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 				break
 			}
 		}
-	} else {
+	} else if reply.Success {
 		log.Printf("node %d succes some term %d", rf.me, rf.currentTerm)
 	}
 }
@@ -592,7 +593,7 @@ func (rf *Raft) sendlog() {
 				if reply.Success {
 					atomic.AddInt64(&numlog, 1)
 					rf.nextIndex[node] = reply.Cmatchindex + 1
-					log.Printf("%v %d recv %v log nextindex is %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, rf.nextIndex[node], rf.nextIndex)
+					log.Printf("%v %d has log %v recv %v log nextindex is %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, len(rf.logs), node, rf.nextIndex[node], rf.nextIndex)
 					rf.matchIndex[node] = reply.Cmatchindex
 					if atomic.LoadInt64(&numlog) > int64(num)/2 {
 						var sb []int
@@ -616,17 +617,19 @@ func (rf *Raft) sendlog() {
 					}
 					log.Printf("%v %d set nextindex [%d] = %d next:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, rf.nextIndex[node], rf.nextIndex)
 				}
-				log.Printf("node is %v has log %v leaderhas %v ", node, rf.matchIndex[node], len(rf.logs)-1)
-				if reply.Success && rf.matchIndex[node] > rf.commitIndex && rf.logs[rf.matchIndex[node]].Term == rf.currentTerm {
-					numcommit := 0
-					for i := range rf.matchIndex {
-						if rf.matchIndex[i] >= rf.matchIndex[node] {
-							numcommit++
+				if rf.state == Leader {
+					log.Printf("node is %v has log %v leaderhas %v ", node, rf.matchIndex[node], len(rf.logs)-1)
+					if reply.Success && rf.matchIndex[node] > rf.commitIndex && rf.logs[rf.matchIndex[node]].Term == rf.currentTerm {
+						numcommit := 0
+						for i := range rf.matchIndex {
+							if rf.matchIndex[i] >= rf.matchIndex[node] {
+								numcommit++
+							}
 						}
-					}
-					if numcommit > num/2 {
-						rf.commitIndex = rf.matchIndex[node]
-						rf.persist()
+						if numcommit > num/2 {
+							rf.commitIndex = rf.matchIndex[node]
+							rf.persist()
+						}
 					}
 				}
 				rf.mu.Unlock()
@@ -666,7 +669,7 @@ func (rf *Raft) ticker() {
 		rf.mu.Unlock()
 		rand.Seed(time.Now().UnixNano())
 		if state != Leader {
-			t = rand.Intn(300) + 300
+			t = rand.Intn(200) + 300
 			for i := 0; i < t; i++ {
 				rf.mu.Lock()
 				if rf.state == Candidate && (rf.hasheat == true || rf.hasvote == true) {
