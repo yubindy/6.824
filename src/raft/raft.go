@@ -595,16 +595,18 @@ func (rf *Raft) sendlog() {
 					return
 				}
 				rf.mu.Lock()
-				if reply.Success {
+				if reply.Success && rf.logs[loglens-1].Term == rf.currentTerm {
 					atomic.AddInt64(&numlog, 1)
 					rf.nextIndex[node] = reply.Cmatchindex + 1
-					log.Printf("%v %d has log %v recv %v log nextindex is %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, len(rf.logs), node, rf.nextIndex[node], rf.nextIndex)
+					log.Printf("%v %d recv log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, len(args.Entries), rf.nextIndex)
 					rf.matchIndex[node] = reply.Cmatchindex
-					if atomic.LoadInt64(&numlog) > int64(num)/2 && rf.matchIndex[node] > rf.commitIndex && rf.logs[rf.matchIndex[node]].Term >= rf.currentTerm {
-						rf.commitIndex = rf.matchIndex[node]
-						rf.cond.Signal()
+					if atomic.LoadInt64(&numlog) > int64(num)/2 {
+						if rf.state == Leader {
+							rf.commitIndex = loglens - 1
+							rf.cond.Signal()
+						}
 					}
-				} else {
+				} else if !reply.Success {
 					if reply.Failindex > len(rf.logs)-1 {
 						reply.Failindex = len(rf.logs) - 1
 					}
