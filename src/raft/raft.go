@@ -119,9 +119,12 @@ func (rf *Raft) GetState() (int, bool) {
 // where it can later be retrieved after a crash and restart.
 // see paper's Figure 2 for a description of what should be persistent.
 //
-func (rf *Raft) persist() {
+func (rf *Raft) persist(lock bool) {
 	w := new(bytes.Buffer)
 	e := labgob.NewEncoder(w)
+	if lock {
+		rf.mu.Lock()
+	}
 	log.Printf("start persist %d term %d log %v", rf.me, rf.currentTerm, rf.logs)
 	rf.Persistinfo.CurrentTerm = rf.currentTerm
 	rf.Persistinfo.VotedFor = rf.votedFor
@@ -129,6 +132,9 @@ func (rf *Raft) persist() {
 	e.Encode(rf.Persistinfo)
 	data := w.Bytes()
 	rf.persister.SaveRaftState(data)
+	if lock {
+		rf.mu.Unlock()
+	}
 }
 
 //
@@ -240,7 +246,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			rf.votedFor = -1
 			rf.state = Foller
 		}
-		rf.persist()
+		rf.persist(false)
 		if rf.logs[len(rf.logs)-1].Term < args.Lastlogterm && rf.votedFor == -1 { //先比较term然后比len
 			reply.Votefor = true
 			rf.hasvote = true
@@ -259,7 +265,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			log.Printf("why not got vote me:%v berterm: %v len:%v logsterm: %v to:%v", rf.me, reply.Term, len(rf.logs)-1, rf.logs[len(rf.logs)-1].Term, args)
 			rf.currentTerm = args.Term
 		}
-		rf.persist()
+		rf.persist(false)
 		//log.Printf("%v server %d term %d became %d term %d foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, args.Candidateid, args.Term)
 	} else {
 		args.Term = rf.currentTerm
@@ -316,7 +322,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	} else if reply.Success && args.Entries == nil {
 		reply.Cmatchindex = args.PrevLogIndex
 	}
-	rf.persist()
+	rf.persist(false)
 	if reply.Success && rf.commitIndex < args.LeaderCommit {
 		if args.LeaderCommit > len(rf.logs)-1 {
 			rf.commitIndex = len(rf.logs) - 1
@@ -415,7 +421,6 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	isLeader := true
 	term, isLeader = rf.GetState()
 	rf.mu.Lock()
-	log.Printf("%v node %d term %v isleader %v should add %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, isLeader, command)
 	rf.mu.Unlock()
 	if isLeader {
 		rf.mu.Lock()
@@ -474,7 +479,6 @@ func (rf *Raft) startvote() {
 	rf.mu.Lock()
 	rf.currentTerm++
 	rf.votedFor = rf.me
-	rf.persist()
 	me := rf.me
 	currentTerm := rf.currentTerm
 	laslogindex := len(rf.logs) - 1
@@ -485,6 +489,7 @@ func (rf *Raft) startvote() {
 	log.Printf("%v %d start vote %d term %d in all %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.currentTerm, n)
 	wg := sync.WaitGroup{}
 	rf.mu.Unlock()
+	go rf.persist(true)
 	wg.Add(n - 1)
 	for node := range rf.peers {
 		if node != me {
@@ -556,8 +561,8 @@ func (rf *Raft) sendlog() {
 			entries[i] = append(entries[i], rf.logs[t])
 		}
 	}
-	rf.persist()
 	rf.mu.Unlock()
+	go rf.persist(true)
 	wg := sync.WaitGroup{}
 	num := len(rf.peers) - 1
 	wg.Add(num)
@@ -602,8 +607,8 @@ func (rf *Raft) sendlog() {
 						}
 						sort.Ints(sb)
 						tt := len(rf.peers)/2 + 1
-						if rf.state == Leader && rf.logs[sb[tt]].Term >= rf.currentTerm { ///////大部分一致出问题
-							rf.commitIndex = loglens - 1
+						if rf.state == Leader && rf.logs[sb[tt]].Term >= rf.currentTerm { //大部分一致出问题
+							rf.commitIndex = sb[tt] //loglens - 1
 							rf.cond.Signal()
 						}
 					}
@@ -628,11 +633,11 @@ func (rf *Raft) sendlog() {
 						}
 						if numcommit > num/2 {
 							rf.commitIndex = rf.matchIndex[node]
-							rf.persist()
 						}
 					}
 				}
 				rf.mu.Unlock()
+				go rf.persist(true)
 			}(node)
 		}
 	}
