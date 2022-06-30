@@ -600,17 +600,9 @@ func (rf *Raft) sendlog() {
 					rf.nextIndex[node] = reply.Cmatchindex + 1
 					log.Printf("%v %d has log %v recv %v log nextindex is %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, len(rf.logs), node, rf.nextIndex[node], rf.nextIndex)
 					rf.matchIndex[node] = reply.Cmatchindex
-					if atomic.LoadInt64(&numlog) > int64(num)/2 {
-						var sb []int
-						for i, _ := range rf.matchIndex {
-							sb = append(sb, rf.matchIndex[i])
-						}
-						sort.Ints(sb)
-						tt := len(rf.peers)/2 + 1
-						if rf.state == Leader && rf.logs[sb[tt]].Term >= rf.currentTerm { //大部分一致出问题
-							rf.commitIndex = sb[tt] //loglens - 1
-							rf.cond.Signal()
-						}
+					if atomic.LoadInt64(&numlog) > int64(num)/2 && rf.matchIndex[node] > rf.commitIndex && rf.logs[rf.matchIndex[node]].Term >= rf.currentTerm {
+						rf.commitIndex = rf.matchIndex[node]
+						rf.cond.Signal()
 					}
 				} else {
 					if reply.Failindex > len(rf.logs)-1 {
@@ -625,14 +617,15 @@ func (rf *Raft) sendlog() {
 				if rf.state == Leader {
 					log.Printf("node is %v has log %v leaderhas %v ", node, rf.matchIndex[node], len(rf.logs)-1)
 					if reply.Success && rf.matchIndex[node] > rf.commitIndex && rf.logs[rf.matchIndex[node]].Term == rf.currentTerm {
-						numcommit := 0
-						for i := range rf.matchIndex {
-							if rf.matchIndex[i] >= rf.matchIndex[node] {
-								numcommit++
-							}
+						var sb []int
+						for i, _ := range rf.matchIndex {
+							sb = append(sb, rf.matchIndex[i])
 						}
-						if numcommit > num/2 {
-							rf.commitIndex = rf.matchIndex[node]
+						sort.Ints(sb)
+						tt := len(rf.peers)/2 + 1
+						if rf.state == Leader && rf.logs[sb[tt]].Term >= rf.currentTerm { //大部分一致出问题
+							rf.commitIndex = sb[tt]
+							rf.cond.Signal()
 						}
 					}
 				}
