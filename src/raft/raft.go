@@ -330,7 +330,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			rf.commitIndex = args.LeaderCommit
 		}
 		rf.cond.Signal()
-		log.Printf("%v %d add commit to %d ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.commitIndex)
+		log.Printf("%v %d add commit to %d in line 333", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.commitIndex)
 	}
 	if !reply.Success && args.Entries != nil {
 		reply.Failterm = args.PrevLogTerm
@@ -604,6 +604,7 @@ func (rf *Raft) sendlog() {
 						if rf.state == Leader {
 							rf.commitIndex = loglens - 1
 							rf.cond.Signal()
+							log.Printf("node %d commitooo %v in 607", rf.me, rf.commitIndex)
 						}
 					}
 				} else if !reply.Success {
@@ -628,6 +629,7 @@ func (rf *Raft) sendlog() {
 						if rf.state == Leader && rf.logs[sb[tt]].Term >= rf.currentTerm { //大部分一致出问题
 							rf.commitIndex = sb[tt]
 							rf.cond.Signal()
+							log.Printf("node %d commitooo %v in 632", rf.me, rf.commitIndex)
 						}
 					}
 				}
