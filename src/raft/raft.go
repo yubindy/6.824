@@ -595,27 +595,29 @@ func (rf *Raft) sendlog() {
 					return
 				}
 				rf.mu.Lock()
-				if reply.Success && rf.logs[loglens-1].Term == rf.currentTerm {
-					atomic.AddInt64(&numlog, 1)
-					rf.nextIndex[node] = reply.Cmatchindex + 1
-					log.Printf("%v %d recv log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, len(args.Entries), rf.nextIndex)
-					rf.matchIndex[node] = reply.Cmatchindex
-					if atomic.LoadInt64(&numlog) > int64(num)/2 {
-						if rf.state == Leader {
-							rf.commitIndex = loglens - 1
-							rf.cond.Signal()
-							log.Printf("node %d commitooo %v in 607", rf.me, rf.commitIndex)
+				if rf.state == Leader {
+					if reply.Success && rf.logs[loglens-1].Term == rf.currentTerm {
+						atomic.AddInt64(&numlog, 1)
+						rf.nextIndex[node] = reply.Cmatchindex + 1
+						log.Printf("%v %d recv %d log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, len(args.Entries), rf.nextIndex)
+						rf.matchIndex[node] = reply.Cmatchindex
+						if atomic.LoadInt64(&numlog) > int64(num)/2 {
+							if rf.state == Leader {
+								log.Printf("node %d commitooo from %v to %v in 607", rf.me, rf.commitIndex, loglens-1)
+								rf.commitIndex = loglens - 1
+								rf.cond.Signal()
+							}
 						}
+					} else if !reply.Success && rf.state == Leader {
+						if reply.Failindex > len(rf.logs)-1 {
+							reply.Failindex = len(rf.logs) - 1
+						}
+						rf.nextIndex[node] = reply.Failindex
+						if reply.Failindex == 0 {
+							rf.nextIndex[node] = 1
+						}
+						log.Printf("%v %d set nextindex [%d] = %d next:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, rf.nextIndex[node], rf.nextIndex)
 					}
-				} else if !reply.Success {
-					if reply.Failindex > len(rf.logs)-1 {
-						reply.Failindex = len(rf.logs) - 1
-					}
-					rf.nextIndex[node] = reply.Failindex
-					if reply.Failindex == 0 {
-						rf.nextIndex[node] = 1
-					}
-					log.Printf("%v %d set nextindex [%d] = %d next:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, rf.nextIndex[node], rf.nextIndex)
 				}
 				if rf.state == Leader {
 					log.Printf("node is %v has log %v leaderhas %v ", node, rf.matchIndex[node], len(rf.logs)-1)
