@@ -405,7 +405,6 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 
 func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
 	rf.mu.Lock()
-	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
 	if args.Term < rf.currentTerm {
 		return
@@ -419,7 +418,9 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 	rf.Snapshotinfo.SnapshotIndex = args.LastIncludedIndex
 	rf.Snapshotinfo.SnapshotTerm = args.lastIncludedTerm
 	rf.Snapshotinfo.Snapshot = args.Data
-	rf.persist(false)
+	reply.Term = rf.currentTerm
+	rf.mu.Unlock()
+	go rf.persist(true)
 	go func() { //向引用层提交更新
 		rf.mu.Lock()
 		apply := ApplyMsg{
@@ -606,8 +607,12 @@ func (rf *Raft) sendlog() {
 	me := rf.me
 	loglens := len(rf.logs)
 	commit := rf.commitIndex
+	rf.Lastlogindex = len(rf.logs) - 1 + rf.Snapshotinfo.SnapshotIndex
 	log.Printf("%v %v term %d start send %d log %v nextindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, loglens-1, rf.logs, rf.nextIndex)
 	for i := 0; i < len(rf.peers); i++ {
+		if rf.Lastlogindex > rf.nextIndex[i] {
+			////////////////////////////TODO change
+		}
 		prevlog = append(prevlog, rf.nextIndex[i]-1)
 		prevterm = append(prevterm, rf.logs[prevlog[i]].Term)
 		entries = append(entries, nil)
@@ -624,7 +629,20 @@ func (rf *Raft) sendlog() {
 				Data:              rf.Snapshotinfo.Snapshot,
 			}
 			Snapreply := InstallSnapshotReply{}
-			rf.sendInstallSnapshot(i, &Snapargs, &Snapreply)
+			ok := rf.sendInstallSnapshot(i, &Snapargs, &Snapreply)
+			if !ok {
+				log.Printf("S%v %v sendlog failed to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, i)
+				return
+			}
+			if Snapreply.Term > rf.currentTerm {
+				rf.mu.Lock()
+				rf.currentTerm = Snapreply.Term
+				rf.votedFor = -1
+				rf.state = Foller
+				log.Printf("%v %d term %d become foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm)
+				rf.mu.Unlock()
+				return
+			}
 		}
 	}
 	rf.mu.Unlock()
