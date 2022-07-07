@@ -70,7 +70,7 @@ type Snapshots struct {
 type persistent struct {
 	CurrentTerm int
 	VotedFor    int
-	Logs        []nlog
+	Logs        map[int]nlog
 }
 
 //
@@ -89,7 +89,7 @@ type Raft struct {
 	hasheat     bool
 	hasvote     bool
 
-	logs        []nlog
+	logs        map[int]nlog
 	commitIndex int
 	lastapplied int
 	nextIndex   []int //next log的索引位置,即刚好i匹配上的index
@@ -221,7 +221,9 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 		rf.Snapshotinfo.Snapshot = snapshot
 		rf.Snapshotinfo.SnapshotIndex = index
 		rf.Snapshotinfo.SnapshotTerm = rf.logs[index].Term
-		rf.logs = rf.logs[index:]
+		for i := 0; i <= index; i++ {
+			delete(rf.logs, i)
+		}
 		log.Printf("node %d Snapshot index: %v", rf.me, index)
 	}
 	rf.mu.Unlock()
@@ -293,12 +295,12 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			rf.state = Foller
 		}
 		rf.persist(false)
-		if rf.logs[len(rf.logs)-1+rf.Snapshotinfo.SnapshotIndex].Term < args.Lastlogterm && rf.votedFor == -1 { //先比较term然后比len
+		if rf.logs[rf.Lastlogindex].Term < args.Lastlogterm && rf.votedFor == -1 { //先比较term然后比len
 			reply.Votefor = true
 			rf.hasvote = true
 			rf.state = Foller
 			rf.votedFor = args.Candidateid
-		} else if rf.logs[len(rf.logs)-1+rf.Snapshotinfo.SnapshotIndex].Term == args.Lastlogterm && len(rf.logs)-1 <= args.Lastlogindex && rf.votedFor == -1 {
+		} else if rf.logs[rf.Lastlogindex].Term == args.Lastlogterm && len(rf.logs)-1 <= args.Lastlogindex && rf.votedFor == -1 {
 			reply.Votefor = true
 			rf.hasvote = true
 			rf.state = Foller
@@ -308,7 +310,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			if rf.state == Leader {
 				rf.hasheat = true
 			}
-			log.Printf("why not got vote me:%v berterm: %v len:%v logsterm: %v to:%v", rf.me, reply.Term, len(rf.logs)-1, rf.logs[len(rf.logs)-1+rf.Snapshotinfo.SnapshotIndex].Term, args)
+			log.Printf("why not got vote me:%v berterm: %v len:%v logsterm: %v to:%v", rf.me, reply.Term, len(rf.logs)-1, rf.logs[rf.Lastlogindex].Term, args)
 			rf.currentTerm = args.Term
 		}
 		rf.persist(false)
@@ -329,7 +331,6 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
-	rf.Lastlogindex = len(rf.logs) - 1 + rf.Snapshotinfo.SnapshotTerm
 	log.Printf("node %d term %d recvterm %d recvfrom %d log %v recv %v", rf.me, rf.currentTerm, args.Term, args.Leaderid, rf.logs, args)
 	if rf.currentTerm <= args.Term { //线判断任期
 		rf.hasheat = true
@@ -360,8 +361,8 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 				rf.logs = rf.logs[:i+args.PrevLogIndex+1-rf.Snapshotinfo.SnapshotIndex]
 				lens = len(rf.logs)
 			}
-			info := args.Entries[i]
-			rf.logs = append(rf.logs, info)
+			rf.Lastlogindex++
+			rf.logs[rf.Lastlogindex] = args.Entries[i]
 		}
 		reply.Cmatchindex = args.PrevLogIndex + len(args.Entries) + rf.Snapshotinfo.SnapshotIndex
 		log.Printf("node %d change cmatch %v Entrieslen %v become %v", rf.me, reply.Cmatchindex, len(args.Entries), rf.logs)
@@ -370,7 +371,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	}
 	rf.persist(false)
 	if reply.Success && rf.commitIndex < args.LeaderCommit {
-		if args.LeaderCommit > len(rf.logs)-1+rf.Snapshotinfo.SnapshotIndex {
+		if args.LeaderCommit > rf.Lastlogindex {
 			rf.commitIndex = len(rf.logs) - 1 + rf.Snapshotinfo.SnapshotIndex
 		} else {
 			rf.commitIndex = args.LeaderCommit
@@ -409,7 +410,6 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 	if args.Term < rf.currentTerm {
 		return
 	}
-	rf.Lastlogindex = rf.Snapshotinfo.SnapshotIndex + len(rf.logs) - 1
 	if rf.Lastlogindex > args.LastIncludedIndex {
 		rf.logs = rf.logs[rf.Lastlogindex-args.LastIncludedIndex:]
 	} else {
@@ -499,9 +499,10 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	rf.mu.Unlock()
 	if isLeader {
 		rf.mu.Lock()
-		rf.logs = append(rf.logs, nlog{
+		rf.Lastlogindex++
+		rf.logs[rf.Lastlogindex] = nlog{
 			Term:   term,
-			Logact: command})
+			Logact: command}
 		log.Printf("%v %d term %d leader get log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, command)
 		index = len(rf.logs) - 1
 		rf.mu.Unlock()
@@ -536,7 +537,7 @@ func (rf *Raft) startvote() {
 	rf.votedFor = rf.me
 	me := rf.me
 	currentTerm := rf.currentTerm
-	laslogindex := len(rf.logs) - 1 + rf.Snapshotinfo.SnapshotIndex
+	laslogindex := len(rf.logs) - 1
 	lastlogterm := rf.logs[laslogindex].Term
 	var num int64
 	num = 1
@@ -607,11 +608,10 @@ func (rf *Raft) sendlog() {
 	me := rf.me
 	loglens := len(rf.logs)
 	commit := rf.commitIndex
-	rf.Lastlogindex = len(rf.logs) - 1 + rf.Snapshotinfo.SnapshotIndex
 	log.Printf("%v %v term %d start send %d log %v nextindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, loglens-1, rf.logs, rf.nextIndex)
 	for i := 0; i < len(rf.peers); i++ {
 		if rf.Lastlogindex > rf.nextIndex[i] {
-			////////////////////////////TODO change
+			//TODO change
 		}
 		prevlog = append(prevlog, rf.nextIndex[i]-1)
 		prevterm = append(prevterm, rf.logs[prevlog[i]].Term)
@@ -682,7 +682,7 @@ func (rf *Raft) sendlog() {
 				if rf.state == Leader {
 					if reply.Success && rf.logs[loglens-1].Term == rf.currentTerm {
 						atomic.AddInt64(&numlog, 1)
-						rf.nextIndex[node] = reply.Cmatchindex + 1
+						rf.nextIndex[node] = reply.Cmatchindex + 1 - rf.Snapshotinfo.SnapshotIndex
 						log.Printf("%v %d recv %d log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, len(args.Entries), rf.nextIndex)
 						rf.matchIndex[node] = reply.Cmatchindex
 						if atomic.LoadInt64(&numlog) > int64(num)/2 {
@@ -697,7 +697,7 @@ func (rf *Raft) sendlog() {
 							reply.Failindex = len(rf.logs) - 1
 						}
 						rf.nextIndex[node] = reply.Failindex
-						if reply.Failindex == 0 {
+						if reply.Failindex == 0 && rf.Snapshotinfo.SnapshotIndex == 0 {
 							rf.nextIndex[node] = 1
 						}
 						log.Printf("%v %d set nextindex [%d] = %d next:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, rf.nextIndex[node], rf.nextIndex)
@@ -820,7 +820,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.hasheat = true
 	rf.cond = sync.NewCond(&rf.mu)
 	rf.applyCh = applyCh
-	rf.logs = append(rf.logs, nlog{0, 123})
+	rf.logs[0] = nlog{0, 666}
 	for i := 0; i < len(rf.peers); i++ {
 		rf.matchIndex = append(rf.matchIndex, 0)
 		rf.nextIndex = append(rf.nextIndex, 1)
