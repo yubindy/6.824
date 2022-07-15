@@ -593,7 +593,7 @@ func (rf *Raft) sendlog() {
 	me := rf.me
 	loglens := rf.Lastlogindex
 	commit := rf.commitIndex
-	log.Printf("%v %v term %d start send %d log %v nextindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, loglens-1, rf.logs, rf.nextIndex)
+	log.Printf("%v %v term %d start send %d log %v nextindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, loglens, rf.logs, rf.nextIndex)
 	for i := 0; i < len(rf.peers); i++ {
 		if rf.nextIndex[i] == rf.Snapshotinfo.SnapshotIndex && rf.me != i {
 			args := InstallSnapshotArgs{
@@ -663,15 +663,15 @@ func (rf *Raft) sendlog() {
 				}
 				rf.mu.Lock()
 				if rf.state == Leader {
-					if reply.Success && rf.logs[loglens-1].Term == rf.currentTerm {
+					if reply.Success && rf.logs[loglens].Term == rf.currentTerm {
 						atomic.AddInt64(&numlog, 1)
 						rf.nextIndex[node] = reply.Cmatchindex + 1
 						log.Printf("%v %d recv %d log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, len(args.Entries), rf.nextIndex)
 						rf.matchIndex[node] = reply.Cmatchindex
 						if atomic.LoadInt64(&numlog) > int64(num)/2 {
 							if rf.state == Leader {
-								log.Printf("node %d commitooo from %v to %v in 607", rf.me, rf.commitIndex, loglens-1)
-								rf.commitIndex = loglens - 1
+								log.Printf("node %d commitooo from %v to %v in 607", rf.me, rf.commitIndex, loglens)
+								rf.commitIndex = loglens
 								rf.cond.Signal()
 							}
 						}
