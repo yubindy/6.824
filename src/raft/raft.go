@@ -207,11 +207,25 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 		rf.Snapshotinfo.Snapshot = snapshot
 		rf.Snapshotinfo.SnapshotIndex = index
 		rf.Snapshotinfo.SnapshotTerm = rf.logs[index].Term
-		rf.logs = rf.logs[index-1:]
+		rf.logs = rf.logs[index:]
 		log.Printf("node %d Snapshot index: %v", rf.me, index)
 	}
 	rf.mu.Unlock()
 	rf.persist(true)
+	go func() {
+		rf.mu.Lock()
+		defer rf.mu.Unlock()
+		if rf.Snapshotinfo.SnapshotIndex != -1 {
+			applyMsg := ApplyMsg{
+				SnapshotValid: true,
+				Snapshot:      rf.Snapshotinfo.Snapshot,
+				SnapshotIndex: rf.Snapshotinfo.SnapshotIndex,
+				SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
+			}
+			rf.applyCh <- applyMsg
+			rf.lastapplied = rf.Lastlogindex
+		}
+	}()
 }
 
 //
@@ -267,6 +281,24 @@ type InstallSnapshotReply struct {
 //
 // example RequestVote RPC handler.
 //
+func (rf *Raft) RequestInstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	reply.Term = rf.currentTerm
+	if rf.currentTerm > args.Term {
+		return
+	}
+	if args.LastIncludedIndex > rf.Snapshotinfo.SnapshotIndex && args.lastIncludedTerm >= rf.Snapshotinfo.SnapshotTerm {
+		rf.Snapshotinfo.Snapshot = args.Data
+		rf.Snapshotinfo.SnapshotIndex = args.LastIncludedIndex
+		rf.Snapshotinfo.SnapshotTerm = args.lastIncludedTerm
+		if rf.Lastlogindex > args.LastIncludedIndex {
+			rf.logs = rf.logs[rf.Lastlogindex+1:]
+		} else {
+			rf.logs = nil
+		}
+	}
+}
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B)
 	rf.mu.Lock()
@@ -559,15 +591,41 @@ func (rf *Raft) sendlog() {
 	rf.mu.Lock()
 	currentTerm := rf.currentTerm
 	me := rf.me
-	loglens := len(rf.logs)
+	loglens := rf.Lastlogindex
 	commit := rf.commitIndex
 	log.Printf("%v %v term %d start send %d log %v nextindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, loglens-1, rf.logs, rf.nextIndex)
 	for i := 0; i < len(rf.peers); i++ {
+		if rf.nextIndex[i] == rf.Snapshotinfo.SnapshotIndex && rf.me != i {
+			args := InstallSnapshotArgs{
+				Term:              rf.currentTerm,
+				Leaderid:          rf.me,
+				LastIncludedIndex: rf.Snapshotinfo.SnapshotIndex,
+				lastIncludedTerm:  rf.Snapshotinfo.SnapshotTerm,
+				Data:              rf.Snapshotinfo.Snapshot,
+			}
+			reply := InstallSnapshotReply{}
+			ok := rf.sendInstallSnapshot(i, &args, &reply)
+			if !ok {
+				log.Printf("S%v %v sendInstallSnapshot failed to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, i)
+				return
+			}
+			if reply.Term > rf.currentTerm {
+				rf.currentTerm = reply.Term
+				rf.votedFor = -1
+				rf.state = Foller
+				log.Printf("%v %d term %d become foller", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm)
+				rf.mu.Unlock()
+				return
+			} else {
+				rf.nextIndex[i]++
+
+			}
+		}
 		prevlog = append(prevlog, rf.nextIndex[i]-1)
 		prevterm = append(prevterm, rf.logs[prevlog[i]-rf.Snapshotinfo.SnapshotIndex].Term)
 		entries = append(entries, nil)
-		for t := rf.nextIndex[i]; t < loglens; t++ {
-			entries[i] = append(entries[i], rf.logs[t])
+		for t := rf.nextIndex[i]; t < rf.Lastlogindex; t++ {
+			entries[i] = append(entries[i], rf.logs[t-rf.Snapshotinfo.SnapshotIndex])
 		}
 	}
 	rf.mu.Unlock()
