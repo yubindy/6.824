@@ -297,6 +297,21 @@ func (rf *Raft) RequestInstallSnapshot(args *InstallSnapshotArgs, reply *Install
 		} else {
 			rf.logs = nil
 		}
+		go func() {
+			rf.mu.Lock()
+			defer rf.mu.Unlock()
+			if rf.Snapshotinfo.SnapshotIndex != -1 {
+				applyMsg := ApplyMsg{
+					SnapshotValid: true,
+					Snapshot:      rf.Snapshotinfo.Snapshot,
+					SnapshotIndex: rf.Snapshotinfo.SnapshotIndex,
+					SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
+				}
+				rf.applyCh <- applyMsg
+				rf.lastapplied = rf.Lastlogindex
+			}
+		}()
+
 	}
 }
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
@@ -369,15 +384,13 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		return
 	}
 	if reply.Success && args.Entries != nil { //log加入其中
-		lens := rf.Lastlogindex
 		for i := 0; i < len(args.Entries); i++ {
-			if i+args.PrevLogIndex+1 < lens {
+			if i+args.PrevLogIndex+1 < rf.Lastlogindex {
 				if rf.logs[i+args.PrevLogIndex+1-rf.Snapshotinfo.SnapshotIndex].Term == args.Entries[i].Term && rf.logs[i+args.PrevLogIndex+1-rf.Snapshotinfo.SnapshotIndex].Logact == args.Entries[i].Logact {
 					continue
 				}
 				rf.logs = rf.logs[:i+args.PrevLogIndex+1-rf.Snapshotinfo.SnapshotIndex]
 				rf.Lastlogindex = i + args.PrevLogIndex + 1
-				lens = rf.Lastlogindex
 			}
 			info := args.Entries[i]
 			rf.logs = append(rf.logs, info)
@@ -779,7 +792,7 @@ func (rf *Raft) ticker() {
 
 }
 
-//
+///home/yubtin/Desktop/codes/6.824/src/raft/raft.go
 // the service or tester wants to create a Raft server. the ports
 // of all the Raft servers (including this one) are in peers[]. this
 // server's port is peers[me]. all the servers' peers[] arrays
@@ -797,6 +810,9 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.persister = persister
 	rf.me = me
 	rf.currentTerm = 0
+	rf.Snapshotinfo.SnapshotIndex = 0
+	rf.Snapshotinfo.SnapshotTerm = 0
+	rf.Snapshotinfo.Snapshot = nil
 	rf.votedFor = -1
 	rf.state = Foller
 	rf.hasvote = true
