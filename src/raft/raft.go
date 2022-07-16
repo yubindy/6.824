@@ -572,9 +572,8 @@ func (rf *Raft) startvote() {
 					if int(atomic.LoadInt64(&num)) > n/2 && !rf.hasheat && rf.state == Candidate {
 						log.Printf("%v serve %d become leader------- num:%d term:%d log:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.currentTerm, rf.logs)
 						rf.state = Leader
-						loglen := rf.Lastlogindex + 1
 						for i := 0; i < len(rf.peers); i++ {
-							rf.nextIndex[i] = loglen
+							rf.nextIndex[i] = rf.Lastlogindex + 1
 							rf.matchIndex[i] = 0
 						}
 					}
