@@ -603,7 +603,7 @@ func (rf *Raft) sendlog() {
 	rf.mu.Lock()
 	currentTerm := rf.currentTerm
 	me := rf.me
-	loglens := rf.Lastlogindex
+	loglens := len(rf.logs)
 	commit := rf.commitIndex
 	log.Printf("%v %v term %d start send %d log %v nextindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, loglens, rf.logs, rf.nextIndex)
 	for i := 0; i < len(rf.peers); i++ {
@@ -675,15 +675,15 @@ func (rf *Raft) sendlog() {
 				}
 				rf.mu.Lock()
 				if rf.state == Leader {
-					if reply.Success && rf.logs[loglens].Term == rf.currentTerm {
+					if reply.Success && rf.logs[loglens-1].Term == rf.currentTerm {
 						atomic.AddInt64(&numlog, 1)
 						rf.nextIndex[node] = reply.Cmatchindex + 1
 						log.Printf("%v %d recv %d log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, len(args.Entries), rf.nextIndex)
 						rf.matchIndex[node] = reply.Cmatchindex
 						if atomic.LoadInt64(&numlog) > int64(num)/2 {
 							if rf.state == Leader {
-								log.Printf("node %d commitooo from %v to %v in 607", rf.me, rf.commitIndex, loglens)
-								rf.commitIndex = loglens
+								log.Printf("node %d commitooo from %v to %v in 607", rf.me, rf.commitIndex, loglens+rf.Snapshotinfo.SnapshotIndex)
+								rf.commitIndex = loglens - 1 + rf.Snapshotinfo.SnapshotIndex
 								rf.cond.Signal()
 							}
 						}
