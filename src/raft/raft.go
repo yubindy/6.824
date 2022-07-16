@@ -206,7 +206,7 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 		rf.Snapshotinfo.Snapshot = snapshot
 		rf.Snapshotinfo.SnapshotIndex = index
 		rf.Snapshotinfo.SnapshotTerm = rf.logs[index].Term
-		rf.logs = rf.logs[index:]
+		rf.logs = rf.logs[index-1:]
 		log.Printf("node %d Snapshot index: %v", rf.me, index)
 	}
 	rf.mu.Unlock()
@@ -396,16 +396,6 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	}
 }
 
-func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
-	rf.mu.Lock()
-	defer rf.mu.Unlock()
-	reply.Term = rf.currentTerm
-	if args.Term < rf.currentTerm {
-		return
-	}
-
-}
-
 //
 // example code to send a RequestVote RPC to a server.
 // server is the index of the target server in rf.peers[].
@@ -477,26 +467,6 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	// Your code here (2B).
 	return index, term, isLeader
 }
-
-//func (rf *Raft) CondInstallSnapshot() bool {
-//	for {
-//		apply := ApplyMsg{}
-//		rf.mu.Lock()
-//		for rf.commitIndex == rf.lastapplied {
-//			rf.cond.Wait()
-//		}
-//		for rf.lastapplied < rf.commitIndex {
-//			rf.lastapplied++
-//			apply.Command = rf.logs[rf.lastapplied].Logact
-//			apply.CommandIndex = rf.lastapplied
-//			apply.CommandValid = true
-//			applyCh <- apply
-//			log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.lastapplied, apply.Command)
-//		}
-//		log.Printf("%d term %d logs %v comitindex%d", rf.me, rf.currentTerm, rf.logs, rf.commitIndex)
-//		rf.mu.Unlock()
-//	}
-//}
 
 //
 // the tester doesn't halt goroutines created by Raft after each test,
@@ -787,11 +757,6 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		rf.matchIndex = append(rf.matchIndex, 0)
 		rf.nextIndex = append(rf.nextIndex, 1)
 	}
-	//w := new(bytes.Buffer)
-	//data := w.Bytes()
-	//rf.readPersist(data)
-	// Your initialization code here (2A, 2B, 2C).
-	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
 	rf.readSnapshotPersist(persister.ReadSnapshot())
 	log.Printf("node %d start ====", rf.me)
