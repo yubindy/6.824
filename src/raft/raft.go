@@ -68,6 +68,12 @@ type persistent struct {
 	Logs        []nlog
 }
 
+type Snapshots struct {
+	Snapshot      []byte
+	SnapshotTerm  int
+	SnapshotIndex int
+}
+
 //
 // A Go object implementing a single Raft peer.
 //
@@ -91,7 +97,10 @@ type Raft struct {
 	matchIndex  []int //已经复制log的的索引
 	cond        *sync.Cond
 
-	Persistinfo persistent
+	applyCh      chan ApplyMsg
+	Persistinfo  persistent
+	Lastlogindex int
+	Snapshotinfo Snapshots
 	// Your data here (2A, 2B, 2C).
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
@@ -130,8 +139,11 @@ func (rf *Raft) persist(lock bool) {
 	rf.Persistinfo.VotedFor = rf.votedFor
 	rf.Persistinfo.Logs = rf.logs
 	e.Encode(rf.Persistinfo)
+	e.Encode(rf.Lastlogindex)
+	e.Encode(rf.Snapshotinfo.SnapshotTerm)
 	data := w.Bytes()
-	rf.persister.SaveRaftState(data)
+	//rf.persister.SaveRaftState(data)
+	rf.persister.SaveStateAndSnapshot(data, rf.Snapshotinfo.Snapshot)
 	if lock {
 		rf.mu.Unlock()
 	}
@@ -140,6 +152,15 @@ func (rf *Raft) persist(lock bool) {
 //
 // restore previously persisted state.
 //
+func (rf *Raft) readSnapshotPersist(data []byte) {
+	if data == nil { // bootstrap without any state?
+		return
+	}
+	rf.mu.Lock()
+	rf.Snapshotinfo.Snapshot = data
+	rf.mu.Unlock()
+}
+
 func (rf *Raft) readPersist(data []byte) {
 	if data == nil || len(data) < 1 { // bootstrap without any state?
 		return
@@ -147,17 +168,18 @@ func (rf *Raft) readPersist(data []byte) {
 	r := bytes.NewBuffer(data)
 	d := labgob.NewDecoder(r)
 	var Persistinfo persistent
-	log.Printf("node %d ****** readPersist", rf.me)
-	if d.Decode(&Persistinfo) != nil {
-		rf.mu.Lock()
-		log.Printf("node%d decode==nil", rf.me)
-		rf.mu.Unlock()
+	var LastlogindexIndex int
+	var SnapshotLasterm int
+	if d.Decode(&Persistinfo) != nil && d.Decode(&LastlogindexIndex) != nil && d.Decode(&SnapshotLasterm) != nil {
+		log.Printf("node%d readSnapshotPersist decode==nil", rf.me)
 	} else {
 		rf.mu.Lock()
-		log.Printf("node %d ********* readPersist term %d log %v", rf.me, rf.me, rf.logs)
+		log.Printf("node %d ********* readSnapshotPersist term %d log %v", rf.me, rf.me, rf.logs)
 		rf.currentTerm = Persistinfo.CurrentTerm
 		rf.votedFor = Persistinfo.VotedFor
 		rf.logs = Persistinfo.Logs
+		rf.Lastlogindex = LastlogindexIndex
+		rf.Snapshotinfo.SnapshotTerm = SnapshotLasterm
 		rf.mu.Unlock()
 	}
 }
@@ -179,7 +201,30 @@ func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int,
 // that index. Raft should now trim its log as much as possible.
 func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	// Your code here (2D).
-
+	rf.mu.Lock()
+	if index >= len(rf.logs)-1 {
+		rf.Snapshotinfo.Snapshot = snapshot
+		rf.Snapshotinfo.SnapshotIndex = index
+		rf.Snapshotinfo.SnapshotTerm = rf.logs[index].Term
+		rf.logs = rf.logs[index:]
+		log.Printf("node %d Snapshot index: %v", rf.me, index)
+	}
+	rf.mu.Unlock()
+	rf.persist(true)
+	go func() {
+		rf.mu.Lock()
+		defer rf.mu.Unlock()
+		if rf.Snapshotinfo.SnapshotIndex != -1 {
+			applyMsg := ApplyMsg{
+				SnapshotValid: true,
+				Snapshot:      rf.Snapshotinfo.Snapshot,
+				SnapshotIndex: rf.Snapshotinfo.SnapshotIndex,
+				SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
+			}
+			rf.applyCh <- applyMsg
+			rf.lastapplied = rf.Lastlogindex
+		}
+	}()
 }
 
 //
@@ -224,9 +269,7 @@ type InstallSnapshotArgs struct {
 	Leaderid          int
 	LastIncludedIndex int
 	lastIncludedTerm  int
-	Offset            int    //分块在快照中的字节偏移量
 	Data              []byte //从偏移量开始的快照分块的原始字节
-	Done              bool   //是否是最后一个分快
 }
 type InstallSnapshotReply struct {
 	Term int
@@ -730,12 +773,16 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.persister = persister
 	rf.me = me
 	rf.currentTerm = 0
+	rf.Snapshotinfo.SnapshotIndex = 0
+	rf.Snapshotinfo.SnapshotTerm = 0
+	rf.Snapshotinfo.Snapshot = nil
 	rf.votedFor = -1
 	rf.state = Foller
 	rf.hasvote = true
 	rf.hasheat = true
 	rf.cond = sync.NewCond(&rf.mu)
 	rf.logs = append(rf.logs, nlog{0, 123})
+	rf.Lastlogindex = 0
 	for i := 0; i < len(rf.peers); i++ {
 		rf.matchIndex = append(rf.matchIndex, 0)
 		rf.nextIndex = append(rf.nextIndex, 1)
@@ -746,6 +793,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	// Your initialization code here (2A, 2B, 2C).
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
+	rf.readSnapshotPersist(persister.ReadSnapshot())
 	log.Printf("node %d start ====", rf.me)
 	go func() { //通过applech 发送AppleMsg消息
 		for {
