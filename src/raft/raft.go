@@ -335,7 +335,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		if len(rf.logs)-1 < args.PrevLogIndex {
 			reply.Success = false
 		} else {
-			if rf.logs[args.PrevLogIndex].Term == args.PrevLogTerm {
+			if rf.logs[args.PrevLogIndex-rf.Snapshotinfo.SnapshotIndex].Term == args.PrevLogTerm {
 				rf.hasheat = true
 				reply.Success = true
 			} else {
@@ -351,10 +351,10 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		lens := len(rf.logs)
 		for i := 0; i < len(args.Entries); i++ {
 			if i+args.PrevLogIndex+1 < lens {
-				if rf.logs[i+args.PrevLogIndex+1].Term == args.Entries[i].Term && rf.logs[i+args.PrevLogIndex+1].Logact == args.Entries[i].Logact {
+				if rf.logs[i+args.PrevLogIndex+1-rf.Snapshotinfo.SnapshotIndex].Term == args.Entries[i].Term && rf.logs[i+args.PrevLogIndex+1-rf.Snapshotinfo.SnapshotIndex].Logact == args.Entries[i].Logact {
 					continue
 				}
-				rf.logs = rf.logs[:i+args.PrevLogIndex+1]
+				rf.logs = rf.logs[:i+args.PrevLogIndex+1-rf.Snapshotinfo.SnapshotIndex]
 				lens = len(rf.logs)
 			}
 			info := args.Entries[i]
@@ -378,8 +378,8 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	if !reply.Success && args.Entries != nil {
 		reply.Failterm = args.PrevLogTerm
 		var tt int
-		if len(rf.logs) > args.PrevLogIndex {
-			tt = args.PrevLogIndex
+		if len(rf.logs) > args.PrevLogIndex-rf.Snapshotinfo.SnapshotIndex {
+			tt = args.PrevLogIndex - rf.Snapshotinfo.SnapshotIndex
 		} else {
 			tt = len(rf.logs) - 1
 		}
@@ -431,6 +431,10 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 }
 func (rf *Raft) sendAppendEntries(server int, args *AppendEntriesArgs, reply *AppendEntriesReply) bool {
 	ok := rf.peers[server].Call("Raft.AppendEntries", args, reply)
+	return ok
+}
+func (rf *Raft) sendInstallSnapshot(server int, args *InstallSnapshotArgs, reply *InstallSnapshotReply) bool {
+	ok := rf.peers[server].Call("Raft.InstallSnapshot", args, reply)
 	return ok
 }
 
