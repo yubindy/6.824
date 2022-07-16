@@ -385,7 +385,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	}
 	if reply.Success && args.Entries != nil { //log加入其中
 		for i := 0; i < len(args.Entries); i++ {
-			if i+args.PrevLogIndex+1 < rf.Lastlogindex {
+			if i+args.PrevLogIndex+1 <= rf.Lastlogindex {
 				if rf.logs[i+args.PrevLogIndex+1-rf.Snapshotinfo.SnapshotIndex].Term == args.Entries[i].Term && rf.logs[i+args.PrevLogIndex+1-rf.Snapshotinfo.SnapshotIndex].Logact == args.Entries[i].Logact {
 					continue
 				}
@@ -682,7 +682,7 @@ func (rf *Raft) sendlog() {
 						rf.matchIndex[node] = reply.Cmatchindex
 						if atomic.LoadInt64(&numlog) > int64(num)/2 {
 							if rf.state == Leader {
-								log.Printf("node %d commitooo from %v to %v in 607", rf.me, rf.commitIndex, loglens+rf.Snapshotinfo.SnapshotIndex)
+								log.Printf("node %d commitooo from %v to %v in 607", rf.me, rf.commitIndex, loglens-1+rf.Snapshotinfo.SnapshotIndex)
 								rf.commitIndex = loglens - 1 + rf.Snapshotinfo.SnapshotIndex
 								rf.cond.Signal()
 							}
