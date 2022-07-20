@@ -648,7 +648,7 @@ func (rf *Raft) sendlog() {
 						if rf.state == Leader && rf.logs[sb[tt]].Term >= rf.currentTerm { //大部分一致出问题
 							rf.commitIndex = sb[tt]
 							rf.cond.Signal()
-							log.Printf("node %d commitooo %v in 632", rf.me, rf.commitIndex)
+							log.Printf("node %d commitooo %v in 632 sb %v", rf.me, rf.commitIndex, sb)
 						}
 					}
 				}
