@@ -135,7 +135,7 @@ func (rf *Raft) persist(lock bool) {
 	if lock {
 		rf.mu.Lock()
 	}
-	log.Printf("||||node %v start persist Persistinfo %v Lastindex %v Snapshotterm %v", rf.me, rf.Persistinfo, rf.Lastlogindex, rf.Snapshotinfo.SnapshotTerm)
+	log.Printf("||||node %v start persist term %v Lastindex %v Snapshotterm %v log %v", rf.me, rf.currentTerm, rf.Lastlogindex, rf.Snapshotinfo.SnapshotTerm, rf.logs)
 	rf.Persistinfo.CurrentTerm = rf.currentTerm
 	rf.Persistinfo.VotedFor = rf.votedFor
 	rf.Persistinfo.Logs = rf.logs
@@ -294,8 +294,9 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			rf.hasvote = true
 			rf.state = Foller
 			rf.votedFor = args.Candidateid
+			log.Printf("%d Term %v give vote to %d inline 297  mylog %v", rf.me, rf.currentTerm, args.Candidateid, rf.logs)
 		} else if rf.logs[len(rf.logs)-1].Term == args.Lastlogterm && rf.Lastlogindex <= args.Lastlogindex && rf.votedFor == -1 {
-			log.Printf("node %v lastindex %v log %v recv { lastindex %v}", rf.me, rf.Lastlogindex, rf.logs, args.Lastlogindex)
+			log.Printf("%d Term %v give vote to %d inline 299  mylog %v", rf.me, rf.currentTerm, args.Candidateid, rf.logs)
 			reply.Votefor = true
 			rf.hasvote = true
 			rf.state = Foller
@@ -316,11 +317,6 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		log.Printf("why not 226 got vote me:%v %v %v to:%v", rf.me, rf.currentTerm, len(rf.logs)-1, args)
 		//log.Printf("[%v %d] server not vote term to %d",time.Now().UnixNano() / 1e6  - time.Now().Unix()*1000, rf.me, args.Candidateid)
 	}
-	if reply.Votefor {
-		rf.state = Foller
-		log.Printf("%d give vote to %d  mylog %v", rf.me, args.Candidateid, rf.logs)
-	}
-
 }
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) { //实现心跳和附加日志
 	rf.mu.Lock()
@@ -366,6 +362,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		reply.Cmatchindex = args.PrevLogIndex
 	}
 	rf.persist(false)
+	log.Printf("node %d reply.Success %v commitIndex %v args.LeaderCommit %v", rf.me, reply.Success, rf.commitIndex, args.Leaderid)
 	if reply.Success && rf.commitIndex < args.LeaderCommit {
 		if args.LeaderCommit > rf.Lastlogindex {
 			rf.commitIndex = rf.Lastlogindex
@@ -384,7 +381,6 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			tt = len(rf.logs) - 1
 		}
 		for i := tt; i > 1; i-- {
-			//for i, t := range rf.logs {
 			if rf.logs[i].Term != rf.logs[tt].Term {
 				reply.Failindex = i
 				log.Printf("node %d failindex %v failterm %v tt %v ttterm %v term %d ------- log %v fail add fail addlog %v", rf.me, reply.Failindex, rf.logs[i].Term, tt, rf.logs[tt].Term, rf.currentTerm, rf.logs, args)
@@ -457,8 +453,6 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	term := -1
 	isLeader := true
 	term, isLeader = rf.GetState()
-	rf.mu.Lock()
-	rf.mu.Unlock()
 	if isLeader {
 		rf.mu.Lock()
 		rf.logs = append(rf.logs, nlog{
@@ -597,6 +591,12 @@ func (rf *Raft) sendlog() {
 				}
 				reply := AppendEntriesReply{}
 				//log.Printf("%v %v sendlog to %d info Term,Leadid,PrevIndex,PrevTerm,Entries,LeadCommit%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node, args)
+				rf.mu.Lock()
+				if rf.state != Leader {
+					rf.mu.Unlock()
+					return
+				}
+				rf.mu.Unlock()
 				ok := rf.sendAppendEntries(node, &args, &reply)
 				if !ok {
 					log.Printf("S%v %v sendlog failed to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
@@ -619,8 +619,8 @@ func (rf *Raft) sendlog() {
 						log.Printf("%v %d recv %d log nextindex add %d to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node, len(args.Entries), rf.nextIndex)
 						rf.matchIndex[node] = reply.Cmatchindex
 						if atomic.LoadInt64(&numlog) > int64(num)/2 {
-							if rf.state == Leader {
-								log.Printf("node %d commitooo from %v to %v in 607", rf.me, rf.commitIndex, rf.Lastlogindex)
+							if rf.state == Leader && rf.commitIndex < lastindex {
+								log.Printf("node %d commitooo from %v to %v in 607", rf.me, rf.commitIndex, lastindex)
 								rf.commitIndex = lastindex
 								rf.cond.Signal()
 							}
@@ -690,7 +690,7 @@ func (rf *Raft) ticker() {
 		rf.mu.Unlock()
 		rand.Seed(time.Now().UnixNano())
 		if state != Leader {
-			t = rand.Intn(200) + 300
+			t = rand.Intn(200) + 500
 			for i := 0; i < t; i++ {
 				rf.mu.Lock()
 				if rf.state == Candidate && (rf.hasheat == true || rf.hasvote == true) {
@@ -709,7 +709,7 @@ func (rf *Raft) ticker() {
 				time.Sleep(time.Millisecond)
 			}
 		} else {
-			t = 100
+			t = 90
 			for i := 0; i < t; i++ {
 				rf.mu.Lock()
 				if rf.hasheat || rf.hasvote {
@@ -769,7 +769,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		for {
 			apply := ApplyMsg{}
 			rf.mu.Lock()
-			for rf.commitIndex == rf.lastapplied {
+			for rf.commitIndex == rf.lastapplied || rf.logs[rf.commitIndex].Term < rf.currentTerm {
 				rf.cond.Wait()
 			}
 			for rf.lastapplied < rf.commitIndex {
