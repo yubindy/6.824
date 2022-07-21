@@ -200,8 +200,10 @@ func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int,
 // that index. Raft should now trim its log as much as possible.
 func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	// Your code here (2D).
+	log.Printf("node %d start start Snapshot index: %v", rf.me, index)
 	rf.mu.Lock()
-	if index >= len(rf.logs)-1 {
+	log.Printf("node %d start Snapshot index: %v", rf.me, index)
+	if index < len(rf.logs)-1 {
 		rf.Snapshotinfo.Snapshot = snapshot
 		rf.Snapshotinfo.SnapshotIndex = index
 		rf.Snapshotinfo.SnapshotTerm = rf.logs[index].Term
@@ -690,7 +692,7 @@ func (rf *Raft) ticker() {
 		rf.mu.Unlock()
 		rand.Seed(time.Now().UnixNano())
 		if state != Leader {
-			t = rand.Intn(200) + 500
+			t = rand.Intn(200) + 300
 			for i := 0; i < t; i++ {
 				rf.mu.Lock()
 				if rf.state == Candidate && (rf.hasheat == true || rf.hasvote == true) {
