@@ -377,6 +377,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	if !reply.Success && args.Entries != nil {
 		reply.Failterm = args.PrevLogTerm
 		var tt int
+		reply.Failindex = rf.Snapshotinfo.SnapshotIndex
 		if len(rf.logs)-1 > args.PrevLogIndex-rf.Snapshotinfo.SnapshotIndex {
 			tt = args.PrevLogIndex - rf.Snapshotinfo.SnapshotIndex
 		} else {
@@ -384,13 +385,44 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		}
 		for i := tt; i > 1; i-- {
 			if rf.logs[i].Term != rf.logs[tt].Term {
-				reply.Failindex = i
+				reply.Failindex += i
 				log.Printf("node %d failindex %v failterm %v tt %v ttterm %v term %d ------- log %v fail add fail addlog %v", rf.me, reply.Failindex, rf.logs[i].Term, tt, rf.logs[tt].Term, rf.currentTerm, rf.logs, args)
 				break
 			}
 		}
 	} else if reply.Success {
 		log.Printf("node %d succes some term %d", rf.me, rf.currentTerm)
+	}
+}
+
+func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	reply.Term = rf.currentTerm
+	if args.Term >= rf.currentTerm && args.LastIncludedIndex > rf.Snapshotinfo.SnapshotIndex {
+		rf.Snapshotinfo.SnapshotIndex = args.LastIncludedIndex
+		rf.Snapshotinfo.SnapshotTerm = args.lastIncludedTerm
+		rf.Snapshotinfo.Snapshot = args.Data
+		if rf.Lastlogindex < args.LastIncludedIndex {
+			rf.logs = nil
+		} else {
+			rf.logs = rf.logs[args.LastIncludedIndex:]
+		}
+		go func() {
+			rf.mu.Lock()
+			if rf.Snapshotinfo.SnapshotIndex != -1 {
+				applyMsg := ApplyMsg{
+					SnapshotValid: true,
+					Snapshot:      rf.Snapshotinfo.Snapshot,
+					SnapshotIndex: rf.Snapshotinfo.SnapshotIndex,
+					SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
+				}
+				rf.mu.Unlock()
+				rf.applyCh <- applyMsg
+				log.Printf("node %v commitSnapshot", rf.me)
+			}
+		}()
+		log.Printf("node %v InstallSnapshot from %v SnapshotIndex %v logs %v", rf.me, args.Leaderid, rf.Snapshotinfo.SnapshotIndex, rf.logs)
 	}
 }
 
@@ -567,14 +599,25 @@ func (rf *Raft) sendlog() {
 	lastindex := rf.Lastlogindex
 	log.Printf("%v %v term %d start send %d log %v nextindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, rf.Lastlogindex, rf.logs, rf.nextIndex)
 	for i := 0; i < len(rf.peers); i++ {
-		if rf.nextIndex[i] == 0 {
-			args := InstallSnapshotArgs{}
-			reply := InstallSnapshotReply{}
-			ok := rf.sendInstallSnapshot(i, &args, &reply)
-
-		}
 		if rf.me == i {
 			rf.nextIndex[i] = rf.Lastlogindex + 1
+		}
+		if rf.nextIndex[i] <= rf.Snapshotinfo.SnapshotIndex {
+			args := InstallSnapshotArgs{
+				Term:              rf.currentTerm,
+				Leaderid:          rf.me,
+				LastIncludedIndex: rf.Snapshotinfo.SnapshotIndex,
+				lastIncludedTerm:  rf.Snapshotinfo.SnapshotTerm,
+				Data:              rf.Snapshotinfo.Snapshot,
+			}
+			reply := InstallSnapshotReply{}
+			ok := rf.sendInstallSnapshot(i, &args, &reply)
+			if !ok {
+				log.Printf("%v %v sendfail InstallSnapshot to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, i)
+				return
+			} else {
+				rf.nextIndex[i] = rf.Snapshotinfo.SnapshotIndex + 1
+			}
 		}
 		prevlog = append(prevlog, rf.nextIndex[i]-1)
 		if prevlog[i] < rf.Snapshotinfo.SnapshotIndex {
