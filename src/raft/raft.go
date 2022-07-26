@@ -145,7 +145,6 @@ func (rf *Raft) persist(lock bool) {
 	rf.Persistinfo.Snapshotterm = rf.Snapshotinfo.SnapshotTerm
 	e.Encode(rf.Persistinfo)
 	data := w.Bytes()
-	//rf.persister.SaveRaftState(data)
 	rf.persister.SaveStateAndSnapshot(data, rf.Snapshotinfo.Snapshot)
 	if lock {
 		rf.mu.Unlock()
@@ -213,7 +212,6 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	rf.persist(true)
 	go func() {
 		rf.mu.Lock()
-		defer rf.mu.Unlock()
 		if rf.Snapshotinfo.SnapshotIndex > 0 {
 			applyMsg := ApplyMsg{
 				SnapshotValid: true,
@@ -222,9 +220,9 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 				SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
 			}
 			log.Printf("node %v addchannel 226 ", rf.me)
-			rf.applyCh <- applyMsg
 			rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
-			log.Printf("node %v commitSnapshot lastapplied set %v", rf.me, rf.lastapplied)
+			rf.mu.Unlock()
+			rf.applyCh <- applyMsg
 		}
 	}()
 }
@@ -291,7 +289,6 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			rf.votedFor = -1
 			rf.state = Foller
 		}
-		rf.persist(false)
 		if rf.logs[len(rf.logs)-1].Term < args.Lastlogterm && rf.votedFor == -1 { //先比较term然后比len
 			reply.Votefor = true
 			rf.hasvote = true
@@ -410,6 +407,9 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 	rf.mu.Lock()
 	reply.Term = rf.currentTerm
 	if args.Term >= rf.currentTerm && args.LastIncludedIndex > rf.Snapshotinfo.SnapshotIndex {
+		rf.state = Foller
+		rf.hasheat = true
+		log.Printf("node %v become foller", rf.me)
 		rf.Snapshotinfo.SnapshotIndex = args.LastIncludedIndex
 		rf.Snapshotinfo.SnapshotTerm = args.LastIncludedTerm
 		rf.Snapshotinfo.Snapshot = args.Data
@@ -433,11 +433,10 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 					SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
 				}
 				log.Printf("node %v addchannelin 429", rf.me)
-				rf.applyCh <- applyMsg
 				rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 				rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
-				log.Printf("node %v InstallSnapshot commitSnapshot commitindex and lastapplied is %v", rf.me, rf.Snapshotinfo.SnapshotIndex)
 				rf.mu.Unlock()
+				rf.applyCh <- applyMsg
 			}
 		}()
 	} else {
