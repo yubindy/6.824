@@ -224,7 +224,7 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 			log.Printf("node %v addchannel 226 ", rf.me)
 			rf.applyCh <- applyMsg
 			rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
-			log.Printf("node %v commitSnapshot", rf.me)
+			log.Printf("node %v commitSnapshot lastapplied set %v", rf.me, rf.lastapplied)
 		}
 	}()
 }
@@ -398,6 +398,9 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 				break
 			}
 		}
+		if reply.Failindex == rf.Snapshotinfo.SnapshotIndex && args.PrevLogIndex != rf.Snapshotinfo.SnapshotIndex {
+			reply.Failindex += 1
+		}
 	} else if reply.Success {
 		log.Printf("node %d succes some term %d", rf.me, rf.currentTerm)
 	}
@@ -414,7 +417,7 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 			rf.logs = nil
 			rf.logs = append(rf.logs, nlog{args.LastIncludedTerm, nil})
 		} else {
-			rf.logs = rf.logs[args.LastIncludedIndex:]
+			rf.logs = rf.logs[rf.Lastlogindex-args.LastIncludedIndex:]
 		}
 		rf.Lastlogindex = args.LastIncludedIndex
 		log.Printf("node %v InstallSnapshot from %v SnapshotIndex %v logs %v", rf.me, args.LeaderId, rf.Snapshotinfo.SnapshotIndex, rf.logs)
@@ -860,8 +863,8 @@ func Make(peers []*labrpc.ClientEnd, me int,
 				apply.CommandValid = true
 				rf.mu.Unlock()
 				applyCh <- apply
-				rf.mu.Lock()
 				log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, apply.CommandIndex, apply.Command)
+				rf.mu.Lock()
 			}
 			log.Printf("%d term %d logs %v comitindex%d", rf.me, rf.currentTerm, rf.logs, rf.commitIndex)
 			rf.mu.Unlock()
