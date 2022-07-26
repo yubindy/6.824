@@ -242,6 +242,7 @@ func (cfg *config) applierSnap(i int, applyCh chan ApplyMsg) {
 
 			cfg.mu.Lock()
 			cfg.lastApplied[i] = m.CommandIndex
+			//log.Printf("----||||----%v", cfg.lastApplied)
 			cfg.mu.Unlock()
 
 			if (m.CommandIndex+1)%SnapShotInterval == 0 {
