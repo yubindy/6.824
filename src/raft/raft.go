@@ -221,8 +221,8 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 			}
 			log.Printf("node %v addchannel 226 ", rf.me)
 			rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
-			rf.mu.Unlock()
 			rf.applyCh <- applyMsg
+			rf.mu.Unlock()
 		}
 	}()
 }
@@ -295,7 +295,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			rf.state = Foller
 			rf.votedFor = args.Candidateid
 			log.Printf("%d Term %v give vote to %d inline 297  mylog %v", rf.me, rf.currentTerm, args.Candidateid, rf.logs)
-		} else if rf.logs[len(rf.logs)-1].Term == args.Lastlogterm && rf.Lastlogindex <= args.Lastlogindex && rf.votedFor == -1 {
+		} else if rf.logs[len(rf.logs)-1].Term == args.Lastlogterm && rf.Lastlogindex <= args.Lastlogindex && rf.votedFor == -1 && rf.state == Foller {
 			log.Printf("%d Term %v give vote to %d inline 299  mylog %v", rf.me, rf.currentTerm, args.Candidateid, rf.logs)
 			reply.Votefor = true
 			rf.hasvote = true
@@ -433,10 +433,10 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 					SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
 				}
 				log.Printf("node %v addchannelin 429", rf.me)
+				rf.applyCh <- applyMsg
 				rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 				rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
 				rf.mu.Unlock()
-				rf.applyCh <- applyMsg
 			}
 		}()
 	} else {
@@ -615,7 +615,6 @@ func (rf *Raft) sendlog() {
 	rf.mu.Lock()
 	currentTerm := rf.currentTerm
 	me := rf.me
-	commit := rf.commitIndex
 	lastindex := rf.Lastlogindex
 	log.Printf("%v %v term %d start send Lastindex %d log %v nextindex%v Snapshotindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, rf.Lastlogindex, rf.logs, rf.nextIndex, rf.Snapshotinfo.SnapshotIndex)
 	for i := 0; i < len(rf.peers); i++ {
@@ -630,9 +629,11 @@ func (rf *Raft) sendlog() {
 				LastIncludedTerm:  rf.Snapshotinfo.SnapshotTerm,
 				Data:              rf.Snapshotinfo.Snapshot,
 			}
+			rf.mu.Unlock()
 			reply := InstallSnapshotReply{}
 			log.Printf("node %v start send InstallSnapshot to %v", rf.me, i)
 			ok := rf.sendInstallSnapshot(i, &args, &reply)
+			rf.mu.Lock()
 			if !ok {
 				log.Printf("%v %v sendfail InstallSnapshot to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, i)
 			} else {
@@ -648,7 +649,7 @@ func (rf *Raft) sendlog() {
 		}
 		entries = append(entries, nil)
 		var st int
-		if rf.nextIndex[i] > rf.Snapshotinfo.SnapshotIndex /*&& rf.nextIndex[i] <= rf.Lastlogindex*/ {
+		if rf.nextIndex[i] >= rf.Snapshotinfo.SnapshotIndex /*&& rf.nextIndex[i] <= rf.Lastlogindex*/ {
 			st = rf.nextIndex[i] - rf.Snapshotinfo.SnapshotIndex
 		} else {
 			st = rf.nextIndex[i]
@@ -658,6 +659,7 @@ func (rf *Raft) sendlog() {
 			entries[i] = append(entries[i], rf.logs[t])
 		}
 	}
+	commit := rf.commitIndex
 	rf.mu.Unlock()
 	rf.persist(true)
 	wg := sync.WaitGroup{}
