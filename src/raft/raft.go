@@ -208,6 +208,7 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	rf.Snapshotinfo.Snapshot = snapshot
 	t := rf.logs[index-rf.Snapshotinfo.SnapshotIndex]
 	rf.logs = rf.logs[index-rf.Snapshotinfo.SnapshotIndex:]
+	rf.logs[0].Logact = nil
 	rf.Snapshotinfo.SnapshotIndex = index
 	rf.Snapshotinfo.SnapshotTerm = rf.logs[index-rf.Snapshotinfo.SnapshotIndex].Term
 	log.Printf("node %d Snapshot index: %v log[head] %v log %v ", rf.me, index, t, rf.logs)
@@ -324,7 +325,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
 	log.Printf("node %d term %d  Lastindex %v Snapshotindex %v recvterm %d recvfrom %d log %v recvPrevindex %v recvlog %v", rf.me, rf.currentTerm, rf.Lastlogindex, rf.Snapshotinfo.SnapshotIndex, args.Term, args.Leaderid, rf.logs, args.PrevLogIndex, args.Entries)
-	if args.PrevLogTerm == -1 || args.PrevLogIndex < rf.Snapshotinfo.SnapshotIndex {
+	if args.PrevLogIndex < rf.Snapshotinfo.SnapshotIndex {
 		log.Printf("node %v failein329 Snapshotindex %v Previndex %v", rf.me, rf.Snapshotinfo.SnapshotIndex, args.PrevLogIndex)
 		reply.Success = false
 		reply.Failindex = 0
@@ -403,14 +404,14 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			}
 		}
 	} else if reply.Success {
-		log.Printf("node %d succes some term %d", rf.me, rf.currentTerm)
+		log.Printf("node %d succes some term %d %v", rf.me, rf.currentTerm, rf.logs)
 	}
 }
 
 func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
 	rf.mu.Lock()
 	reply.Term = rf.currentTerm
-	if args.Term >= rf.currentTerm && args.LastIncludedIndex > rf.Snapshotinfo.SnapshotIndex {
+	if args.Term >= rf.currentTerm {
 		rf.state = Foller
 		rf.hasheat = true
 		log.Printf("node %v become foller", rf.me)
@@ -443,9 +444,6 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 				rf.mu.Unlock()
 			}
 		}()
-	} else {
-		log.Printf("node %v recv someShapshot from %v", rf.me, args.LeaderId)
-		rf.mu.Unlock()
 	}
 }
 
@@ -629,9 +627,11 @@ func (rf *Raft) sendlog() {
 			prevterm = append(prevterm, rf.logs[prevlog[i]-rf.Snapshotinfo.SnapshotIndex].Term)
 		}
 		entries = append(entries, nil)
-		st := 0
+		var st int
 		if rf.nextIndex[i] >= rf.Snapshotinfo.SnapshotIndex /*&& rf.nextIndex[i] <= rf.Lastlogindex*/ {
 			st = rf.nextIndex[i] - rf.Snapshotinfo.SnapshotIndex
+		} else {
+			st = 1
 		}
 		log.Printf("node %v term %v addlog from %v to %v ", i, st, rf.currentTerm, rf.Lastlogindex-rf.Snapshotinfo.SnapshotIndex)
 		for t := st; t <= rf.Lastlogindex-rf.Snapshotinfo.SnapshotIndex; t++ {
@@ -666,7 +666,8 @@ func (rf *Raft) sendlog() {
 						log.Printf("%v %v sendfail InstallSnapshot to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node)
 						return
 					} else {
-						prevterm[node] = rf.Snapshotinfo.SnapshotIndex
+						prevterm[node] = rf.logs[0].Term
+						prevlog[node] = rf.Snapshotinfo.SnapshotIndex
 						log.Printf("%v send InstallSnapshot success  node %v nextindex %v", rf.me, node, rf.nextIndex[node])
 					}
 				}
@@ -688,7 +689,7 @@ func (rf *Raft) sendlog() {
 					log.Printf("%v %v sendlog failed to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 					return
 				} else {
-					log.Printf("node %v sendinstall to %v success", rf.me, node)
+					log.Printf("node %v sendlog to %v success", rf.me, node)
 				}
 				defer rf.mu.Unlock()
 				rf.mu.Lock()
@@ -724,15 +725,15 @@ func (rf *Raft) sendlog() {
 					}
 				}
 				if rf.state == Leader {
-					log.Printf("node is %v has log %v leaderhas %v ", node, rf.matchIndex[node], len(rf.logs)-1)
-					if reply.Success && rf.matchIndex[node] > rf.commitIndex && rf.logs[rf.matchIndex[node]].Term == rf.currentTerm {
+					log.Printf("node is %v has log %v leaderhas %v log %v", node, rf.matchIndex[node], len(rf.logs)-1, rf.logs)
+					if reply.Success && rf.matchIndex[node] > rf.commitIndex && rf.logs[rf.matchIndex[node]-rf.Snapshotinfo.SnapshotIndex-1].Term == rf.currentTerm {
 						var sb []int
 						for i, _ := range rf.matchIndex {
 							sb = append(sb, rf.matchIndex[i])
 						}
 						sort.Ints(sb)
 						tt := len(rf.peers)/2 + 1
-						if rf.state == Leader && rf.logs[sb[tt]].Term >= rf.currentTerm { //大部分一致出问题
+						if rf.state == Leader && rf.logs[sb[tt]-rf.Snapshotinfo.SnapshotIndex-1].Term >= rf.currentTerm { //大部分一致出问题
 							rf.commitIndex = sb[tt]
 							rf.cond.Signal()
 							log.Printf("node %d add commit to %v in 632 sb %v", rf.me, rf.commitIndex, sb)
