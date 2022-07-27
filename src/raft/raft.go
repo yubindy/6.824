@@ -64,11 +64,12 @@ type nlog struct {
 }
 
 type persistent struct {
-	CurrentTerm  int
-	VotedFor     int
-	Logs         []nlog
-	Lastlogindex int
-	Snapshotterm int
+	CurrentTerm   int
+	VotedFor      int
+	Logs          []nlog
+	Lastlogindex  int
+	Snapshotterm  int
+	Snapshotindex int
 }
 
 type Snapshots struct {
@@ -143,6 +144,7 @@ func (rf *Raft) persist(lock bool) {
 	rf.Persistinfo.Logs = rf.logs
 	rf.Persistinfo.Lastlogindex = rf.Lastlogindex
 	rf.Persistinfo.Snapshotterm = rf.Snapshotinfo.SnapshotTerm
+	rf.Persistinfo.Snapshotindex = rf.Snapshotinfo.SnapshotIndex
 	e.Encode(rf.Persistinfo)
 	data := w.Bytes()
 	rf.persister.SaveStateAndSnapshot(data, rf.Snapshotinfo.Snapshot)
@@ -180,6 +182,7 @@ func (rf *Raft) readPersist(data []byte) {
 		rf.logs = Persistinfo.Logs
 		rf.Lastlogindex = Persistinfo.Lastlogindex
 		rf.Snapshotinfo.SnapshotTerm = Persistinfo.Snapshotterm
+		rf.Snapshotinfo.SnapshotIndex = Persistinfo.Snapshotindex
 		rf.mu.Unlock()
 	}
 }
@@ -327,7 +330,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		reply.Failindex = 0
 		return
 	}
-	reply.Failindex = rf.Snapshotinfo.SnapshotIndex
+	reply.Failindex = rf.Snapshotinfo.SnapshotIndex + 1
 	if rf.currentTerm <= args.Term { //线判断任期
 		rf.hasheat = true
 		rf.state = Foller
@@ -617,26 +620,6 @@ func (rf *Raft) sendlog() {
 		if rf.me == i {
 			rf.nextIndex[i] = rf.Lastlogindex + 1
 		}
-		if rf.nextIndex[i] <= rf.Snapshotinfo.SnapshotIndex && rf.me != i {
-			args := InstallSnapshotArgs{
-				Term:              rf.currentTerm,
-				LeaderId:          rf.me,
-				LastIncludedIndex: rf.Snapshotinfo.SnapshotIndex,
-				LastIncludedTerm:  rf.Snapshotinfo.SnapshotTerm,
-				Data:              rf.Snapshotinfo.Snapshot,
-			}
-			rf.mu.Unlock()
-			reply := InstallSnapshotReply{}
-			log.Printf("node %v start send InstallSnapshot to %v", rf.me, i)
-			ok := rf.sendInstallSnapshot(i, &args, &reply)
-			rf.mu.Lock()
-			if !ok {
-				log.Printf("%v %v sendfail InstallSnapshot to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, i)
-			} else {
-				rf.nextIndex[i] = rf.Snapshotinfo.SnapshotIndex + 1
-				log.Printf("%v send InstallSnapshot success  node %v nextindex %v", rf.me, i, rf.nextIndex[i])
-			}
-		}
 		prevlog = append(prevlog, rf.nextIndex[i]-1)
 		if prevlog[i] < rf.Snapshotinfo.SnapshotIndex {
 			prevterm = append(prevterm, -1)
@@ -658,6 +641,7 @@ func (rf *Raft) sendlog() {
 	commit := rf.commitIndex
 	me := rf.me
 	currentTerm := rf.currentTerm
+	Snapshotinfo := rf.Snapshotinfo
 	rf.mu.Unlock()
 	rf.persist(true)
 	wg := sync.WaitGroup{}
@@ -667,6 +651,25 @@ func (rf *Raft) sendlog() {
 		if node != me {
 			go func(node int) {
 				defer wg.Done()
+				if prevlog[node]+1 <= rf.Snapshotinfo.SnapshotIndex {
+					args := InstallSnapshotArgs{
+						Term:              currentTerm,
+						LeaderId:          me,
+						LastIncludedIndex: Snapshotinfo.SnapshotIndex,
+						LastIncludedTerm:  Snapshotinfo.SnapshotTerm,
+						Data:              Snapshotinfo.Snapshot,
+					}
+					reply := InstallSnapshotReply{}
+					log.Printf("node %v start send InstallSnapshot to %v", rf.me, node)
+					ok := rf.sendInstallSnapshot(node, &args, &reply)
+					if !ok {
+						log.Printf("%v %v sendfail InstallSnapshot to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node)
+						return
+					} else {
+						prevterm[node] = rf.Snapshotinfo.SnapshotIndex
+						log.Printf("%v send InstallSnapshot success  node %v nextindex %v", rf.me, node, rf.nextIndex[node])
+					}
+				}
 				args := AppendEntriesArgs{
 					Term:         currentTerm,
 					Leaderid:     me,
@@ -684,17 +687,21 @@ func (rf *Raft) sendlog() {
 				if !ok {
 					log.Printf("%v %v sendlog failed to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 					return
+				} else {
+					log.Printf("node %v send to %v success", rf.me, node)
 				}
 				defer rf.mu.Unlock()
+				rf.mu.Lock()
+				if rf.nextIndex[node] != prevlog[node]+1 {
+					rf.nextIndex[node] = prevlog[node] + 1
+				}
 				if reply.Term > args.Term {
-					rf.mu.Lock()
 					log.Printf("%v %d term %d become follerin 696 replyterm %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, reply.Term)
 					rf.currentTerm = reply.Term
 					rf.votedFor = -1
 					rf.state = Foller
 					return
 				}
-				rf.mu.Lock()
 				if rf.state == Leader {
 					if reply.Success {
 						atomic.AddInt64(&numlog, 1)
@@ -854,7 +861,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 			for rf.commitIndex == rf.lastapplied || rf.logs[rf.commitIndex-rf.Snapshotinfo.SnapshotIndex].Term < rf.currentTerm {
 				rf.cond.Wait()
 			}
-			log.Printf("mpde %v should commitlog Lastapplied %v Snapshotindex %v", rf.me, rf.lastapplied, rf.Snapshotinfo.SnapshotIndex)
+			log.Printf("mpde %v should commitlog Lastapplied %v Lastapplied %v Snapshotindex %v", rf.me, rf.lastapplied, rf.applyCh, rf.Snapshotinfo.SnapshotIndex)
 			for rf.lastapplied < rf.commitIndex {
 				rf.lastapplied++
 				apply.Command = rf.logs[rf.lastapplied-rf.Snapshotinfo.SnapshotIndex].Logact
