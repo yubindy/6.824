@@ -183,6 +183,8 @@ func (rf *Raft) readPersist(data []byte) {
 		rf.Lastlogindex = Persistinfo.Lastlogindex
 		rf.Snapshotinfo.SnapshotTerm = Persistinfo.Snapshotterm
 		rf.Snapshotinfo.SnapshotIndex = Persistinfo.Snapshotindex
+		rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
+		rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
 		rf.mu.Unlock()
 	}
 }
@@ -208,7 +210,7 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	rf.Snapshotinfo.Snapshot = snapshot
 	t := rf.logs[index-rf.Snapshotinfo.SnapshotIndex]
 	rf.logs = rf.logs[index-rf.Snapshotinfo.SnapshotIndex:]
-	rf.logs[0].Logact = nil
+	rf.logs[0].Logact = 123
 	rf.Snapshotinfo.SnapshotIndex = index
 	rf.Snapshotinfo.SnapshotTerm = rf.logs[index-rf.Snapshotinfo.SnapshotIndex].Term
 	log.Printf("node %d Snapshot index: %v log[head] %v log %v ", rf.me, index, t, rf.logs)
@@ -223,7 +225,7 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 				SnapshotIndex: rf.Snapshotinfo.SnapshotIndex,
 				SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
 			}
-			log.Printf("node %v addchannel 226 ", rf.me)
+			log.Printf("node %v addchannel 226 Lastapplied = %v", rf.me, rf.Snapshotinfo.SnapshotIndex)
 			rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 			rf.applyCh <- applyMsg
 			rf.mu.Unlock()
@@ -325,7 +327,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	defer rf.mu.Unlock()
 	reply.Term = rf.currentTerm
 	log.Printf("node %d term %d  Lastindex %v Snapshotindex %v recvterm %d recvfrom %d log %v recvPrevindex %v recvlog %v", rf.me, rf.currentTerm, rf.Lastlogindex, rf.Snapshotinfo.SnapshotIndex, args.Term, args.Leaderid, rf.logs, args.PrevLogIndex, args.Entries)
-	if args.PrevLogIndex < rf.Snapshotinfo.SnapshotIndex {
+	if args.PrevLogTerm == -1 || args.PrevLogIndex < rf.Snapshotinfo.SnapshotIndex {
 		log.Printf("node %v failein329 Snapshotindex %v Previndex %v", rf.me, rf.Snapshotinfo.SnapshotIndex, args.PrevLogIndex)
 		reply.Success = false
 		reply.Failindex = 0
@@ -404,21 +406,21 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			}
 		}
 	} else if reply.Success {
-		log.Printf("node %d succes some term %d %v", rf.me, rf.currentTerm, rf.logs)
+		log.Printf("node %d succes some term %d", rf.me, rf.currentTerm)
 	}
 }
 
 func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
 	rf.mu.Lock()
 	reply.Term = rf.currentTerm
-	if args.Term >= rf.currentTerm {
+	if args.Term >= rf.currentTerm && args.LastIncludedIndex > rf.Snapshotinfo.SnapshotIndex {
 		rf.state = Foller
 		rf.hasheat = true
 		log.Printf("node %v become foller", rf.me)
 		rf.Snapshotinfo.SnapshotIndex = args.LastIncludedIndex
 		rf.Snapshotinfo.SnapshotTerm = args.LastIncludedTerm
 		rf.Snapshotinfo.Snapshot = args.Data
-		if rf.Lastlogindex < args.LastIncludedIndex {
+		if rf.Lastlogindex <= args.LastIncludedIndex {
 			rf.logs = nil
 			rf.logs = append(rf.logs, nlog{args.LastIncludedTerm, nil})
 		} else {
@@ -444,6 +446,9 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 				rf.mu.Unlock()
 			}
 		}()
+	} else {
+		log.Printf("node %v recv someShapshot from %v", rf.me, args.LeaderId)
+		rf.mu.Unlock()
 	}
 }
 
@@ -627,11 +632,9 @@ func (rf *Raft) sendlog() {
 			prevterm = append(prevterm, rf.logs[prevlog[i]-rf.Snapshotinfo.SnapshotIndex].Term)
 		}
 		entries = append(entries, nil)
-		var st int
-		if rf.nextIndex[i] >= rf.Snapshotinfo.SnapshotIndex /*&& rf.nextIndex[i] <= rf.Lastlogindex*/ {
+		st := 1
+		if rf.nextIndex[i] > rf.Snapshotinfo.SnapshotIndex /*&& rf.nextIndex[i] <= rf.Lastlogindex*/ {
 			st = rf.nextIndex[i] - rf.Snapshotinfo.SnapshotIndex
-		} else {
-			st = 1
 		}
 		log.Printf("node %v term %v addlog from %v to %v ", i, st, rf.currentTerm, rf.Lastlogindex-rf.Snapshotinfo.SnapshotIndex)
 		for t := st; t <= rf.Lastlogindex-rf.Snapshotinfo.SnapshotIndex; t++ {
@@ -642,10 +645,10 @@ func (rf *Raft) sendlog() {
 	me := rf.me
 	currentTerm := rf.currentTerm
 	Snapshotinfo := rf.Snapshotinfo
+	num := len(rf.peers) - 1
 	rf.mu.Unlock()
 	rf.persist(true)
 	wg := sync.WaitGroup{}
-	num := len(rf.peers) - 1
 	wg.Add(num)
 	for node := range rf.peers {
 		if node != me {
@@ -660,15 +663,15 @@ func (rf *Raft) sendlog() {
 						Data:              Snapshotinfo.Snapshot,
 					}
 					reply := InstallSnapshotReply{}
-					log.Printf("node %v start send InstallSnapshot to %v", rf.me, node)
+					log.Printf("node %v start send InstallSnapshot to %v", me, node)
 					ok := rf.sendInstallSnapshot(node, &args, &reply)
 					if !ok {
-						log.Printf("%v %v sendfail InstallSnapshot to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, node)
+						log.Printf("%v %v sendfail InstallSnapshot to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 						return
 					} else {
-						prevterm[node] = rf.logs[0].Term
-						prevlog[node] = rf.Snapshotinfo.SnapshotIndex
-						log.Printf("%v send InstallSnapshot success  node %v nextindex %v", rf.me, node, rf.nextIndex[node])
+						prevterm[node] = Snapshotinfo.SnapshotTerm
+						prevlog[node] = Snapshotinfo.SnapshotIndex
+						log.Printf("%v send InstallSnapshot success  node %v should nextindex %v", me, node, prevlog[node]+1)
 					}
 				}
 				args := AppendEntriesArgs{
@@ -689,13 +692,13 @@ func (rf *Raft) sendlog() {
 					log.Printf("%v %v sendlog failed to %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, node)
 					return
 				} else {
-					log.Printf("node %v sendlog to %v success", rf.me, node)
+					log.Printf("node %v sendinstall to %v success", me, node)
 				}
 				defer rf.mu.Unlock()
 				rf.mu.Lock()
-				//if rf.nextIndex[node] != prevlog[node]+1 {
-				//	rf.nextIndex[node] = prevlog[node] + 1
-				//}
+				if rf.nextIndex[node] != prevlog[node]+1 {
+					rf.nextIndex[node] = prevlog[node] + 1
+				}
 				if reply.Term > args.Term {
 					log.Printf("%v %d term %d become follerin 696 replyterm %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, reply.Term)
 					rf.currentTerm = reply.Term
@@ -725,14 +728,14 @@ func (rf *Raft) sendlog() {
 					}
 				}
 				if rf.state == Leader {
-					log.Printf("node is %v has log %v leaderhas %v log %v", node, rf.matchIndex[node], len(rf.logs)-1, rf.logs)
+					log.Printf("node is %v has log %v leaderhas %v %v ", me, rf.matchIndex[node], len(rf.logs)-1, rf.logs)
 					if reply.Success && rf.matchIndex[node] > rf.commitIndex && rf.logs[rf.matchIndex[node]-rf.Snapshotinfo.SnapshotIndex-1].Term == rf.currentTerm {
 						var sb []int
 						for i, _ := range rf.matchIndex {
 							sb = append(sb, rf.matchIndex[i])
 						}
 						sort.Ints(sb)
-						tt := len(rf.peers)/2 + 1
+						tt := len(rf.peers)/2 - (len(rf.peers)+1)%2
 						if rf.state == Leader && rf.logs[sb[tt]-rf.Snapshotinfo.SnapshotIndex-1].Term >= rf.currentTerm { //大部分一致出问题
 							rf.commitIndex = sb[tt]
 							rf.cond.Signal()
