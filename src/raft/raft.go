@@ -173,10 +173,8 @@ func (rf *Raft) readPersist(data []byte) {
 	d := labgob.NewDecoder(r)
 	var Persistinfo persistent
 	if d.Decode(&Persistinfo) != nil {
-		//log.Printf("node%d readSnapshotPersist decode==nil", rf.me)
 	} else {
 		rf.mu.Lock()
-		//log.Printf("node %d *** readSnapshotPersist Log %v Lastindex %v Snapshotterm %v", rf.me, rf.Persistinfo.Logs, rf.Persistinfo.Lastlogindex, rf.Persistinfo.Snapshotterm)
 		rf.currentTerm = Persistinfo.CurrentTerm
 		rf.votedFor = Persistinfo.VotedFor
 		rf.logs = Persistinfo.Logs
@@ -228,8 +226,8 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 			log.Printf("node %v addchannel 226 Lastapplied = %v", rf.me, rf.Snapshotinfo.SnapshotIndex)
 			rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 			rf.applyCh <- applyMsg
-			rf.mu.Unlock()
 		}
+		rf.mu.Unlock()
 	}()
 }
 
@@ -654,7 +652,7 @@ func (rf *Raft) sendlog() {
 		if node != me {
 			go func(node int) {
 				defer wg.Done()
-				if prevlog[node]+1 <= rf.Snapshotinfo.SnapshotIndex {
+				if prevlog[node]+1 <= Snapshotinfo.SnapshotIndex {
 					args := InstallSnapshotArgs{
 						Term:              currentTerm,
 						LeaderId:          me,
@@ -862,18 +860,18 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		for rf.killed() == false {
 			apply := ApplyMsg{}
 			rf.mu.Lock()
-			for rf.commitIndex == rf.lastapplied || rf.logs[rf.commitIndex-rf.Snapshotinfo.SnapshotIndex].Term < rf.currentTerm {
+			for rf.commitIndex == rf.lastapplied || rf.logs[rf.commitIndex-rf.Snapshotinfo.SnapshotIndex].Term < rf.currentTerm || rf.lastapplied < rf.Snapshotinfo.SnapshotIndex {
 				rf.cond.Wait()
 			}
 			log.Printf("mpde %v should commitlog to %v Lastapplied %v Snapshotindex %v", rf.me, rf.commitIndex, rf.lastapplied, rf.Snapshotinfo.SnapshotIndex)
-			for rf.lastapplied < rf.commitIndex {
+			for rf.lastapplied < rf.commitIndex && rf.lastapplied >= rf.Snapshotinfo.SnapshotIndex {
 				rf.lastapplied++
 				apply.Command = rf.logs[rf.lastapplied-rf.Snapshotinfo.SnapshotIndex].Logact
 				apply.CommandIndex = rf.lastapplied
 				apply.CommandValid = true
 				rf.mu.Unlock()
 				applyCh <- apply
-				log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, apply.CommandIndex, apply.Command)
+				log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, apply.CommandIndex, apply.Command)
 				rf.mu.Lock()
 			}
 			log.Printf("%d term %d logs %v comitindex%d", rf.me, rf.currentTerm, rf.logs, rf.commitIndex)
