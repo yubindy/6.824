@@ -195,8 +195,8 @@ func (rf *Raft) readPersist(data []byte) {
 				rf.applyCh <- applyMsg
 				rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 				rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
-				rf.mu.Unlock()
 			}
+			rf.mu.Unlock()
 		}()
 	}
 }
