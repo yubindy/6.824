@@ -877,7 +877,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 				rf.cond.Wait()
 			}
 			log.Printf("mpde %v should commitlog to %v Lastapplied %v Snapshotindex %v", rf.me, rf.commitIndex, rf.lastapplied, rf.Snapshotinfo.SnapshotIndex)
-			for rf.lastapplied < rf.commitIndex && rf.lastapplied >= rf.Snapshotinfo.SnapshotIndex {
+			for rf.lastapplied < rf.commitIndex && rf.lastapplied > rf.Snapshotinfo.SnapshotIndex {
 				rf.lastapplied++
 				apply.Command = rf.logs[rf.lastapplied-rf.Snapshotinfo.SnapshotIndex].Logact
 				apply.CommandIndex = rf.lastapplied
