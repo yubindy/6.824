@@ -181,9 +181,23 @@ func (rf *Raft) readPersist(data []byte) {
 		rf.Lastlogindex = Persistinfo.Lastlogindex
 		rf.Snapshotinfo.SnapshotTerm = Persistinfo.Snapshotterm
 		rf.Snapshotinfo.SnapshotIndex = Persistinfo.Snapshotindex
-		rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
-		rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
 		rf.mu.Unlock()
+		go func() {
+			rf.mu.Lock()
+			if rf.Snapshotinfo.SnapshotIndex > 0 {
+				applyMsg := ApplyMsg{
+					SnapshotValid: true,
+					Snapshot:      rf.Snapshotinfo.Snapshot,
+					SnapshotIndex: rf.Snapshotinfo.SnapshotIndex,
+					SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
+				}
+				log.Printf("node %v addchannelin 429 lastapplied= %v", rf.me, rf.Snapshotinfo.SnapshotIndex)
+				rf.applyCh <- applyMsg
+				rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
+				rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
+				rf.mu.Unlock()
+			}
+		}()
 	}
 }
 
@@ -437,7 +451,7 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 					SnapshotIndex: rf.Snapshotinfo.SnapshotIndex,
 					SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
 				}
-				log.Printf("node %v addchannelin 429", rf.me)
+				log.Printf("node %v addchannelin 429 lastapplied= %v", rf.me, rf.Snapshotinfo.SnapshotIndex)
 				rf.applyCh <- applyMsg
 				rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 				rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
@@ -852,9 +866,8 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		rf.matchIndex = append(rf.matchIndex, 0)
 		rf.nextIndex = append(rf.nextIndex, 1)
 	}
-
-	rf.readPersist(persister.ReadRaftState())
 	rf.readSnapshotPersist(persister.ReadSnapshot())
+	rf.readPersist(persister.ReadRaftState())
 	log.Printf("node %d start ====", rf.me)
 	go func() { //通过applech 发送AppleMsg消息
 		for rf.killed() == false {
