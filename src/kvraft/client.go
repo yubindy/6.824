@@ -1,12 +1,16 @@
 package kvraft
 
-import "6.824/labrpc"
+import (
+	"6.824/labrpc"
+	"log"
+	"time"
+)
 import "crypto/rand"
 import "math/big"
 
-
 type Clerk struct {
-	servers []*labrpc.ClientEnd
+	servers   []*labrpc.ClientEnd
+	mayleader int //记住最后一个 RPC 的领导者是哪个服务器，并首先将下一个 RPC 发送到该服务器
 	// You will have to modify this struct.
 }
 
@@ -20,6 +24,7 @@ func nrand() int64 {
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	ck := new(Clerk)
 	ck.servers = servers
+	ck.mayleader = -1
 	// You'll have to add code here.
 	return ck
 }
@@ -38,7 +43,35 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 //
 func (ck *Clerk) Get(key string) string {
 
-	// You will have to modify this function.
+	args := GetArgs{
+		Key: key,
+	}
+	id := nrand()
+	reply := GetReply{}
+	if ck.mayleader != -1 {
+		log.Printf("client %v start send Get %v", id, key)
+		ok := ck.servers[ck.mayleader].Call("KVServer.Get", &args, &reply)
+		if !ok {
+			log.Printf("send GetReply to node %v fail", ck.mayleader)
+		} else if reply.Err == "null" {
+			log.Printf("client %v success Get %v is Value %v", id, key, reply.Value)
+			return reply.Value
+		}
+	}
+	for true {
+		for i, _ := range ck.servers {
+			log.Printf("client %v start send Get %v", id, key)
+			ok := ck.servers[i].Call("KVServer.Get", &args, &reply)
+			if !ok {
+				log.Printf("send GetReply to node %v fail", ck.mayleader)
+			} else if reply.Err == "null" {
+				ck.mayleader = i
+				log.Printf("client %v success node %v Get %v is Value %v", id, i, key, reply.Value)
+				return reply.Value
+			}
+		}
+		time.Sleep(1 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
+	}
 	return ""
 }
 
@@ -54,6 +87,35 @@ func (ck *Clerk) Get(key string) string {
 //
 func (ck *Clerk) PutAppend(key string, value string, op string) {
 	// You will have to modify this function.
+	id := nrand()
+	args := PutAppendArgs{
+		Key:   key,
+		Value: value,
+		Op:    op,
+	}
+	reply := PutAppendReply{}
+	if ck.mayleader != -1 {
+		ok := ck.servers[ck.mayleader].Call("KVServer.PutAppend", &args, &reply)
+		if !ok {
+			log.Printf("send PutAppendReply to node %v fail94", ck.mayleader)
+		} else if reply.Err == "null" {
+			return
+		}
+	}
+	for true {
+		for i, _ := range ck.servers {
+			log.Printf("client %v start send PutAppend %v to %v", id, key, value)
+			ok := ck.servers[i].Call("KVServer.PutAppend", &args, &reply)
+			if !ok {
+				log.Printf("send PutAppendReply to node %v fail103", ck.mayleader)
+			} else if reply.Err == "null" {
+				ck.mayleader = i
+				log.Printf("client %v success node %v PutAppend %v to %v", id, i, key, value)
+				return
+			}
+		}
+		time.Sleep(1 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
+	}
 }
 
 func (ck *Clerk) Put(key string, value string) {
