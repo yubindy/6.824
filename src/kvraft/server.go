@@ -22,7 +22,7 @@ type Op struct {
 	//op    string
 	Key      string
 	Value    string
-	IsGet    bool
+	Action   string
 	Clientid int64
 	Id       int
 	// Your definitions here.
@@ -49,7 +49,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	// Your code here.
 	kv.mu.Lock()
 	defer kv.mu.Unlock()
-	_, _, isleader := kv.rf.Start(Op{Key: args.Key, IsGet: true, Clientid: args.Clientid, Id: args.Id})
+	_, _, isleader := kv.rf.Start(Op{Key: args.Key, Action: "Get", Clientid: args.Clientid, Id: args.Id})
 	if !isleader {
 		reply.Err = "notleader"
 		return
@@ -72,9 +72,10 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 
 func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
+
 	kv.mu.Lock()
 	defer kv.mu.Unlock()
-	_, _, isleader := kv.rf.Start(Op{Key: args.Key, Value: args.Value, IsGet: false, Clientid: args.Clientid, Id: args.Id})
+	_, _, isleader := kv.rf.Start(Op{Key: args.Key, Value: args.Value, Action: args.Op, Clientid: args.Clientid, Id: args.Id})
 	if !isleader {
 		reply.Err = "notleader"
 		return
@@ -163,9 +164,13 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 					kv.dataCh <- data
 				} else {
 					t := data.Command.(Op)
-					if !t.IsGet {
+					if t.Action != "Get" {
 						kv.mu.Lock()
-						kv.kvmaps[t.Key] = t.Value
+						if t.Action == "Append" {
+							kv.kvmaps[t.Key] += t.Value
+						} else {
+							kv.kvmaps[t.Key] = t.Value
+						}
 						if kv.Idmaps[t.Clientid] < t.Id {
 							kv.Idmaps[t.Clientid] = t.Id
 						}
