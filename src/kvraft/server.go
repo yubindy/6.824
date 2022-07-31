@@ -20,8 +20,11 @@ func DPrintf(format string, a ...interface{}) (n int, err error) {
 
 type Op struct {
 	//op    string
-	Key   string
-	Value string
+	Key      string
+	Value    string
+	IsGet    bool
+	Clientid int64
+	Id       int
 	// Your definitions here.
 	// Field names must start with capital letters,
 	// otherwise RPC will break.
@@ -37,18 +40,31 @@ type KVServer struct {
 	maxraftstate int // snapshot if log grows this big
 
 	kvmaps map[string]string
+	Idmaps map[int64]int
 	dataCh chan raft.ApplyMsg
 	// Your definitions here.
 }
 
 func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	// Your code here.
-	_, _, isleader := kv.rf.Start(Op{Key: args.Key})
+	kv.mu.Lock()
+	defer kv.mu.Unlock()
+	_, _, isleader := kv.rf.Start(Op{Key: args.Key, IsGet: true, Clientid: args.Clientid, Id: args.Id})
 	if !isleader {
 		reply.Err = "notleader"
 		return
 	}
+	it, ok := kv.Idmaps[args.Clientid]
+	if it >= args.Id && ok {
+		reply.Err = "some"
+		reply.Value = kv.kvmaps[args.Key]
+		return
+	}
+	kv.Idmaps[args.Clientid] = args.Id
+	kv.mu.Unlock()
 	t := <-kv.dataCh
+	kv.mu.Lock()
+	log.Printf("Get rpc get appliy %v", t)
 	if t.CommandValid {
 		reply.Value = kv.kvmaps[args.Key]
 	}
@@ -56,14 +72,29 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 
 func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
-	_, _, isleader := kv.rf.Start(Op{Key: args.Key, Value: args.Value})
+	kv.mu.Lock()
+	defer kv.mu.Unlock()
+	_, _, isleader := kv.rf.Start(Op{Key: args.Key, Value: args.Value, IsGet: false, Clientid: args.Clientid, Id: args.Id})
 	if !isleader {
-		reply.Err = "null"
+		reply.Err = "notleader"
 		return
 	}
+	it, ok := kv.Idmaps[args.Clientid]
+	if it >= args.Id && ok {
+		reply.Err = "some"
+		return
+	}
+	kv.Idmaps[args.Clientid] = args.Id
+	kv.mu.Unlock()
 	t := <-kv.dataCh
+	kv.mu.Lock()
+	log.Printf("PutAppend rpc get appliy %v", t)
 	if t.CommandValid {
-		kv.kvmaps[args.Key] = args.Value
+		if args.Op == "Append" {
+			kv.kvmaps[args.Key] += args.Value
+		} else {
+			kv.kvmaps[args.Key] = args.Value
+		}
 		reply.Err = "null"
 	}
 
@@ -109,21 +140,38 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 	// call labgob.Register on structures you want
 	// Go's RPC library to marshall/unmarshall.
 	labgob.Register(Op{})
-
 	kv := new(KVServer)
+	kv.mu.Lock()
+	kv.mu.Unlock()
 	kv.me = me
 	kv.maxraftstate = maxraftstate
 
 	// You may need initialization code here.
 
-	kv.applyCh = make(chan raft.ApplyMsg)
+	kv.applyCh = make(chan raft.ApplyMsg, 10)
 	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
-
+	kv.kvmaps = make(map[string]string)
+	kv.Idmaps = make(map[int64]int)
+	kv.dataCh = make(chan raft.ApplyMsg, 10)
 	go func() {
 		for kv.killed() == false {
 			data := <-kv.applyCh
 			if data.CommandValid == true {
-				kv.dataCh <- data
+				_, isleader := kv.rf.GetState()
+				if isleader {
+					log.Printf("server get appliyin 129 %v", data)
+					kv.dataCh <- data
+				} else {
+					t := data.Command.(Op)
+					if !t.IsGet {
+						kv.mu.Lock()
+						kv.kvmaps[t.Key] = t.Value
+						if kv.Idmaps[t.Clientid] < t.Id {
+							kv.Idmaps[t.Clientid] = t.Id
+						}
+						kv.mu.Unlock()
+					}
+				}
 			}
 		}
 	}()
