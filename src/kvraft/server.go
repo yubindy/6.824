@@ -30,6 +30,10 @@ type Op struct {
 	// otherwise RPC will break.
 }
 
+type Request struct {
+	Id    int
+	Index int
+}
 type KVServer struct {
 	mu      sync.Mutex
 	me      int
@@ -40,8 +44,10 @@ type KVServer struct {
 	maxraftstate int // snapshot if log grows this big
 
 	kvmaps map[string]string
-	Idmaps map[int64]int
+	Idmaps map[int64]Request
 	dataCh chan raft.ApplyMsg
+	cond   *sync.Cond
+	applen int
 	// Your definitions here.
 }
 
@@ -49,56 +55,94 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	// Your code here.
 	kv.mu.Lock()
 	defer kv.mu.Unlock()
-	_, _, isleader := kv.rf.Start(Op{Key: args.Key, Action: "Get", Clientid: args.Clientid, Id: args.Id})
+	_, isleader := kv.rf.GetState()
+	applen := kv.rf.GetSapplen()
+	kv.applen = applen
 	if !isleader {
 		reply.Err = "notleader"
 		return
 	}
 	it, ok := kv.Idmaps[args.Clientid]
-	if it >= args.Id && ok {
+	if it.Id >= args.Id && ok {
 		reply.Err = "some"
-		reply.Value = kv.kvmaps[args.Key]
+		if it.Index < kv.applen {
+			reply.Value = kv.kvmaps[args.Key]
+			return
+		} else {
+			for it.Index > kv.applen {
+				kv.cond.Wait()
+			}
+			reply.Value = kv.kvmaps[args.Key]
+			return
+		}
+	}
+	_, index, isleader := kv.rf.Start(Op{Key: args.Key, Action: "Get", Clientid: args.Clientid, Id: args.Id})
+	if !isleader {
+		reply.Err = "notleader"
 		return
 	}
-	kv.Idmaps[args.Clientid] = args.Id
+	kv.Idmaps[args.Clientid] = Request{Id: args.Id, Index: index}
 	kv.mu.Unlock()
 	t := <-kv.dataCh
 	kv.mu.Lock()
-	log.Printf("Get rpc get appliy %v", t)
+	log.Printf("Get rpc node %v get appliy %v", kv.rf.Me, t)
 	if t.CommandValid {
 		reply.Value = kv.kvmaps[args.Key]
+		_, isleader := kv.rf.GetState()
+		if !isleader {
+			reply.Err = "notleader"
+		} else {
+			reply.Err = "null"
+		}
 	}
 }
 
 func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
-
 	kv.mu.Lock()
 	defer kv.mu.Unlock()
-	_, _, isleader := kv.rf.Start(Op{Key: args.Key, Value: args.Value, Action: args.Op, Clientid: args.Clientid, Id: args.Id})
+	_, isleader := kv.rf.GetState()
+	applen := kv.rf.GetSapplen()
+	kv.applen = applen
 	if !isleader {
 		reply.Err = "notleader"
 		return
 	}
 	it, ok := kv.Idmaps[args.Clientid]
-	if it >= args.Id && ok {
+	if it.Id >= args.Id && ok {
 		reply.Err = "some"
+		if it.Index < kv.applen {
+			return
+		} else {
+			for it.Index > kv.applen {
+				kv.cond.Wait()
+			}
+			return
+		}
+	}
+	_, index, isleader := kv.rf.Start(Op{Key: args.Key, Value: args.Value, Action: args.Op, Clientid: args.Clientid, Id: args.Id})
+	if !isleader {
+		reply.Err = "notleader"
 		return
 	}
-	kv.Idmaps[args.Clientid] = args.Id
+	kv.Idmaps[args.Clientid] = Request{Id: args.Id, Index: index}
 	kv.mu.Unlock()
 	t := <-kv.dataCh
 	kv.mu.Lock()
-	log.Printf("PutAppend rpc get appliy %v", t)
+	log.Printf("PutAppend rpc node %v get appliy %v", kv.rf.Me, t)
 	if t.CommandValid {
 		if args.Op == "Append" {
 			kv.kvmaps[args.Key] += args.Value
 		} else {
 			kv.kvmaps[args.Key] = args.Value
 		}
-		reply.Err = "null"
+		_, isleader := kv.rf.GetState()
+		if !isleader {
+			reply.Err = "notleader"
+		} else {
+			reply.Err = "null"
+		}
 	}
-
 }
 
 //
@@ -146,36 +190,40 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 	kv.mu.Unlock()
 	kv.me = me
 	kv.maxraftstate = maxraftstate
+	kv.cond = sync.NewCond(&kv.mu)
 
 	// You may need initialization code here.
 
 	kv.applyCh = make(chan raft.ApplyMsg, 10)
 	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
 	kv.kvmaps = make(map[string]string)
-	kv.Idmaps = make(map[int64]int)
+	kv.Idmaps = make(map[int64]Request)
 	kv.dataCh = make(chan raft.ApplyMsg, 10)
 	go func() {
 		for kv.killed() == false {
 			data := <-kv.applyCh
 			if data.CommandValid == true {
 				_, isleader := kv.rf.GetState()
+				applen := kv.rf.GetSapplen()
+				kv.mu.Lock()
+				kv.applen = applen
+				kv.mu.Unlock()
 				if isleader {
 					log.Printf("server get appliyin 129 %v", data)
 					kv.dataCh <- data
+					kv.cond.Signal()
 				} else {
 					t := data.Command.(Op)
+					kv.mu.Lock()
 					if t.Action != "Get" {
-						kv.mu.Lock()
 						if t.Action == "Append" {
 							kv.kvmaps[t.Key] += t.Value
 						} else {
 							kv.kvmaps[t.Key] = t.Value
 						}
-						if kv.Idmaps[t.Clientid] < t.Id {
-							kv.Idmaps[t.Clientid] = t.Id
-						}
-						kv.mu.Unlock()
 					}
+					kv.Idmaps[t.Clientid] = Request{Id: t.Id, Index: data.CommandIndex}
+					kv.mu.Unlock()
 				}
 			}
 		}

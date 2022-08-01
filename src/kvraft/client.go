@@ -3,6 +3,7 @@ package kvraft
 import (
 	"6.824/labrpc"
 	"log"
+	"sync"
 	"time"
 )
 import "crypto/rand"
@@ -13,6 +14,7 @@ type Clerk struct {
 	mayleader int //记住最后一个 RPC 的领导者是哪个服务器，并首先将下一个 RPC 发送到该服务器
 	Clientid  int64
 	Id        int //请求序号用来去重
+	mu        sync.Mutex
 	// You will have to modify this struct.
 }
 
@@ -26,7 +28,7 @@ func nrand() int64 {
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	ck := new(Clerk)
 	ck.servers = servers
-	ck.mayleader = -1
+	ck.mayleader = 0
 	ck.Clientid = nrand()
 	ck.Id = 0
 	// You'll have to add code here.
@@ -46,33 +48,37 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 // arguments. and reply must be passed as a pointer.
 //
 func (ck *Clerk) Get(key string) string {
+	ck.mu.Lock()
 	args := GetArgs{
 		Key:      key,
 		Id:       ck.Id,
 		Clientid: ck.Clientid,
 	}
 	ck.Id++
+	ck.mu.Unlock()
 	reply := GetReply{}
-	if ck.mayleader != -1 {
-		log.Printf("client %v start send isleader %v Get %v id: %v", ck.Id, ck.mayleader, key, args.Id)
-		ok := ck.servers[ck.mayleader].Call("KVServer.Get", &args, &reply)
-		if !ok {
-			log.Printf("send GetReply to node %v fail", ck.mayleader)
-		} else if reply.Err == "null" || reply.Err == "some" {
-			log.Printf("client %v isleader %v success Get %v is Value %v id %v", ck.Id, ck.mayleader, key, reply.Value, args.Id)
-			return reply.Value
-		}
+	log.Printf("client %v start id: %v send isleader %v Get %v", ck.Id, args.Id, ck.mayleader, key)
+	ok := ck.servers[ck.mayleader].Call("KVServer.Get", &args, &reply)
+	if !ok {
+		log.Printf("send GetReply to node %v fail", ck.mayleader)
+	} else if reply.Err == "null" {
+		log.Printf("client %v id: %v isleader %v success Get %v is Value %v", ck.Id, args.Id, ck.mayleader, key, reply.Value)
+		return reply.Value
+	} else if reply.Err == "some" {
+		log.Printf("client %v id: %v isleader %v somerq Get %v is Value %v", ck.Id, args.Id, ck.mayleader, key, reply.Value)
 	}
 	for true {
 		for i, _ := range ck.servers {
-			log.Printf("client %v start send %v Get %v id %v", ck.Id, i, key, args.Id)
+			log.Printf("client %v start id: %v send %v Get %v", ck.Id, args.Id, i, key)
 			ok := ck.servers[i].Call("KVServer.Get", &args, &reply)
 			if !ok {
-				log.Printf("send GetReply to node %v fail id %v", ck.mayleader, args.Id)
-			} else if reply.Err == "null" || reply.Err == "some" {
+				log.Printf("send id: %v GetReply to node %v fail", args.Id, ck.mayleader)
+			} else if reply.Err == "null" {
 				ck.mayleader = i
-				log.Printf("client %v success node %v Get %v is Value %v id %v", ck.Id, i, key, reply.Value, args.Id)
+				log.Printf("client %v id: %v success node %v Get %v is Value %v ", ck.Id, args.Id, i, key, reply.Value)
 				return reply.Value
+			} else if reply.Err == "some" {
+				log.Printf("client %v id: %v node %v somerq Get %v is Value %v", ck.Id, args.Id, ck.mayleader, key, reply.Value)
 			}
 		}
 		time.Sleep(10 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
@@ -93,6 +99,7 @@ func (ck *Clerk) Get(key string) string {
 func (ck *Clerk) PutAppend(key string, value string, op string) {
 	// You will have to modify this function.
 	id := nrand()
+	ck.mu.Lock()
 	args := PutAppendArgs{
 		Key:      key,
 		Value:    value,
@@ -101,33 +108,25 @@ func (ck *Clerk) PutAppend(key string, value string, op string) {
 		Clientid: ck.Clientid,
 	}
 	ck.Id++
+	ck.mu.Unlock()
 	reply := PutAppendReply{}
-	if ck.mayleader != -1 {
-		log.Printf("client %v start send PutAppend isleader:%v Key:%v to Value:%v id: %v", id, ck.mayleader, key, value, args.Id)
-		ok := ck.servers[ck.mayleader].Call("KVServer.PutAppend", &args, &reply)
-		if !ok {
-			log.Printf("send PutAppendReply to node %v fail94 id: %v", ck.mayleader, args.Id)
-		} else if reply.Err == "null" {
-			log.Printf("client %v success isleader %v PutAppend %v to %v id: %v", id, ck.mayleader, key, value, args.Id)
-			return
-		} else if reply.Err == "some" {
-			log.Printf("client %v somerequest isleader %v PutAppend %v to %v id: %v", id, ck.mayleader, key, value, args.Id)
-			return
-		}
+	log.Printf("client %v start  id: %v send PutAppend isleader:%v Key:%v to Value:%v", id, ck.mayleader, key, value, args.Id)
+	ok := ck.servers[ck.mayleader].Call("KVServer.PutAppend", &args, &reply)
+	if !ok {
+		log.Printf("send  id: %v  fail PutAppendReply to node %v fail94", args.Id, ck.mayleader)
+	} else if reply.Err == "null" || reply.Err == "some" {
+		log.Printf("client %v success id: %v isleader %v PutAppend %v to %v", id, args.Id, ck.mayleader, key, value)
+		return
 	}
 	for true {
 		for i, _ := range ck.servers {
-			log.Printf("client %v start send PutAppend %v Key:%v to Value:%v id: %v", id, i, key, value, args.Id)
+			log.Printf("client %v start id: %v send PutAppend %v Key:%v to Value:%v", id, args.Id, i, key, value)
 			ok := ck.servers[i].Call("KVServer.PutAppend", &args, &reply)
 			if !ok {
-				log.Printf("send PutAppendReply to node %v fail103 id %v", ck.mayleader, args.Id)
-			} else if reply.Err == "null" {
+				log.Printf("client %v fail id: %v send PutAppend %v Key:%v to Value:%v", id, args.Id, i, key, value)
+			} else if reply.Err == "null" || reply.Err == "some" {
 				ck.mayleader = i
-				log.Printf("client %v success node %v PutAppend %v to %v id %v", id, i, key, value, args.Id)
-				return
-			} else if reply.Err == "some" {
-				ck.mayleader = i
-				log.Printf("client %v somerequest node %v PutAppend %v to %v id %v", id, i, key, value, args.Id)
+				log.Printf("client %v success id: %v send PutAppend %v Key:%v to Value:%v", id, args.Id, i, key, value)
 				return
 			}
 		}

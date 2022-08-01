@@ -85,7 +85,7 @@ type Raft struct {
 	mu        sync.Mutex          // Lock to protect shared access to this peer's state
 	peers     []*labrpc.ClientEnd // RPC end points of all peers
 	persister *Persister          // Object to hold this peer's persisted state
-	me        int                 // this peer's index into peers[]
+	Me        int                 // this peer's index into peers[]
 	dead      int32               // set by Kill()
 	//2a
 	state       int
@@ -125,6 +125,12 @@ func (rf *Raft) GetState() (int, bool) {
 	}
 	rf.mu.Unlock()
 	return term, isleader
+}
+func (rf *Raft) GetSapplen() int {
+	rf.mu.Lock()
+	t := rf.lastapplied
+	rf.mu.Unlock()
+	return t
 }
 
 //
@@ -193,7 +199,7 @@ func (rf *Raft) readPersist(data []byte) {
 					SnapshotIndex: rf.Snapshotinfo.SnapshotIndex,
 					SnapshotTerm:  rf.Snapshotinfo.SnapshotTerm,
 				}
-				log.Printf("node %v addchannelin 429 lastapplied= %v", rf.me, rf.Snapshotinfo.SnapshotIndex)
+				log.Printf("node %v addchannelin 429 lastapplied= %v", rf.Me, rf.Snapshotinfo.SnapshotIndex)
 				rf.applyCh <- applyMsg
 				rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 				rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
@@ -533,7 +539,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 			Term:   term,
 			Logact: command})
 		rf.Lastlogindex++
-		log.Printf("SSSS %v %d term %d leader get index %v log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, rf.Lastlogindex, command)
+		log.Printf("SSSS %v %d term %d leader get index %v log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.Me, rf.currentTerm, rf.Lastlogindex, command)
 		index = rf.Lastlogindex
 		rf.mu.Unlock()
 	}
@@ -564,11 +570,11 @@ func (rf *Raft) killed() bool {
 func (rf *Raft) startvote() {
 	rf.mu.Lock()
 	rf.currentTerm++
-	rf.votedFor = rf.me
+	rf.votedFor = rf.Me
 	var num int64
 	num = 1
 	n := len(rf.peers)
-	me := rf.me
+	me := rf.Me
 	currentTerm := rf.currentTerm
 	lastlogterm := rf.logs[len(rf.logs)-1].Term
 	lastlogindex := rf.Lastlogindex
@@ -604,7 +610,7 @@ func (rf *Raft) startvote() {
 					atomic.AddInt64(&num, 1)
 					//log.Printf("%v %d term %d get vote form %d term %d logs%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node, reply.Term, rf.logs)
 					if int(atomic.LoadInt64(&num)) > n/2 && !rf.hasheat && rf.state == Candidate {
-						log.Printf("%v serve %d become leader------- num:%d term:%d log:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.currentTerm, rf.logs)
+						log.Printf("%v serve %d become leader------- num:%d term:%d lastapplied %v log:%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.Me, num, rf.currentTerm, rf.lastapplied, rf.logs)
 						rf.state = Leader
 						for i := 0; i < len(rf.peers); i++ {
 							rf.nextIndex[i] = rf.Lastlogindex + 1
@@ -636,7 +642,7 @@ func (rf *Raft) sendlog() {
 	rf.mu.Lock()
 	//log.Printf("%v %v term %d start send Lastindex %d log %v nextindex%v Snapshotindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, rf.Lastlogindex, rf.logs, rf.nextIndex, rf.Snapshotinfo.SnapshotIndex)
 	for i := 0; i < len(rf.peers); i++ {
-		if rf.me == i {
+		if rf.Me == i {
 			rf.nextIndex[i] = rf.Lastlogindex + 1
 		}
 		prevlog = append(prevlog, rf.nextIndex[i]-1)
@@ -656,7 +662,7 @@ func (rf *Raft) sendlog() {
 		}
 	}
 	commit := rf.commitIndex
-	me := rf.me
+	me := rf.Me
 	currentTerm := rf.currentTerm
 	Snapshotinfo := rf.Snapshotinfo
 	num := len(rf.peers) - 1
@@ -851,7 +857,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf := &Raft{}
 	rf.peers = peers
 	rf.persister = persister
-	rf.me = me
+	rf.Me = me
 	rf.currentTerm = 0
 	rf.Snapshotinfo.SnapshotIndex = 0
 	rf.Snapshotinfo.SnapshotTerm = 0
@@ -870,7 +876,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	}
 	rf.readSnapshotPersist(persister.ReadSnapshot())
 	rf.readPersist(persister.ReadRaftState())
-	log.Printf("node %d start ====", rf.me)
+	log.Printf("node %d start ====", rf.Me)
 	go func() { //通过applech 发送AppleMsg消息
 		for rf.killed() == false {
 			apply := ApplyMsg{}
