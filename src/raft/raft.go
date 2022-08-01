@@ -93,6 +93,7 @@ type Raft struct {
 	votedFor    int
 	hasheat     bool
 	hasvote     bool
+	haslog      bool
 
 	logs        []nlog
 	commitIndex int
@@ -541,6 +542,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 		rf.Lastlogindex++
 		log.Printf("SSSS %v %d term %d leader get index %v log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.Me, rf.currentTerm, rf.Lastlogindex, command)
 		index = rf.Lastlogindex
+		rf.haslog = true
 		rf.mu.Unlock()
 	}
 	// Your code here (2B).
@@ -640,6 +642,7 @@ func (rf *Raft) sendlog() {
 	var entries [][]nlog
 	numlog = 1
 	rf.mu.Lock()
+	rf.haslog = false
 	//log.Printf("%v %v term %d start send Lastindex %d log %v nextindex%v Snapshotindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, rf.Lastlogindex, rf.logs, rf.nextIndex, rf.Snapshotinfo.SnapshotIndex)
 	for i := 0; i < len(rf.peers); i++ {
 		if rf.Me == i {
@@ -827,6 +830,9 @@ func (rf *Raft) ticker() {
 				if rf.hasheat || rf.hasvote {
 					rf.state = Foller
 					//log.Printf("%v leader %d become foller ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
+					rf.mu.Unlock()
+					break
+				} else if rf.haslog {
 					rf.mu.Unlock()
 					break
 				}

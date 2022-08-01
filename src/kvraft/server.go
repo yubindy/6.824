@@ -133,7 +133,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	if t.CommandValid {
 		if args.Op == "Append" {
 			kv.kvmaps[args.Key] += args.Value
-		} else {
+		} else if args.Op == "Put" {
 			kv.kvmaps[args.Key] = args.Value
 		}
 		_, isleader := kv.rf.GetState()
