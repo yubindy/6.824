@@ -35,7 +35,6 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	return ck
 }
 
-//
 // fetch the current value for a key.
 // returns "" if the key does not exist.
 // keeps trying forever in the face of all other errors.
@@ -46,7 +45,6 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 // the types of args and reply (including whether they are pointers)
 // must match the declared types of the RPC handler function's
 // arguments. and reply must be passed as a pointer.
-//
 func (ck *Clerk) Get(key string) string {
 	ck.mu.Lock()
 	args := GetArgs{
@@ -57,15 +55,13 @@ func (ck *Clerk) Get(key string) string {
 	ck.Id++
 	ck.mu.Unlock()
 	reply := GetReply{}
-	log.Printf("client %v start id: %v send isleader %v Get %v", ck.Id, args.Id, ck.mayleader, key)
+	log.Printf("client %v start  id: %v  send Get isleader: %v Key:%v ", ck.Clientid, args.Id, ck.mayleader, key)
 	ok := ck.servers[ck.mayleader].Call("KVServer.Get", &args, &reply)
 	if !ok {
 		log.Printf("send GetReply to node %v fail", ck.mayleader)
-	} else if reply.Err == "null" {
+	} else if reply.Err == "null" || reply.Err == "some" {
 		log.Printf("client %v id: %v isleader %v success Get %v is Value %v", ck.Id, args.Id, ck.mayleader, key, reply.Value)
 		return reply.Value
-	} else if reply.Err == "some" {
-		log.Printf("client %v id: %v isleader %v somerq Get %v is Value %v", ck.Id, args.Id, ck.mayleader, key, reply.Value)
 	}
 	for true {
 		for i, _ := range ck.servers {
@@ -73,20 +69,17 @@ func (ck *Clerk) Get(key string) string {
 			ok := ck.servers[i].Call("KVServer.Get", &args, &reply)
 			if !ok {
 				log.Printf("send id: %v GetReply to node %v fail", args.Id, ck.mayleader)
-			} else if reply.Err == "null" {
+			} else if reply.Err == "null" || reply.Err == "some" {
 				ck.mayleader = i
 				log.Printf("client %v id: %v success node %v Get %v is Value %v ", ck.Id, args.Id, i, key, reply.Value)
 				return reply.Value
-			} else if reply.Err == "some" {
-				log.Printf("client %v id: %v node %v somerq Get %v is Value %v", ck.Id, args.Id, ck.mayleader, key, reply.Value)
 			}
 		}
-		time.Sleep(10 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
+		time.Sleep(5 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
 	}
 	return ""
 }
 
-//
 // shared by Put and Append.
 //
 // you can send an RPC with code like this:
@@ -95,7 +88,6 @@ func (ck *Clerk) Get(key string) string {
 // the types of args and reply (including whether they are pointers)
 // must match the declared types of the RPC handler function's
 // arguments. and reply must be passed as a pointer.
-//
 func (ck *Clerk) PutAppend(key string, value string, op string) {
 	// You will have to modify this function.
 	id := nrand()
@@ -110,7 +102,7 @@ func (ck *Clerk) PutAppend(key string, value string, op string) {
 	ck.Id++
 	ck.mu.Unlock()
 	reply := PutAppendReply{}
-	log.Printf("client %v start  id: %v send PutAppend isleader:%v Key:%v to Value:%v", id, ck.mayleader, key, value, args.Id)
+	log.Printf("client %v start  id: %v  send PutAppend to : %v Key:%v to Value:%v", ck.Clientid, ck.mayleader, args.Id, key, value)
 	ok := ck.servers[ck.mayleader].Call("KVServer.PutAppend", &args, &reply)
 	if !ok {
 		log.Printf("send  id: %v  fail PutAppendReply to node %v fail94", args.Id, ck.mayleader)
@@ -130,7 +122,7 @@ func (ck *Clerk) PutAppend(key string, value string, op string) {
 				return
 			}
 		}
-		time.Sleep(10 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
+		time.Sleep(5 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
 	}
 }
 
