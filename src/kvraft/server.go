@@ -26,7 +26,7 @@ type Op struct {
 	Action   string
 	Clientid int64
 	Id       int
-	flag     bool
+	Flag     bool
 	// Your definitions here.
 	// Field names must start with capital letters,
 	// otherwise RPC will break.
@@ -61,14 +61,12 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	kv.mu.Lock()
 	defer kv.mu.Unlock()
 	_, isleader := kv.rf.GetState()
-	applen := kv.rf.GetSapplen()
-	kv.applen = applen
 	if !isleader {
 		reply.Err = "notleader"
 		return
 	}
 	it, ok := kv.Idmaps[args.Clientid]
-	opcommand := Op{Key: args.Key, Action: "Get", Clientid: args.Clientid, Id: args.Id}
+	opcommand := Op{Key: args.Key, Action: "Get", Clientid: args.Clientid, Id: args.Id, Flag: false}
 	log.Printf("node %v should startin84 %v", kv.me, args)
 	index, term, isleader := kv.Starts(opcommand)
 	if it.Id >= args.Id && ok || term < 0 {
@@ -99,25 +97,20 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 		case <-time.After(1 * time.Second):
 			kv.mu.Lock()
 			reply.Err = "timeout"
+			log.Printf("node %v sendtimeout to %v", kv.me, args)
 			return
 		}
 		if t.Command == opcommand {
-			//term, _ := kv.rf.GetState()
-			//if kv.rf.Logs[t.CommandIndex].Term != term {
-			//	kv.mu.Lock()
-			//	reply.Err = "timeout"
-			//	return
-			//}
 			break
 		}
 		s := t.Command.(Op)
 		kv.mu.Lock()
 		if s.Action == "Append" {
 			kv.kvmaps[s.Key] += s.Value
-			log.Printf("node  %v Append %v", kv.rf.Me, s)
+			log.Printf("node %v Append %v K %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		} else if s.Action == "Put" {
 			kv.kvmaps[s.Key] = s.Value
-			log.Printf("node  %v Put %v", kv.rf.Me, s)
+			log.Printf("node %v Append %v K %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		}
 		kv.mu.Unlock()
 	}
@@ -140,14 +133,12 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	kv.mu.Lock()
 	defer kv.mu.Unlock()
 	_, isleader := kv.rf.GetState()
-	applen := kv.rf.GetSapplen()
-	kv.applen = applen
 	if !isleader {
 		reply.Err = "notleader"
 		return
 	}
 	it, ok := kv.Idmaps[args.Clientid]
-	opcommand := Op{Key: args.Key, Value: args.Value, Action: args.Op, Clientid: args.Clientid, Id: args.Id}
+	opcommand := Op{Key: args.Key, Value: args.Value, Action: args.Op, Clientid: args.Clientid, Id: args.Id, Flag: false}
 	log.Printf("node %v should startin158 %v", kv.me, args)
 	index, term, isleader := kv.Starts(opcommand)
 	if it.Id >= args.Id && ok || term < 0 {
@@ -175,6 +166,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 			log.Printf("node %v putappend command %v", kv.me, t)
 		case <-time.After(1 * time.Second):
 			reply.Err = "timeout"
+			log.Printf("node %v sendtimeout to %v", kv.me, args)
 			kv.mu.Lock()
 			return
 		}
@@ -184,11 +176,11 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 		s := t.Command.(Op)
 		kv.mu.Lock()
 		if s.Action == "Append" {
-			log.Printf("node %v Append %v", kv.me, t)
 			kv.kvmaps[s.Key] += s.Value
+			log.Printf("node %v Append %v K %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		} else if s.Action == "Put" {
-			log.Printf("node %v Put %v", kv.me, t)
 			kv.kvmaps[s.Key] = s.Value
+			log.Printf("node %v Put %vK %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		}
 		kv.mu.Unlock()
 	}
@@ -196,11 +188,11 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	log.Printf("PutAppend rpc node %v get appliy %v", kv.rf.Me, t)
 	if t.CommandValid {
 		if args.Op == "Append" {
-			log.Printf("node %v Append %v", kv.me, t)
 			kv.kvmaps[args.Key] += args.Value
+			log.Printf("node %v Append %v K %v V %v", kv.me, t, args.Key, kv.kvmaps[args.Key])
 		} else if args.Op == "Put" {
-			log.Printf("node %v Put %v", kv.me, t)
 			kv.kvmaps[args.Key] = args.Value
+			log.Printf("node %v Append %v K %v V %v", kv.me, t, args.Key, kv.kvmaps[args.Key])
 		}
 		applen := kv.rf.GetSapplen()
 		kv.applen = applen
@@ -255,44 +247,61 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 
 	// You may need initialization code here.
 
-	kv.applyCh = make(chan raft.ApplyMsg, 10)
+	kv.applyCh = make(chan raft.ApplyMsg)
 	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
 	kv.kvmaps = make(map[string]string)
 	kv.Idmaps = make(map[int64]Request)
-	kv.dataCh = make(chan raft.ApplyMsg, 10)
+	kv.dataCh = make(chan raft.ApplyMsg)
 	go func() {
 		for kv.killed() == false {
 			data := raft.ApplyMsg{}
 			select {
 			case data = <-kv.applyCh:
-			case <-time.After(1 * time.Second):
-				_, _, _ = kv.rf.Start(Op{flag: true})
-				log.Printf("node %v add nil", kv.me)
-				continue
-			}
-			t := data.Command.(Op)
-			if data.CommandValid == true {
-				_, isleader := kv.rf.GetState()
-				if isleader {
-					log.Printf("server get appliyin 129 %v", data)
-					kv.dataCh <- data
-				} else if t.flag != true {
-					kv.mu.Lock()
-					if t.Action != "Get" {
-						if t.Action == "Append" {
-							kv.kvmaps[t.Key] += t.Value
-							log.Printf("node %v Append %v", kv.me, t)
-						} else {
-							kv.kvmaps[t.Key] = t.Value
-							log.Printf("node %v Put %v", kv.me, t)
+				t := data.Command.(Op)
+				if data.CommandValid == true && t.Flag != true {
+					_, isleader := kv.rf.GetState()
+					if isleader {
+						log.Printf("server get appliyin 129 %v", data)
+						select {
+						case kv.dataCh <- data:
+							continue
+						default:
+							if t.Flag != true {
+								if t.Action == "Append" {
+									kv.kvmaps[t.Key] += t.Value
+									log.Printf("node %v Append %v K %v V %v", kv.me, t, t.Key, kv.kvmaps[t.Key])
+								} else {
+									kv.kvmaps[t.Key] = t.Value
+									log.Printf("node %v Put %v K %v V %v", kv.me, t, t.Key, kv.kvmaps[t.Key])
+								}
+								kv.mu.Lock()
+								applen := kv.rf.GetSapplen()
+								kv.applen = applen
+								kv.cond.Broadcast()
+								kv.mu.Unlock()
+							}
 						}
+					} else if t.Flag != true {
+						kv.mu.Lock()
+						if t.Action != "Get" {
+							if t.Action == "Append" {
+								kv.kvmaps[t.Key] += t.Value
+								log.Printf("node %v Append %v", kv.me, t)
+							} else {
+								kv.kvmaps[t.Key] = t.Value
+								log.Printf("node %v Put %v", kv.me, t)
+							}
+						}
+						kv.Idmaps[t.Clientid] = Request{Id: t.Id, Index: data.CommandIndex}
+						applen := kv.rf.GetSapplen()
+						kv.applen = applen
+						kv.cond.Broadcast()
+						kv.mu.Unlock()
 					}
-					kv.Idmaps[t.Clientid] = Request{Id: t.Id, Index: data.CommandIndex}
-					applen := kv.rf.GetSapplen()
-					kv.applen = applen
-					kv.cond.Broadcast()
-					kv.mu.Unlock()
 				}
+			case <-time.After(1 * time.Second):
+				_, _, _ = kv.rf.Start(Op{Flag: true})
+				log.Printf("node %v add nil", kv.me)
 			}
 		}
 	}()

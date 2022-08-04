@@ -60,7 +60,7 @@ func (ck *Clerk) Get(key string) string {
 	if !ok {
 		log.Printf("send GetReply to node %v fail", ck.mayleader)
 	} else if reply.Err == "null" || reply.Err == "some" {
-		log.Printf("client %v id: %v isleader %v success Get %v is Value %v", ck.Id, args.Id, ck.mayleader, key, reply.Value)
+		log.Printf("client %v isleader: %v success node %v Get %v is Value %v reply.Err is %v", ck.Id, args.Id, ck.mayleader, key, reply.Value, reply.Err)
 		return reply.Value
 	}
 	for true {
@@ -71,8 +71,10 @@ func (ck *Clerk) Get(key string) string {
 				log.Printf("send id: %v GetReply to node %v fail", args.Id, ck.mayleader)
 			} else if reply.Err == "null" || reply.Err == "some" {
 				ck.mayleader = i
-				log.Printf("client %v id: %v success node %v Get %v is Value %v ", ck.Id, args.Id, i, key, reply.Value)
+				log.Printf("client %v id: %v success node %v Get %v is Value %v reply.Err is %v", ck.Id, args.Id, i, key, reply.Value, reply.Err)
 				return reply.Value
+			} else if reply.Err == "timeout" {
+				log.Printf("timeout %v", args)
 			}
 		}
 		time.Sleep(5 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
@@ -118,8 +120,10 @@ func (ck *Clerk) PutAppend(key string, value string, op string) {
 				log.Printf("client %v fail id: %v send PutAppend %v Key:%v to Value:%v", id, args.Id, i, key, value)
 			} else if reply.Err == "null" || reply.Err == "some" {
 				ck.mayleader = i
-				log.Printf("client %v success id: %v send PutAppend %v Key:%v to Value:%v", id, args.Id, i, key, value)
+				log.Printf("client %v success id: %v send PutAppend %v Key:%v to Value:%v reply.Err is %v", id, args.Id, i, key, value, reply.Err)
 				return
+			} else if reply.Err == "timeout" {
+				log.Printf("timeout %v", args)
 			}
 		}
 		time.Sleep(5 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
