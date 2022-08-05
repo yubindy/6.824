@@ -110,7 +110,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 			log.Printf("node %v Append %v K %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		} else if s.Action == "Put" {
 			kv.kvmaps[s.Key] = s.Value
-			log.Printf("node %v Append %v K %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
+			log.Printf("node %v Put113 %v K %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		}
 		kv.mu.Unlock()
 	}
@@ -180,7 +180,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 			log.Printf("node %v Append %v K %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		} else if s.Action == "Put" {
 			kv.kvmaps[s.Key] = s.Value
-			log.Printf("node %v Put %vK %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
+			log.Printf("node %v Put183 %vK %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		}
 		kv.mu.Unlock()
 	}
@@ -270,9 +270,9 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 								if t.Action == "Append" {
 									kv.kvmaps[t.Key] += t.Value
 									log.Printf("node %v Append %v K %v V %v", kv.me, t, t.Key, kv.kvmaps[t.Key])
-								} else {
+								} else if t.Action == "Put" {
 									kv.kvmaps[t.Key] = t.Value
-									log.Printf("node %v Put %v K %v V %v", kv.me, t, t.Key, kv.kvmaps[t.Key])
+									log.Printf("node %v Put275 %v K %v V %v", kv.me, t, t.Key, kv.kvmaps[t.Key])
 								}
 								kv.mu.Lock()
 								applen := kv.rf.GetSapplen()
@@ -287,9 +287,9 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 							if t.Action == "Append" {
 								kv.kvmaps[t.Key] += t.Value
 								log.Printf("node %v Append %v", kv.me, t)
-							} else {
+							} else if t.Action == "Put" {
 								kv.kvmaps[t.Key] = t.Value
-								log.Printf("node %v Put %v", kv.me, t)
+								log.Printf("node %v Put292 %v", kv.me, t)
 							}
 						}
 						kv.Idmaps[t.Clientid] = Request{Id: t.Id, Index: data.CommandIndex}
@@ -300,8 +300,10 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 					}
 				}
 			case <-time.After(1 * time.Second):
-				_, _, _ = kv.rf.Start(Op{Flag: true})
-				log.Printf("node %v add nil", kv.me)
+				_, _, isleader := kv.rf.Start(Op{Flag: true})
+				if isleader {
+					log.Printf("node %v add nil", kv.me)
+				}
 			}
 		}
 	}()
