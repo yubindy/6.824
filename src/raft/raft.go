@@ -78,7 +78,7 @@ type Snapshots struct {
 
 // A Go object implementing a single Raft peer.
 type Raft struct {
-	mu        sync.Mutex          // Lock to protect shared access to this peer's state
+	Mu        sync.Mutex          // Lock to protect shared access to this peer's state
 	peers     []*labrpc.ClientEnd // RPC end points of all peers
 	persister *Persister          // Object to hold this peer's persisted state
 	Me        int                 // this peer's index into peers[]
@@ -113,20 +113,20 @@ func (rf *Raft) GetState() (int, bool) {
 	var term int
 	var isleader bool
 	// Your code here (2A).
-	rf.mu.Lock()
+	rf.Mu.Lock()
 	term = rf.currentTerm
 	if rf.state == Leader {
 		isleader = true
 	} else {
 		isleader = false
 	}
-	rf.mu.Unlock()
+	rf.Mu.Unlock()
 	return term, isleader
 }
 func (rf *Raft) GetSapplen() int {
-	rf.mu.Lock()
+	rf.Mu.Lock()
 	t := rf.lastapplied
-	rf.mu.Unlock()
+	rf.Mu.Unlock()
 	return t
 }
 
@@ -137,7 +137,7 @@ func (rf *Raft) Persist(lock bool) {
 	w := new(bytes.Buffer)
 	e := labgob.NewEncoder(w)
 	if lock {
-		rf.mu.Lock()
+		rf.Mu.Lock()
 	}
 	// if rf.state == Leader {
 	// 	log.Printf("||||node %v statue %v start persist term %v Lastindex %v Snapshotindex %v log %v", rf.me, rf.state, rf.currentTerm, rf.Lastlogindex, rf.Snapshotinfo.SnapshotIndex, rf.logs)
@@ -152,7 +152,7 @@ func (rf *Raft) Persist(lock bool) {
 	data := w.Bytes()
 	rf.persister.SaveStateAndSnapshot(data, rf.Snapshotinfo.Snapshot)
 	if lock {
-		rf.mu.Unlock()
+		rf.Mu.Unlock()
 	}
 }
 
@@ -161,9 +161,9 @@ func (rf *Raft) readSnapshotPersist(data []byte) {
 	if data == nil { // bootstrap without any state?
 		return
 	}
-	rf.mu.Lock()
+	rf.Mu.Lock()
 	rf.Snapshotinfo.Snapshot = data
-	rf.mu.Unlock()
+	rf.Mu.Unlock()
 }
 
 func (rf *Raft) readPersist(data []byte) {
@@ -175,16 +175,16 @@ func (rf *Raft) readPersist(data []byte) {
 	var Persistinfo persistent
 	if d.Decode(&Persistinfo) != nil {
 	} else {
-		rf.mu.Lock()
+		rf.Mu.Lock()
 		rf.currentTerm = Persistinfo.CurrentTerm
 		rf.votedFor = Persistinfo.VotedFor
 		rf.Logs = Persistinfo.Logs
 		rf.Lastlogindex = Persistinfo.Lastlogindex
 		rf.Snapshotinfo.SnapshotTerm = Persistinfo.Snapshotterm
 		rf.Snapshotinfo.SnapshotIndex = Persistinfo.Snapshotindex
-		rf.mu.Unlock()
+		rf.Mu.Unlock()
 		go func() {
-			rf.mu.Lock()
+			rf.Mu.Lock()
 			if rf.Snapshotinfo.SnapshotIndex > 0 {
 				applyMsg := ApplyMsg{
 					SnapshotValid: true,
@@ -197,7 +197,7 @@ func (rf *Raft) readPersist(data []byte) {
 				rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 				rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
 			}
-			rf.mu.Unlock()
+			rf.Mu.Unlock()
 		}()
 	}
 }
@@ -217,7 +217,7 @@ func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int,
 // that index. Raft should now trim its log as much as possible.
 func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	// Your code here (2D).
-	rf.mu.Lock()
+	rf.Mu.Lock()
 	rf.Snapshotinfo.Snapshot = snapshot
 	//t := rf.logs[index-rf.Snapshotinfo.SnapshotIndex]
 	rf.Logs = rf.Logs[index-rf.Snapshotinfo.SnapshotIndex:]
@@ -225,10 +225,10 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	rf.Snapshotinfo.SnapshotIndex = index
 	rf.Snapshotinfo.SnapshotTerm = rf.Logs[index-rf.Snapshotinfo.SnapshotIndex].Term
 	//log.Printf("node %d Snapshot index: %v log[head] %v log %v ", rf.me, index, t, rf.logs)
-	rf.mu.Unlock()
+	rf.Mu.Unlock()
 	rf.Persist(true)
 	go func() {
-		rf.mu.Lock()
+		rf.Mu.Lock()
 		if rf.Snapshotinfo.SnapshotIndex > 0 {
 			applyMsg := ApplyMsg{
 				SnapshotValid: true,
@@ -240,7 +240,7 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 			rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 			rf.applyCh <- applyMsg
 		}
-		rf.mu.Unlock()
+		rf.Mu.Unlock()
 	}()
 }
 
@@ -291,8 +291,8 @@ type InstallSnapshotReply struct {
 // example RequestVote RPC handler.
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B)
-	rf.mu.Lock()
-	defer rf.mu.Unlock()
+	rf.Mu.Lock()
+	defer rf.Mu.Unlock()
 	reply.Term = rf.currentTerm
 	if rf.currentTerm <= args.Term {
 		if args.Term > rf.currentTerm {
@@ -328,8 +328,8 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	}
 }
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) { //实现心跳和附加日志
-	rf.mu.Lock()
-	defer rf.mu.Unlock()
+	rf.Mu.Lock()
+	defer rf.Mu.Unlock()
 	reply.Term = rf.currentTerm
 	//log.Printf("node %d term %d  Lastindex %v Snapshotindex %v recvterm %d recvfrom %d log %v recvPrevindex %v recvlog %v", rf.me, rf.currentTerm, rf.Lastlogindex, rf.Snapshotinfo.SnapshotIndex, args.Term, args.Leaderid, rf.logs, args.PrevLogIndex, args.Entries)
 	if args.PrevLogTerm == -1 || args.PrevLogIndex < rf.Snapshotinfo.SnapshotIndex {
@@ -416,7 +416,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 }
 
 func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
-	rf.mu.Lock()
+	rf.Mu.Lock()
 	reply.Term = rf.currentTerm
 	if args.Term >= rf.currentTerm && args.LastIncludedIndex > rf.Snapshotinfo.SnapshotIndex {
 		rf.state = Foller
@@ -434,9 +434,9 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 		rf.Lastlogindex = args.LastIncludedIndex
 		//log.Printf("node %v InstallSnapshot from %v SnapshotIndex %v logs %v", rf.me, args.LeaderId, rf.Snapshotinfo.SnapshotIndex, rf.logs)
 		rf.Persist(false)
-		rf.mu.Unlock()
+		rf.Mu.Unlock()
 		go func() {
-			rf.mu.Lock()
+			rf.Mu.Lock()
 			if rf.Snapshotinfo.SnapshotIndex != -1 {
 				applyMsg := ApplyMsg{
 					SnapshotValid: true,
@@ -448,12 +448,12 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 				rf.applyCh <- applyMsg
 				rf.lastapplied = rf.Snapshotinfo.SnapshotIndex
 				rf.commitIndex = rf.Snapshotinfo.SnapshotIndex
-				rf.mu.Unlock()
+				rf.Mu.Unlock()
 			}
 		}()
 	} else {
 		//log.Printf("node %v recv someShapshot from %v", rf.me, args.LeaderId)
-		rf.mu.Unlock()
+		rf.Mu.Unlock()
 	}
 }
 
@@ -515,17 +515,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	isLeader := true
 	term, isLeader = rf.GetState()
 	if isLeader {
-		rf.mu.Lock()
-		if rf.Lastlogindex > 0 && rf.Logs[rf.Lastlogindex].Logact == command {
-			index = rf.Lastlogindex - 1
-			term = rf.Logs[rf.Lastlogindex-1].Term
-			rf.mu.Unlock()
-			log.Printf("node %v notshould add %v", rf.Me, command)
-			return index, -1, false
-		}
-		if rf.Lastlogindex > 0 {
-			log.Printf("ssssbbbb 1:%v  2:%v", rf.Logs[rf.lastapplied].Logact, command)
-		}
+		rf.Mu.Lock()
 		rf.Logs = append(rf.Logs, nlog{
 			Term:   term,
 			Logact: command})
@@ -533,7 +523,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 		log.Printf("SSSS %v %d term %d leader get index %v log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.Me, rf.currentTerm, rf.Lastlogindex, command)
 		index = rf.Lastlogindex
 		rf.haslog = true
-		rf.mu.Unlock()
+		rf.Mu.Unlock()
 	}
 	// Your code here (2B).
 	return index, term, isLeader
@@ -558,7 +548,7 @@ func (rf *Raft) killed() bool {
 	return z == 1
 }
 func (rf *Raft) startvote() {
-	rf.mu.Lock()
+	rf.Mu.Lock()
 	rf.currentTerm++
 	rf.votedFor = rf.Me
 	var num int64
@@ -570,7 +560,7 @@ func (rf *Raft) startvote() {
 	lastlogindex := rf.Lastlogindex
 	//log.Printf("%v %d start vote %d term %d in all %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, num, rf.currentTerm, n)
 	wg := sync.WaitGroup{}
-	rf.mu.Unlock()
+	rf.Mu.Unlock()
 	rf.Persist(true)
 	wg.Add(n - 1)
 	for node := range rf.peers {
@@ -585,8 +575,8 @@ func (rf *Raft) startvote() {
 				}
 				reply := RequestVoteReply{}
 				ok := rf.sendRequestVote(node, &args, &reply)
-				rf.mu.Lock()
-				defer rf.mu.Unlock()
+				rf.Mu.Lock()
+				defer rf.Mu.Unlock()
 				if !ok {
 					//log.Printf("%v server %d term %d VoteCall failed to %d had vote %d", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, rf.currentTerm, node, atomic.LoadInt64(&num))
 					return
@@ -629,7 +619,7 @@ func (rf *Raft) sendlog() {
 	var numlog int64
 	var entries [][]nlog
 	numlog = 1
-	rf.mu.Lock()
+	rf.Mu.Lock()
 	rf.haslog = false
 	//log.Printf("%v %v term %d start send Lastindex %d log %v nextindex%v Snapshotindex%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, rf.Lastlogindex, rf.logs, rf.nextIndex, rf.Snapshotinfo.SnapshotIndex)
 	for i := 0; i < len(rf.peers); i++ {
@@ -657,7 +647,7 @@ func (rf *Raft) sendlog() {
 	currentTerm := rf.currentTerm
 	Snapshotinfo := rf.Snapshotinfo
 	num := len(rf.peers) - 1
-	rf.mu.Unlock()
+	rf.Mu.Unlock()
 	rf.Persist(true)
 	wg := sync.WaitGroup{}
 	wg.Add(num)
@@ -705,13 +695,14 @@ func (rf *Raft) sendlog() {
 				} else {
 					//log.Printf("node %v sendinstall to %v success", me, node)
 				}
-				defer rf.mu.Unlock()
-				rf.mu.Lock()
+				defer rf.Mu.Unlock()
+				rf.Mu.Lock()
 				if rf.nextIndex[node] != prevlog[node]+1 {
 					rf.nextIndex[node] = prevlog[node] + 1
 				}
 				if reply.Term > args.Term {
-					//log.Printf("%v %d term %d become follerin 696 replyterm %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.currentTerm, reply.Term)
+					log.Printf("%v %d term %d become follerin 696 replyterm %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.Me, args.Term, reply.Term)
+					rf.hasheat = true
 					rf.currentTerm = reply.Term
 					rf.votedFor = -1
 					rf.state = Foller
@@ -766,65 +757,65 @@ func (rf *Raft) sendlog() {
 func (rf *Raft) ticker() {
 	var t int
 	for rf.killed() == false {
-		rf.mu.Lock()
+		rf.Mu.Lock()
 		state := rf.state
-		rf.mu.Unlock()
+		rf.Mu.Unlock()
 		if state == Foller {
-			rf.mu.Lock()
+			rf.Mu.Lock()
 			heat := rf.hasheat
 			vote := rf.hasvote
 			if heat == false && vote == false {
-				//log.Printf("%v %d became Candidate log%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me, rf.logs)
+				log.Printf("%v %d became Candidate log%v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.Me, rf.Logs)
 				rf.state = Candidate
-				rf.mu.Unlock()
+				rf.Mu.Unlock()
 				go rf.startvote()
 			} else {
-				rf.mu.Unlock()
+				rf.Mu.Unlock()
 			}
 		} else if state == Candidate {
 			go rf.startvote()
 		} else if state == Leader {
 			go rf.sendlog()
 		}
-		rf.mu.Lock()
+		rf.Mu.Lock()
 		rf.hasvote = false
 		rf.hasheat = false
 		state = rf.state
-		rf.mu.Unlock()
+		rf.Mu.Unlock()
 		rand.Seed(time.Now().UnixNano())
 		if state != Leader {
 			t = rand.Intn(200) + 300
 			for i := 0; i < t; i++ {
-				rf.mu.Lock()
+				rf.Mu.Lock()
 				if rf.state == Candidate && (rf.hasheat == true || rf.hasvote == true) {
 					rf.state = Foller
-					//log.Printf("%v %d become foller ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
-					rf.mu.Unlock()
+					log.Printf("%v %d become foller ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.Me)
+					rf.Mu.Unlock()
 					break
 				} else if rf.state == Foller && (rf.hasheat == true || rf.hasvote == true) {
-					rf.mu.Unlock()
+					rf.Mu.Unlock()
 					break
 				} else if rf.state == Leader {
-					rf.mu.Unlock()
+					rf.Mu.Unlock()
 					break
 				}
-				rf.mu.Unlock()
+				rf.Mu.Unlock()
 				time.Sleep(time.Millisecond)
 			}
 		} else {
 			t = 90
 			for i := 0; i < t; i++ {
-				rf.mu.Lock()
+				rf.Mu.Lock()
 				if rf.hasheat || rf.hasvote {
 					rf.state = Foller
 					//log.Printf("%v leader %d become foller ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, rf.me)
-					rf.mu.Unlock()
+					rf.Mu.Unlock()
 					break
 				} else if rf.haslog {
-					rf.mu.Unlock()
+					rf.Mu.Unlock()
 					break
 				}
-				rf.mu.Unlock()
+				rf.Mu.Unlock()
 				time.Sleep(time.Millisecond)
 			}
 		}
@@ -858,7 +849,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.state = Foller
 	rf.hasvote = true
 	rf.hasheat = true
-	rf.cond = sync.NewCond(&rf.mu)
+	rf.cond = sync.NewCond(&rf.Mu)
 	rf.Logs = append(rf.Logs, nlog{0, 123})
 	rf.Lastlogindex = 0
 	rf.applyCh = applyCh
@@ -872,7 +863,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	go func() { //通过applech 发送AppleMsg消息
 		for rf.killed() == false {
 			apply := ApplyMsg{}
-			rf.mu.Lock()
+			rf.Mu.Lock()
 			for rf.commitIndex == rf.lastapplied || rf.Logs[rf.commitIndex-rf.Snapshotinfo.SnapshotIndex].Term < rf.currentTerm || rf.lastapplied < rf.Snapshotinfo.SnapshotIndex {
 				rf.cond.Wait()
 			}
@@ -882,15 +873,14 @@ func Make(peers []*labrpc.ClientEnd, me int,
 				apply.Command = rf.Logs[rf.lastapplied-rf.Snapshotinfo.SnapshotIndex].Logact
 				apply.CommandIndex = rf.lastapplied
 				apply.CommandValid = true
-				rf.mu.Unlock()
+				rf.Mu.Unlock()
 				applyCh <- apply
-				rf.mu.Lock()
-				if rf.state == Leader {
-					log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, apply.CommandIndex, apply.Command)
-				}
+				rf.Mu.Lock()
+				log.Printf("%v node %d log apploginde++to %d log %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, apply.CommandIndex, apply.Command)
+
 			}
 			//log.Printf("%d term %d logs %v comitindex%d", rf.me, rf.currentTerm, rf.logs, rf.commitIndex)
-			rf.mu.Unlock()
+			rf.Mu.Unlock()
 		}
 	}()
 	// start ticker goroutine to start elections
