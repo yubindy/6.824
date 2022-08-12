@@ -100,9 +100,6 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 			log.Printf("node %v sendtimeout to %v", kv.me, args)
 			return
 		}
-		if t.Command == opcommand {
-			break
-		}
 		s := t.Command.(Op)
 		kv.mu.Lock()
 		if s.Action == "Append" {
@@ -112,18 +109,16 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 			kv.kvmaps[s.Key] = s.Value
 			log.Printf("node %v Put113 %v K %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		}
-		kv.mu.Unlock()
-	}
-	kv.mu.Lock()
-	log.Printf("Get rpc node %v get appliy %v", kv.rf.Me, t)
-	if t.CommandValid {
 		reply.Value = kv.kvmaps[args.Key]
 		applen := kv.rf.GetSapplen()
 		kv.applen = applen
 		kv.cond.Broadcast()
-		reply.Err = "null"
-
+		if t.Command == opcommand {
+			break
+		}
+		kv.mu.Unlock()
 	}
+	reply.Err = "null"
 }
 
 func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
@@ -170,9 +165,6 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 			kv.mu.Lock()
 			return
 		}
-		if t.Command == opcommand {
-			break
-		}
 		s := t.Command.(Op)
 		kv.mu.Lock()
 		if s.Action == "Append" {
@@ -182,24 +174,16 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 			kv.kvmaps[s.Key] = s.Value
 			log.Printf("node %v Put183 %vK %v V %v", kv.me, t, s.Key, kv.kvmaps[s.Key])
 		}
-		kv.mu.Unlock()
-	}
-	kv.mu.Lock()
-	log.Printf("PutAppend rpc node %v get appliy %v", kv.rf.Me, t)
-	if t.CommandValid {
-		if args.Op == "Append" {
-			kv.kvmaps[args.Key] += args.Value
-			log.Printf("node %v Append %v K %v V %v", kv.me, t, args.Key, kv.kvmaps[args.Key])
-		} else if args.Op == "Put" {
-			kv.kvmaps[args.Key] = args.Value
-			log.Printf("node %v Append %v K %v V %v", kv.me, t, args.Key, kv.kvmaps[args.Key])
-		}
 		applen := kv.rf.GetSapplen()
 		kv.applen = applen
 		kv.cond.Broadcast()
-		reply.Err = "null"
-
+		if t.Command == opcommand {
+			return
+		}
+		kv.mu.Unlock()
 	}
+
+	reply.Err = "null"
 }
 
 // the tester calls Kill() when a KVServer instance won't
@@ -265,8 +249,9 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 						select {
 						case kv.dataCh <- data:
 							continue
-						default:
+						case <-time.After(1 * time.Millisecond):
 							if t.Flag != true {
+								kv.mu.Lock()
 								if t.Action == "Append" {
 									kv.kvmaps[t.Key] += t.Value
 									log.Printf("node %v Append %v K %v V %v", kv.me, t, t.Key, kv.kvmaps[t.Key])
@@ -274,7 +259,6 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 									kv.kvmaps[t.Key] = t.Value
 									log.Printf("node %v Put275 %v K %v V %v", kv.me, t, t.Key, kv.kvmaps[t.Key])
 								}
-								kv.mu.Lock()
 								applen := kv.rf.GetSapplen()
 								kv.applen = applen
 								kv.cond.Broadcast()
@@ -300,9 +284,12 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 					}
 				}
 			case <-time.After(1 * time.Second):
-				_, _, isleader := kv.rf.Start(Op{Flag: true})
+				_, isleader := kv.rf.GetState()
 				if isleader {
-					log.Printf("node %v add nil", kv.me)
+					_, _, isleader := kv.Starts(Op{Flag: true})
+					if isleader {
+						log.Printf("node %v add nil", kv.me)
+					}
 				}
 			}
 		}
@@ -325,9 +312,6 @@ func (kv *KVServer) Starts(command interface{}) (int, int, bool) {
 		kv.rf.Mu.Unlock()
 		log.Printf("node %v notshould add %v", kv.rf.Me, command)
 		return index, -1, false
-	}
-	if st >= 0 {
-		log.Printf("ssssbbbb 1:%v  2:%v", kv.rf.Logs[st].Logact, command)
 	}
 	kv.rf.Mu.Unlock()
 	// Your code here (2B).
