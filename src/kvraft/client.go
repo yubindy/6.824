@@ -55,26 +55,26 @@ func (ck *Clerk) Get(key string) string {
 	ck.Id++
 	ck.mu.Unlock()
 	reply := GetReply{}
-	log.Printf("client %v start  id: %v  send Get isleader: %v Key:%v ", ck.Clientid, args.Id, ck.mayleader, key)
+	log.Printf("KVServer: client %v start  id: %v  send Get isleader: %v Key:%v ", ck.Clientid, args.Id, ck.mayleader, key)
 	ok := ck.servers[ck.mayleader].Call("KVServer.Get", &args, &reply)
 	if !ok {
-		log.Printf("send GetReply to node %v fail", ck.mayleader)
+		log.Printf("KVServer: send GetReply to node %v fail", ck.mayleader)
 	} else if reply.Err == "null" || reply.Err == "some" {
-		log.Printf("client %v isleader: %v success node %v Get %v is Value %v reply.Err is %v", ck.Id, args.Id, ck.mayleader, key, reply.Value, reply.Err)
+		log.Printf("KVServer: client %v isleader: %v success node %v Get %v is Value %v reply.Err is %v", ck.Id, args.Id, ck.mayleader, key, reply.Value, reply.Err)
 		return reply.Value
 	}
 	for true {
 		for i, _ := range ck.servers {
-			log.Printf("client %v start id: %v send %v Get %v", ck.Id, args.Id, i, key)
+			log.Printf("KVServer: client %v start id: %v send %v Get %v", ck.Id, args.Id, i, key)
 			ok := ck.servers[i].Call("KVServer.Get", &args, &reply)
 			if !ok {
-				log.Printf("send id: %v GetReply to node %v fail", args.Id, ck.mayleader)
+				log.Printf("KVServer: send id: %v GetReply to node %v fail", args.Id, ck.mayleader)
 			} else if reply.Err == "null" || reply.Err == "some" {
 				ck.mayleader = i
-				log.Printf("client %v id: %v success node %v Get %v is Value %v reply.Err is %v", ck.Id, args.Id, i, key, reply.Value, reply.Err)
+				log.Printf("KVServer: client %v id: %v success node %v Get %v is Value %v reply.Err is %v", ck.Id, args.Id, i, key, reply.Value, reply.Err)
 				return reply.Value
 			} else if reply.Err == "timeout" {
-				log.Printf("timeout %v", args)
+				log.Printf("KVServer: timeout %v", args)
 			}
 		}
 		time.Sleep(5 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
@@ -104,26 +104,26 @@ func (ck *Clerk) PutAppend(key string, value string, op string) {
 	ck.Id++
 	ck.mu.Unlock()
 	reply := PutAppendReply{}
-	log.Printf("client %v start  id: %v  send PutAppend to : %v Key:%v to Value:%v", ck.Clientid, ck.mayleader, args.Id, key, value)
+	log.Printf("KVServer: client %v start  id: %v  send PutAppend to : %v Key:%v to Value:%v", ck.Clientid, ck.mayleader, args.Id, key, value)
 	ok := ck.servers[ck.mayleader].Call("KVServer.PutAppend", &args, &reply)
 	if !ok {
-		log.Printf("send  id: %v  fail PutAppendReply to node %v fail94", args.Id, ck.mayleader)
+		log.Printf("KVServer: send  id: %v  fail PutAppendReply to node %v fail94", args.Id, ck.mayleader)
 	} else if reply.Err == "null" || reply.Err == "some" {
-		log.Printf("client %v success id: %v isleader %v PutAppend %v to %v", id, args.Id, ck.mayleader, key, value)
+		log.Printf("KVServer: client %v success id: %v isleader %v PutAppend %v to %v", id, args.Id, ck.mayleader, key, value)
 		return
 	}
 	for true {
 		for i, _ := range ck.servers {
-			log.Printf("client %v start id: %v send PutAppend %v Key:%v to Value:%v", id, args.Id, i, key, value)
+			log.Printf("KVServer: client %v start id: %v send PutAppend %v Key:%v to Value:%v", id, args.Id, i, key, value)
 			ok := ck.servers[i].Call("KVServer.PutAppend", &args, &reply)
 			if !ok {
-				log.Printf("client %v fail id: %v send PutAppend %v Key:%v to Value:%v", id, args.Id, i, key, value)
+				log.Printf("KVServer: client %v fail id: %v send PutAppend %v Key:%v to Value:%v", id, args.Id, i, key, value)
 			} else if reply.Err == "null" || reply.Err == "some" {
 				ck.mayleader = i
-				log.Printf("client %v success id: %v send PutAppend %v Key:%v to Value:%v reply.Err is %v", id, args.Id, i, key, value, reply.Err)
+				log.Printf("KVServer: client %v success id: %v send PutAppend %v Key:%v to Value:%v reply.Err is %v", id, args.Id, i, key, value, reply.Err)
 				return
 			} else if reply.Err == "timeout" {
-				log.Printf("timeout %v", args)
+				log.Printf("KVServer: timeout %v", args)
 			}
 		}
 		time.Sleep(5 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
