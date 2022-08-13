@@ -67,7 +67,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	}
 	it, ok := kv.Idmaps[args.Clientid]
 	opcommand := Op{Key: args.Key, Action: "Get", Clientid: args.Clientid, Id: args.Id, Flag: false}
-	log.Printf("KVServer: node %v should startin84 %v", kv.me, args)
+	//log.Printf("KVServer: node %v should startin84 %v", kv.me, args)
 	index, term, isleader := kv.Starts(opcommand)
 	if it.Id >= args.Id && ok || term < 0 {
 		reply.Err = "some"
@@ -78,6 +78,11 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 		} else {
 			log.Printf("KVServer: node %v in79 %v Index:%v Applen:%v", kv.me, args,it.Index,kv.applen)
 			for it.Index > kv.applen {
+				_, isleader := kv.rf.GetState()
+				if !isleader {
+					reply.Err = "notleader"
+					return
+				}
 				kv.cond.Wait()
 			}
 			reply.Value = kv.kvmaps[args.Key]
@@ -134,7 +139,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	}
 	it, ok := kv.Idmaps[args.Clientid]
 	opcommand := Op{Key: args.Key, Value: args.Value, Action: args.Op, Clientid: args.Clientid, Id: args.Id, Flag: false}
-	log.Printf("KVServer: node %v should startin158 %v", kv.me, args)
+	//log.Printf("KVServer: node %v should startin158 %v", kv.me, args)
 	index, term, isleader := kv.Starts(opcommand)
 	if it.Id >= args.Id && ok || term < 0 {
 		reply.Err = "some"
@@ -143,15 +148,16 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 			return
 		} else {
 			log.Printf("KVServer: node %v in156 %v Index:%v Applen:%v", kv.me, args,it.Index,kv.applen)
-			for it.Index > kv.applen {
+			for it.Index > kv.applen{
+				_, isleader := kv.rf.GetState()
+				if !isleader {
+					reply.Err = "notleader"
+					return
+				}
 				kv.cond.Wait()
 			}
 			return
 		}
-	}
-	if !isleader {
-		reply.Err = "notleader"
-		return
 	}
 	kv.Idmaps[args.Clientid] = Request{Id: args.Id, Index: index}
 	kv.mu.Unlock()
