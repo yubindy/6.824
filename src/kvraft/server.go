@@ -76,7 +76,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 			log.Printf("KVServer: node %v in74 %v----applied %v index %v", kv.me, args, kv.applen, it.Index)
 			return
 		} else {
-			log.Printf("KVServer: node %v in79 %v Index:%v Applen:%v", kv.me, args,it.Index,kv.applen)
+			log.Printf("KVServer: node %v in79 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
 			for it.Index > kv.applen {
 				_, isleader := kv.rf.GetState()
 				if !isleader {
@@ -144,11 +144,11 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	if it.Id >= args.Id && ok || term < 0 {
 		reply.Err = "some"
 		if it.Index <= kv.applen {
-			log.Printf("KVServer: node %v in152 %v Index:%v Applen:%v", kv.me, args,it.Index,kv.applen)
+			log.Printf("KVServer: node %v in152 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
 			return
 		} else {
-			log.Printf("KVServer: node %v in156 %v Index:%v Applen:%v", kv.me, args,it.Index,kv.applen)
-			for it.Index > kv.applen{
+			log.Printf("KVServer: node %v in156 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
+			for it.Index > kv.applen {
 				_, isleader := kv.rf.GetState()
 				if !isleader {
 					reply.Err = "notleader"
@@ -156,6 +156,9 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 				}
 				kv.cond.Wait()
 			}
+			kv.rf.Mu.Lock()
+			log.Printf("SSSSSS node %v should success %v V:%v inlog %v", kv.me, args, kv.kvmaps[args.Key], kv.rf.Logs)
+			kv.rf.Mu.Unlock()
 			return
 		}
 	}
@@ -254,7 +257,7 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 						kv.mu.Unlock()
 						continue
 					}
-					log.Printf("KVServer %v : server get appliyin 129 %v",kv.me,data)
+					log.Printf("KVServer %v : server get appliyin 129 %v", kv.me, data)
 					select {
 					case kv.dataCh <- data:
 						continue
@@ -304,9 +307,9 @@ func (kv *KVServer) Starts(command interface{}) (int, int, bool) {
 	}
 	if st >= 0 && kv.rf.Logs[st].Logact == command && t.Flag != true {
 		index := st
-		sb:=kv.rf.Logs[st].Logact
+		sb := kv.rf.Logs[st].Logact
 		kv.rf.Mu.Unlock()
-		log.Printf("KVServer: node %v notshould add %v index:%v commandvalue:%v", kv.rf.Me, command,index,sb)
+		log.Printf("KVServer: node %v notshould add %v index:%v commandvalue:%v", kv.rf.Me, command, index, sb)
 		return index, -1, false
 	}
 	kv.rf.Mu.Unlock()
