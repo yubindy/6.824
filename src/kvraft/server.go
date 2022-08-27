@@ -4,6 +4,7 @@ import (
 	"6.824/labgob"
 	"6.824/labrpc"
 	"6.824/raft"
+	"context"
 	"log"
 	"sync"
 	"sync/atomic"
@@ -77,19 +78,38 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 			return
 		} else {
 			log.Printf("KVServer: node %v in79 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
-			for it.Index > kv.applen {
+			ctx, cancel := context.WithCancel(context.Background())
+			defer cancel()
+			index := it.Index
+			kv.mu.Unlock()
+			go func(ctx context.Context) {
+				select {
+				case <-ctx.Done():
+					log.Printf("get done")
+					return
+				case <-time.After(1 * time.Second):
+					kv.mu.Lock()
+					reply.Err = "timeout"
+					kv.mu.Unlock()
+					kv.cond.Signal()
+				}
+			}(ctx)
+			for index > kv.applen {
 				_, isleader := kv.rf.GetState()
 				if !isleader {
+					kv.mu.Lock()
 					reply.Err = "notleader"
 					return
 				}
+				kv.mu.Lock()
+				index = it.Index
 				kv.cond.Wait()
+				if reply.Err == "timeout" {
+					return
+				}
+				kv.mu.Unlock()
 			}
-			//kv.rf.Mu.Lock()
-			//if kv.kvmaps[args.Key] != kv.rf.Logs[it.Index].Logact {
-			//	reply.Err = "error"
-			//}
-			//kv.rf.Mu.Unlock()
+			kv.mu.Lock()
 			reply.Value = kv.kvmaps[args.Key]
 			log.Printf("KVServer: node %v in81 %v", kv.me, args)
 			return
@@ -124,11 +144,11 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 		kv.applen++
 		kv.cond.Broadcast()
 		if t.Command == opcommand {
-			break
+			reply.Err = "null"
+			return
 		}
 		kv.mu.Unlock()
 	}
-	reply.Err = "null"
 }
 
 func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
@@ -153,16 +173,40 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 			return
 		} else {
 			log.Printf("KVServer: node %v in156 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
-			for it.Index > kv.applen {
+			ctx, cancel := context.WithCancel(context.Background())
+			defer cancel()
+			index := it.Index
+			kv.mu.Unlock()
+			go func(ctx context.Context) {
+				select {
+				case <-ctx.Done():
+					log.Printf("put done")
+					return
+				case <-time.After(1 * time.Second):
+					kv.mu.Lock()
+					reply.Err = "timeout"
+					kv.mu.Unlock()
+					kv.cond.Signal()
+				}
+			}(ctx)
+			for index > kv.applen {
 				_, isleader := kv.rf.GetState()
 				if !isleader {
+					kv.mu.Lock()
 					reply.Err = "notleader"
 					return
 				}
+				kv.mu.Lock()
+				index = it.Index
 				kv.cond.Wait()
+				if reply.Err == "timeout" {
+					return
+				}
+				kv.mu.Unlock()
 			}
+			kv.mu.Lock()
 			kv.rf.Mu.Lock()
-			log.Printf("SSSSSS node %v should success %v V:%v inlog %v", kv.me, args, kv.kvmaps[args.Key], kv.rf.Logs)
+			log.Printf("SSSSSS node %v should success %v V:%v inlog ", kv.me, args, kv.kvmaps[args.Key])
 			if kv.kvmaps[args.Key] != kv.rf.Logs[it.Index].Logact {
 				reply.Err = "error"
 			}
@@ -194,12 +238,11 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 		kv.applen++
 		kv.cond.Broadcast()
 		if t.Command == opcommand {
+			reply.Err = "null"
 			return
 		}
 		kv.mu.Unlock()
 	}
-
-	reply.Err = "null"
 }
 
 // the tester calls Kill() when a KVServer instance won't
