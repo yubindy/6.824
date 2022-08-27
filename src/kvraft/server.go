@@ -85,6 +85,11 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 				}
 				kv.cond.Wait()
 			}
+			//kv.rf.Mu.Lock()
+			//if kv.kvmaps[args.Key] != kv.rf.Logs[it.Index].Logact {
+			//	reply.Err = "error"
+			//}
+			//kv.rf.Mu.Unlock()
 			reply.Value = kv.kvmaps[args.Key]
 			log.Printf("KVServer: node %v in81 %v", kv.me, args)
 			return
@@ -158,6 +163,9 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 			}
 			kv.rf.Mu.Lock()
 			log.Printf("SSSSSS node %v should success %v V:%v inlog %v", kv.me, args, kv.kvmaps[args.Key], kv.rf.Logs)
+			if kv.kvmaps[args.Key] != kv.rf.Logs[it.Index].Logact {
+				reply.Err = "error"
+			}
 			kv.rf.Mu.Unlock()
 			return
 		}
