@@ -55,7 +55,6 @@ type KVServer struct {
 }
 
 func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
-	// Your code here.
 	t := raft.ApplyMsg{}
 	log.Printf("KVServer: node %v should add %v", kv.me, args)
 	//log.Printf("nKVServer: ode %v start should add %v", kv.me, args)
@@ -67,12 +66,13 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 		return
 	}
 	it, ok := kv.Idmaps[args.Clientid]
+	appen := kv.applen
 	opcommand := Op{Key: args.Key, Action: "Get", Clientid: args.Clientid, Id: args.Id, Flag: false}
-	//log.Printf("KVServer: node %v should startin84 %v", kv.me, args)
+	log.Printf("KVServer: node %v should startin84 %v", kv.me, args)
 	index, term, isleader := kv.Starts(opcommand)
 	if it.Id >= args.Id && ok || term < 0 {
 		reply.Err = "some"
-		if it.Index <= kv.applen {
+		if it.Index <= appen {
 			reply.Value = kv.kvmaps[args.Key]
 			log.Printf("KVServer: node %v in74 %v----applied %v index %v", kv.me, args, kv.applen, it.Index)
 			return
@@ -94,7 +94,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 					kv.cond.Signal()
 				}
 			}(ctx)
-			for index > kv.applen {
+			for index > appen {
 				_, isleader := kv.rf.GetState()
 				if !isleader {
 					kv.mu.Lock()
@@ -103,6 +103,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 				}
 				kv.mu.Lock()
 				index = it.Index
+				appen = kv.applen
 				kv.cond.Wait()
 				if reply.Err == "timeout" {
 					return
@@ -163,12 +164,13 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 		return
 	}
 	it, ok := kv.Idmaps[args.Clientid]
+	appen := kv.applen
 	opcommand := Op{Key: args.Key, Value: args.Value, Action: args.Op, Clientid: args.Clientid, Id: args.Id, Flag: false}
 	//log.Printf("KVServer: node %v should startin158 %v", kv.me, args)
 	index, term, isleader := kv.Starts(opcommand)
 	if it.Id >= args.Id && ok || term < 0 {
 		reply.Err = "some"
-		if it.Index <= kv.applen {
+		if it.Index <= appen {
 			log.Printf("KVServer: node %v in152 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
 			return
 		} else {
@@ -189,7 +191,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 					kv.cond.Signal()
 				}
 			}(ctx)
-			for index > kv.applen {
+			for index > appen {
 				_, isleader := kv.rf.GetState()
 				if !isleader {
 					kv.mu.Lock()
@@ -198,6 +200,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 				}
 				kv.mu.Lock()
 				index = it.Index
+				appen = kv.applen
 				kv.cond.Wait()
 				if reply.Err == "timeout" {
 					return
