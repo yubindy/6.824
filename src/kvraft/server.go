@@ -56,7 +56,6 @@ type KVServer struct {
 
 func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	t := raft.ApplyMsg{}
-	log.Printf("KVServer: node %v should add %v", kv.me, args)
 	//log.Printf("nKVServer: ode %v start should add %v", kv.me, args)
 	kv.mu.Lock()
 	defer kv.mu.Unlock()
@@ -69,12 +68,12 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	appen := kv.applen
 	opcommand := Op{Key: args.Key, Action: "Get", Clientid: args.Clientid, Id: args.Id, Flag: false}
 	log.Printf("KVServer: node %v should startin84 %v", kv.me, args)
-	index, term, isleader := kv.Starts(opcommand)
-	if it.Id >= args.Id && ok || term < 0 {
+	index, _, isleader := kv.Starts(opcommand)
+	if it.Id >= args.Id && ok {
 		reply.Err = "some"
 		if it.Index <= appen {
 			reply.Value = kv.kvmaps[args.Key]
-			log.Printf("KVServer: node %v in74 %v----applied %v index %v", kv.me, args, kv.applen, it.Index)
+			log.Printf("KVServer: node %v in74 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
 			return
 		} else {
 			log.Printf("KVServer: node %v in79 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
@@ -167,11 +166,11 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	appen := kv.applen
 	opcommand := Op{Key: args.Key, Value: args.Value, Action: args.Op, Clientid: args.Clientid, Id: args.Id, Flag: false}
 	//log.Printf("KVServer: node %v should startin158 %v", kv.me, args)
-	index, term, isleader := kv.Starts(opcommand)
-	if it.Id >= args.Id && ok || term < 0 {
+	index, _, isleader := kv.Starts(opcommand)
+	if it.Id >= args.Id && ok {
 		reply.Err = "some"
 		if it.Index <= appen {
-			log.Printf("KVServer: node %v in152 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
+			log.Printf("KVServer: node %v in152 %v applied %v index %v", kv.me, args, kv.applen, it.Index)
 			return
 		} else {
 			log.Printf("KVServer: node %v in156 %v Index:%v Applen:%v", kv.me, args, it.Index, kv.applen)
@@ -224,9 +223,9 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 		case t = <-kv.dataCh:
 			log.Printf("KVServer: node %v put161 command %v", kv.me, t)
 		case <-time.After(1 * time.Second):
+			kv.mu.Lock()
 			reply.Err = "timeout"
 			log.Printf("KVServer: node %v sendtimeout to %v", kv.me, args)
-			kv.mu.Lock()
 			return
 		}
 		s := t.Command.(Op)
