@@ -876,7 +876,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 				rf.Mu.Unlock()
 				applyCh <- apply
 				rf.Mu.Lock()
-				log.Printf("%v node %d log apploginde++to %d log %v--logs %v", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, apply.CommandIndex, apply.Command, rf.Logs)
+				log.Printf("%v node %d log apploginde++to %d log %v--logs ", time.Now().UnixNano()/1e6-time.Now().Unix()*1000, me, apply.CommandIndex, apply.Command)
 			}
 			////log.Printf("%d term %d logs %v comitindex%d", rf.Me, rf.currentTerm, rf.Logs, rf.commitIndex)
 			rf.Mu.Unlock()

@@ -165,7 +165,6 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	it, ok := kv.Idmaps[args.Clientid]
 	appen := kv.applen
 	opcommand := Op{Key: args.Key, Value: args.Value, Action: args.Op, Clientid: args.Clientid, Id: args.Id, Flag: false}
-	//log.Printf("KVServer: node %v should startin158 %v", kv.me, args)
 	index, _, isleader := kv.Starts(opcommand)
 	if it.Id >= args.Id && ok {
 		reply.Err = "some"
