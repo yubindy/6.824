@@ -56,7 +56,6 @@ type KVServer struct {
 
 func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	t := raft.ApplyMsg{}
-	//log.Printf("nKVServer: ode %v start should add %v", kv.me, args)
 	kv.mu.Lock()
 	defer kv.mu.Unlock()
 	_, isleader := kv.rf.GetState()
@@ -67,7 +66,6 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	it, ok := kv.Idmaps[args.Clientid]
 	appen := kv.applen
 	opcommand := Op{Key: args.Key, Action: "Get", Clientid: args.Clientid, Id: args.Id, Flag: false}
-	log.Printf("KVServer: node %v should startin84 %v", kv.me, args)
 	index, _, isleader := kv.Starts(opcommand)
 	if it.Id >= args.Id && ok {
 		reply.Err = "some"
@@ -154,7 +152,6 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
 	t := raft.ApplyMsg{}
-	log.Printf("KVServer: node %v should add %v", kv.me, args)
 	kv.mu.Lock()
 	defer kv.mu.Unlock()
 	_, isleader := kv.rf.GetState()
@@ -210,6 +207,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 			log.Printf("SSSSSS node %v should success %v V:%v inlog ", kv.me, args, kv.kvmaps[args.Key])
 			if kv.kvmaps[args.Key] != kv.rf.Logs[it.Index].Logact {
 				reply.Err = "error"
+				log.Printf("KVServer: node %v put210 command %v != logs %v", kv.me, kv.kvmaps[args.Key], kv.rf.Logs[it.Index].Logact)
 			}
 			kv.rf.Mu.Unlock()
 			return
@@ -220,7 +218,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	for true {
 		select {
 		case t = <-kv.dataCh:
-			log.Printf("KVServer: node %v put161 command %v", kv.me, t)
+			log.Printf("KVServer: node %v putappend161 command %v", kv.me, t)
 		case <-time.After(1 * time.Second):
 			kv.mu.Lock()
 			reply.Err = "timeout"
@@ -309,22 +307,23 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 						kv.mu.Unlock()
 						continue
 					}
-					log.Printf("KVServer %v : server get appliyin 129 %v", kv.me, data)
 					select {
 					case kv.dataCh <- data:
+						log.Printf("KVServer %v : server get appliyin312 %v", kv.me, data)
 						continue
 					case <-time.After(3 * time.Millisecond):
 						if t.Flag != true {
+							if kv.Idmaps[t.Clientid].Id != t.Id+1 {
+								continue
+							}
 							kv.mu.Lock()
+							kv.Idmaps[t.Clientid] = Request{Id: t.Id, Index: data.CommandIndex}
 							if t.Action == "Append" {
 								kv.kvmaps[t.Key] += t.Value
 								log.Printf("KVServer: node %v Append262 %v K %v V %v", kv.me, t, t.Key, kv.kvmaps[t.Key])
 							} else if t.Action == "Put" {
 								kv.kvmaps[t.Key] = t.Value
 								log.Printf("KVServer: node %v Put275 %v K %v V %v", kv.me, t, t.Key, kv.kvmaps[t.Key])
-							}
-							if kv.Idmaps[t.Clientid].Id < t.Id {
-								kv.Idmaps[t.Clientid] = Request{Id: t.Id, Index: data.CommandIndex}
 							}
 							kv.applen++
 							kv.mu.Unlock()
@@ -364,6 +363,7 @@ func (kv *KVServer) Starts(command interface{}) (int, int, bool) {
 		log.Printf("KVServer: node %v notshould add %v index:%v commandvalue:%v", kv.rf.Me, command, index, sb)
 		return index, -1, false
 	}
+	log.Printf("KVServer: node %v add %v", kv.rf.Me, command)
 	kv.rf.Mu.Unlock()
 	// Your code here (2B).
 	return kv.rf.Start(command)

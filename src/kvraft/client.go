@@ -58,9 +58,9 @@ func (ck *Clerk) Get(key string) string {
 	log.Printf("KVServer: client %v start  id: %v  send Get isleader: %v Key:%v ", args.Clientid, args.Id, ck.mayleader, key)
 	ok := ck.servers[ck.mayleader].Call("KVServer.Get", &args, &reply)
 	if !ok {
-		log.Printf("KVServer: send GetReply to node %v fail", ck.mayleader)
+		log.Printf("KVServer: send61 id: %v GetReply to node %v fail", args.Id, ck.mayleader)
 	} else if reply.Err == "null" || reply.Err == "some" {
-		log.Printf("KVServer: client %v isleader: %v success node %v Get %v is Value %v reply.Err is %v", args.Clientid, args.Id, ck.mayleader, key, reply.Value, reply.Err)
+		log.Printf("KVServer: client %v id: %v success63 node %v Get %v is Value %v reply.Err is %v", args.Clientid, args.Id, ck.mayleader, key, reply.Value, reply.Err)
 		return reply.Value
 	}
 	for true {
@@ -68,10 +68,10 @@ func (ck *Clerk) Get(key string) string {
 			log.Printf("KVServer: client %v start id: %v send %v Get %v", args.Clientid, args.Id, i, key)
 			ok := ck.servers[i].Call("KVServer.Get", &args, &reply)
 			if !ok {
-				log.Printf("KVServer: send id: %v GetReply to node %v fail", args.Id, ck.mayleader)
+				log.Printf("KVServer: send71 id: %v GetReply to node %v fail", args.Id, i)
 			} else if reply.Err == "null" || reply.Err == "some" {
 				ck.mayleader = i
-				log.Printf("KVServer: client %v id: %v success node %v Get %v is Value %v reply.Err is %v", args.Clientid, args.Id, i, key, reply.Value, reply.Err)
+				log.Printf("KVServer: client %v id: %v success74 node %v Get %v is Value %v reply.Err is %v", args.Clientid, args.Id, i, key, reply.Value, reply.Err)
 				return reply.Value
 			} else if reply.Err == "timeout" {
 				log.Printf("KVServer: timeout %v", args)
@@ -106,9 +106,9 @@ func (ck *Clerk) PutAppend(key string, value string, op string) {
 	log.Printf("KVServer: client %v start  id: %v  send PutAppend to : %v Key:%v to Value:%v", args.Clientid, ck.mayleader, args.Id, key, value)
 	ok := ck.servers[ck.mayleader].Call("KVServer.PutAppend", &args, &reply)
 	if !ok {
-		log.Printf("KVServer: send  id: %v  fail PutAppendReply to node %v fail94", args.Id, ck.mayleader)
+		log.Printf("KVServer: client %v fail109 id: %v send %v Key:%v to Value:%v", args.Clientid, args.Id, ck.mayleader, key, value)
 	} else if reply.Err == "null" || reply.Err == "some" {
-		log.Printf("KVServer: client %v success id: %v isleader %v PutAppend %v to %v", args.Clientid, args.Id, ck.mayleader, key, value)
+		log.Printf("KVServer: client %v success111 id: %v send PutAppend %v Key:%v to Value:%v reply.Err is %v", args.Clientid, args.Id, ck.mayleader, key, value, reply.Err)
 		return
 	}
 	for true {
@@ -116,13 +116,15 @@ func (ck *Clerk) PutAppend(key string, value string, op string) {
 			log.Printf("KVServer: client %v start id: %v send %v Key:%v to Value:%v", args.Clientid, args.Id, i, key, value)
 			ok := ck.servers[i].Call("KVServer.PutAppend", &args, &reply)
 			if !ok {
-				log.Printf("KVServer: client %v fail id: %v send %v Key:%v to Value:%v", args.Clientid, args.Id, i, key, value)
+				log.Printf("KVServer: client %v fail119 id: %v send %v Key:%v to Value:%v", args.Clientid, args.Id, i, key, value)
 			} else if reply.Err == "null" || reply.Err == "some" {
 				ck.mayleader = i
-				log.Printf("KVServer: client %v success id: %v send PutAppend %v Key:%v to Value:%v reply.Err is %v", args.Clientid, args.Id, i, key, value, reply.Err)
+				log.Printf("KVServer: client %v success122 id: %v send PutAppend %v Key:%v to Value:%v reply.Err is %v", args.Clientid, args.Id, i, key, value, reply.Err)
 				return
 			} else if reply.Err == "timeout" {
 				log.Printf("KVServer: timeout %v", args)
+			} else if reply.Err == "error" {
+				log.Printf("KVServer: error %v", args)
 			}
 		}
 		time.Sleep(5 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
