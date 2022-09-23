@@ -80,7 +80,7 @@ type Snapshots struct {
 type Raft struct {
 	Mu        sync.Mutex          // Lock to protect shared access to this peer's state
 	peers     []*labrpc.ClientEnd // RPC end points of all peers
-	persister *Persister          // Object to hold this peer's persisted state
+	Persister *Persister          // Object to hold this peer's persisted state
 	Me        int                 // this peer's index into peers[]
 	dead      int32               // set by Kill()
 	//2a
@@ -150,7 +150,7 @@ func (rf *Raft) Persist(lock bool) {
 	rf.Persistinfo.Snapshotindex = rf.Snapshotinfo.SnapshotIndex
 	e.Encode(rf.Persistinfo)
 	data := w.Bytes()
-	rf.persister.SaveStateAndSnapshot(data, rf.Snapshotinfo.Snapshot)
+	rf.Persister.SaveStateAndSnapshot(data, rf.Snapshotinfo.Snapshot)
 	if lock {
 		rf.Mu.Unlock()
 	}
@@ -835,7 +835,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	persister *Persister, applyCh chan ApplyMsg) *Raft {
 	rf := &Raft{}
 	rf.peers = peers
-	rf.persister = persister
+	rf.Persister = persister
 	rf.Me = me
 	rf.currentTerm = 0
 	rf.Snapshotinfo.SnapshotIndex = 0
