@@ -99,7 +99,6 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 						reply.Value = ""
 					}
 				} else if kv.record[args.Index].Status == ErrorOccurred {
-					// delete(kv.record, args.Index)
 					reply.Err = ErrorOccurred
 				}
 			} else if v.Status == ErrorOccurred {
@@ -115,7 +114,6 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 		Key:   args.Key,
 		Index: args.Index,
 	}
-	// fmt.Println("----", kv.storage)
 	i, _, isLeader := kv.rf.Start(operation)
 	if !isLeader {
 		reply.Err = ErrWrongLeader
