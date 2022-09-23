@@ -1,20 +1,15 @@
 package kvraft
 
 import (
-	"6.824/labrpc"
-	"log"
-	"sync"
+	"crypto/rand"
+	"math/big"
 	"time"
+
+	"6.824/labrpc"
 )
-import "crypto/rand"
-import "math/big"
 
 type Clerk struct {
-	servers   []*labrpc.ClientEnd
-	mayleader int //记住最后一个 RPC 的领导者是哪个服务器，并首先将下一个 RPC 发送到该服务器
-	Clientid  int64
-	Id        int //请求序号用来去重
-	mu        sync.Mutex
+	servers []*labrpc.ClientEnd
 	// You will have to modify this struct.
 }
 
@@ -28,9 +23,6 @@ func nrand() int64 {
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	ck := new(Clerk)
 	ck.servers = servers
-	ck.mayleader = 0
-	ck.Clientid = nrand()
-	ck.Id = 0
 	// You'll have to add code here.
 	return ck
 }
@@ -46,40 +38,47 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 // must match the declared types of the RPC handler function's
 // arguments. and reply must be passed as a pointer.
 func (ck *Clerk) Get(key string) string {
-	ck.mu.Lock()
-	args := GetArgs{
-		Key:      key,
-		Id:       ck.Id,
-		Clientid: ck.Clientid,
-	}
-	ck.Id++
-	ck.mu.Unlock()
-	reply := GetReply{}
-	log.Printf("KVServer: client %v start  id: %v  send Get isleader: %v Key:%v ", args.Clientid, args.Id, ck.mayleader, key)
-	ok := ck.servers[ck.mayleader].Call("KVServer.Get", &args, &reply)
-	if !ok {
-		log.Printf("KVServer: send61 id: %v GetReply to node %v fail", args.Id, ck.mayleader)
-	} else if reply.Err == "null" || reply.Err == "some" {
-		log.Printf("KVServer: client %v id: %v success63 node %v Get %v is Value %v reply.Err is %v", args.Clientid, args.Id, ck.mayleader, key, reply.Value, reply.Err)
-		return reply.Value
-	}
-	for true {
-		for i, _ := range ck.servers {
-			log.Printf("KVServer: client %v start id: %v send %v Get %v", args.Clientid, args.Id, i, key)
-			ok := ck.servers[i].Call("KVServer.Get", &args, &reply)
-			if !ok {
-				log.Printf("KVServer: send71 id: %v GetReply to node %v fail", args.Id, i)
-			} else if reply.Err == "null" || reply.Err == "some" {
-				ck.mayleader = i
-				log.Printf("KVServer: client %v id: %v success74 node %v Get %v is Value %v reply.Err is %v", args.Clientid, args.Id, i, key, reply.Value, reply.Err)
-				return reply.Value
-			} else if reply.Err == "timeout" {
-				log.Printf("KVServer: timeout %v", args)
+	// You will have to modify this function.
+	index := nrand()
+	for {
+		for i := range ck.servers {
+			args := GetArgs{
+				Key:   key,
+				Index: index,
+			}
+			reply := GetReply{}
+			ok, value := ck.CallGet(i, &args, &reply, 0)
+			if ok {
+				return value
 			}
 		}
-		time.Sleep(5 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
+		time.Sleep(100 * time.Millisecond)
 	}
-	return ""
+}
+
+func (ck *Clerk) CallGet(i int, args *GetArgs, reply *GetReply, timer int) (bool, string) {
+	if timer > 5 {
+		return false, ""
+	}
+	ok := ck.servers[i].Call("KVServer.Get", args, reply)
+	// DEBUG(dError, "S%v get %v ok:%v err:%v", i, args.Index, ok, reply.Err)
+	if !ok {
+		newreply := GetReply{}
+		return ck.CallGet(i, args, &newreply, timer+1)
+	} else {
+		if reply.Err == OK || reply.Err == ErrNoKey {
+			return true, reply.Value
+		} else if reply.Err == ErrWrongLeader {
+			return false, ""
+		} else if reply.Err == ErrorOccurred {
+			return false, ""
+		} else if reply.Err == ErrorTimeDeny {
+			// time.Sleep(time.Millisecond * 500)
+			newreply := GetReply{}
+			return ck.CallGet(i, args, &newreply, timer+1)
+		}
+	}
+	return false, ""
 }
 
 // shared by Put and Append.
@@ -92,43 +91,49 @@ func (ck *Clerk) Get(key string) string {
 // arguments. and reply must be passed as a pointer.
 func (ck *Clerk) PutAppend(key string, value string, op string) {
 	// You will have to modify this function.
-	ck.mu.Lock()
-	args := PutAppendArgs{
-		Key:      key,
-		Value:    value,
-		Op:       op,
-		Id:       ck.Id,
-		Clientid: ck.Clientid,
-	}
-	ck.Id++
-	ck.mu.Unlock()
-	reply := PutAppendReply{}
-	log.Printf("KVServer: client %v start  id: %v  send PutAppend to : %v Key:%v to Value:%v", args.Clientid, ck.mayleader, args.Id, key, value)
-	ok := ck.servers[ck.mayleader].Call("KVServer.PutAppend", &args, &reply)
-	if !ok {
-		log.Printf("KVServer: client %v fail109 id: %v send %v Key:%v to Value:%v", args.Clientid, args.Id, ck.mayleader, key, value)
-	} else if reply.Err == "null" || reply.Err == "some" {
-		log.Printf("KVServer: client %v success111 id: %v send PutAppend %v Key:%v to Value:%v reply.Err is %v", args.Clientid, args.Id, ck.mayleader, key, value, reply.Err)
-		return
-	}
-	for true {
-		for i, _ := range ck.servers {
-			log.Printf("KVServer: client %v start id: %v send %v Key:%v to Value:%v", args.Clientid, args.Id, i, key, value)
-			ok := ck.servers[i].Call("KVServer.PutAppend", &args, &reply)
-			if !ok {
-				log.Printf("KVServer: client %v fail119 id: %v send %v Key:%v to Value:%v", args.Clientid, args.Id, i, key, value)
-			} else if reply.Err == "null" || reply.Err == "some" {
-				ck.mayleader = i
-				log.Printf("KVServer: client %v success122 id: %v send PutAppend %v Key:%v to Value:%v reply.Err is %v", args.Clientid, args.Id, i, key, value, reply.Err)
+	index := nrand()
+	// DEBUG(dTrace, "S0 rq p/a %v", index)
+	for {
+		for i := range ck.servers {
+			args := PutAppendArgs{
+				Key:   key,
+				Value: value,
+				Op:    op,
+				Index: index,
+			}
+			reply := PutAppendReply{}
+			ok := ck.CallPutAppend(i, &args, &reply, 0)
+			if ok {
 				return
-			} else if reply.Err == "timeout" {
-				log.Printf("KVServer: timeout %v", args)
-			} else if reply.Err == "error" {
-				log.Printf("KVServer: error %v", args)
 			}
 		}
-		time.Sleep(5 * time.Millisecond) //slepp 10 mill防止rpc发送频繁
+		time.Sleep(100 * time.Millisecond)
 	}
+}
+
+func (ck *Clerk) CallPutAppend(i int, args *PutAppendArgs, reply *PutAppendReply, timer int) bool {
+	if timer > 5 {
+		return false
+	}
+	ok := ck.servers[i].Call("KVServer.PutAppend", args, reply)
+	// DEBUG(dError, "S%v p/a %v ok:%v err:%v", i, args.Index, ok, reply.Err)
+	if !ok {
+		newreply := PutAppendReply{}
+		return ck.CallPutAppend(i, args, &newreply, timer+1)
+	} else {
+		if reply.Err == OK {
+			return true
+		} else if reply.Err == ErrWrongLeader {
+			return false
+		} else if reply.Err == ErrorOccurred {
+			return false
+		} else if reply.Err == ErrorTimeDeny {
+			// time.Sleep(time.Millisecond * 500)
+			newreply := PutAppendReply{}
+			return ck.CallPutAppend(i, args, &newreply, timer+1)
+		}
+	}
+	return false
 }
 
 func (ck *Clerk) Put(key string, value string) {
