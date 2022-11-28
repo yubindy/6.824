@@ -10,7 +10,8 @@ import "crypto/rand"
 import "math/big"
 
 type Clerk struct {
-	servers []*labrpc.ClientEnd
+	servers  []*labrpc.ClientEnd
+	clientid int64
 	// Your data here.
 }
 
@@ -24,6 +25,7 @@ func nrand() int64 {
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	ck := new(Clerk)
 	ck.servers = servers
+	ck.clientid = nrand()
 	// Your code here.
 	return ck
 }

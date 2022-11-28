@@ -34,8 +34,15 @@ const (
 
 type Err string
 
+type CommonId struct {
+	ClientId  int64
+	RequestId int64
+}
+
+type Request interface{}
 type JoinArgs struct {
 	Servers map[int][]string // new GID -> servers mappings
+	common  CommonId
 }
 
 type JoinReply struct {
@@ -44,7 +51,8 @@ type JoinReply struct {
 }
 
 type LeaveArgs struct {
-	GIDs []int
+	GIDs   []int
+	common CommonId
 }
 
 type LeaveReply struct {
@@ -53,8 +61,9 @@ type LeaveReply struct {
 }
 
 type MoveArgs struct {
-	Shard int
-	GID   int
+	Shard  int
+	GID    int
+	common CommonId
 }
 
 type MoveReply struct {
@@ -63,7 +72,8 @@ type MoveReply struct {
 }
 
 type QueryArgs struct {
-	Num int // desired config number
+	Num    int // desired config number
+	common CommonId
 }
 
 type QueryReply struct {
